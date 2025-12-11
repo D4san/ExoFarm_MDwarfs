@@ -1,0 +1,21 @@
+# Ignore temporary run directories
+ExoFarm_Research/temp_run_*
+
+# Ignore VULCAN git directory if it exists as a submodule or nested repo (optional, usually handled by git automatically)
+# VULCAN/.git
+
+# Python cache
+__pycache__/
+*.pyc
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Large VULCAN output files (optional: comment out if you want to save them)
+# *.vul files can be large. If they are >100MB, GitHub will reject them.
+# Uncomment the next line to ignore all .vul files:
+# *.vul
+
+# Ignore log files
+*.log
