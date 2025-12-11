@@ -24,9 +24,8 @@ star_labels = {'Sun': 'Sun (G2V)', 'Trappist': 'TRAPPIST-1 (M8V)'}
 
 # Colorblind-friendly palette (Okabe-Ito inspired)
 # Sun: Orange, Trappist: Sky Blue
-colors = {'Sun': '#E69F00', 'Trappist': '#56B4E9'} 
+colors = {'Sun': '#E69F00', 'Trappist': '#56B4E9'}
 linestyles = {'Sun': '-', 'Trappist': '--'}
-markers = {'Sun': 'o', 'Trappist': '^'}
 
 # Molecules list and colors
 molecules = ['N2O', 'NH3', 'O3', 'CH4']
@@ -50,15 +49,7 @@ def load_vulcan_output(filepath):
         print(f"Error loading {filepath}: {e}")
         return None
 
-def calc_pressure_weighted_mean(data, species):
-    if species not in data['variable']['species']:
-        return None
-    idx = data['variable']['species'].index(species)
-    ymix = data['variable']['ymix'][:, idx]
-    pco = data['atm']['pco']
-    return np.average(ymix, weights=pco)
-
-# --- Plot 1: Profiles Comparison (4 Subplots) ---
+# --- Plot: Profiles Comparison (4 Subplots) ---
 fig, axes = plt.subplots(2, 2, figsize=(16, 12), sharex=True, sharey=True)
 axes = axes.flatten()
 
@@ -139,8 +130,16 @@ plt.tight_layout(rect=[0, 0, 0.85, 0.95]) # Make room for legend on the right
 plt.savefig(os.path.join(plot_dir, 'star_comparison_profiles.png'), dpi=300)
 print("Saved profile comparison plot.")
 
+def calc_pressure_weighted_mean(data, species):
+    if species not in data['variable']['species']:
+        return None
+    idx = data['variable']['species'].index(species)
+    ymix = data['variable']['ymix'][:, idx]
+    pco = data['atm']['pco']
+    return np.average(ymix, weights=pco)
 
 # --- Plot 2: Trends (Scatter - 4 Subplots) ---
+# 4 molecules -> 2 rows x 2 columns layout
 fig2, axes2 = plt.subplots(2, 2, figsize=(14, 10), sharex=True)
 axes2 = axes2.flatten()
 fig2.suptitle("Abundance Trends: Agriculture Intensity vs Star Type", fontsize=18, y=0.98)
@@ -169,15 +168,16 @@ for i, scenario in enumerate(scenarios):
 
 x_indices = np.arange(len(scenarios))
 
+# Plot for each molecule
 for i, mol in enumerate(molecules):
     ax = axes2[i]
     ax.set_title(f"{mol}", fontsize=14, fontweight='bold', color=mol_colors[mol])
     ax.set_yscale('log')
     ax.set_xticks(x_indices)
-    ax.set_xticklabels(scenario_labels, fontsize=10)
+    ax.set_xticklabels(scenario_labels, fontsize=10, rotation=15)
     ax.grid(True, alpha=0.3)
     
-    if i % 2 == 0:
+    if i % 2 == 0: # First column
         ax.set_ylabel('Mean Mixing Ratio', fontsize=12)
         
     for star in stars:
@@ -185,9 +185,9 @@ for i, mol in enumerate(molecules):
         
         # Plot line + markers
         ax.plot(x_indices, y_vals, 
-                color=colors[star], 
+                color=colors[star] if star in colors else ('#E69F00' if star == 'Sun' else '#56B4E9'), 
                 linestyle=linestyles[star], 
-                marker=markers[star],
+                marker='o' if star == 'Sun' else '^',
                 markersize=9,
                 linewidth=2.5,
                 alpha=0.8)
@@ -198,18 +198,24 @@ for i, mol in enumerate(molecules):
     if not np.isnan(ref_val):
         ax.axhline(ref_val, color='gray', linestyle=':', alpha=0.6, linewidth=2)
 
+# Hide empty subplot (if any)
+# axes2[5].axis('off')
+
 # Custom Legend for Trends
 trend_lines = []
 trend_labels = []
+colors_map = {'Sun': '#E69F00', 'Trappist': '#56B4E9'}
+markers_map = {'Sun': 'o', 'Trappist': '^'}
+
 for star in stars:
-    trend_lines.append(Line2D([0], [0], color=colors[star], marker=markers[star], linestyle=linestyles[star], markersize=9, linewidth=2.5))
+    trend_lines.append(Line2D([0], [0], color=colors_map[star], marker=markers_map[star], linestyle=linestyles[star], markersize=9, linewidth=2.5))
     trend_labels.append(star_labels[star])
 
 trend_lines.append(Line2D([0], [0], color='gray', linestyle=':', linewidth=2))
 trend_labels.append("Current Earth Level")
 
-fig2.legend(trend_lines, trend_labels, loc='upper center', bbox_to_anchor=(0.5, 0.95), ncol=3, fontsize=12, frameon=True)
+fig2.legend(trend_lines, trend_labels, loc='upper center', bbox_to_anchor=(0.5, 0.93), ncol=3, fontsize=12, frameon=True)
 
-plt.tight_layout(rect=[0, 0, 1, 0.92]) # Adjust for suptitle and legend
+plt.tight_layout(rect=[0, 0, 1, 0.90]) # Adjust for suptitle and legend
 plt.savefig(os.path.join(plot_dir, 'star_comparison_trends.png'), dpi=300)
 print("Saved trends plot.")

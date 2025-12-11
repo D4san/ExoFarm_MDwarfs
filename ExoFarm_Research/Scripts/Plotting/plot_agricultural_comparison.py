@@ -12,7 +12,7 @@ scenarios = [
 ]
 
 # Species to plot
-species_to_plot = ['N2O', 'NH3', 'O3', 'CH4', 'OH']
+species_to_plot = ['N2O', 'NH3', 'O3', 'CH4']
 
 # Output directory
 plot_dir = '../../Results/Plots/'
@@ -20,7 +20,7 @@ if not os.path.exists(plot_dir):
     os.makedirs(plot_dir)
 
 # Create figure
-fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 axes = axes.flatten()
 
 fig.suptitle("Sun-like Star (G2V)", fontsize=16)
@@ -65,10 +65,7 @@ for i, sp in enumerate(species_to_plot):
     if i == 0:
         ax.legend(loc='best', fontsize='small')
 
-# Hide empty subplot
-axes[5].axis('off')
-
 plt.tight_layout(rect=[0, 0, 1, 0.95])
-output_file = os.path.join(plot_dir, 'agricultural_comparison_OH.png')
+output_file = os.path.join(plot_dir, 'agricultural_comparison.png')
 plt.savefig(output_file, dpi=300)
 print(f"Saved plot to {output_file}")

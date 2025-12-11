@@ -28,12 +28,14 @@ This project uses a dedicated research directory `ExoFarm_Research/` to organize
         *   `bc_earth_current_full.txt`: Current Earth fluxes (including anthropogenic sources).
         *   `bc_earth_exofarm_moderate_full.txt`: 10x amplification of $N_2O$ and $NH_3$ fluxes.
         *   `bc_earth_exofarm_full.txt`: 100x amplification (Extreme ExoFarm).
+    *   `Stellar_Spectra/`: Contains processed stellar spectra files (e.g., TRAPPIST-1e).
 *   **`ExoFarm_Research/Scripts/`**: Custom Python scripts for automation and analysis.
     *   `Simulation/`: Scripts to run parallel VULCAN simulations (`run_parallel_earth.py`, `run_parallel_trappist.py`).
-    *   `Analysis/`: Scripts to analyze data and generate figures (`plot_results.py`, `extract_surface_values.py`).
+    *   `Plotting/`: Scripts to generate visualizations (`run_all_plots.py`, `plot_agricultural_comparison.py`, etc.).
+    *   `Analysis/`: Scripts to extract specific data tables (`extract_surface_values.py`).
 *   **`ExoFarm_Research/Results/`**: Stores simulation outputs.
     *   `Outputs/`: Final `.vul` (binary pickle) output files.
-    *   `Figures/`: Generated scientific plots.
+    *   `Plots/`: Generated scientific plots.
 *   **`VULCAN/`**: The core photochemical model source code.
 
 ---
@@ -58,30 +60,26 @@ All fluxes are in units of **molecules cm⁻² s⁻¹**.
 
 ## Data Visualization & Analysis Guide
 
-This project generates a comprehensive suite of plots to analyze the impact of agricultural emissions on exoplanetary atmospheres. The analysis pipeline produces the following key figures in `ExoFarm_Research/Results/Figures/`:
+This project generates a comprehensive suite of plots to analyze the impact of agricultural emissions on exoplanetary atmospheres. The analysis pipeline produces the following key figures in `ExoFarm_Research/Results/Plots/`:
 
-### 1. Surface Normalized Bars (`Comparison_Surface_Normalized.png`)
+### 1. Surface Normalized Bars (`surface_normalization_bars.png`)
 *   **What it shows**: A bar chart comparing the surface abundance (mixing ratio) of key species ($N_2O, NH_3, O_3, CH_4$) across all scenarios (A0-A3).
 *   **Key Feature**: Values are **normalized** to the Present-Day Earth (A1) baseline. A value of "10x" means the planet has 10 times more of that gas than Earth today.
 *   **Scientific Insight**: Directly quantifies the "detectability signal." We look for large bars in the TRAPPIST-1e system compared to Earth, indicating that M-dwarf stars facilitate the accumulation of these gases.
 
-### 2. Vertical Abundance Profiles (`*_profiles.png`)
+### 2. Vertical Abundance Profiles (`agricultural_comparison.png`, `trappist_comparison.png`)
 *   **What it shows**: The mixing ratio of gases as a function of altitude (pressure).
 *   **Scientific Insight**: Reveals the vertical structure of the atmosphere.
     *   **Tropopause Trap**: Shows if gases are confined to the lower atmosphere or transported high up.
     *   **Photolysis Cutoff**: A sharp drop at high altitudes indicates where UV radiation destroys the molecule.
 
-### 3. Star Comparison (`Comparison_Star_A2_ExoFarm_Mod.png`)
-*   **What it shows**: Direct side-by-side comparison of Earth vs. TRAPPIST-1e atmospheric profiles for the *same* agricultural scenario (e.g., A2 Moderate ExoFarm).
+### 3. Star Comparison (`star_comparison_profiles.png`, `star_comparison_trends.png`)
+*   **What it shows**: Direct side-by-side comparison of Earth vs. TRAPPIST-1e atmospheric profiles and abundance trends.
 *   **Scientific Insight**: Isolates the stellar effect. Since the surface flux is identical, any difference in the atmospheric profile is solely due to the different stellar environment (UV flux, temperature) and background atmosphere.
 
-### 4. Stellar Spectra Comparison (`Comparison_Spectra.png`)
+### 4. Stellar Spectra Comparison (`stellar_spectra_comparison.png`)
 *   **What it shows**: The input stellar flux (Irradiance) for the Sun (G-type) vs. TRAPPIST-1 (M-type).
 *   **Scientific Insight**: Explains *why* the chemistry differs. M-dwarfs like TRAPPIST-1 have much lower near-UV (NUV) flux, which is the primary destroyers of $N_2O$ and $NH_3$. This plot visualizes the "UV deficit" that allows these gases to accumulate.
-
-### 5. Temperature-Pressure Profiles (`*_TP.png`)
-*   **What it shows**: The thermal structure of the atmosphere.
-*   **Scientific Insight**: Ensures the physical plausibility of the simulation and shows the habitable zone context (surface temperature).
 
 ---
 

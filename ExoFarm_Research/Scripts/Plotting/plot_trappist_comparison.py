@@ -12,10 +12,10 @@ scenarios = [
 ]
 
 # Species to plot
-species_to_plot = ['N2O', 'NH3', 'O3', 'CH4', 'OH']
+species_to_plot = ['N2O', 'NH3', 'O3', 'CH4']
 
 # Create figure
-fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 axes = axes.flatten()
 
 fig.suptitle("TRAPPIST-1e System (M8V)", fontsize=16)
@@ -60,11 +60,8 @@ for i, sp in enumerate(species_to_plot):
     if i == 0: # Legend only on first plot to avoid clutter
         ax.legend()
 
-# Hide empty subplot
-axes[5].axis('off')
-
 plt.tight_layout(rect=[0, 0, 1, 0.95])
-output_plot = '../../Results/Plots/trappist_comparison_OH.png'
+output_plot = '../../Results/Plots/trappist_comparison.png'
 if not os.path.exists('../../Results/Plots'):
     os.makedirs('../../Results/Plots')
 plt.savefig(output_plot)
