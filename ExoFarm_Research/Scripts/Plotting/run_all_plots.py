@@ -4,10 +4,11 @@ import sys
 
 def run_script(script_name):
     """Runs a python script and handles errors."""
-    script_path = os.path.join(os.path.dirname(__file__), script_name)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    script_path = os.path.join(script_dir, script_name)
     print(f"--- Running {script_name} ---")
     try:
-        result = subprocess.run([sys.executable, script_path], check=True, capture_output=True, text=True)
+        result = subprocess.run([sys.executable, script_path], cwd=script_dir, check=True, capture_output=True, text=True)
         print(result.stdout)
         print(f"Successfully ran {script_name}\n")
     except subprocess.CalledProcessError as e:
@@ -23,7 +24,6 @@ def main():
         "plot_trappist_comparison.py",
         "plot_surface_normalized_bars.py",
         "plot_star_comparison.py",
-        "plot_OH_comparison.py",
         "plot_spectra_comparison.py"
     ]
     

@@ -5,8 +5,9 @@ import os
 from matplotlib.lines import Line2D
 
 # Configuration
-output_dir = '../../Results/Outputs/'
-plot_dir = '../../Results/Plots/'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+output_dir = os.path.join(script_dir, '../../Results/Outputs/')
+plot_dir = os.path.join(script_dir, '../../Results/Plots/')
 if not os.path.exists(plot_dir):
     os.makedirs(plot_dir)
 
@@ -28,13 +29,14 @@ colors = {'Sun': '#E69F00', 'Trappist': '#56B4E9'}
 linestyles = {'Sun': '-', 'Trappist': '--'}
 
 # Molecules list and colors
-molecules = ['N2O', 'NH3', 'O3', 'CH4']
+molecules = ['N2O', 'NH3', 'O3', 'CH4', 'OH']
 # Molecules: distinct colors
 mol_colors = {
     'N2O': '#0072B2',  # Blue
     'NH3': '#009E73',  # Green
     'O3':  '#CC79A7',  # Reddish Purple
-    'CH4': '#D55E00'   # Vermillion
+    'CH4': '#D55E00',  # Vermillion
+    'OH':  '#000000'   # Black
 }
 
 def load_vulcan_output(filepath):
@@ -140,12 +142,13 @@ def calc_pressure_weighted_mean(data, species):
 
 # --- Plot 2: Trends (Scatter - 4 Subplots) ---
 # 4 molecules -> 2 rows x 2 columns layout
+molecules_trends = ['N2O', 'NH3', 'O3', 'CH4']
 fig2, axes2 = plt.subplots(2, 2, figsize=(14, 10), sharex=True)
 axes2 = axes2.flatten()
 fig2.suptitle("Abundance Trends: Agriculture Intensity vs Star Type", fontsize=18, y=0.98)
 
 # Prepare data
-trends = {star: {mol: [] for mol in molecules} for star in stars}
+trends = {star: {mol: [] for mol in molecules_trends} for star in stars}
 
 for i, scenario in enumerate(scenarios):
     for star in stars:
@@ -160,7 +163,7 @@ for i, scenario in enumerate(scenarios):
         filepath = os.path.join(output_dir, filename)
         data = load_vulcan_output(filepath)
         
-        for mol in molecules:
+        for mol in molecules_trends:
             val = np.nan
             if data is not None:
                  val = calc_pressure_weighted_mean(data, mol)
@@ -169,7 +172,7 @@ for i, scenario in enumerate(scenarios):
 x_indices = np.arange(len(scenarios))
 
 # Plot for each molecule
-for i, mol in enumerate(molecules):
+for i, mol in enumerate(molecules_trends):
     ax = axes2[i]
     ax.set_title(f"{mol}", fontsize=14, fontweight='bold', color=mol_colors[mol])
     ax.set_yscale('log')
@@ -197,6 +200,11 @@ for i, mol in enumerate(molecules):
     ref_val = trends['Sun'][mol][1]
     if not np.isnan(ref_val):
         ax.axhline(ref_val, color='gray', linestyle=':', alpha=0.6, linewidth=2)
+
+# Hide the last empty subplot (index 5)
+if len(molecules_trends) < 4:
+    for j in range(len(molecules_trends), 4):
+        fig2.delaxes(axes2[j])
 
 # Hide empty subplot (if any)
 # axes2[5].axis('off')

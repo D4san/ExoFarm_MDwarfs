@@ -13,6 +13,9 @@ The study compares two distinct stellar environments:
 
 Our goal is to quantify how the different UV flux environments affect the photochemical lifetime of these agricultural gases, determining whether "ExoFarms" could provide a detectable technosignature distinct from natural biological baselines.
 
+**Chemical Network Note:**
+All simulations use the `thermo/NCHO_earth_photo_network.txt` chemical network. This configuration excludes sulfur species to focus purely on the Nitrogen-Carbon-Hydrogen-Oxygen chemistry relevant to the simulated biosignatures.
+
 ---
 
 ## Directory Structure
@@ -44,8 +47,7 @@ Scripts to generate visualizations.
 - `run_all_plots.py`: **Master script** that executes all relevant plotting scripts in sequence.
 - `plot_agricultural_comparison.py`: Generates comparisons of agricultural scenarios (Earth, 4 molecules).
 - `plot_trappist_comparison.py`: Generates comparisons of agricultural scenarios (TRAPPIST-1e, 4 molecules).
-- `plot_star_comparison.py`: Plots comparative profiles and trends for Earth vs TRAPPIST (4 molecules).
-- `plot_OH_comparison.py`: Dedicated analysis for OH radical profiles and trends.
+- `plot_star_comparison.py`: Plots comparative profiles (including OH) and trends (4 molecules) for Earth vs TRAPPIST.
 - `plot_spectra_comparison.py`: Compares stellar spectra.
 - `plot_surface_normalized_bars.py`: Generates bar charts of normalized abundances.
 
@@ -96,11 +98,9 @@ This will generate:
 1. `agricultural_comparison.png`: Vertical profiles for Earth (N2O, NH3, O3, CH4).
 2. `trappist_comparison.png`: Vertical profiles for TRAPPIST-1e (N2O, NH3, O3, CH4).
 3. `surface_normalization_bars.png`: Normalized surface abundances vs Earth A1.
-4. `star_comparison_profiles.png`: Comparative profiles (no OH).
-5. `star_comparison_trends.png`: Abundance trends (no OH).
-6. `star_comparison_profiles_OH.png`: Comparative profiles (OH only).
-7. `star_comparison_trends_OH.png`: Abundance trends (OH only).
-8. `stellar_spectra_comparison.png`: Input stellar spectra.
+4. `star_comparison_profiles.png`: Comparative profiles (N2O, NH3, O3, CH4 + OH).
+5. `star_comparison_trends.png`: Abundance trends (N2O, NH3, O3, CH4).
+6. `stellar_spectra_comparison.png`: Input stellar spectra.
 
 ### View Result Tables
 To view abundance tables in the terminal:
@@ -109,18 +109,7 @@ cd ExoFarm_Research/Scripts/Analysis
 python extract_surface_values.py
 ```
 
----
-
 ## Requirements
 - Python 3.x
-- Libraries: `numpy`, `matplotlib`, `scipy`
-- VULCAN Model (must be present in the root `VULCAN/` directory)
-
----
-
-## References
-
-*   **VULCAN Model**: Tsai, S.-M., et al. (2017). *VULCAN: An Open-source, Validated Chemical Kinetics Code for Exoplanetary Atmospheres*. [[DOI: 10.3847/1538-4365/aa51dd](https://doi.org/10.3847/1538-4365/aa51dd)]
-*   **Nitrogen Cycle & ExoFarms**: Haqq-Misra, et al. (2022). *Disruption of a Planetary Nitrogen Cycle as Evidence of Extraterrestrial Agriculture*. The Astrophysical Journal Letters, 929, L28. [[DOI: 10.3847/2041-8213/ac65ff](https://doi.org/10.3847/2041-8213/ac65ff)]
-*   **Biosignatures Review**: Schwieterman, E. W., et al. (2018). *Exoplanet Biosignatures: A Review of Remotely Detectable Signs of Life*. [[DOI: 10.1089/ast.2017.1729](https://doi.org/10.1089/ast.2017.1729)]
-*   **TRAPPIST-1 Spectrum**: Wilson, D. J., et al. (2021). *The stellar spectrum of TRAPPIST-1*. (Mega-MUSCLES).
+- Libraries: `numpy`, `matplotlib`, `scipy`, `pandas`
+- VULCAN (configured in the parent directory)
