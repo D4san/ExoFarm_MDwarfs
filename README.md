@@ -1,8 +1,19 @@
-# ExoFarm Research Project
+# ExoFarm: Agricultural Technosignatures in Exoplanetary Atmospheres
 
-This repository contains the source code, configurations, and results of the research project on planetary atmospheres and agricultural biosignatures (ExoFarm).
+[![VULCAN](https://img.shields.io/badge/Model-VULCAN-blue)](https://github.com/exoclime/VULCAN)
+[![Python](https://img.shields.io/badge/Python-3.x-yellow)]()
 
-The project uses **VULCAN** (located in the directory `VULCAN/`) as the chemical kinetics engine but maintains all project-specific logic, configurations, and analysis within the `ExoFarm_Research/` directory structure.
+---
+
+This project investigates the atmospheric detectability of intensive, industrial-scale agriculture ("ExoFarms") on Earth-like exoplanets. By utilizing the **VULCAN** 1D photochemical kinetics model, we simulate the atmospheric accumulation of Nitrogen-based technosignatures—specifically Nitrous Oxide ($N_2O$) and Ammonia ($NH_3$)—resulting from the disruption of the planetary nitrogen cycle by Haber-Bosch-like processes.
+
+The study compares two distinct stellar environments:
+1.  **Earth-Sun System (G2V)**: A benchmark case representing current Earth conditions.
+2.  **Earth-TRAPPIST-1e System (M8V)**: A potentially habitable planet orbiting an ultra-cool dwarf star.
+
+Our goal is to quantify how the different UV flux environments affect the photochemical lifetime of these agricultural gases, determining whether "ExoFarms" could provide a detectable technosignature distinct from natural biological baselines.
+
+---
 
 ## Directory Structure
 
@@ -37,6 +48,26 @@ Scripts to generate visualizations.
 - `plot_OH_comparison.py`: Dedicated analysis for OH radical profiles and trends.
 - `plot_spectra_comparison.py`: Compares stellar spectra.
 - `plot_surface_normalized_bars.py`: Generates bar charts of normalized abundances.
+
+---
+
+## Simulation Scenarios
+
+We simulate four distinct agricultural intensity levels for both star systems. The surface boundary conditions for key species are defined as follows:
+
+### Agricultural Flux Table (Surface Emissions)
+All fluxes are in units of **molecules cm⁻² s⁻¹**.
+
+| ID | Scenario Name | Description | $N_2O$ Flux | $NH_3$ Flux | Scaling Factor (approx.) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **A0** | **Pre-Agricultural** | Natural biological baseline. | $9.0 \times 10^8$ | $3.0 \times 10^8$ | Baseline (Biological) |
+| **A1** | **Current Earth** | Present-day anthropogenic + biological. | $2.3 \times 10^9$ | $1.5 \times 10^9$ | 1x (Current Benchmark) |
+| **A2** | **Moderate ExoFarm** | Intensified agriculture. | $2.3 \times 10^{10}$ | $1.5 \times 10^{10}$ | ~15x $N_2O$ / 10x $NH_3$ |
+| **A3** | **Extreme ExoFarm** | Maximum theoretical intensity. | $2.3 \times 10^{11}$ | $1.5 \times 10^{11}$ | ~150x $N_2O$ / 100x $NH_3$ |
+
+*Note: Other species (CO, CH4, etc.) are kept at constant fluxes across all scenarios to isolate the effect of nitrogen-cycle disruption.*
+
+---
 
 ## Usage
 
@@ -78,7 +109,18 @@ cd ExoFarm_Research/Scripts/Analysis
 python extract_surface_values.py
 ```
 
+---
+
 ## Requirements
 - Python 3.x
-- Libraries: `numpy`, `matplotlib`, `scipy`, `pandas`
-- VULCAN (included in the `VULCAN/` directory)
+- Libraries: `numpy`, `matplotlib`, `scipy`
+- VULCAN Model (must be present in the root `VULCAN/` directory)
+
+---
+
+## References
+
+*   **VULCAN Model**: Tsai, S.-M., et al. (2017). *VULCAN: An Open-source, Validated Chemical Kinetics Code for Exoplanetary Atmospheres*. [[DOI: 10.3847/1538-4365/aa51dd](https://doi.org/10.3847/1538-4365/aa51dd)]
+*   **Nitrogen Cycle & ExoFarms**: Haqq-Misra, et al. (2022). *Disruption of a Planetary Nitrogen Cycle as Evidence of Extraterrestrial Agriculture*. The Astrophysical Journal Letters, 929, L28. [[DOI: 10.3847/2041-8213/ac65ff](https://doi.org/10.3847/2041-8213/ac65ff)]
+*   **Biosignatures Review**: Schwieterman, E. W., et al. (2018). *Exoplanet Biosignatures: A Review of Remotely Detectable Signs of Life*. [[DOI: 10.1089/ast.2017.1729](https://doi.org/10.1089/ast.2017.1729)]
+*   **TRAPPIST-1 Spectrum**: Wilson, D. J., et al. (2021). *The stellar spectrum of TRAPPIST-1*. (Mega-MUSCLES).
