@@ -2,9 +2,9 @@ planet:
   name: 'Earth-Trappist-Current'
   Rp: 6.3781e8
   gs: 980.0
-  orbit_radius: 0.02928
-  sl_angle: 48.0
-  f_diurnal: 1.0
+  orbit_radius: 0.02928 # Distance to star in AU (TRAPPIST-1e)
+  sl_angle: 48.0        # Solar Zenith Angle (Effective angle for tidal locking/day side)
+  f_diurnal: 1.0        # Diurnal factor (1.0 = permanent day / no night averaging)
   rocky: True
 atmosphere:
   atm_type: 'file'
@@ -20,7 +20,7 @@ atmosphere:
     CO2: 0.0004
 star:
   type: 'TRAPPIST-1'
-  r_star: 0.117
+  r_star: 0.117         # Stellar Radius in Solar Radii (TRAPPIST-1)
   sflux_file: 'atm/stellar_flux/TRAPPIST1_surface.txt'
 chemistry:
   network: 'thermo/NCHO_earth_photo_network.txt'

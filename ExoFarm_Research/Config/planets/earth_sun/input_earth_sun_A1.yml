@@ -2,9 +2,9 @@ planet:
   name: 'Earth-Sun-Current'
   Rp: 6.3781e8
   gs: 980.0
-  orbit_radius: 1.0
-  sl_angle: 58.0
-  f_diurnal: 0.5
+  orbit_radius: 1.0   # Distance to star in AU (1 AU for Earth)
+  sl_angle: 58.0      # Solar Zenith Angle (Averaged for rotating Earth)
+  f_diurnal: 0.5      # Diurnal factor (0.5 = day/night cycle average)
   rocky: True
 atmosphere:
   atm_type: 'file'
@@ -20,7 +20,7 @@ atmosphere:
     CO2: 0.0004
 star:
   type: 'Sun'
-  r_star: 1.0
+  r_star: 1.0         # Stellar Radius in Solar Radii
   sflux_file: 'atm/stellar_flux/Gueymard_solar.txt'
 chemistry:
   network: 'thermo/NCHO_earth_photo_network.txt'
