@@ -3,7 +3,8 @@ planet:
   Rp: 6.3781e8
   gs: 980.0
   orbit_radius: 0.02928 # Distance to star in AU (TRAPPIST-1e)
-  sl_angle: 48.0        # Solar Zenith Angle (Effective angle for tidal locking/day side)
+  sl_angle: 48.0        # Solar Zenith Angle (Effective angle for tidally locked day-side)
+                        # Specific to TRAPPIST-1e setup (approx. arccos(2/3) or derived from GCMs)
   f_diurnal: 1.0        # Diurnal factor (1.0 = permanent day / no night averaging)
   rocky: True
 atmosphere:
