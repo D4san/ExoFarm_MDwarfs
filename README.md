@@ -5,8 +5,6 @@
 
 ---
 
-## 🌍 Abstract / Scientific Rationale
-
 This project investigates the atmospheric detectability of intensive, industrial-scale agriculture ("ExoFarms") on Earth-like exoplanets. By utilizing the **VULCAN** 1D photochemical kinetics model, we simulate the atmospheric accumulation of Nitrogen-based technosignatures—specifically Nitrous Oxide ($N_2O$) and Ammonia ($NH_3$)—resulting from the disruption of the planetary nitrogen cycle by Haber-Bosch-like processes.
 
 The study compares two distinct stellar environments:
@@ -17,7 +15,7 @@ Our goal is to quantify how the different UV flux environments affect the photoc
 
 ---
 
-## 📂 Repository Structure & Folders
+## Repository Structure & Folders
 
 This project uses a dedicated research directory `ExoFarm_Research/` to organize configuration, scripts, and results, keeping the core `VULCAN` code separate.
 
@@ -40,7 +38,7 @@ This project uses a dedicated research directory `ExoFarm_Research/` to organize
 
 ---
 
-## 🧪 Simulation Scenarios
+## Simulation Scenarios
 
 We simulate four distinct agricultural intensity levels for both star systems. The surface boundary conditions for key species are defined as follows:
 
@@ -58,7 +56,7 @@ All fluxes are in units of **molecules cm⁻² s⁻¹**.
 
 ---
 
-## 📊 Data Visualization & Analysis Guide
+## Data Visualization & Analysis Guide
 
 This project generates a comprehensive suite of plots to analyze the impact of agricultural emissions on exoplanetary atmospheres. The analysis pipeline produces the following key figures in `ExoFarm_Research/Results/Figures/`:
 
@@ -87,7 +85,7 @@ This project generates a comprehensive suite of plots to analyze the impact of a
 
 ---
 
-## 🚀 Reproducibility Guide
+## Reproducibility Guide
 
 ### 1. Prerequisites
 *   Python 3.x
@@ -131,7 +129,7 @@ python plot_results.py
 
 ---
 
-## 📚 References
+## References
 
 *   **VULCAN Model**: Tsai, S.-M., et al. (2017). *VULCAN: An Open-source, Validated Chemical Kinetics Code for Exoplanetary Atmospheres*. [[DOI: 10.3847/1538-4365/aa51dd](https://doi.org/10.3847/1538-4365/aa51dd)]
 *   **Nitrogen Cycle & ExoFarms**: Haqq-Misra, et al. (2022). *Disruption of a Planetary Nitrogen Cycle as Evidence of Extraterrestrial Agriculture*. The Astrophysical Journal Letters, 929, L28. [[DOI: 10.3847/2041-8213/ac65ff](https://doi.org/10.3847/2041-8213/ac65ff)]
