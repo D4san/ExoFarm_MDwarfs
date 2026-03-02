@@ -102,6 +102,19 @@ This will generate:
 5. `star_comparison_trends.png`: Abundance trends (N2O, NH3, O3, CH4).
 6. `stellar_spectra_comparison.png`: Input stellar spectra.
 
+### Generated Transmission Spectra (POSEIDON)
+Additional transmission spectra were generated from the exported atmospheric profiles in `transmission spectra/profiles/` using the notebooks in `transmission spectra/notebooks/`.
+
+Main outputs:
+1. `transmission spectra/notebooks/POSEIDON_output/Earth/plots/Earth_transmission_spectra.pdf`
+2. `transmission spectra/notebooks/POSEIDON_output/Trappist/plots/Trappist_transmission_spectra.pdf`
+3. `transmission spectra/notebooks/POSEIDON_output/TRAPPIST-1e/plots/TRAPPIST-1e_spectral_decomposition.pdf`
+
+Analysis summary:
+- The transmission spectra compare the four agricultural scenarios (A0, A1, A2, A3) for each stellar environment.
+- The analysis focuses on how increasing agricultural nitrogen emissions (N2O and NH3) modifies spectral features and the total transit depth signal.
+- For TRAPPIST-1e, the spectral decomposition output separates molecular contributions, helping identify which species drive the A0 vs A3 differences.
+
 ### View Result Tables
 To view abundance tables in the terminal:
 ```bash
