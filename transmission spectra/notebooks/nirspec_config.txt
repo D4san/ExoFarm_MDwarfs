@@ -1,0 +1,115 @@
+def save_pandexo_spectrum_to_dat(
+    input_spec_path: str,
+    n_transits: int,
+    output_dat_path: str,
+    plot: bool = False
+) -> None:
+    """
+    Runs a PandExo simulation and saves the result to a POSEIDON-compatible .dat file.
+
+    The output file contains 4 columns:
+    [wavelength (um), wavelength_err (um), spectrum_w_rand, error_w_floor]
+
+    Args:
+        input_spec_path: Path to the input spectrum file (wavelength, flux).
+        n_transits: Number of transits to simulate (signal-to-noise scaling).
+        output_dat_path: Destination path for the .dat file.
+        plot: If True, visualizes the resulting synthetic observation.
+    """
+    # --- 1. Configure PandExo Simulation ---
+    # Load default dictionary
+    exo_dict = jdi.load_exo_dict()
+    
+    # Observation Parameters
+    exo_dict["observation"].update({
+        "sat_level": 80,
+        "sat_unit": "%",
+        "baseline_unit": "total",
+        "baseline": 0.9535 * 3 * 60 * 60, # 3 hours
+        "noise_floor": 0,
+        "noccultations": n_transits,
+    })
+    
+    # Stellar Parameters (TRAPPIST-1-like)
+    exo_dict["star"].update({
+        "type": "phoenix",
+        "mag": 11.354,
+        "ref_wave": 1.25,
+        "temp": 2566,
+        "metal": 0.0,
+        "logg": 5.2396,
+    })
+    
+    # Planet Parameters
+    exo_dict["planet"].update({
+        "type": "user",
+        "w_unit": "um",
+        "f_unit": "rp^2/r*^2",
+        "transit_duration": 0.9535 * 60 * 60, # ~0.95 hours
+        "td_unit": "s",
+        "exopath": input_spec_path,
+    })
+    
+    # Instrument Configuration (NIRSpec Prism)
+    inst_dict = jdi.load_mode_dict("NIRSpec Prism")
+    inst_dict["configuration"]["detector"].update({
+        "subarray": "sub512",
+        "ngroup": 6
+    })
+
+    # --- 2. Run Simulation ---
+    try:
+        # Suppress some PandExo verbosity if possible
+        results = jdi.run_pandexo(exo_dict, inst_dict)
+    except Exception as e:
+        raise RuntimeError(f"PandExo simulation failed: {e}")
+
+    final_spec = results["FinalSpectrum"]
+    
+    # --- 3. Process Data (Trimming & Formatting) ---
+    # Trim the first 18 points (edge artifacts/low throughput)
+    TRIM_IDX = 18
+    
+    waves_trim = final_spec["wave"][TRIM_IDX:]
+    spec_rand_trim = final_spec["spectrum_w_rand"][TRIM_IDX:]
+    err_trim = final_spec["error_w_floor"][TRIM_IDX:]
+    
+    # Calculate wavelength bin widths (approximate error)
+    # Using gradient/2 assumes roughly contiguous, evenly spaced bins locally
+    wave_err = np.gradient(waves_trim) / 2.0
+
+    # Stack into (N, 4) array
+    data_out = np.column_stack([
+        waves_trim,
+        wave_err,
+        spec_rand_trim,
+        err_trim
+    ])
+
+    # --- 4. Save to File ---
+    header_txt = "wavelength(um)  wavelength_err(um)  depth_w_rand  depth_err"
+    np.savetxt(output_dat_path, data_out, header=header_txt, fmt="%.6e")
+    print(f"Spectrum saved to: {output_dat_path}")
+
+    # --- 5. Visualization ---
+    if plot:
+        plt.figure(figsize=(10, 5))
+        plt.errorbar(
+            waves_trim, 
+            spec_rand_trim, 
+            xerr=wave_err, 
+            yerr=err_trim,
+            fmt='o', 
+            markersize=3, 
+            elinewidth=1, 
+            capsize=2, 
+            color='black',
+            ecolor='gray',
+            label=f'Simulated ({n_transits} transits)'
+        )
+        plt.xlabel("Wavelength ($\mu m$)")
+        plt.ylabel("Transit Depth ($R_p^2/R_s^2$)")
+        plt.title(f"Synthetic Observation for POSEIDON")
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
