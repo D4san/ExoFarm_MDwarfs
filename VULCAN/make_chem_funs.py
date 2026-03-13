@@ -345,6 +345,21 @@ def make_chemdf(re_table, ofname):
     re_wM_dict_str = re_wM_dict_str[:-2]
     re_wM_dict_str += '}\n'
     #print re_dict_str
+    inert_species = []
+    inert_sources = [getattr(vulcan_cfg, 'const_mix', {}).keys(), getattr(vulcan_cfg, 'non_gas_sp', [])]
+    use_fix_sp_bot = getattr(vulcan_cfg, 'use_fix_sp_bot', {})
+    if isinstance(use_fix_sp_bot, dict):
+        inert_sources.append(use_fix_sp_bot.keys())
+    for source in inert_sources:
+        for sp in source:
+            if sp != 'M' and sp not in chem_dict and sp not in inert_species:
+                inert_species.append(sp)
+    for sp in inert_species:
+        i += 1
+        chem_dict[sp] = i
+        reac_dict[i] = "0"
+        exp_reac_dict[i] = "0"
+        sp_rate[sp] = []
     # save output
     chem_dict_r = {}
     spec_list = []
@@ -417,7 +432,8 @@ def make_chemdf(re_table, ofname):
                     end = True
                     re_sp_dic[sp].append(int(i[k_start:k_end]))
         
-        ost = ost[0:-1] 
+        if sp_rate[sp]:
+            ost = ost[0:-1] 
         ost += ']'   
         ost += '\n'
     ost += '\t return np.array(rate_str[sp]) \n\n'.expandtabs(3)

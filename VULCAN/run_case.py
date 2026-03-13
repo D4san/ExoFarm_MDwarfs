@@ -16,7 +16,7 @@ def create_vulcan_cfg(config_file):
 # =============================================================================
 
 # ====== Setting up the elements included in the network ======
-atom_list = ['H', 'O', 'C', 'N', 'S']
+atom_list = ['H', 'O', 'C', 'Ar', 'N', 'S']
 
 # ====== Setting up paths and filenames ======
 network = '{conf['chemistry']['network']}'
@@ -26,7 +26,7 @@ cross_folder = 'thermo/photo_cross/'
 com_file = 'thermo/all_compose.txt'
 atm_file = '{conf['atmosphere']['atm_file']}'
 sflux_file = '{conf['star']['sflux_file']}'
-top_BC_flux_file = 'atm/BC_top.txt'
+top_BC_flux_file = 'atm/'
 bot_BC_flux_file = '{conf['chemistry']['bot_BC_flux_file']}'
 vul_ini = 'output/'
 output_dir = 'output/'
@@ -68,6 +68,9 @@ final_update_photo_frq = 5
 
 # ====== Setting up ionchemistry ======
 use_ion = False
+if use_photo == False and use_ion == True:
+    print ('Warning: use_ion = True but use_photo = False')
+# photoionization needs to run together with photochemistry
 
 # ====== Setting up parameters for the atmosphere ======
 atm_base = 'N2' 
@@ -100,7 +103,7 @@ diff_esc = ['H2', 'H'] # species for diffusion-limit escape at TOA
 max_flux = 1e13  # upper limit for the diffusion-limit fluxes
 
 # ====== Reactions to be switched off  ======
-remove_list = [] # in pairs e.g. [1,2]
+remove_list = [315, 316] # in pairs e.g. [1,2]
 
 # == Condensation ======
 use_condense = True
@@ -137,7 +140,7 @@ dt_max = runtime*1e-5
 dt_var_max = 2.
 dt_var_min = 0.5
 count_min = 120
-count_max = 5000
+count_max = int(2E4)
 atol = 1.E-1 # Try decreasing this if the solutions are not stable
 mtol = 1.E-22
 mtol_conv = 1.E-16
@@ -151,19 +154,16 @@ flux_cri = 0.1
 flux_atol = 1.
 
 # ====== Setting up numerical parameters for Ros2 ODE solver ====== 
-rtol = 1.5             # relative tolerence for adjusting the stepsize 
-post_conden_rtol = 0.2 # switched to this value after fix_species_time
-use_adapt_rtol = False # True: use the adaptive rtol (experimental)
-rtol_min = 1e-4
-
-# ====== Diffusion-limit escape ======
-diff_esc = ['H2', 'H'] # species for diffusion-limit escape at TOA
-max_flux = 1e13  # upper limit for the diffusion-limit fluxes
+rtol = 1.             # relative tolerence for adjusting the stepsize 
+post_conden_rtol = 0.05 # switched to this value after fix_species_time
+use_adapt_rtol = False
+rtol_min = 0.02
+rtol_max = 2.5
 
 # ====== Setting up for ouwtput and plotting ======
 # plotting:
 plot_TP = False
-use_live_plot = False
+use_live_plot = True
 use_live_flux = False
 use_plot_end = False
 use_plot_evo = False
@@ -174,7 +174,7 @@ use_PIL = True
 live_plot_frq = 10
 save_movie_rate = live_plot_frq
 y_time_freq = 1  #  storing data for every 'y_time_freq' step
-plot_spec = ['H2O', 'H2O_l_s', 'O3',  'CH4', 'NH3' ,'N2O']  
+plot_spec = ['H2O', 'H2O_l_s', 'O3',  'CH4', 'NH3' ,'H2SO4','N2O', 'SO2']  
 # output:
 output_humanread = False
 use_shark = False
@@ -208,3 +208,12 @@ if __name__ == "__main__":
         if os.path.exists('vulcan_cfg.py.bak'):
             shutil.move('vulcan_cfg.py.bak', 'vulcan_cfg.py')
             print("Restored original vulcan_cfg.py")
+
+
+
+
+
+
+
+
+

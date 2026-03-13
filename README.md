@@ -13,8 +13,8 @@ The study compares two distinct stellar environments:
 
 Our goal is to quantify how the different UV flux environments affect the photochemical lifetime of these agricultural gases, determining whether "ExoFarms" could provide a detectable technosignature distinct from natural biological baselines.
 
-**Chemical Network Note:**
-All simulations use the `thermo/NCHO_earth_photo_network.txt` chemical network. This configuration excludes sulfur species to focus purely on the Nitrogen-Carbon-Hydrogen-Oxygen chemistry relevant to the simulated biosignatures.
+**Configuration Baseline Note:**
+All scenarios inherit the official VULCAN Earth example as the baseline configuration. In practice, that means the same atmospheric template, sulfur-enabled chemistry, and Earth lower boundary setup are preserved by default. The only intentional scenario-level changes are the surface emissions of $N_2O$ and $NH_3$, plus the stellar spectrum and related star/illumination parameters for the TRAPPIST-1e cases.
 
 ---
 
@@ -22,7 +22,7 @@ All simulations use the `thermo/NCHO_earth_photo_network.txt` chemical network. 
 
 ### 1. ExoFarm_Research/Config
 Contains all configuration files necessary for the simulations.
-- **Boundary_Conditions/**: Boundary Condition (BC) flux files for different scenarios (Pre-Agri, Present, ExoFarm, etc.).
+- **Boundary_Conditions/**: Boundary Condition (BC) templates for different scenarios. During each run, the selected file is staged as `atm/BC_bot_Earth.txt` so the runtime layout matches the official VULCAN Earth example.
 - **planets/**: YAML configuration files for VULCAN, organized by planetary system (Earth-Sun, Earth-Trappist).
 
 ### 2. ExoFarm_Research/Results
@@ -67,7 +67,7 @@ All fluxes are in units of **molecules cm⁻² s⁻¹**.
 | **A2** | **Moderate ExoFarm** | Intensified agriculture. | $2.3 \times 10^{10}$ | $1.5 \times 10^{10}$ | ~15x $N_2O$ / 10x $NH_3$ |
 | **A3** | **Extreme ExoFarm** | Maximum theoretical intensity. | $2.3 \times 10^{11}$ | $1.5 \times 10^{11}$ | ~150x $N_2O$ / 100x $NH_3$ |
 
-*Note: Other species (CO, CH4, etc.) are kept at constant fluxes across all scenarios to isolate the effect of nitrogen-cycle disruption.*
+*Note: All other boundary-condition species from the official Earth setup are kept fixed across scenarios to isolate the effect of nitrogen-cycle disruption.*
 
 ---
 
@@ -113,3 +113,7 @@ python extract_surface_values.py
 - Python 3.x
 - Libraries: `numpy`, `matplotlib`, `scipy`, `pandas`
 - VULCAN (configured in the parent directory)
+
+
+
+
