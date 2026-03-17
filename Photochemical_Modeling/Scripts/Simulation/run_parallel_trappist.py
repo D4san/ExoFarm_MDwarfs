@@ -32,12 +32,12 @@ from collections import deque
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(script_dir, '../../../'))
 vulcan_dir = os.path.join(project_root, 'VULCAN')
-config_dir = os.path.join(project_root, 'ExoFarm_Research', 'Config')
+config_dir = os.path.join(project_root, 'Photochemical_Modeling', 'Config')
 boundary_conditions_dir = os.path.join(config_dir, 'Boundary_Conditions')
-output_final_dir = os.path.join(project_root, 'ExoFarm_Research', 'Results', 'Outputs')
+output_final_dir = os.path.join(project_root, 'Photochemical_Modeling', 'Results', 'Outputs')
 
 # Base directory for temporary simulation folders
-work_base_dir = os.path.join(project_root, 'ExoFarm_Research')
+work_base_dir = os.path.join(project_root, 'Photochemical_Modeling')
 
 # Ensure output directory exists
 if not os.path.exists(output_final_dir):

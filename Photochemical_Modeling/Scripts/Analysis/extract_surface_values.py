@@ -51,7 +51,7 @@ suffix_map = {
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # Project root is 3 levels up from Scripts/Analysis/
 project_root = os.path.abspath(os.path.join(script_dir, '../../../'))
-output_dir = os.path.join(project_root, 'ExoFarm_Research', 'Results', 'Outputs')
+output_dir = os.path.join(project_root, 'Photochemical_Modeling', 'Results', 'Outputs')
 
 # Verify output directory exists
 if not os.path.exists(output_dir):

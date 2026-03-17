@@ -1,5 +1,5 @@
 # Ignore temporary run directories
-ExoFarm_Research/temp_run_*
+Photochemical_Modeling/temp_run_*
 
 # Ignore VULCAN git directory if it exists as a submodule or nested repo (optional, usually handled by git automatically)
 # VULCAN/.git
