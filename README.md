@@ -119,14 +119,14 @@ The transmission-spectroscopy stage is organized around notebooks and retrieval 
 
 1. Build or validate the PT and chemistry profile files in `Transmission_Spectroscopy/profiles/`.
 2. Generate forward spectra in the POSEIDON notebook workflow.
-3. Generate synthetic JWST-compatible datasets.
+3. Generate paired JWST-compatible datasets for 5, 10, and 20 observations with NIRSpec Prism and MIRI LRS.
 4. Execute the retrieval scripts for the selected scenario and transit count.
 
 Example retrieval run:
 
 ```bash
 cd Transmission_Spectroscopy/notebooks
-python retrieve_trappist_A3_100.py
+python run_trappist_retrieval.py --scenario A3 --n-transits 20
 ```
 
 ---

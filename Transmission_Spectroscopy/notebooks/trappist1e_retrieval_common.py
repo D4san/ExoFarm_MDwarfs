@@ -113,7 +113,12 @@ SCENARIO_LABELS = {
     "A3": "Trappist_A3_Extreme",
 }
 
-# Ajusta esta ruta solo si moviste los sintéticos a otra carpeta
+# Pares de observaciones sintéticas usados en el flujo principal:
+# NIRSpec Prism = N tránsitos y MIRI LRS = N tránsitos.
+OBSERVATION_TRANSIT_COUNTS = [5, 10, 20]
+
+# Carpeta común con las plantillas de PandExo de 1 tránsito y los
+# datasets sintéticos generados para los pares de observaciones.
 SYNTHETIC_DATA_DIR = Path(
     "POSEIDON_output/TRAPPIST-1e/synthetic_data/base_1transit"
 )
@@ -224,7 +229,8 @@ def load_synthetic_data(wl, scenario_key: str, n_transits: int):
         if not full_path.exists():
             raise FileNotFoundError(
                 f"No encontré {full_path}\n"
-                "Primero genera estos sintéticos en el notebook con "
+                "Primero genera estos sintéticos en "
+                "Plot_Transmission_Spectra_TRAPPIST.ipynb con "
                 "generate_syn_data_from_file(...)."
             )
 
