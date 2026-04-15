@@ -1,0 +1,82 @@
+atmosphere-grid:
+  bottom: 0.0
+  top: atmospherefile
+  number-of-layers: 120
+
+planet:
+  planet-mass: 5.972e27
+  planet-radius: 6.371e8
+  surface-albedo: 0.25
+  solar-zenith-angle: 58.0
+  hydrogen-escape:
+    type: diffusion limited
+  water:
+    fix-water-in-troposphere: false
+    relative-humidity: manabe
+    gas-rainout: true
+    rainfall-rate: 1.0
+    tropopause-altitude: 1.1e6
+    water-condensation: false
+
+particles:
+- {name: H2Oaer, RH-condensation: 0.5}
+
+boundary-conditions:
+- name: H2O
+  lower-boundary: {type: press, press: 270.0e6}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: N2
+  lower-boundary: {type: press, press: 0.78e6}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: O2
+  lower-boundary: {type: press, press: 0.21e6}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: H2
+  lower-boundary: {type: press, press: 0.53}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: CO2
+  lower-boundary: {type: press, press: 360.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: O1D
+  type: short lived
+- name: N2D
+  type: short lived
+- name: O
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: H
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: OH
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: HO2
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: H2O2
+  lower-boundary: {type: vdep, vdep: 0.2}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: HCO
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: H2CO
+  lower-boundary: {type: vdep, vdep: 0.2}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: CH3
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: O3
+  lower-boundary: {type: vdep, vdep: 0.07}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: HSO
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: HNCO
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: NCO
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}
+- name: CN
+  lower-boundary: {type: vdep, vdep: 1.0}
+  upper-boundary: {type: veff, veff: 0.0}

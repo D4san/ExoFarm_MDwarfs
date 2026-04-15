@@ -1,0 +1,29 @@
+{
+  "run_id": "Trappist_A1_Current",
+  "planet": "trappist1e",
+  "planet_label": "TRAPPIST-1e",
+  "star": "earth_trappist",
+  "scenario": "A1",
+  "converged": true,
+  "surface_temperature_k": 269.049,
+  "output_atmosphere": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/photochemical_modelling_photochem/Results/Outputs/Trappist_A1_Current_steady_state.txt",
+  "settings_file": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/photochemical_modelling_photochem/Results/Prepared/settings/Trappist_A1_Current_settings.yaml",
+  "stellar_flux_file": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/photochemical_modelling_photochem/Results/Prepared/stellar_flux/TRAPPIST1e_flux.txt",
+  "initial_atmosphere_file": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/photochemical_modelling_photochem/Results/Prepared/initial_atmospheres/Trappist_A1_Current_initial_atmosphere.txt",
+  "surface_mixing_ratios": {
+    "N2O": 8.02118e-07,
+    "NH3": 5.28745e-11,
+    "O3": 1.4109e-09,
+    "CH4": 0.00708412
+  },
+  "surface_fluxes_molecules_cm2_s": {
+    "N2O": 26436290.697327647,
+    "NH3": 1282047.7944239161,
+    "O3": -2799409126.7321033,
+    "CH4": 160176257276.03085
+  },
+  "top_fluxes_molecules_cm2_s": {
+    "H": 93867258634.2065,
+    "H2": 93339378344.124
+  }
+}

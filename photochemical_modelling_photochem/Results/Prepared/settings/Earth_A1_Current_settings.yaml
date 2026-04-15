@@ -1,0 +1,257 @@
+atmosphere-grid:
+  bottom: 0.0
+  top: atmospherefile
+  number-of-layers: 120
+planet:
+  planet-mass: 5.972e+27
+  planet-radius: 637100000.0
+  surface-albedo: 0.25
+  solar-zenith-angle: 58.0
+  hydrogen-escape:
+    type: diffusion limited
+  water:
+    fix-water-in-troposphere: false
+    relative-humidity: manabe
+    gas-rainout: true
+    rainfall-rate: 1.0
+    tropopause-altitude: 1.1e6
+    water-condensation: false
+particles:
+- name: H2Oaer
+  RH-condensation: 0.5
+boundary-conditions:
+- name: CH3
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: CH3CN
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.13
+    flux: 130000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: CH4
+  lower-boundary:
+    type: flux
+    flux: 160000000000.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: CN
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: CO
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.03
+    flux: 370000000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: CO2
+  lower-boundary:
+    type: press
+    press: 360.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2
+  lower-boundary:
+    type: press
+    press: 0.53
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2CO
+  lower-boundary:
+    type: vdep
+    vdep: 0.2
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2O
+  lower-boundary:
+    type: press
+    press: 270.0e6
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2O2
+  lower-boundary:
+    type: vdep
+    vdep: 0.2
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2S
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.015
+    flux: 200000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: H2SO4
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 1.0
+    flux: 700000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HCN
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.13
+    flux: 170000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HCO
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HNCO
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HNO3
+  lower-boundary:
+    type: vdep
+    vdep: 4.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HO2
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: HSO
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: N2
+  lower-boundary:
+    type: press
+    press: 0.78e6
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: N2O
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.0001
+    flux: 2300000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: NCO
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: NH3
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 1.0
+    flux: 1500000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: 'NO'
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 0.001
+    flux: 13000000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: NO2
+  lower-boundary:
+    type: vdep
+    vdep: 0.01
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: NO3
+  lower-boundary:
+    type: vdep
+    vdep: 0.1
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: O
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: O2
+  lower-boundary:
+    type: press
+    press: 0.21e6
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: O3
+  lower-boundary:
+    type: vdep
+    vdep: 0.07
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: OH
+  lower-boundary:
+    type: vdep
+    vdep: 1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0
+- name: SO2
+  lower-boundary:
+    type: vdep + dist flux
+    vdep: 1.0
+    flux: 9000000000.0
+    height: -1.0
+  upper-boundary:
+    type: veff
+    veff: 0.0

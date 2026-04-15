@@ -1,0 +1,260 @@
+{
+  "photochem_output": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/photochemical_modelling_photochem/Results/Outputs/Trappist_A1_Current_steady_state.txt",
+  "vulcan_pt_profile": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/Transmission_Spectroscopy/profiles/Trappist_A1_Current_PT.txt",
+  "vulcan_chem_profile": "/mnt/c/Astro/My_repos/ExoFarm_MDwarfs/Transmission_Spectroscopy/profiles/Trappist_A1_Current_chem.txt",
+  "pressure_overlap_bar": {
+    "min": 3.2665e-07,
+    "max": 1.0
+  },
+  "surface": {
+    "photochem_pressure_bar": 1.0529,
+    "vulcan_pressure_bar": 1.0,
+    "photochem_temperature_k": 269.049,
+    "vulcan_temperature_k": 300.0459,
+    "delta_temperature_k": -30.99690000000004
+  },
+  "temperature_samples_k": {
+    "1e+00": {
+      "pressure_bar": 1.0,
+      "photochem_k": 267.6640394836917,
+      "vulcan_k": 300.0459,
+      "delta_k": -32.381860516308336
+    },
+    "1e-01": {
+      "pressure_bar": 0.1,
+      "photochem_k": 189.2940421607923,
+      "vulcan_k": 195.4019266886437,
+      "delta_k": -6.107884527851411
+    },
+    "1e-02": {
+      "pressure_bar": 0.01,
+      "photochem_k": 179.6138767815646,
+      "vulcan_k": 230.2119241036845,
+      "delta_k": -50.598047322119896
+    },
+    "1e-03": {
+      "pressure_bar": 0.001,
+      "photochem_k": 178.4823906353818,
+      "vulcan_k": 266.82873513411766,
+      "delta_k": -88.34634449873587
+    },
+    "1e-04": {
+      "pressure_bar": 0.0001,
+      "photochem_k": 190.0165780919869,
+      "vulcan_k": 231.87447182928122,
+      "delta_k": -41.85789373729432
+    },
+    "1e-05": {
+      "pressure_bar": 1e-05,
+      "photochem_k": 184.201260424693,
+      "vulcan_k": 205.74874694013764,
+      "delta_k": -21.547486515444632
+    }
+  },
+  "species_samples": {
+    "CH4": {
+      "surface_photochem": 0.00708412,
+      "surface_vulcan": 9.962045e-05,
+      "surface_ratio_photochem_over_vulcan": 71.1111021883559,
+      "median_log10_difference_over_overlap": 1.9130161248345205,
+      "max_abs_log10_difference_over_overlap": 13.772314333825024,
+      "samples": {
+        "1e+00": {
+          "pressure_bar": 1.0,
+          "photochem": 0.007085562792191371,
+          "vulcan": 9.962045000000011e-05,
+          "ratio_photochem_over_vulcan": 71.12558508008509,
+          "delta_log10": 1.8520258519304713
+        },
+        "1e-01": {
+          "pressure_bar": 0.1,
+          "photochem": 0.007098749465037856,
+          "vulcan": 9.993781166147454e-05,
+          "ratio_photochem_over_vulcan": 71.03166806457484,
+          "delta_log10": 1.8514520134997925
+        },
+        "1e-02": {
+          "pressure_bar": 0.01,
+          "photochem": 0.007097317806124346,
+          "vulcan": 9.616696831411837e-05,
+          "ratio_photochem_over_vulcan": 73.80203338574397,
+          "delta_log10": 1.868068327623078
+        },
+        "1e-03": {
+          "pressure_bar": 0.001,
+          "photochem": 0.007083365638217554,
+          "vulcan": 8.908611965915403e-05,
+          "ratio_photochem_over_vulcan": 79.51143977668696,
+          "delta_log10": 1.9004296176434878
+        },
+        "1e-04": {
+          "pressure_bar": 0.0001,
+          "photochem": 0.006940132805491367,
+          "vulcan": 6.235301592773639e-05,
+          "ratio_photochem_over_vulcan": 111.30388325617783,
+          "delta_log10": 2.046510316601644
+        },
+        "1e-05": {
+          "pressure_bar": 1e-05,
+          "photochem": 0.00557930446688404,
+          "vulcan": 4.938384572418202e-08,
+          "ratio_photochem_over_vulcan": 112978.33097174115,
+          "delta_log10": 5.052995154617719
+        }
+      }
+    },
+    "NH3": {
+      "surface_photochem": 5.28745e-11,
+      "surface_vulcan": 6.194412e-11,
+      "surface_ratio_photochem_over_vulcan": 0.853583842986227,
+      "median_log10_difference_over_overlap": 0.6649413314473023,
+      "max_abs_log10_difference_over_overlap": 7.409579197081175,
+      "samples": {
+        "1e+00": {
+          "pressure_bar": 1.0,
+          "photochem": 5.286234218779939e-11,
+          "vulcan": 6.194411999999989e-11,
+          "ratio_photochem_over_vulcan": 0.853387572344227,
+          "delta_log10": -0.06885368594544872
+        },
+        "1e-01": {
+          "pressure_bar": 0.1,
+          "photochem": 5.258511776319203e-11,
+          "vulcan": 5.6736710959516596e-11,
+          "ratio_photochem_over_vulcan": 0.9268270379774595,
+          "delta_log10": -0.03300130518727151
+        },
+        "1e-02": {
+          "pressure_bar": 0.01,
+          "photochem": 5.151209072692603e-11,
+          "vulcan": 2.5822480113192782e-11,
+          "ratio_photochem_over_vulcan": 1.9948545027868314,
+          "delta_log10": 0.2999112253655607
+        },
+        "1e-03": {
+          "pressure_bar": 0.001,
+          "photochem": 4.846769731980295e-11,
+          "vulcan": 1.1780039614256891e-11,
+          "ratio_photochem_over_vulcan": 4.114391708933178,
+          "delta_log10": 0.6143056361506289
+        },
+        "1e-04": {
+          "pressure_bar": 0.0001,
+          "photochem": 4.301491095782882e-11,
+          "vulcan": 5.021419468502144e-12,
+          "ratio_photochem_over_vulcan": 8.566285136632866,
+          "delta_log10": 0.9327925261900472
+        },
+        "1e-05": {
+          "pressure_bar": 1e-05,
+          "photochem": 4.204127185881889e-11,
+          "vulcan": 1.168070240581843e-14,
+          "ratio_photochem_over_vulcan": 3599.20751322944,
+          "delta_log10": 3.556206886734161
+        }
+      }
+    },
+    "N2O": {
+      "surface_photochem": 8.02118e-07,
+      "surface_vulcan": 7.622086e-07,
+      "surface_ratio_photochem_over_vulcan": 1.0523602069039892,
+      "median_log10_difference_over_overlap": 0.0666490197717482,
+      "max_abs_log10_difference_over_overlap": 4.167577911610592,
+      "samples": {
+        "1e+00": {
+          "pressure_bar": 1.0,
+          "photochem": 8.022810241833041e-07,
+          "vulcan": 7.622086000000003e-07,
+          "ratio_photochem_over_vulcan": 1.0525740908503314,
+          "delta_log10": 0.0222526756383008
+        },
+        "1e-01": {
+          "pressure_bar": 0.1,
+          "photochem": 8.037618930074579e-07,
+          "vulcan": 7.662496396721359e-07,
+          "ratio_photochem_over_vulcan": 1.0489556554328336,
+          "delta_log10": 0.020757128796136115
+        },
+        "1e-02": {
+          "pressure_bar": 0.01,
+          "photochem": 8.035304380122513e-07,
+          "vulcan": 7.446424575116714e-07,
+          "ratio_photochem_over_vulcan": 1.07908222249019,
+          "delta_log10": 0.03305453774435474
+        },
+        "1e-03": {
+          "pressure_bar": 0.001,
+          "photochem": 8.016297139458016e-07,
+          "vulcan": 7.022922034211625e-07,
+          "ratio_photochem_over_vulcan": 1.1414475485285527,
+          "delta_log10": 0.057455959708877735
+        },
+        "1e-04": {
+          "pressure_bar": 0.0001,
+          "photochem": 7.839113455435277e-07,
+          "vulcan": 5.445334359758543e-07,
+          "ratio_photochem_over_vulcan": 1.4396018568422453,
+          "delta_log10": 0.1582423981474621
+        },
+        "1e-05": {
+          "pressure_bar": 1e-05,
+          "photochem": 6.292655344798385e-07,
+          "vulcan": 1.606930128767336e-08,
+          "ratio_photochem_over_vulcan": 39.15948324166051,
+          "delta_log10": 1.59283695211026
+        }
+      }
+    },
+    "O3": {
+      "surface_photochem": 1.4109e-09,
+      "surface_vulcan": 1.533266e-09,
+      "surface_ratio_photochem_over_vulcan": 0.9201925823699214,
+      "median_log10_difference_over_overlap": 0.21128614703563597,
+      "max_abs_log10_difference_over_overlap": 5.134239977200906,
+      "samples": {
+        "1e+00": {
+          "pressure_bar": 1.0,
+          "photochem": 1.6330008944956938e-09,
+          "vulcan": 1.533266000000003e-09,
+          "ratio_photochem_over_vulcan": 1.0650473528374662,
+          "delta_log10": 0.02736891727601254
+        },
+        "1e-01": {
+          "pressure_bar": 0.1,
+          "photochem": 1.8935735780436226e-08,
+          "vulcan": 1.319231837299017e-09,
+          "ratio_photochem_over_vulcan": 14.353607338043838,
+          "delta_log10": 1.1569610613575385
+        },
+        "1e-02": {
+          "pressure_bar": 0.01,
+          "photochem": 6.119157164799479e-08,
+          "vulcan": 1.3893468827495828e-09,
+          "ratio_photochem_over_vulcan": 44.04340802701036,
+          "delta_log10": 1.6438809167951636
+        },
+        "1e-03": {
+          "pressure_bar": 0.001,
+          "photochem": 1.319104573121806e-07,
+          "vulcan": 3.318212697388734e-08,
+          "ratio_photochem_over_vulcan": 3.9753466502007986,
+          "delta_log10": 0.5993750051195992
+        },
+        "1e-04": {
+          "pressure_bar": 0.0001,
+          "photochem": 2.0381949039021462e-07,
+          "vulcan": 7.426573185107733e-07,
+          "ratio_photochem_over_vulcan": 0.2744462153809071,
+          "delta_log10": -0.5615427537711293
+        },
+        "1e-05": {
+          "pressure_bar": 1e-05,
+          "photochem": 4.008183114844971e-08,
+          "vulcan": 2.1801254017503624e-08,
+          "ratio_photochem_over_vulcan": 1.8385103497380983,
+          "delta_log10": 0.26446607903571806
+        }
+      }
+    }
+  }
+}

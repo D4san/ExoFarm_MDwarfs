@@ -1,0 +1,188 @@
+﻿{
+  "model": {
+    "default_planet": "earth",
+    "planet_mass_g": 5.972e27,
+    "planet_radius_cm": 6.371e8,
+    "gravity_cms2": 980.0,
+    "surface_albedo": 0.25,
+    "number_of_layers": 120,
+    "target_toa_pressure_bar": 1e-7,
+    "reference_mean_molecular_weight_amu": 28.97,
+    "seed_floor_mixing_ratio": 1e-40,
+    "particle_radius_cm": 1e-5,
+    "vulcan_network_file": "VULCAN/thermo/SNCHO_full_photo_network.txt",
+    "vulcan_thermo_dir": "VULCAN/thermo",
+    "pressure_temperature_kzz_file": "VULCAN/atm/atm_Earth_Jan_Kzz.txt",
+    "seed_chemistry_template": "Transmission_Spectroscopy/profiles/Earth_A1_Current_chem.txt",
+    "tracked_species": [
+      "N2O",
+      "NH3",
+      "O3",
+      "CH4"
+    ],
+    "fallback_initial_mixing_ratios": {
+      "N2": 0.78,
+      "O2": 0.2,
+      "CO2": 0.0004,
+      "H2O": 1e-6,
+      "Ar": 0.00934,
+      "SO2": 2e-10,
+      "CH4": 1.8e-6,
+      "H2": 5.5e-7,
+      "CO": 1.1e-7,
+      "N2O": 3.1e-7,
+      "NH3": 1e-10,
+      "O3": 1e-8
+    }
+  },
+  "planets": {
+    "earth": {
+      "label": "Earth",
+      "planet_mass_g": 5.972e27,
+      "planet_radius_cm": 6.371e8,
+      "gravity_cms2": 980.0,
+      "surface_albedo": 0.25,
+      "pressure_temperature_kzz_file": "VULCAN/atm/atm_Earth_Jan_Kzz.txt",
+      "seed_chemistry_template": "Transmission_Spectroscopy/profiles/Earth_A1_Current_chem.txt",
+      "reference_mean_molecular_weight_amu": 28.97,
+      "climate": {
+        "enabled": false
+      }
+    },
+    "trappist1e": {
+      "label": "TRAPPIST-1e",
+      "planet_mass_g": 4.13274e27,
+      "planet_radius_cm": 5.867852e8,
+      "gravity_cms2": 801.098,
+      "surface_albedo": 0.1,
+      "pressure_temperature_kzz_file": "VULCAN/atm/atm_Earth_Jan_Kzz.txt",
+      "seed_chemistry_template": "Transmission_Spectroscopy/profiles/Earth_A1_Current_chem.txt",
+      "reference_mean_molecular_weight_amu": 28.97,
+      "climate": {
+        "enabled": true,
+        "species_template": "photochemical_modelling_photochem/Config/Templates/species_climate_hnoc.yaml",
+        "settings_template": "photochemical_modelling_photochem/Config/Templates/settings_climate_base.yaml",
+        "surface_pressures_bar": {
+          "H2O": 270.0,
+          "N2": 0.78,
+          "O2": 0.21,
+          "CO2": 0.0004,
+          "CH4": 1.8e-6,
+          "H2": 5.5e-7,
+          "CO": 1.1e-7
+        },
+        "trace_pressure_floor_bar": 1e-10,
+        "relative_humidity": 0.5,
+        "top_pressure_bar": 1e-5,
+        "surface_temperature_guess_k": 280.0,
+        "max_rc_iters": 30,
+        "convective_newton_step_size": 0.05,
+        "solve_for_t_trop": true,
+        "skin_temperature_albedo": 0.3,
+        "eddy_profile": "constant",
+        "eddy_constant_cm2_s": 1e5
+      }
+    }
+  },
+  "stars": {
+    "earth_sun": {
+      "label": "Sun (G2V)",
+      "strategy": "solar_spectrum",
+      "stellar_flux_w_m2": 1361.0,
+      "age_ga": 0.0,
+      "solar_zenith_angle_deg": 58.0,
+      "output_file": "Earth_Sun_flux.txt"
+    },
+    "earth_trappist": {
+      "label": "TRAPPIST-1 / planet e",
+      "strategy": "local_surface_spectrum",
+      "source_spectrum_file": "VULCAN/atm/stellar_flux/TRAPPIST1_surface.txt",
+      "source_units": "erg_cm2_s_nm_at_stellar_surface",
+      "stellar_radius_solar": 0.117,
+      "orbital_distance_au": 0.02928,
+      "expected_stellar_flux_w_m2": 879.206,
+      "solar_zenith_angle_deg": 48.0,
+      "output_file": "TRAPPIST1e_flux.txt"
+    }
+  },
+  "scenarios": {
+    "A0": {
+      "label": "PreAgri",
+      "display_name": "Pre-Agri",
+      "boundary_condition_file": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_preagri_full.txt"
+    },
+    "A1": {
+      "label": "Current",
+      "display_name": "Current",
+      "boundary_condition_file": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_current_full.txt"
+    },
+    "A2": {
+      "label": "Moderate",
+      "display_name": "Moderate",
+      "boundary_condition_file": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_moderate_full.txt"
+    },
+    "A3": {
+      "label": "Extreme",
+      "display_name": "Extreme",
+      "boundary_condition_file": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_full.txt"
+    }
+  },
+  "runs": [
+    {
+      "id": "Earth_A0_PreAgri",
+      "profile_stem": "Earth_A0_PreAgri",
+      "planet": "earth",
+      "star": "earth_sun",
+      "scenario": "A0"
+    },
+    {
+      "id": "Earth_A1_Current",
+      "profile_stem": "Earth_A1_Current",
+      "planet": "earth",
+      "star": "earth_sun",
+      "scenario": "A1"
+    },
+    {
+      "id": "Earth_A2_Moderate",
+      "profile_stem": "Earth_A2_Moderate",
+      "planet": "earth",
+      "star": "earth_sun",
+      "scenario": "A2"
+    },
+    {
+      "id": "Earth_A3_Extreme",
+      "profile_stem": "Earth_A3_Extreme",
+      "planet": "earth",
+      "star": "earth_sun",
+      "scenario": "A3"
+    },
+    {
+      "id": "Trappist_A0_PreAgri",
+      "profile_stem": "Trappist_A0_PreAgri",
+      "planet": "trappist1e",
+      "star": "earth_trappist",
+      "scenario": "A0"
+    },
+    {
+      "id": "Trappist_A1_Current",
+      "profile_stem": "Trappist_A1_Current",
+      "planet": "trappist1e",
+      "star": "earth_trappist",
+      "scenario": "A1"
+    },
+    {
+      "id": "Trappist_A2_Moderate",
+      "profile_stem": "Trappist_A2_Moderate",
+      "planet": "trappist1e",
+      "star": "earth_trappist",
+      "scenario": "A2"
+    },
+    {
+      "id": "Trappist_A3_Extreme",
+      "profile_stem": "Trappist_A3_Extreme",
+      "planet": "trappist1e",
+      "star": "earth_trappist",
+      "scenario": "A3"
+    }
+  ]
+}
