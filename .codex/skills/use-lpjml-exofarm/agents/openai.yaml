@@ -1,0 +1,4 @@
+interface:
+  display_name: "Use LPJmL for ExoFarm"
+  short_description: "Run LPJmL nitrogen workflows for ExoFarm"
+  default_prompt: "Use $use-lpjml-exofarm to plan and validate an LPJmL nitrogen-flux workflow for ExoFarm."

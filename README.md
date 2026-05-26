@@ -7,10 +7,11 @@
 
 ## Scientific Overview
 
-This repository implements a two-stage modelling framework to assess whether large-scale agricultural activity could generate remotely detectable atmospheric technosignatures on Earth-like exoplanets. The central hypothesis is that anthropogenic perturbation of the nitrogen cycle, represented here by enhanced surface fluxes of nitrous oxide ($N_2O$) and ammonia ($NH_3$), can produce spectral signatures that remain distinguishable from natural biogenic baselines.
+This repository implements a modular modelling framework to assess whether large-scale agricultural activity could generate remotely detectable atmospheric technosignatures on Earth-like exoplanets. The central hypothesis is that anthropogenic perturbation of the nitrogen cycle, represented here by enhanced surface fluxes of nitrous oxide ($N_2O$) and ammonia ($NH_3$), can produce spectral signatures that remain distinguishable from natural biogenic baselines.
 
 The workflow is explicitly modular:
 
+0. **Agricultural flux modelling** with **LPJmL**, used to estimate gridded crop, water, carbon, and nitrogen-cycle fluxes that can be translated into surface boundary fluxes.
 1. **Photochemical forward modelling** with **VULCAN**, used to integrate atmospheric chemistry under different surface-emission scenarios and stellar UV environments.
 2. **Transmission spectroscopy and retrieval analysis** with **POSEIDON** and synthetic **JWST/PandExo** observing setups, used to translate those chemically self-consistent atmospheres into observable spectra and retrieval products.
 
@@ -28,6 +29,9 @@ All VULCAN scenarios inherit the official Earth baseline setup, so the atmospher
 ### `Photochemical_Modeling/`
 Forward photochemical calculations, scenario configuration, diagnostic analysis, and figure generation.
 
+### `Agricultural_Fluxes_LPJmL/`
+LPJmL research notes, source bibliography, and scripts for converting gridded nitrogen-cycle outputs into ExoFarm lower-boundary fluxes.
+
 ### `Transmission_Spectroscopy/`
 Profile export products, transmission-spectrum synthesis, synthetic JWST observations, and atmospheric retrieval workflows derived from the photochemical outputs.
 
@@ -39,6 +43,17 @@ The top-level directory names were chosen to reflect the scientific role of each
 ---
 
 ## End-to-End Workflow
+
+### Stage 0: Agricultural Flux Estimates
+
+`Agricultural_Fluxes_LPJmL/` is the upstream agricultural-production branch of the project. Its role is to use LPJmL to estimate spatially explicit crop, hydrology, carbon, and nitrogen-cycle fluxes under land-use and management scenarios, then convert selected nitrogen outputs into the molecules cm^-2 s^-1 fluxes used by the atmospheric models.
+
+Primary products:
+
+- LPJmL configuration notes for land-use, fertilizer, manure, irrigation, and nitrogen-cycle settings
+- tabulated `N2O` and `NH3`-relevant nitrogen flux estimates
+- unit-conversion scripts from LPJmL nitrogen-mass outputs to atmospheric lower-boundary fluxes
+- scenario mapping into A0/A1/A2/A3 ExoFarm forcing levels
 
 ### Stage I: Photochemical Forward Model
 
