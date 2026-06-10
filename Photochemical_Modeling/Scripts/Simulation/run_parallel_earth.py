@@ -60,9 +60,18 @@ scenarios = [
     }
 ]
 
+scenario_filter = {
+    item.strip() for item in os.environ.get('EXOFARM_SCENARIOS', '').split(',')
+    if item.strip()
+}
+if scenario_filter:
+    scenarios = [sc for sc in scenarios if sc['id'] in scenario_filter]
+    print(f"Scenario filter active: {', '.join(sorted(scenario_filter))}")
+
 # Keep failed temp directories so the logs and staged VULCAN workspace
 # are still available for debugging. Successful runs are cleaned up.
 KEEP_FAILED_TEMP = True
+KEEP_SUCCESS_TEMP = os.environ.get('EXOFARM_KEEP_TEMP', '').strip() == '1'
 LOG_TAIL_LINES = 80
 
 
@@ -246,6 +255,10 @@ for proc in processes:
             shutil.move(vf, dst)
         except Exception as e:
             print(f"[{run_id}] Error moving output file: {e}")
+
+    if KEEP_SUCCESS_TEMP:
+        print(f"[{run_id}] Preserving temp directory by EXOFARM_KEEP_TEMP=1: {temp_dir}")
+        continue
 
     # 2. Delete Temporary Directory
     print(f"[{run_id}] Cleaning up temp directory {temp_dir}...")

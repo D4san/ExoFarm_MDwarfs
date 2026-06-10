@@ -3,12 +3,15 @@ import pickle
 import numpy as np
 import os
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '../../Results'))
+
 # Scenarios
 scenarios = [
-    {'file': '../../Results/Outputs/Trappist_A0_PreAgri.vul', 'label': 'Pre-Agricultural', 'color': 'green'},
-    {'file': '../../Results/Outputs/Trappist_A1_Current.vul', 'label': 'Current Earth-like', 'color': 'blue'},
-    {'file': '../../Results/Outputs/Trappist_A2_Moderate.vul', 'label': 'ExoFarm Moderate (10x)', 'color': 'orange'},
-    {'file': '../../Results/Outputs/Trappist_A3_Extreme.vul', 'label': 'ExoFarm Extreme (100x)', 'color': 'red'}
+    {'file': os.path.join(RESULTS_DIR, 'Outputs', 'Trappist_A0_PreAgri.vul'), 'label': 'Pre-Agricultural', 'color': 'green'},
+    {'file': os.path.join(RESULTS_DIR, 'Outputs', 'Trappist_A1_Current.vul'), 'label': 'Current Earth-like', 'color': 'blue'},
+    {'file': os.path.join(RESULTS_DIR, 'Outputs', 'Trappist_A2_Moderate.vul'), 'label': 'ExoFarm Moderate (30B alpha)', 'color': 'orange'},
+    {'file': os.path.join(RESULTS_DIR, 'Outputs', 'Trappist_A3_Extreme.vul'), 'label': 'ExoFarm S2 Extreme (15x agri)', 'color': 'red'}
 ]
 
 # Species to plot
@@ -61,8 +64,9 @@ for i, sp in enumerate(species_to_plot):
         ax.legend()
 
 plt.tight_layout(rect=[0, 0, 1, 0.95])
-output_plot = '../../Results/Plots/trappist_comparison.png'
-if not os.path.exists('../../Results/Plots'):
-    os.makedirs('../../Results/Plots')
+plot_dir = os.path.join(RESULTS_DIR, 'Plots')
+output_plot = os.path.join(plot_dir, 'trappist_comparison.png')
+if not os.path.exists(plot_dir):
+    os.makedirs(plot_dir)
 plt.savefig(output_plot)
 print(f"Plot saved to {output_plot}")

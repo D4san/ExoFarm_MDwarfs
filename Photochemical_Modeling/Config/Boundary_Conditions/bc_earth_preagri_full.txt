@@ -2,8 +2,8 @@
 CO            3.7e11                 0.03
 CH4           1.6e+11                 0.
 NO            1.3e10                 0.001
-NH3           3.0e+8                  1.
-N2O           9.0e+8                 1E-4
+NH3           2.94e+9                 1.
+N2O           1.58e+9                1E-4
 NO2              0                    0.01
 NO3              0                    0.1
 SO2           9.0e+9                   1.
@@ -17,6 +17,10 @@ H2SO4            0                     1.
 H2SO4_l          0                    0.2
 
 			  
+# ExoFarm A0 PreAgri flux matrix, updated 2026-05-27.
+# Fluxes are imposed lower-boundary values in molecules cm-2 s-1.
+# alpha_NH3 = 0; alpha_N2O = 0.
+
 # tunning
 # N2O before 1e9   now      2e+9
 # H2S   before vd = 0.05  now 0.015

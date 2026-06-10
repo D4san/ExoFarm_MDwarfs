@@ -108,14 +108,31 @@ INSTRUMENTS = [
     "JWST_MIRI_LRS",
 ]
 
+INSTRUMENT_MODES = {
+    "nirspec": {
+        "names": ["JWST_NIRSpec_PRISM"],
+        "label": "NIRSpec",
+    },
+    "miri": {
+        "names": ["JWST_MIRI_LRS"],
+        "label": "MIRI",
+    },
+    "both": {
+        "names": INSTRUMENTS,
+        "label": "NIRSpec_MIRI",
+    },
+}
+
 SCENARIO_LABELS = {
     "A0": "Trappist_A0_PreAgri",
+    "A1": "Trappist_A1_Current",
+    "A2": "Trappist_A2_Moderate",
     "A3": "Trappist_A3_Extreme",
 }
 
 # Pares de observaciones sintéticas usados en el flujo principal:
 # NIRSpec Prism = N tránsitos y MIRI LRS = N tránsitos.
-OBSERVATION_TRANSIT_COUNTS = [5, 10, 20]
+OBSERVATION_TRANSIT_COUNTS = [5, 10, 20, 100]
 
 # Carpeta común con las plantillas de PandExo de 1 tránsito y los
 # datasets sintéticos generados para los pares de observaciones.
@@ -172,15 +189,20 @@ def create_grids():
 # ============================================================
 # Modelo de retrieval: isotérmico + abundancias constantes
 # ============================================================
-def make_retrieval_model(scenario_key: str, n_transits: int):
+def make_retrieval_model(scenario_key: str, n_transits: int, instrument_mode: str = "both"):
     if scenario_key not in SCENARIO_LABELS:
         raise ValueError(
             f"scenario_key debe ser una de {list(SCENARIO_LABELS.keys())}"
         )
+    if instrument_mode not in INSTRUMENT_MODES:
+        raise ValueError(
+            f"instrument_mode debe ser una de {list(INSTRUMENT_MODES.keys())}"
+        )
 
     model_name = (
         f"TRAPPIST1e_{scenario_key}_retrieval_"
-        f"isotherm_isochem_{n_transits}transits"
+        f"isotherm_isochem_{n_transits}transits_"
+        f"{INSTRUMENT_MODES[instrument_mode]['label']}"
     )
 
     model = define_model(
@@ -211,18 +233,25 @@ def make_opacity(model, wl, T_fine, log_P_fine):
 # ============================================================
 # Datos sintéticos ya generados
 # ============================================================
-def synthetic_dataset_names(scenario_key: str, n_transits: int):
+def synthetic_dataset_names(scenario_key: str, n_transits: int, instrument_mode: str = "both"):
     label = SCENARIO_LABELS[scenario_key]
+    all_datasets = {
+        "nirspec": f"{PLANET_NAME}_SYNTHETIC_JWST_NIRSpec_PRISM_{label}_N_trans_{n_transits}.dat",
+        "miri": f"{PLANET_NAME}_SYNTHETIC_JWST_MIRI_LRS_{label}_N_trans_{n_transits}.dat",
+    }
 
-    datasets = [
-        f"{PLANET_NAME}_SYNTHETIC_JWST_NIRSpec_PRISM_{label}_N_trans_{n_transits}.dat",
-        f"{PLANET_NAME}_SYNTHETIC_JWST_MIRI_LRS_{label}_N_trans_{n_transits}.dat",
-    ]
-    return datasets
+    if instrument_mode == "both":
+        return [all_datasets["nirspec"], all_datasets["miri"]]
+    if instrument_mode in all_datasets:
+        return [all_datasets[instrument_mode]]
+    raise ValueError(
+        f"instrument_mode debe ser una de {list(INSTRUMENT_MODES.keys())}"
+    )
 
 
-def load_synthetic_data(wl, scenario_key: str, n_transits: int):
-    datasets = synthetic_dataset_names(scenario_key, n_transits)
+def load_synthetic_data(wl, scenario_key: str, n_transits: int, instrument_mode: str = "both"):
+    datasets = synthetic_dataset_names(scenario_key, n_transits, instrument_mode)
+    instruments = INSTRUMENT_MODES[instrument_mode]["names"]
 
     for filename in datasets:
         full_path = SYNTHETIC_DATA_DIR / filename
@@ -237,7 +266,7 @@ def load_synthetic_data(wl, scenario_key: str, n_transits: int):
     data_new = load_data(
         str(SYNTHETIC_DATA_DIR),
         datasets,
-        INSTRUMENTS,
+        instruments,
         wl,
         skiprows=1,
         wl_unit="micron",
@@ -279,20 +308,22 @@ def make_priors(planet, star, model, data):
 # ============================================================
 # Empaquetador general
 # ============================================================
-def setup_retrieval_problem(scenario_key: str, n_transits: int):
+def setup_retrieval_problem(scenario_key: str, n_transits: int, instrument_mode: str = "both"):
     star, planet = create_system()
     P, wl, T_fine, log_P_fine = create_grids()
 
-    model = make_retrieval_model(scenario_key, n_transits)
+    model = make_retrieval_model(scenario_key, n_transits, instrument_mode)
     opac = make_opacity(model, wl, T_fine, log_P_fine)
 
-    data_new, datasets = load_synthetic_data(wl, scenario_key, n_transits)
+    data_new, datasets = load_synthetic_data(wl, scenario_key, n_transits, instrument_mode)
     priors = make_priors(planet, star, model, data_new)
 
     return {
         "scenario_key": scenario_key,
         "scenario_label": SCENARIO_LABELS[scenario_key],
         "n_transits": n_transits,
+        "instrument_mode": instrument_mode,
+        "instruments": INSTRUMENT_MODES[instrument_mode]["names"],
         "star": star,
         "planet": planet,
         "P": P,

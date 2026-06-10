@@ -43,6 +43,19 @@ Products generated from the chemistry calculations.
 - `Outputs/`: raw `.vul` files
 - `Plots/`: rendered figures for inter-scenario comparisons
 
+## Scenario Matrix
+
+The active A0-A3 matrix uses imposed lower-boundary fluxes in molecules cm^-2 s^-1:
+
+| ID | Scenario | alpha_NH3 | alpha_N2O | NH3 flux | N2O flux |
+| --- | --- | ---: | ---: | ---: | ---: |
+| A0 | PreAgri | 0 | 0 | 2.94e9 | 1.58e9 |
+| A1 | CurrentEarth | 1 | 1 | 1.30e10 | 2.30e9 |
+| A2 | ModerateExoFarm | 3.50 | 2.55 | 3.82e10 | 3.35e9 |
+| A3 | S2ExtremeExoFarm | 15 | 15 | 1.54e11 | 1.20e10 |
+
+The old A2/A3 10x/100x flux multipliers are legacy sensitivity cases only and should not be interpreted as the current scenario definition.
+
 ## Recommended Workflow
 
 1. Run the chemistry ensemble from `Scripts/Simulation/`.

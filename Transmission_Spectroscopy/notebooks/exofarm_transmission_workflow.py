@@ -65,7 +65,7 @@ SCENARIOS = {
 
 # Observation plan used for the final synthetic datasets.  Each number means
 # N NIRSpec Prism transits and N MIRI LRS transits.
-OBSERVATION_TRANSIT_COUNTS = [5, 10, 20]
+OBSERVATION_TRANSIT_COUNTS = [5, 10, 20, 100]
 INSTRUMENTS = ["JWST_NIRSpec_PRISM", "JWST_MIRI_LRS"]
 
 # R_TO_BIN is passed to POSEIDON's synthetic-data generator.  Keep the list in
@@ -80,6 +80,7 @@ TRANSIT_COUNT_STYLES = {
     5: {"colour": "tab:purple", "marker": "o", "label": "5 + 5"},
     10: {"colour": "tab:blue", "marker": "s", "label": "10 + 10"},
     20: {"colour": "tab:green", "marker": "^", "label": "20 + 20"},
+    100: {"colour": "tab:red", "marker": "D", "label": "100 + 100"},
 }
 
 # Visual encodings for scenario comparisons at fixed noise level.

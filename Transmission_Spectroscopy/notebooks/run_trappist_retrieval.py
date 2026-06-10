@@ -1,6 +1,7 @@
 import argparse
 
 from trappist1e_retrieval_common import (
+    INSTRUMENT_MODES,
     OBSERVATION_TRANSIT_COUNTS,
     R_MODEL,
     SCENARIO_LABELS,
@@ -13,7 +14,7 @@ from POSEIDON.retrieval import run_retrieval
 def parse_args():
     parser = argparse.ArgumentParser(
         description=(
-            "Run a TRAPPIST-1e retrieval for paired NIRSpec/MIRI "
+            "Run a TRAPPIST-1e retrieval for NIRSpec, MIRI, or paired "
             "synthetic observations."
         )
     )
@@ -28,7 +29,13 @@ def parse_args():
         type=int,
         choices=OBSERVATION_TRANSIT_COUNTS,
         required=True,
-        help="Number of NIRSpec and MIRI transits to use.",
+        help="Number of transits to use for the selected instrument mode.",
+    )
+    parser.add_argument(
+        "--instrument",
+        choices=sorted(INSTRUMENT_MODES),
+        default="both",
+        help="Synthetic dataset mode to retrieve.",
     )
     parser.add_argument(
         "--n-live",
@@ -46,14 +53,19 @@ def parse_args():
 
 def main():
     args = parse_args()
-    bundle = setup_retrieval_problem(args.scenario, args.n_transits)
+    bundle = setup_retrieval_problem(
+        args.scenario,
+        args.n_transits,
+        instrument_mode=args.instrument,
+    )
 
     print("\n==============================================")
     print(
         "Running retrieval: "
-        f"{args.scenario}, {args.n_transits} NIRSpec + "
-        f"{args.n_transits} MIRI transits"
+        f"{args.scenario}, {args.n_transits} transits, "
+        f"instrument={args.instrument}"
     )
+    print("Instruments:", ", ".join(bundle["instruments"]))
     print("Datasets:")
     for filename in bundle["datasets"]:
         print(" -", filename)

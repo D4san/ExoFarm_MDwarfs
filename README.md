@@ -81,14 +81,22 @@ Primary products:
 
 ## Scenario Definition
 
-We consider four agricultural intensity levels for each stellar environment. Surface source fluxes are expressed in **molecules cm^-2 s^-1**.
+We consider four agricultural intensity levels for each stellar environment. Surface source fluxes are expressed in **molecules cm^-2 s^-1**. These are imposed photochemical lower-boundary fluxes, not simulated agricultural-production outputs.
 
-| ID | Scenario | Scientific Interpretation | $N_2O$ Flux | $NH_3$ Flux |
-| :--- | :--- | :--- | :--- | :--- |
-| **A0** | Pre-Agricultural | Natural biogenic baseline | $9.0 \times 10^8$ | $3.0 \times 10^8$ |
-| **A1** | Current Earth | Present-day biological plus anthropogenic benchmark | $2.3 \times 10^9$ | $1.5 \times 10^9$ |
-| **A2** | Moderate ExoFarm | Intensified nitrogen-cycle perturbation | $2.3 \times 10^{10}$ | $1.5 \times 10^{10}$ |
-| **A3** | Extreme ExoFarm | Upper-limit agricultural forcing experiment | $2.3 \times 10^{11}$ | $1.5 \times 10^{11}$ |
+The current matrix treats technological agriculture as a perturbation to the pre-agricultural nitrogen flux:
+
+$$
+F_i(A_j)=F_{i,A0}+\alpha_{i,j}\Delta F_{i,\mathrm{agri}}.
+$$
+
+| ID | Scenario | Scientific Interpretation | $\alpha_{NH_3}$ | $\alpha_{N_2O}$ | $N_2O$ Flux | $NH_3$ Flux |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **A0** | Pre-Agricultural | Natural biogenic baseline | 0 | 0 | $1.58 \times 10^9$ | $2.94 \times 10^9$ |
+| **A1** | Current Earth | Present-day benchmark with explicit agricultural contribution | 1 | 1 | $2.30 \times 10^9$ | $1.30 \times 10^{10}$ |
+| **A2** | Moderate ExoFarm | 30B-inspired ExoFarm perturbation from Haqq-Misra et al. 2022 | 3.50 | 2.55 | $3.35 \times 10^9$ | $3.82 \times 10^{10}$ |
+| **A3** | S2 Extreme ExoFarm | S2 Wild West agricultural-pollution envelope from Haqq-Misra et al. 2025 | 15 | 15 | $1.20 \times 10^{10}$ | $1.54 \times 10^{11}$ |
+
+The earlier exploratory matrix used direct 10x and 100x multipliers of the modern total flux for A2 and A3. That version is preserved only as a legacy sensitivity because it conflated total modern flux with the agricultural perturbation.
 
 All other lower-boundary species remain fixed relative to the Earth baseline so that changes in atmospheric composition can be attributed directly to the imposed nitrogen-cycle forcing and host-star environment.
 
@@ -132,17 +140,41 @@ python run_all_plots.py
 
 The transmission-spectroscopy stage is organized around notebooks and retrieval scripts in `Transmission_Spectroscopy/notebooks/`. In broad terms, the recommended order is:
 
-1. Build or validate the PT and chemistry profile files in `Transmission_Spectroscopy/profiles/`.
-2. Generate forward spectra in the POSEIDON notebook workflow.
+1. Export the latest VULCAN `.vul` files into `Transmission_Spectroscopy/profiles/` and `Transmission_Spectroscopy/vulcan_outputs/`.
+2. Generate TRAPPIST-1e forward spectra in the POSEIDON workflow.
 3. Generate paired JWST-compatible datasets for 5, 10, and 20 observations with NIRSpec Prism and MIRI LRS.
-4. Execute the retrieval scripts for the selected scenario and transit count.
+4. Execute the retrieval scripts for the selected scenario, transit count, and instrument mode.
 
-Example retrieval run:
+Refresh the hand-off from photochemistry to transmission spectroscopy:
 
 ```bash
-cd Transmission_Spectroscopy/notebooks
-python run_trappist_retrieval.py --scenario A3 --n-transits 20
+python Transmission_Spectroscopy/scripts/export_vulcan_profiles.py
 ```
+
+Generate the TRAPPIST-1e synthetic grid from WSL in the `POSEIDON` conda environment:
+
+```bash
+cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks
+conda activate POSEIDON
+python generate_trappist_synthetic_grid.py --scenarios A0 A1 A2 A3 --transits 5 10 20
+```
+
+Example retrieval runs:
+
+```bash
+cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks
+conda activate POSEIDON
+python run_trappist_retrieval.py --scenario A3 --n-transits 5 --instrument miri
+python run_trappist_retrieval.py --scenario A3 --n-transits 5 --instrument nirspec
+python run_trappist_retrieval.py --scenario A3 --n-transits 5 --instrument both
+```
+
+The active retrieval campaign is documented in
+`Transmission_Spectroscopy/README.md`. In short, the synthetic grid covers
+A0-A3 for 5, 10, and 20 transits with both NIRSpec Prism and MIRI LRS. The
+first retrieval campaign prioritizes A3 at 5, 10, and 20 transits for MIRI-only,
+NIRSpec-only, and joint NIRSpec+MIRI runs; A0 can be repeated as the baseline
+retrieval campaign if needed.
 
 ---
 
