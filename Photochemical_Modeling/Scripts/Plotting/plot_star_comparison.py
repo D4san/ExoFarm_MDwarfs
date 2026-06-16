@@ -55,7 +55,12 @@ def load_vulcan_output(filepath):
 fig, axes = plt.subplots(2, 2, figsize=(16, 12), sharex=True, sharey=True)
 axes = axes.flatten()
 
-fig.suptitle("Vertical Profiles Comparison: Earth-Sun vs. TRAPPIST-1e", fontsize=18, y=0.95)
+fig.suptitle(
+    "Vertical Profiles Comparison: Earth-Sun vs. TRAPPIST-1e\n"
+    "TRAPPIST-1e profiles are diagnostic and step-limited",
+    fontsize=18,
+    y=0.98,
+)
 
 for i, scenario in enumerate(scenarios):
     ax = axes[i]
@@ -128,7 +133,7 @@ for mol in molecules:
 fig.legend(custom_lines, custom_labels, loc='center right', bbox_to_anchor=(0.98, 0.5), 
            fontsize=12, frameon=True, fancybox=True, shadow=True, borderpad=1)
 
-plt.tight_layout(rect=[0, 0, 0.85, 0.95]) # Make room for legend on the right
+plt.tight_layout(rect=[0, 0, 0.85, 0.93]) # Make room for title and legend
 plt.savefig(os.path.join(plot_dir, 'star_comparison_profiles.png'), dpi=300)
 print("Saved profile comparison plot.")
 
@@ -145,7 +150,12 @@ def calc_pressure_weighted_mean(data, species):
 molecules_trends = ['N2O', 'NH3', 'O3', 'CH4']
 fig2, axes2 = plt.subplots(2, 2, figsize=(14, 10), sharex=True)
 axes2 = axes2.flatten()
-fig2.suptitle("Abundance Trends: Agriculture Intensity vs Star Type", fontsize=18, y=0.98)
+fig2.suptitle(
+    "Abundance Trends: Agriculture Intensity vs Star Type\n"
+    "TRAPPIST-1e values use diagnostic step-limited profiles",
+    fontsize=18,
+    y=0.99,
+)
 
 # Prepare data
 trends = {star: {mol: [] for mol in molecules_trends} for star in stars}
@@ -224,6 +234,6 @@ trend_labels.append("Current Earth Level")
 
 fig2.legend(trend_lines, trend_labels, loc='upper center', bbox_to_anchor=(0.5, 0.93), ncol=3, fontsize=12, frameon=True)
 
-plt.tight_layout(rect=[0, 0, 1, 0.90]) # Adjust for suptitle and legend
+plt.tight_layout(rect=[0, 0, 1, 0.87]) # Adjust for suptitle and legend
 plt.savefig(os.path.join(plot_dir, 'star_comparison_trends.png'), dpi=300)
 print("Saved trends plot.")

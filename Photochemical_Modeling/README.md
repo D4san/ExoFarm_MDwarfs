@@ -63,6 +63,58 @@ The old A2/A3 10x/100x flux multipliers are legacy sensitivity cases only and sh
 3. Extract comparative abundance tables from `Scripts/Analysis/`.
 4. Generate the figure set from `Scripts/Plotting/`.
 
+## Current Product Status
+
+The active TRAPPIST-1e YAML files were corrected on 2026-06-15 to use the
+planet's radius, gravity, orbital distance, and updated stellar radius while
+retaining the terrestrial pressure-temperature and Kzz profiles as the
+controlled atmospheric structure. The active lower-boundary files were also
+corrected to remove a duplicate `H2SO4` row that silently overwrote its
+documented surface flux. After review on 2026-06-15, the corrected re-run
+products were promoted into `Results/Outputs/` as the canonical profiles. The
+former profiles were deleted; the machine-readable comparison and scientific
+decision are retained in `../docs/vulcan_profile_reproduction_2026-06-15.md`.
+
+As audited on 2026-06-15:
+
+- all four Earth-Sun products saved with VULCAN `end_case = 1`, indicating
+  successful integration to steady-state;
+- all four TRAPPIST-1e products saved with `end_case = 3` after exceeding the
+  configured maximum step count before satisfying VULCAN's global convergence
+  criterion.
+
+The current TRAPPIST-1e products are accepted with a partial-convergence caveat:
+the remaining global convergence signal is dominated by low-abundance trace
+chemistry, especially `C2H5` near 0.019 bar, not by a demonstrated instability
+of the target nitrogen perturbation alone. Downstream spectra and retrievals
+may use these products, but papers and reports must state this caveat and avoid
+claiming that the full chemical network reached VULCAN's strict steady-state
+criterion.
+
+The Earth-Sun and TRAPPIST-1e simulation runners now inspect the saved VULCAN
+termination code before moving a `.vul` product into `Results/Outputs/`.
+Earth-Sun products still require `end_case = 1`. TRAPPIST-1e products may be
+promoted when the run exits cleanly and the partial-convergence caveat is
+documented in the reproduction report.
+
+### Numerical sensitivity experiments
+
+`VULCAN/run_case.py` accepts a limited, validated `numerics` block in a planet
+YAML file. This makes convergence sensitivity experiments explicit and
+reproducible. For example:
+
+```yaml
+numerics:
+  count_max: 50000
+  mtol_conv: 1.0e-15
+```
+
+Supported keys are `conv_step`, `count_max`, `atol`, `mtol_conv`, `yconv_cri`,
+`slope_cri`, `yconv_min`, `flux_cri`, and `rtol`. Any override defines a new
+experiment and must be recorded separately. Increasing `count_max` or relaxing
+a threshold does not by itself improve the scientific interpretation; it must
+be compared against the accepted partial-convergence baseline.
+
 ## Commands
 
 Earth-Sun ensemble:

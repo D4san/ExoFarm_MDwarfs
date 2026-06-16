@@ -4,12 +4,46 @@ import yaml
 import os
 import subprocess
 
+
+DEFAULT_NUMERICS = {
+    "conv_step": 500,
+    "count_max": int(2e4),
+    "atol": 1e-1,
+    "mtol_conv": 1e-16,
+    "yconv_cri": 0.01,
+    "slope_cri": 1e-4,
+    "yconv_min": 0.1,
+    "flux_cri": 0.1,
+    "rtol": 1.0,
+}
+INTEGER_NUMERICS = {"conv_step", "count_max"}
+
+
+def numerical_settings(conf):
+    """Return validated, explicitly supported numerical overrides."""
+    requested = conf.get("numerics", {})
+    unknown = set(requested) - set(DEFAULT_NUMERICS)
+    if unknown:
+        raise ValueError(
+            "Unsupported numerical settings: " + ", ".join(sorted(unknown))
+        )
+
+    settings = DEFAULT_NUMERICS | requested
+    for name, value in settings.items():
+        if not isinstance(value, (int, float)) or value <= 0:
+            raise ValueError(f"Numerical setting {name} must be positive")
+        if name in INTEGER_NUMERICS and not isinstance(value, int):
+            raise ValueError(f"Numerical setting {name} must be an integer")
+    return settings
+
+
 def create_vulcan_cfg(config_file):
     with open(config_file, 'r') as f:
         conf = yaml.safe_load(f)
     
     # Convert const_mix dict to string representation for python file
     const_mix_str = str(conf['atmosphere']['const_mix'])
+    numerics = numerical_settings(conf)
     
     cfg_content = f"""# =============================================================================
 # Configuration file of VULCAN (Auto-generated from {config_file})
@@ -125,7 +159,7 @@ use_sat_surfaceH2O = False # for terrestriall atmospheres where H2O is controlle
 
 # ====== steady state check ======
 st_factor = 0.5
-conv_step = 500
+conv_step = {numerics['conv_step']}
 
 # ====== Setting up numerical parameters for the ODE solver ====== 
 ode_solver = 'Ros2' # case sensitive
@@ -140,21 +174,21 @@ dt_max = runtime*1e-5
 dt_var_max = 2.
 dt_var_min = 0.5
 count_min = 120
-count_max = int(2E4)
-atol = 1.E-1 # Try decreasing this if the solutions are not stable
+count_max = {numerics['count_max']}
+atol = {numerics['atol']} # Try decreasing this if the solutions are not stable
 mtol = 1.E-22
-mtol_conv = 1.E-16
+mtol_conv = {numerics['mtol_conv']}
 pos_cut = 0
 nega_cut = -1.
 loss_eps = 1e12 # for using BC
-yconv_cri = 0.01 # for checking steady-state
-slope_cri = 1.e-4
-yconv_min = 0.1
-flux_cri = 0.1
+yconv_cri = {numerics['yconv_cri']} # for checking steady-state
+slope_cri = {numerics['slope_cri']}
+yconv_min = {numerics['yconv_min']}
+flux_cri = {numerics['flux_cri']}
 flux_atol = 1.
 
 # ====== Setting up numerical parameters for Ros2 ODE solver ====== 
-rtol = 1.             # relative tolerence for adjusting the stepsize 
+rtol = {numerics['rtol']} # relative tolerence for adjusting the stepsize
 post_conden_rtol = 0.05 # switched to this value after fix_species_time
 use_adapt_rtol = False
 rtol_min = 0.02
@@ -203,6 +237,7 @@ if __name__ == "__main__":
         
     except Exception as e:
         print(f"Error: {e}")
+        raise
     finally:
         # Restore
         if os.path.exists('vulcan_cfg.py.bak'):

@@ -1,6 +1,13 @@
 # Ignore temporary run directories
 Photochemical_Modeling/temp_run_*
 
+# Local upstream model checkout and large official LPJmL inputs
+Agricultural_Fluxes_LPJmL/software/LPJmL/
+Agricultural_Fluxes_LPJmL/input_data/
+
+# Non-canonical empty POSEIDON tree at repository root
+/POSEIDON_output/
+
 # Ignore VULCAN git directory if it exists as a submodule or nested repo (optional, usually handled by git automatically)
 # VULCAN/.git
 

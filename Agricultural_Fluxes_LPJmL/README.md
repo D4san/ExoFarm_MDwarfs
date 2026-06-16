@@ -37,10 +37,11 @@ The intended workflow is:
 - `scripts/convert_lpjml_n_flux.py`: small unit converter from LPJmL-style
   nitrogen-mass fluxes to atmospheric molecule fluxes.
 
-No LPJmL source tree or input data are vendored here yet. If we install it
-locally, keep the upstream code under a separate `software/LPJmL/` directory or
-document an external path, and keep ExoFarm scripts and derived outputs separate
-from the upstream model distribution.
+A local upstream LPJmL checkout may live under `software/LPJmL/`, but it is not
+vendored as ExoFarm source and is ignored by the top-level Git configuration.
+Record its version or commit in each experiment record. Keep official input
+datasets outside Git, document their path, and keep ExoFarm scripts and derived
+outputs separate from the upstream model distribution.
 
 ## Conversion Principle
 

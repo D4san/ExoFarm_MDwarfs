@@ -1,8 +1,9 @@
 planet:
   name: 'Earth-Trappist-Current'
-  Rp: 6.3781e8
-  gs: 980.0
-  orbit_radius: 0.02928 # Distance to star in AU (TRAPPIST-1e)
+  # TRAPPIST-1e bulk/orbital parameters from Agol et al. (2021).
+  Rp: 5.867852e8
+  gs: 801.2287
+  orbit_radius: 0.02925 # Semi-major axis in AU
   sl_angle: 48.0        # Solar Zenith Angle (Effective angle for tidally locked day-side)
                         # Specific to TRAPPIST-1e setup (approx. arccos(2/3) or derived from GCMs)
   f_diurnal: 1.0        # Diurnal factor (1.0 = permanent day / no night averaging)
@@ -23,7 +24,7 @@ atmosphere:
     SO2: 2.0e-10
 star:
   type: 'TRAPPIST-1'
-  r_star: 0.117         # Stellar Radius in Solar Radii (TRAPPIST-1)
+  r_star: 0.1192        # Stellar radius in Solar radii
   sflux_file: 'atm/stellar_flux/TRAPPIST1_surface.txt'
 chemistry:
   network: 'thermo/SNCHO_full_photo_network.txt'

@@ -20,7 +20,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PHOTOCHEM_OUTPUTS = PROJECT_ROOT / "Photochemical_Modeling" / "Results" / "Outputs"
 TRANSMISSION_ROOT = PROJECT_ROOT / "Transmission_Spectroscopy"
 PROFILE_DIR = TRANSMISSION_ROOT / "profiles"
-VULCAN_HANDOFF_DIR = TRANSMISSION_ROOT / "vulcan_outputs"
 
 
 def export_one(vul_path: Path, profile_dir: Path, copy_dir: Path | None) -> None:
@@ -82,8 +81,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--copy-vulcan-dir",
         type=Path,
-        default=VULCAN_HANDOFF_DIR,
-        help="Optional destination for copying the raw .vul hand-off files.",
+        default=None,
+        help=(
+            "Optional destination for copying raw .vul files. Omit this option "
+            "to keep Photochemical_Modeling/Results/Outputs as the canonical copy."
+        ),
     )
     parser.add_argument(
         "--pattern",

@@ -9,9 +9,25 @@ secciones de un artículo.
 
 ## Informes
 
+- [Construcción de los perfiles fotoquímicos de ExoFarm con VULCAN](photochemical_profiles_methodology.md)
+  Descripción narrativa y auditable de la red química, malla vertical, flujos
+  A0-A3, espectros estelares, geometría de iluminación y bloqueo por marea.
+- [Auditoría de reproducción de perfiles verticales VULCAN, 2026-06-15](vulcan_profile_reproduction_2026-06-15.md)
+  Registra la corrección de los parámetros físicos de TRAPPIST-1e, la condición
+  de borde duplicada de H2SO4 y la comparación cuantitativa de los ocho perfiles.
 - [Distinguibilidad posterior entre A0 y A3 para campañas equivalentes](trappist1e_a0_a3_diagonal_posterior_distinguishability.md)  
   Interpretación metodológica y científica de tres diagnósticos que comparan
   las abundancias recuperadas de `N2O` y `NH3` en TRAPPIST-1e.
+- [Inventario de espectroscopia de transmisión, 2026-06-16](transmission_spectroscopy_inventory_2026-06-16.md)
+  Diagnóstico read-only de `Transmission_Spectroscopy/`: rutas activas,
+  productos legacy/ambiguos, scripts de plots, ubicación de figuras y entorno
+  POSEIDON en Ubuntu/WSL.
+- [Estructura del repositorio y ubicaciones canónicas](repository_structure.md)
+  Define dónde deben vivir configuraciones, productos y reportes, y clasifica
+  las rutas legacy de la raíz.
+- [Workflow de revisión, organización y limpieza del repositorio](repository_cleanup_workflow.md)
+  Procedimiento liviano para auditar estructura, clasificar evidencia, borrar
+  residuos temporales solo con aprobación y registrar decisiones duraderas.
 
 ## Convención documental
 
@@ -24,3 +40,7 @@ Cada informe debe identificar:
 5. aquello que todavía no puede concluirse;
 6. el siguiente análisis necesario;
 7. las referencias que justifican las decisiones.
+
+El estado resumido de las campañas y las decisiones de limpieza se documentan
+en [`../experiments/README.md`](../experiments/README.md) y
+[`../experiments/cleanup.md`](../experiments/cleanup.md).

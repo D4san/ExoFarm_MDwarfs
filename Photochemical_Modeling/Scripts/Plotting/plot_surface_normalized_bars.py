@@ -84,7 +84,12 @@ for star in stars:
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 axes = axes.flatten()
 
-fig.suptitle("Surface Abundance Normalized to Current Earth (Sun-A1)", fontsize=16, y=0.96)
+fig.suptitle(
+    "Surface Abundance Normalized to Current Earth (Sun-A1)\n"
+    "TRAPPIST-1e values use diagnostic step-limited profiles",
+    fontsize=16,
+    y=0.98,
+)
 
 bar_width = 0.35
 x = np.arange(len(scenarios))
@@ -159,9 +164,9 @@ handles = [
     Line2D([0], [0], color='gray', linestyle='--', linewidth=1.5)
 ]
 labels = ['Sun (G2V)', 'TRAPPIST-1e (M8V)', 'Baseline (Current Earth)']
-fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.92), ncol=3, fontsize=11)
+fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.90), ncol=3, fontsize=11)
 
-plt.tight_layout(rect=[0, 0, 1, 0.88])
+plt.tight_layout(rect=[0, 0, 1, 0.86])
 output_file = os.path.join(plot_dir, 'surface_normalization_bars.png')
 plt.savefig(output_file, dpi=300)
 print(f"Saved normalized bar plot to {output_file}")

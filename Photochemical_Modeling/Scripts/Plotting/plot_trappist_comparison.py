@@ -21,7 +21,11 @@ species_to_plot = ['N2O', 'NH3', 'O3', 'CH4']
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 axes = axes.flatten()
 
-fig.suptitle("TRAPPIST-1e System (M8V)", fontsize=16)
+fig.suptitle(
+    "TRAPPIST-1e System (M8V)\n"
+    "Diagnostic profiles: VULCAN stopped at the configured step limit",
+    fontsize=16,
+)
 
 for i, sp in enumerate(species_to_plot):
     ax = axes[i]
@@ -63,7 +67,7 @@ for i, sp in enumerate(species_to_plot):
     if i == 0: # Legend only on first plot to avoid clutter
         ax.legend()
 
-plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.tight_layout(rect=[0, 0, 1, 0.92])
 plot_dir = os.path.join(RESULTS_DIR, 'Plots')
 output_plot = os.path.join(plot_dir, 'trappist_comparison.png')
 if not os.path.exists(plot_dir):

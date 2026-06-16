@@ -6,6 +6,14 @@
 **Comparación:** línea base preagrícola A0 frente a ExoFarm extremo A3  
 **Campañas:** 5, 10, 20 y 100 tránsitos con MIRI, NIRSpec y NIRSpec+MIRI
 
+> [!WARNING]
+> **Estado científico revisado el 2026-06-16:** los perfiles TRAPPIST-1e de
+> VULCAN usados aguas arriba terminaron con `end_case = 3`, es decir, excedieron
+> el máximo de pasos antes de satisfacer el criterio global de convergencia. La
+> auditoría posterior identifica la señal restante como dominada por química
+> traza de baja abundancia. Este análisis puede leerse como parte de la campaña
+> activa, siempre que se mantenga explícita la caveat de convergencia parcial.
+
 ## Pregunta científica
 
 Este análisis no pregunta solamente si una molécula puede detectarse. La
@@ -27,9 +35,11 @@ gran escala podría perturbar el ciclo planetario del nitrógeno y aumentar el
 `N2O` y el `NH3` atmosféricos [1]. En el diseño actual del proyecto, A0
 representa la línea base natural preagrícola y A3 el extremo superior de
 forzamiento agrícola, anclado al marco de tecnosferas S2 [5]. La etapa
-espectroscópica pregunta si esos estados fotoquímicamente autoconsistentes
-continúan siendo distinguibles después de introducir ruido sintético de JWST y
-realizar retrieval atmosférico.
+espectroscópica pregunta si esos estados continúan siendo
+distinguibles después de introducir ruido sintético de JWST y realizar
+retrieval atmosférico. La auditoría posterior mostró que los perfiles actuales
+no alcanzaron el criterio global estricto de VULCAN, pero fueron aceptados con
+una caveat de convergencia parcial dominada por gases traza.
 
 ## Por qué se compara únicamente la diagonal
 

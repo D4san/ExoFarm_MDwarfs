@@ -124,6 +124,32 @@ entries produced from this repository.
 - Include references with DOI, arXiv, or stable project/source links whenever
   they justify a scientific or methodological choice.
 
+## Repository Review and Cleanup Workflow
+
+When the user asks to review, organize, clean, depurar, or tidy the repository,
+use `docs/repository_cleanup_workflow.md` as the operating procedure.
+
+Trigger phrases include "revisemos el repo", "organicemos el repo",
+"depuremos el repo", "hay codigo basura?", "borremos experimentos fallidos",
+and "limpiemos outputs temporales".
+
+The expected sequence is:
+
+1. Inspect read-only first: structure, `git status`, tracked/untracked files,
+   sizes, temporary folders, caches, legacy paths, and suspicious code markers.
+2. Classify findings as canonical evidence, audit evidence, legacy evidence,
+   temporary execution residue, or ambiguous product.
+3. Report exact proposed deletion targets and wait for explicit approval unless
+   the user already approved those exact targets in the same turn.
+4. Delete narrowly, verify the target is gone, and report what was left
+   unchanged.
+5. Record durable decisions in `docs/`, `experiments/cleanup.md`, or
+   `AGENTS.md` as appropriate.
+
+Never delete scientific products merely because they are old, failed,
+step-limited, or superseded. Preserve enough inputs, commands, logs, reports,
+or manifests for a colleague to understand the decision.
+
 ## Coding Standards
 
 Write code as if another scientist will audit it six months from now.
@@ -165,6 +191,12 @@ For scientific calculations:
 - Test species-specific nitrogen atom counts (`N2O` has 2 N atoms, `NH3` has 1).
 - Check that the same scenario/instrument/transit naming is used by samples,
   results, spectra, and synthetic `.dat` files.
+- Do not classify a TRAPPIST-1e VULCAN product as failed solely because it
+  saved with `end_case = 3`. The 2026-06-15 accepted products are
+  trace-limited partial-convergence profiles: the remaining global convergence
+  signal is dominated by low-abundance `C2H5` near 0.019 bar. State this caveat
+  explicitly, and only call the product failed if the target species, spectral
+  products, or documented acceptance criteria are actually invalid.
 - Do not interpret a retrieved posterior as a detection unless the model
   assumptions, degeneracies, and profile mismatch have been considered.
 
@@ -204,6 +236,13 @@ Notebook cells should be atomized:
 
 POSEIDON work generally does not run in the repo `.venv`. It should be run in
 the Ubuntu/Anaconda environment named `POSEIDON`.
+
+For spectroscopy/retrieval organization tasks, first consult
+`docs/transmission_spectroscopy_inventory_2026-06-16.md`. It records the current
+read-only inventory of active TRAPPIST-1e retrieval products, synthetic data,
+plot scripts, figure locations, and legacy/ambiguous outputs. Do not delete or
+move spectroscopy plots, notebooks, retrieval products, or POSEIDON outputs
+without explicit user approval for exact paths.
 
 Preferred commands inside Ubuntu:
 

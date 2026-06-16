@@ -22,6 +22,7 @@ import sys
 import time
 import glob
 from collections import deque
+from vulcan_output_checks import inspect_vulcan_termination
 
 # ==========================================
 # Configuration
@@ -222,7 +223,22 @@ for proc in processes:
 
     # 1. Collect Output Files (.vul)
     vul_files = glob.glob(os.path.join(temp_dir, 'output', '*.vul'))
-    run_failed = return_code != 0 or not vul_files
+    termination_failures = []
+    for vul_file in vul_files:
+        try:
+            termination = inspect_vulcan_termination(vul_file)
+        except Exception as error:
+            termination_failures.append(
+                f"{os.path.basename(vul_file)} unreadable: {error}"
+            )
+            continue
+        if termination['end_case'] != 1:
+            termination_failures.append(
+                f"{os.path.basename(vul_file)} end_case={termination['end_case']} "
+                f"count={termination['count']} longdy={termination['longdy']:.3e}"
+            )
+
+    run_failed = return_code != 0 or not vul_files or bool(termination_failures)
 
     if run_failed:
         failed_runs.append(run_id)
@@ -230,6 +246,13 @@ for proc in processes:
             print(f"[{run_id}] ERROR: Process finished but produced no .vul files.")
         elif return_code != 0:
             print(f"[{run_id}] ERROR: VULCAN exited with code {return_code}.")
+        elif termination_failures:
+            print(
+                f"[{run_id}] ERROR: VULCAN products did not pass the "
+                "steady-state termination gate:"
+            )
+            for failure in termination_failures:
+                print(f"[{run_id}] - {failure}")
 
         log_tail = read_log_tail(log_file_path)
         if log_tail:
@@ -238,6 +261,10 @@ for proc in processes:
         if KEEP_FAILED_TEMP:
             print(f"[{run_id}] Preserving temp directory for debugging: {temp_dir}")
             continue
+
+        print(f"[{run_id}] Removing failed temp directory: {temp_dir}")
+        shutil.rmtree(temp_dir)
+        continue
 
     for vf in vul_files:
         fname = os.path.basename(vf)

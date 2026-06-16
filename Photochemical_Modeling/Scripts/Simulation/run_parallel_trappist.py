@@ -22,6 +22,7 @@ import time
 import glob
 import sys
 from collections import deque
+from vulcan_output_checks import inspect_vulcan_termination
 
 
 # =============================================================================
@@ -70,6 +71,7 @@ if scenario_filter:
 KEEP_FAILED_TEMP = True
 KEEP_SUCCESS_TEMP = os.environ.get('EXOFARM_KEEP_TEMP', '').strip() == '1'
 LOG_TAIL_LINES = 80
+ACCEPT_TRACE_LIMITED_END_CASES = {1, 3}
 
 
 def read_log_tail(log_path, max_lines=LOG_TAIL_LINES):
@@ -211,13 +213,42 @@ for proc in processes:
 
     # Find .vul files in temp_dir/output
     vul_files = glob.glob(os.path.join(temp_dir, 'output', '*.vul'))
-    run_failed = return_code != 0 or not vul_files
+    termination_failures = []
+    for vul_file in vul_files:
+        try:
+            termination = inspect_vulcan_termination(vul_file)
+        except Exception as error:
+            termination_failures.append(
+                f"{os.path.basename(vul_file)} unreadable: {error}"
+            )
+            continue
+        if termination['end_case'] not in ACCEPT_TRACE_LIMITED_END_CASES:
+            termination_failures.append(
+                f"{os.path.basename(vul_file)} end_case={termination['end_case']} "
+                f"count={termination['count']} longdy={termination['longdy']:.3e}"
+            )
+        elif termination['end_case'] == 3:
+            print(
+                f"[{run_id}] WARNING: {os.path.basename(vul_file)} stopped with "
+                f"end_case=3 count={termination['count']} "
+                f"longdy={termination['longdy']:.3e}; accepting as a "
+                "trace-limited partial-convergence product."
+            )
+
+    run_failed = return_code != 0 or not vul_files or bool(termination_failures)
     if run_failed:
         failed_runs.append(run_id)
         if return_code == 0 and not vul_files:
             print(f"[{run_id}] ERROR: Process finished but produced no .vul files.")
         elif return_code != 0:
             print(f"[{run_id}] ERROR: VULCAN exited with code {return_code}.")
+        elif termination_failures:
+            print(
+                f"[{run_id}] ERROR: VULCAN products did not pass the "
+                "TRAPPIST-1e acceptance gate:"
+            )
+            for failure in termination_failures:
+                print(f"[{run_id}] - {failure}")
 
         log_tail = read_log_tail(log_file_path)
         if log_tail:
@@ -226,6 +257,10 @@ for proc in processes:
         if KEEP_FAILED_TEMP:
             print(f"[{run_id}] Preserving temp directory for debugging: {temp_dir}")
             continue
+
+        print(f"[{run_id}] Removing failed temp directory: {temp_dir}")
+        shutil.rmtree(temp_dir)
+        continue
 
     for vf in vul_files:
         fname = os.path.basename(vf)

@@ -22,6 +22,17 @@ The current study compares two stellar environments:
 
 All VULCAN scenarios inherit the official Earth baseline setup, so the atmospheric template, sulfur chemistry, and lower-boundary architecture remain fixed unless intentionally modified. In practice, the controlled experiment is defined by changing the stellar irradiation field and the imposed surface fluxes of $N_2O$ and $NH_3$.
 
+### Current Scientific Status
+
+The four saved Earth-Sun A0-A3 products reached VULCAN's saved steady-state
+termination condition. The four current TRAPPIST-1e products stopped at the
+configured maximum step count with `end_case = 3`, but the non-convergence is
+dominated by low-abundance trace chemistry rather than by the target nitrogen
+species alone. These profiles are therefore accepted as the current
+TRAPPIST-1e products with a documented partial-convergence caveat, not as
+failed experiments. See
+[`docs/vulcan_profile_reproduction_2026-06-15.md`](docs/vulcan_profile_reproduction_2026-06-15.md).
+
 ---
 
 ## Repository Layout
@@ -38,7 +49,20 @@ Profile export products, transmission-spectrum synthesis, synthetic JWST observa
 ### `VULCAN/`
 Local working copy of the VULCAN photochemical solver used as the chemistry engine for Stage I of the pipeline.
 
+### `experiments/`
+Compact human index of active, accepted, legacy, and cleanup-review campaigns.
+Scientific products remain in their stage directories; reports live in `docs/`.
+
 The top-level directory names were chosen to reflect the scientific role of each module rather than a generic "research" or notebook-oriented organization.
+
+---
+
+## Experiment and Cleanup Notes
+
+Use [`experiments/README.md`](experiments/README.md) as the compact campaign
+index and [`experiments/cleanup.md`](experiments/cleanup.md) for reviewed
+cleanup candidates. Canonical product locations and legacy root directories are
+documented in [`docs/repository_structure.md`](docs/repository_structure.md).
 
 ---
 
@@ -140,7 +164,9 @@ python run_all_plots.py
 
 The transmission-spectroscopy stage is organized around notebooks and retrieval scripts in `Transmission_Spectroscopy/notebooks/`. In broad terms, the recommended order is:
 
-1. Export the latest VULCAN `.vul` files into `Transmission_Spectroscopy/profiles/` and `Transmission_Spectroscopy/vulcan_outputs/`.
+1. Export the latest VULCAN `.vul` files into
+   `Transmission_Spectroscopy/profiles/`; the canonical raw `.vul` files remain
+   in `Photochemical_Modeling/Results/Outputs/`.
 2. Generate TRAPPIST-1e forward spectra in the POSEIDON workflow.
 3. Generate paired JWST-compatible datasets for 5, 10, and 20 observations with NIRSpec Prism and MIRI LRS.
 4. Execute the retrieval scripts for the selected scenario, transit count, and instrument mode.
@@ -170,11 +196,11 @@ python run_trappist_retrieval.py --scenario A3 --n-transits 5 --instrument both
 ```
 
 The active retrieval campaign is documented in
-`Transmission_Spectroscopy/README.md`. In short, the synthetic grid covers
-A0-A3 for 5, 10, and 20 transits with both NIRSpec Prism and MIRI LRS. The
-first retrieval campaign prioritizes A3 at 5, 10, and 20 transits for MIRI-only,
-NIRSpec-only, and joint NIRSpec+MIRI runs; A0 can be repeated as the baseline
-retrieval campaign if needed.
+`Transmission_Spectroscopy/README.md`. Its queue currently contains 42 runs:
+A0 and A3 at 5, 10, 20, and 100 transits, plus A1 and A2 at 5, 10, and 20
+transits, each for MIRI-only, NIRSpec-only, and joint NIRSpec+MIRI retrievals.
+Use the retrieval product inventory to distinguish complete, partial, and
+failed-resume product sets; structural completion is not scientific validation.
 
 ---
 
