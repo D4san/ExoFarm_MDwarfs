@@ -34,13 +34,13 @@ RETRIEVED_COLORS = {
     "A3": "#E34F95",  # scenario_pink
 }
 
-# True model colors (bright neon colors, as requested)
+# True model colors (using blue and purple from the palette as requested)
 TRUE_COLORS = {
-    "A0": "#39FF14",  # Neon Green
-    "A3": "#FF1493",  # Neon Pink
+    "A0": "#002642",  # deep_space_blue
+    "A3": "#BD62E3",  # scenario_violet
 }
 
-# Observation point colors (darker shades of scenario colors for readability)
+# Observation point colors (darker shades for readability)
 OBSERVATION_COLORS = {
     "A0": "#3F633E",  # deep_moss
     "A3": "#840032",  # dark_amaranth
@@ -174,7 +174,22 @@ def main():
             ax = axes[r_idx, c_idx]
             x_min, x_max = window["xlim"]
             
-            # 1. Plot retrieved spectrum envelopes (1 and 2 sigma) with lower resolution and more transparency
+            # Get common observation wavelengths in this window for rebinning the True curves
+            obs_wls = []
+            for scenario in ("A0", "A3"):
+                obs_list = data_cache[transits][scenario]["observations"]
+                for obs in obs_list:
+                    mask = (obs["wl"] >= x_min) & (obs["wl"] <= x_max)
+                    obs_wls.extend(obs["wl"][mask])
+            
+            # Sort and remove duplicates to create a clean instrument-resolution grid for True curves
+            if len(obs_wls) > 0:
+                true_plot_wl = np.sort(np.unique(obs_wls))
+            else:
+                # Fallback if no observations found
+                true_plot_wl = np.linspace(x_min, x_max, 60)
+            
+            # 1. Plot retrieved spectrum envelopes (1 and 2 sigma)
             for scenario in ("A0", "A3"):
                 ret_raw = data_cache[transits][scenario]["retrieved_raw"]
                 if ret_raw is None:
@@ -185,7 +200,7 @@ def main():
                 target_wl = np.linspace(x_min, x_max, 100)
                 ret = resample_retrieved_spectrum(ret_raw, target_wl)
                 
-                # 2-sigma envelope (more transparent, alpha=0.07)
+                # 2-sigma envelope (alpha=0.07)
                 ax.fill_between(
                     ret["wl"],
                     ret["minus_2"],
@@ -195,7 +210,7 @@ def main():
                     lw=0,
                     zorder=1,
                 )
-                # 1-sigma envelope (more transparent, alpha=0.18)
+                # 1-sigma envelope (alpha=0.18)
                 ax.fill_between(
                     ret["wl"],
                     ret["minus_1"],
@@ -243,25 +258,28 @@ def main():
                         label=f"Obs {scenario}" if r_idx == 0 and c_idx == 0 else "_nolegend_",
                     )
 
-            # 3. Plot the true spectra (solid lines, on top of everything, zorder=20, neon colors)
+            # 3. Plot the true spectra rebinned to the observation wavelengths (dashed, thin, zorder=20, blue & purple)
             for scenario in ("A0", "A3"):
                 color = TRUE_COLORS[scenario]
-                mask = (truth[scenario]["wl"] >= x_min) & (truth[scenario]["wl"] <= x_max)
+                
+                # Interpolate True model to the observation wavelengths (rebinear)
+                true_y_rebinned = np.interp(true_plot_wl, truth[scenario]["wl"], truth[scenario]["depth"])
+                
                 ax.plot(
-                    truth[scenario]["wl"][mask],
-                    truth[scenario]["depth"][mask],
+                    true_plot_wl,
+                    true_y_rebinned,
                     color=color,
-                    linestyle="-",
-                    linewidth=1.75,
+                    linestyle="--",     # Dashed as requested
+                    linewidth=1.1,      # Thinner as requested
                     label=f"True {scenario}" if r_idx == 0 and c_idx == 0 else "_nolegend_",
-                    zorder=20,  # En la parte superior de todo
+                    zorder=20,          # On top of everything
                 )
 
             # Grid and styling
             ax.set_xlim(x_min, x_max)
             ax.grid(alpha=0.12, which="both", linestyle="--")
             
-            # Common y-limits per column (zoom appropriate, with percentile padding)
+            # Common y-limits per column
             y_vals = column_y_values[c_idx]
             if len(y_vals) > 0:
                 y_low, y_high = np.percentile(y_vals, [0.5, 99.5])
@@ -303,7 +321,6 @@ def main():
     png_path = PLOTS_DIR / "trappist_retrieved_zooms_A0_A3.png"
     pdf_path = PLOTS_DIR / "trappist_retrieved_zooms_A0_A3.pdf"
     
-    # Render with tight_layout or constrained_layout adjusted
     fig.savefig(png_path, dpi=240, bbox_inches="tight")
     fig.savefig(pdf_path, bbox_inches="tight")
     print(f"Saved: {png_path}")
