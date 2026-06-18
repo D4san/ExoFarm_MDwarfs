@@ -34,9 +34,9 @@ RETRIEVED_COLORS = {
     "A3": "#E34F95",  # scenario_pink
 }
 
-# True model colors (using blue and purple from the palette as requested)
+# True model colors (using vibrant scenario_cyan and scenario_violet from the main palette as requested)
 TRUE_COLORS = {
-    "A0": "#002642",  # deep_space_blue
+    "A0": "#56E3DB",  # scenario_cyan
     "A3": "#BD62E3",  # scenario_violet
 }
 
@@ -51,11 +51,14 @@ INSTRUMENT_FILE_LABELS = {
     "MIRI": "JWST_MIRI_LRS",
 }
 
-# Expanded NH3 window to 13.0 microns as requested
+# Zoom windows adjusted according to user feedback:
+# 1. 4.5 um N2O shifted to start at 3.8 um.
+# 2. 8.6 um N2O expanded to go from 7.0 to 9.2 um.
+# 3. 10.7 um NH3 range limited from 9.5 to 12.0 um.
 ZOOM_WINDOWS = [
-    {"name": r"N$_2$O (4.5 $\mu$m)", "xlim": (4.2, 4.9)},
-    {"name": r"N$_2$O (8.6 $\mu$m)", "xlim": (7.8, 9.2)},
-    {"name": r"NH$_3$ (10.7 $\mu$m)", "xlim": (9.8, 13.0)},
+    {"name": r"N$_2$O (4.5 $\mu$m)", "xlim": (3.8, 4.9)},
+    {"name": r"N$_2$O (8.6 $\mu$m)", "xlim": (7.0, 9.2)},
+    {"name": r"NH$_3$ (10.7 $\mu$m)", "xlim": (9.5, 12.0)},
 ]
 
 def retrieval_spectrum_path(scenario, transits):
@@ -155,7 +158,6 @@ def main():
                 # Add to y-value scaling limits per window using a smooth resampled version
                 for c_idx, window in enumerate(ZOOM_WINDOWS):
                     x_min, x_max = window["xlim"]
-                    # Smooth target grid of 100 points for lower resolution plotting
                     target_wl = np.linspace(x_min, x_max, 100)
                     ret_resampled = resample_retrieved_spectrum(ret_raw, target_wl)
                     
@@ -186,52 +188,51 @@ def main():
             if len(obs_wls) > 0:
                 true_plot_wl = np.sort(np.unique(obs_wls))
             else:
-                # Fallback if no observations found
                 true_plot_wl = np.linspace(x_min, x_max, 60)
             
-            # 1. Plot retrieved spectrum envelopes (1 and 2 sigma)
+            # 1. Plot retrieved spectrum envelopes (1 and 2 sigma) - slightly more saturated as requested
             for scenario in ("A0", "A3"):
                 ret_raw = data_cache[transits][scenario]["retrieved_raw"]
                 if ret_raw is None:
                     continue
                 color = RETRIEVED_COLORS[scenario]
                 
-                # Smooth target grid of 100 points for plotting (bajarle resolución)
+                # Smooth target grid of 100 points for plotting
                 target_wl = np.linspace(x_min, x_max, 100)
                 ret = resample_retrieved_spectrum(ret_raw, target_wl)
                 
-                # 2-sigma envelope (alpha=0.07)
+                # 2-sigma envelope (more saturated, alpha=0.14)
                 ax.fill_between(
                     ret["wl"],
                     ret["minus_2"],
                     ret["plus_2"],
                     color=color,
-                    alpha=0.07,
+                    alpha=0.14,
                     lw=0,
                     zorder=1,
                 )
-                # 1-sigma envelope (alpha=0.18)
+                # 1-sigma envelope (more saturated, alpha=0.26)
                 ax.fill_between(
                     ret["wl"],
                     ret["minus_1"],
                     ret["plus_1"],
                     color=color,
-                    alpha=0.18,
+                    alpha=0.26,
                     lw=0,
                     zorder=2,
                 )
-                # Median retrieved fit (alpha=0.75)
+                # Median retrieved fit (alpha=0.85)
                 ax.plot(
                     ret["wl"],
                     ret["median"],
                     color=color,
                     linewidth=1.8,
-                    alpha=0.75,
+                    alpha=0.85,
                     zorder=3,
                     label=f"Retrieved {scenario}" if r_idx == 0 and c_idx == 0 else "_nolegend_",
                 )
 
-            # 2. Plot synthetic observations (points with error bars) at the noisy observed value
+            # 2. Plot synthetic observations (points with error bars) at the noisy observed value - NO TRANSPARENCY (alpha=1.0)
             for scenario in ("A0", "A3"):
                 color = OBSERVATION_COLORS[scenario]
                 obs_list = data_cache[transits][scenario]["observations"]
@@ -241,7 +242,7 @@ def main():
                     if not np.any(mask):
                         continue
                     
-                    # Plot error bars and points at the noisy observed values, with alpha transparency (alpha=0.45)
+                    # Plot observations with alpha=1.0 (no transparency) as requested
                     ax.errorbar(
                         obs["wl"][mask],
                         obs["depth"][mask],
@@ -250,7 +251,7 @@ def main():
                         markersize=3,
                         color=color,
                         ecolor=color,
-                        alpha=0.45,
+                        alpha=1.0,
                         elinewidth=0.8,
                         capsize=1.5,
                         linestyle="none",
@@ -258,21 +259,21 @@ def main():
                         label=f"Obs {scenario}" if r_idx == 0 and c_idx == 0 else "_nolegend_",
                     )
 
-            # 3. Plot the true spectra rebinned to the observation wavelengths (dashed, thin, zorder=20, blue & purple)
+            # 3. Plot the true spectra rebinned to the observation wavelengths - DOTTED (linestyle=":")
             for scenario in ("A0", "A3"):
                 color = TRUE_COLORS[scenario]
                 
-                # Interpolate True model to the observation wavelengths (rebinear)
+                # Interpolate True model to the observation wavelengths
                 true_y_rebinned = np.interp(true_plot_wl, truth[scenario]["wl"], truth[scenario]["depth"])
                 
                 ax.plot(
                     true_plot_wl,
                     true_y_rebinned,
                     color=color,
-                    linestyle="--",     # Dashed as requested
-                    linewidth=1.1,      # Thinner as requested
+                    linestyle=":",       # Dotted as requested
+                    linewidth=1.2,       # Thin
                     label=f"True {scenario}" if r_idx == 0 and c_idx == 0 else "_nolegend_",
-                    zorder=20,          # On top of everything
+                    zorder=20,           # On top
                 )
 
             # Grid and styling
@@ -298,7 +299,7 @@ def main():
             if c_idx == 0:
                 ax.set_ylabel("Transit Depth (ppm)", fontsize=10)
                 
-            # Add row indicators on the right side of the figure (cleaner than left margin)
+            # Add row indicators on the right side of the figure
             if c_idx == 2:
                 ax.text(
                     1.05, 0.5, f"{transits} Transits",
