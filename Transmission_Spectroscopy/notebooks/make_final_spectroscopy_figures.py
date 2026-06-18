@@ -13,6 +13,7 @@ import shutil
 import plot_a0_a3_diagonal_distinguishability
 import plot_pure_transmission_spectra
 import plot_retrieved_zooms
+import plot_molecular_snr_summary
 
 
 NOTEBOOK_DIR = Path(__file__).resolve().parent
@@ -56,6 +57,10 @@ FINAL_PLOT_SOURCES = (
         TRAPPIST_PLOTS_DIR,
         "trappist_retrieved_global_A0_A3_v2",
     ),
+    (
+        TRAPPIST_PLOTS_DIR,
+        "trappist1e_net_molecular_snr_comparison",
+    ),
 )
 
 
@@ -78,6 +83,7 @@ def main():
     plot_pure_transmission_spectra.main()
     plot_a0_a3_diagonal_distinguishability.main()
     plot_retrieved_zooms.main()
+    plot_molecular_snr_summary.main()
 
     for source_dir, stem in FINAL_PLOT_SOURCES:
         copy_plot(source_dir, stem)
