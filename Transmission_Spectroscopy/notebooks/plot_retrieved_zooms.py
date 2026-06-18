@@ -59,7 +59,7 @@ INSTRUMENT_FILE_LABELS = {
 
 # Zoom windows restricted according to user feedback
 ZOOM_WINDOWS = [
-    {"name": r"N$_2$O (4.5 $\mu$m)", "xlim": (4.4, 4.7)},
+    {"name": r"N$_2$O (2.9 $\mu$m)", "xlim": (2.6, 3.0)},
     {"name": r"N$_2$O (8.6 $\mu$m)", "xlim": (8.2, 9.0)},
     {"name": r"NH$_3$ (10.7 $\mu$m)", "xlim": (10.6, 11.7)},
 ]

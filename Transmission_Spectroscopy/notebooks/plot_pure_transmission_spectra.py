@@ -101,7 +101,6 @@ MOLECULAR_SIGNAL_WINDOWS = {
         ("N2O_2p6_3p0", 2.60, 3.00),
         ("N2O_4p3_4p8", 4.30, 4.80),
         ("N2O_7p5_9p0", 7.50, 9.00),
-        ("N2O_16p0_18p0", 16.00, 18.00),
     ),
     "NH3": (
         ("NH3_9p0_10p0", 9.00, 10.00),
@@ -122,7 +121,7 @@ TOP_SPECTRUM_ANNOTATIONS = (
 )
 INSTRUMENT_COVERAGE_BARS = (
     (0.6025, 5.2976, "NIRSpec PRISM", PALETTE["charcoal_violet"]),
-    (5.0213, 11.9998, "MIRI LRS", PALETTE["scenario_cyan"]),
+    (5.0213, 11.9998, "MIRI LRS", PALETTE["scenario_violet"]),
 )
 
 

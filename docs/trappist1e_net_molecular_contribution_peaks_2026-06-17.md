@@ -74,7 +74,6 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 | N2O_2p6_3p0 | 2.60-3.00 | 2.857 | 1.863 | 1.863 | NIRSpec_PRISM | 152.86 | 0.012 | 0.039 | 0.122 |
 | N2O_4p3_4p8 | 4.30-4.80 | 4.465 | 2.899 | 2.899 | NIRSpec_PRISM | 277.33 | 0.010 | 0.033 | 0.105 |
 | N2O_7p5_9p0 | 7.50-9.00 | 7.651 | 4.272 | 4.272 | MIRI_LRS | 468.67 | 0.009 | 0.029 | 0.091 |
-| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 3.220 | 3.220 | outside_coverage |  |  |  |  |
 
 #### NH3
 
@@ -101,7 +100,6 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 | N2O_2p6_3p0 | 2.60-3.00 | 2.878 | 5.304 | 5.304 | NIRSpec_PRISM | 149.49 | 0.035 | 0.112 | 0.355 |
 | N2O_4p3_4p8 | 4.30-4.80 | 4.465 | 6.098 | 6.098 | NIRSpec_PRISM | 277.33 | 0.022 | 0.070 | 0.220 |
 | N2O_7p5_9p0 | 7.50-9.00 | 8.641 | 6.745 | 6.745 | MIRI_LRS | 576.87 | 0.012 | 0.037 | 0.117 |
-| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 6.238 | 6.238 | outside_coverage |  |  |  |  |
 
 #### NH3
 
@@ -128,7 +126,6 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 | N2O_2p6_3p0 | 2.60-3.00 | 2.868 | 13.166 | 13.166 | NIRSpec_PRISM | 151.76 | 0.087 | 0.274 | 0.868 |
 | N2O_4p3_4p8 | 4.30-4.80 | 4.514 | 16.231 | 16.231 | NIRSpec_PRISM | 305.36 | 0.053 | 0.168 | 0.532 |
 | N2O_7p5_9p0 | 7.50-9.00 | 8.641 | 18.954 | 18.954 | MIRI_LRS | 576.87 | 0.033 | 0.104 | 0.329 |
-| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 16.074 | 16.074 | outside_coverage |  |  |  |  |
 
 #### NH3
 
