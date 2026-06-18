@@ -330,6 +330,14 @@ Transmission_Spectroscopy/notebooks/exofarm_plot_style.py
 Current named colours:
 
 ```text
+scenario_pink   = #E34F95
+scenario_violet = #BD62E3
+scenario_cyan   = #56E3DB
+scenario_green  = #95E36B
+terracotta_mauve = #8E5651
+charcoal_violet  = #5B4763
+slate_green      = #57635E
+deep_moss        = #3F633E
 deep_space_blue = #002642
 midnight_violet = #42133A
 dark_amaranth   = #840032
@@ -360,12 +368,22 @@ Existing retrieved-transit encodings:
 - `20`: `PALETTE["rusty_spice"]`
 - `100`: `PALETTE["dim_grey"]`
 
-Existing scenario encodings in `exofarm_transmission_workflow.py`:
+Preferred A0-A3 scenario encodings for new publication-facing plots:
 
-- `A0`: `darkgreen`
-- `A1`: `royalblue`
-- `A2`: `goldenrod`
-- `A3`: `darkred`
+- `A0`: `PALETTE["scenario_green"]` / `#95E36B`
+- `A1`: `PALETTE["scenario_cyan"]` / `#56E3DB`
+- `A2`: `PALETTE["scenario_violet"]` / `#BD62E3`
+- `A3`: `PALETTE["scenario_pink"]` / `#E34F95`
+
+Use these four vibrant colours for the first visual layer, especially scenario
+families in overplotted profiles. When a second visual layer is needed, such as
+star type, instrument family, or an aggregate trend over scenario colours, use
+the darker secondary colours:
+
+- `terracotta_mauve`: `#8E5651`
+- `charcoal_violet`: `#5B4763`
+- `slate_green`: `#57635E`
+- `deep_moss`: `#3F633E`
 
 Existing molecular contribution encodings:
 
@@ -381,8 +399,9 @@ When creating a new plot, keep visual meaning stable:
 - instrument colours should remain instrument colours;
 - scenario colours should remain scenario colours;
 - transit-count colours should remain transit-count colours;
-- use the existing serif/mathtext style from nearby notebooks when producing
-  publication-facing figures;
+- for publication-facing Matplotlib figures, prefer a serif STIX style:
+  `font.family="serif"`, `font.serif=["STIX Two Text", "STIXGeneral",
+  "Times New Roman"]`, and `mathtext.fontset="stix"`;
 - if a new visual category is necessary, add it to a shared helper rather than
   scattering literal hex codes across scripts.
 

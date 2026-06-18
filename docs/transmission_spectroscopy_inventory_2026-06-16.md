@@ -94,19 +94,21 @@ construye o actualiza esta coleccion. Debe correrse en Ubuntu/WSL con el entorno
 Anaconda `POSEIDON`, porque reutiliza funciones que importan POSEIDON y leen los
 productos actuales.
 
-Familias promovidas por ahora:
+Familias promovidas por ahora. Esta seleccion es provisional y se espera que
+cambie despues:
 
-| Familia | Producto final |
-| :--- | :--- |
-| Espectros sinteticos de los cuatro escenarios | `final_synthetic_observations_by_noise_level.{png,pdf}` |
-| Ruido y reconstrucciones/retrieved spectra | `trappist_retrieval_A3_retrieved_noise_background.{png,pdf}`, `trappist_retrieval_A3_retrieved_spectra_grid.{png,pdf}`, `trappist_retrieved_truth_extremes_A3_10_100transits.{png,pdf}` |
-| Super matriz posterior | `trappist_A0_A3_posterior_sigma_distance_matrix.{png,pdf}` |
+| Familia | Script generador | Producto final |
+| :--- | :--- | :--- |
+| Espectros sinteticos por escenario | `notebooks/plot_pure_transmission_spectra.py` | `trappist1e_pure_a0_difference_mountains.{png,pdf}` |
+| Resultado retrieval A0 | `notebooks/plot_retrieved_truth_extremes.py` | `trappist_retrieved_truth_A0_10_100transits_single_panel.{png,pdf}` |
+| Resultado retrieval A3 | `notebooks/plot_retrieved_truth_extremes.py` | `trappist_retrieved_truth_A3_10_100transits_single_panel.{png,pdf}` |
+| Separacion sigma conjunta A0/A3 | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_joint_sigma_separation.{png,pdf}` |
+| Diferencias posteriores A0/A3 | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_logX_difference_posteriors.{png,pdf}` |
+| Distancia A3 contra referencia A0 | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A3_distance_from_best_A0_reference.{png,pdf}` |
 
 El 2026-06-16 se copiaron a `Transmission_Spectroscopy/final_products/figures/`
-las figuras existentes de ruido/retrieved spectra y la matriz posterior. La
-figura de cuatro escenarios no aparecio como archivo ya exportado; queda
-definida para generarse con `make_final_spectroscopy_figures.py` en el entorno
-POSEIDON.
+las figuras existentes de estas seis familias. Los archivos originales siguen
+en `POSEIDON_output/` para trazabilidad.
 
 ## Scripts y notebooks de plots
 
@@ -170,19 +172,23 @@ organizacion futura deberia separar al menos:
 Por ahora no se hizo esa reorganizacion para evitar romper rutas usadas por
 notebooks o scripts.
 
-## Legacy o ambiguo, conservar por ahora
+## Legacy o ambiguo
 
-Estos elementos requieren decision futura, pero no deben borrarse en automatico:
+Estos elementos fueron revisados durante la depuracion del 2026-06-16. Los
+productos cientificos ambiguos se movieron a rutas `legacy/` en vez de
+borrarse, mientras que los caches y wrappers claramente supersedidos se
+eliminaron tras aprobacion explicita.
 
 | Elemento | Motivo para conservar por ahora |
 | :--- | :--- |
-| `retrieve_trappist_A0_10.py`, `retrieve_trappist_A0_100.py`, `retrieve_trappist_A3_10.py`, `retrieve_trappist_A3_100.py` | Parecen wrappers antiguos supersedidos por `run_trappist_retrieval.py`, pero documentan una etapa previa 10/100 transitos. |
-| `run_campaign_A3_queue.sh` | Parece duplicar el runner general de campana, pero puede haber sido usado como launcher local. |
+| `retrieve_trappist_A0_10.py`, `retrieve_trappist_A0_100.py`, `retrieve_trappist_A3_10.py`, `retrieve_trappist_A3_100.py` | Eliminados; estaban supersedidos por `run_trappist_retrieval.py`. |
+| `run_campaign_A3_queue.sh` | Eliminado; duplicaba `run_campaign_trappist_queue.sh`. |
 | Productos sin sufijo de instrumento en `retrievals/` | Probable campana legacy; no mezclarlos con `MIRI`, `NIRSpec`, `NIRSpec_MIRI` al interpretar resultados actuales. |
-| `retrievals/MultiNest_raw/failed_A0_5_MIRI_20260529` | Evidencia de intento fallido o diagnostico de recuperacion. |
-| `retrievals/MultiNest_raw/legacy_failed_resume` | Evidencia de recuperacion/continuacion fallida; conservar hasta cerrar auditoria. |
-| `POSEIDON_output/Earth/`, `POSEIDON_output/Trappist/`, `POSEIDON_output/Dummy/` | No son nucleo activo actual, pero conviene mover/documentar antes que borrar. |
-| `__pycache__/` en `notebooks/` y `scripts/` | Residuo tecnico borrable, pero el usuario pidio explicitamente no borrar nada en esta fase. |
+| `retrievals/MultiNest_raw/failed_A0_5_MIRI_20260529` | Movido a `retrievals/legacy_failed_runs/failed_A0_5_MIRI_20260529`. |
+| `retrievals/MultiNest_raw/legacy_failed_resume` | Movido a `retrievals/legacy_failed_runs/legacy_failed_resume`. |
+| `POSEIDON_output/Earth/`, `POSEIDON_output/Trappist/` | Movidos a `POSEIDON_output/legacy/`. |
+| `POSEIDON_output/Dummy/` | Eliminado; era un arbol vacio. |
+| `__pycache__/` en `notebooks/` y `scripts/` | Eliminado como residuo tecnico generado. |
 
 ## Diagnostico
 
@@ -192,21 +198,25 @@ recuperable: hay scripts centrales claros y una ruta activa fuerte bajo
 demasiados roles a la vez: laboratorio de notebooks, ejecutor de POSEIDON,
 contenedor de scripts operativos, contenedor de plots y raiz de outputs grandes.
 
-La decision de corto plazo deberia ser documental, no destructiva:
+Despues de la depuracion aprobada, la decision de corto plazo queda asi:
 
 1. tratar `TRAPPIST-1e/retrievals/`, `TRAPPIST-1e/synthetic_data/base_1transit/`
    y los scripts `run_trappist_*` como frente activo;
-2. considerar `Earth/`, `Trappist/`, wrappers A0/A3 10/100, backups de notebooks
-   y productos sin sufijo de instrumento como legacy/ambiguos hasta revisar;
-3. no mover plots aun, pero empezar a etiquetar cuales son figuras de informe y
+2. tratar `POSEIDON_output/legacy/`, `notebooks/legacy/` y
+   `retrievals/legacy_failed_runs/` como evidencia historica separada;
+3. no mover mas plots aun, pero seguir etiquetando cuales son figuras de informe y
    cuales son diagnosticos;
 4. mantener visible que POSEIDON se corre en Ubuntu/WSL con conda `POSEIDON`.
 
 ## Accion tomada
 
 - Se hizo inventario read-only el 2026-06-16.
-- No se borro nada.
-- No se movio nada.
-- No se renombro nada.
+- El 2026-06-16, despues de aprobacion explicita, se eliminaron wrappers de
+  retrieval supersedidos, un launcher duplicado, caches Python y el arbol vacio
+  `POSEIDON_output/Dummy/`.
+- Se movieron notebooks de respaldo/recuperacion a `notebooks/legacy/`.
+- Se movieron productos antiguos `Earth/` y `Trappist/` a
+  `POSEIDON_output/legacy/`.
+- Se movieron intentos fallidos/resume a `retrievals/legacy_failed_runs/`.
 - Esta nota queda como contexto para una futura organizacion conservadora de
   `Transmission_Spectroscopy/`.

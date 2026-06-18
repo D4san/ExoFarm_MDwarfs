@@ -26,11 +26,8 @@ def main():
     print("Starting batch plot generation...\n")
     
     scripts = [
-        "plot_agricultural_comparison.py",
-        "plot_trappist_comparison.py",
-        "plot_surface_normalized_bars.py",
-        "plot_star_comparison.py",
-        "plot_spectra_comparison.py"
+        "plot_spectra_comparison.py",
+        "plot_photochemical_summary_grid.py",
     ]
     
     failed = []

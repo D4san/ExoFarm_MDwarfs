@@ -1,4 +1,12 @@
 EXOFARM_GENERAL_PALETTE = {
+    "scenario_pink": "#E34F95",
+    "scenario_violet": "#BD62E3",
+    "scenario_cyan": "#56E3DB",
+    "scenario_green": "#95E36B",
+    "terracotta_mauve": "#8E5651",
+    "charcoal_violet": "#5B4763",
+    "slate_green": "#57635E",
+    "deep_moss": "#3F633E",
     "deep_space_blue": "#002642",
     "midnight_violet": "#42133A",
     "dark_amaranth": "#840032",

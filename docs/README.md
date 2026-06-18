@@ -18,10 +18,25 @@ secciones de un artículo.
 - [Distinguibilidad posterior entre A0 y A3 para campañas equivalentes](trappist1e_a0_a3_diagonal_posterior_distinguishability.md)  
   Interpretación metodológica y científica de tres diagnósticos que comparan
   las abundancias recuperadas de `N2O` y `NH3` en TRAPPIST-1e.
+- [Generación de espectros sintéticos y simulación de ruido con PandExo](transmission_spectroscopy_synthetic_spectra_generation.md)  
+  Detalles del modelo directo nativo de POSEIDON, los parámetros de PandExo para
+  construir las plantillas de 1 tránsito y la proyección de ruido instrumental.
+- [Campaña de retrievals atmosféricos y configuración del fiteador (MultiNest)](transmission_spectroscopy_retrieval_campaign.md)  
+  Descripción del modelo de retrieval isotérmico/isoquímico, la justificación física
+  de omitir la superficie sólida y la grilla de las 42 corridas de inversión.
 - [Inventario de espectroscopia de transmisión, 2026-06-16](transmission_spectroscopy_inventory_2026-06-16.md)
   Diagnóstico read-only de `Transmission_Spectroscopy/`: rutas activas,
   productos legacy/ambiguos, scripts de plots, ubicación de figuras y entorno
   POSEIDON en Ubuntu/WSL.
+- [Picos de contribución molecular neta en TRAPPIST-1e, 2026-06-17](trappist1e_net_molecular_contribution_peaks_2026-06-17.md)
+  Resume el diagnóstico contrafactual donde `N2O`, `NH3` y `H2O` se resetean
+  al perfil `A0` dentro de `A1-A3`, y exporta los tres picos residuales más
+  fuertes por molécula y escenario. Registra además la trazabilidad de la
+  figura oficial `trappist1e_pure_a0_molecular_residuals_v2`.
+- [Promedio columnar de mixing ratio para perfiles fotoquímicos, 2026-06-17](photochemical_column_averaged_mixing_ratio_2026-06-17.md)
+  Registra la definición, discretización e interpretación del diagnóstico
+  `column-averaged mixing ratio` usado en la tercera columna del resumen
+  fotoquímico A0-A3.
 - [Estructura del repositorio y ubicaciones canónicas](repository_structure.md)
   Define dónde deben vivir configuraciones, productos y reportes, y clasifica
   las rutas legacy de la raíz.
