@@ -51,13 +51,15 @@ Para evitar que la señal molecular fuera un artefacto de indexación, el script
 ## Regla de picos
 
 - Se usa la curva residual rebineada que se grafica en la figura final.
-- Se seleccionan los `3` picos de mayor `|residual|` por combinación `(escenario, molécula)`.
+- Se seleccionan los `3` picos de mayor `|signal|` por combinación `(escenario, molécula)`.
 - Se impone una separación mínima de `25` bins para evitar duplicar subestructura fina del mismo rasgo espectral.
-- Se reporta el residual con signo y su valor absoluto.
+- Se reporta la señal molecular con signo y su valor absoluto.
 
 ## Estimación de S/N instrumental
 
-Se añadió una estimación simple de S/N usando los archivos planos de ruido de `1` tránsito en `synthetic_data/base_1transit/`. Para cada pico se toma el punto instrumental más cercano dentro de la cobertura de `NIRSpec_PRISM` o `MIRI_LRS`. La incertidumbre se expresa en ppm y se escala como `sigma_N = sigma_1 / sqrt(N)` para `N = 1, 10, 100` tránsitos.
+Se añadió una estimación simple de S/N usando los archivos planos de ruido de `1` tránsito en `synthetic_data/base_1transit/`. Los archivos planos almacenan `depth` y `depth_err` como profundidad de tránsito adimensional, es decir `(R_p/R_s)^2`. Para comparar con la figura, tanto la señal molecular como el ruido se expresan en ppm de `(R_p/R_s)^2`: `signal_ppm = signal_(Rp/Rs)^2 * 1e6` y `sigma_1transit_ppm = depth_err * 1e6`. Por tanto, el S/N exportado es adimensional.
+
+Para cada pico se toma el punto instrumental más cercano dentro de la cobertura de `NIRSpec_PRISM` o `MIRI_LRS`. La incertidumbre se escala como `sigma_N = sigma_1 / sqrt(N)` para `N = 1, 10, 100` tránsitos, y el cociente reportado es `S/N_N = |signal_ppm| / sigma_N`.
 
 Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism + MIRI LRS se marcan como `outside_coverage` y no reciben S/N.
 
@@ -67,7 +69,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 7.651 | 4.272 | 4.272 | MIRI_LRS | 468.67 | 0.009 | 0.029 | 0.091 |
 | 2 | 16.972 | 3.220 | 3.220 | outside_coverage |  |  |  |  |
@@ -75,7 +77,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 10.353 | 4.400 | 4.400 | MIRI_LRS | 1204.62 | 0.004 | 0.012 | 0.037 |
 | 2 | 9.133 | 1.998 | 1.998 | MIRI_LRS | 691.72 | 0.003 | 0.009 | 0.029 |
@@ -83,7 +85,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 5.469 | -0.001 | 0.001 | MIRI_LRS | 246.97 | 0.000 | 0.000 | 0.000 |
 | 2 | 1.876 | -0.001 | 0.001 | NIRSpec_PRISM | 92.29 | 0.000 | 0.000 | 0.000 |
@@ -93,7 +95,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 8.641 | 6.745 | 6.745 | MIRI_LRS | 576.87 | 0.012 | 0.037 | 0.117 |
 | 2 | 16.972 | 6.238 | 6.238 | outside_coverage |  |  |  |  |
@@ -101,7 +103,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 10.742 | 8.319 | 8.319 | MIRI_LRS | 1732.66 | 0.005 | 0.015 | 0.048 |
 | 2 | 9.476 | 3.288 | 3.288 | MIRI_LRS | 799.38 | 0.004 | 0.013 | 0.041 |
@@ -109,7 +111,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 5.888 | 0.001 | 0.001 | MIRI_LRS | 255.75 | 0.000 | 0.000 | 0.000 |
 | 2 | 1.904 | -0.001 | 0.001 | NIRSpec_PRISM | 88.83 | 0.000 | 0.000 | 0.000 |
@@ -119,7 +121,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 8.641 | 18.954 | 18.954 | MIRI_LRS | 576.87 | 0.033 | 0.104 | 0.329 |
 | 2 | 4.514 | 16.231 | 16.231 | NIRSpec_PRISM | 305.36 | 0.053 | 0.168 | 0.532 |
@@ -127,7 +129,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 10.742 | 18.976 | 18.976 | MIRI_LRS | 1732.66 | 0.011 | 0.035 | 0.110 |
 | 2 | 9.688 | 5.267 | 5.267 | MIRI_LRS | 821.64 | 0.006 | 0.020 | 0.064 |
@@ -135,7 +137,7 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Residual (ppm) | |Residual| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
 | ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
 | 1 | 5.888 | -17.023 | 17.023 | MIRI_LRS | 255.75 | 0.067 | 0.210 | 0.666 |
 | 2 | 6.577 | -15.966 | 15.966 | MIRI_LRS | 349.67 | 0.046 | 0.144 | 0.457 |

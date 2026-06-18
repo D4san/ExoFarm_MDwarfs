@@ -96,6 +96,24 @@ MOLECULAR_SIGNATURE_COLOURS = {
     "NH3": PALETTE["scenario_green"],
     "H2O": PALETTE["scenario_cyan"],
 }
+MOLECULAR_SIGNAL_WINDOWS = {
+    "N2O": (
+        ("N2O_2p6_3p0", 2.60, 3.00),
+        ("N2O_4p3_4p8", 4.30, 4.80),
+        ("N2O_7p5_9p0", 7.50, 9.00),
+        ("N2O_16p0_18p0", 16.00, 18.00),
+    ),
+    "NH3": (
+        ("NH3_9p0_10p0", 9.00, 10.00),
+        ("NH3_10p0_11p2", 10.00, 11.20),
+        ("NH3_11p2_12p0", 11.20, 12.00),
+    ),
+    "H2O": (
+        ("H2O_2p4_3p0", 2.40, 3.00),
+        ("H2O_5p0_6p2", 5.00, 6.20),
+        ("H2O_6p2_7p2", 6.20, 7.20),
+    ),
+}
 TOP_SPECTRUM_ANNOTATIONS = (
     (2.85, r"N$_2$O", 42.0),
     (4.55, r"N$_2$O", 14.0),
@@ -103,8 +121,8 @@ TOP_SPECTRUM_ANNOTATIONS = (
     (10.75, r"NH$_3$", 6.0),
 )
 INSTRUMENT_COVERAGE_BARS = (
-    (0.6025, 5.2976, "NIRSpec PRISM", PALETTE["deep_space_blue"]),
-    (5.0213, 11.9998, "MIRI LRS", PALETTE["golden_orange"]),
+    (0.6025, 5.2976, "NIRSpec PRISM", PALETTE["charcoal_violet"]),
+    (5.0213, 11.9998, "MIRI LRS", PALETTE["scenario_cyan"]),
 )
 
 
@@ -667,6 +685,29 @@ def detect_top_abs_peaks(wavelengths, values, top_n=3, min_separation_bins=PEAK_
     return rows
 
 
+def detect_window_signal_peaks(wavelengths, values, windows):
+    rows = []
+    for rank, (band_id, window_min, window_max) in enumerate(windows, start=1):
+        mask = (wavelengths >= window_min) & (wavelengths <= window_max)
+        if not np.any(mask):
+            continue
+        window_indices = np.flatnonzero(mask)
+        local_index = int(np.nanargmax(np.abs(values[mask])))
+        idx = int(window_indices[local_index])
+        rows.append(
+            {
+                "peak_rank": rank,
+                "band_id": band_id,
+                "window_min_micron": float(window_min),
+                "window_max_micron": float(window_max),
+                "wavelength_micron": float(wavelengths[idx]),
+                "signal_ppm": float(values[idx]),
+                "absolute_signal_ppm": float(abs(values[idx])),
+            }
+        )
+    return rows
+
+
 def load_noise_curves():
     curves = {}
     for instrument, path in INSTRUMENT_NOISE_FILES.items():
@@ -822,7 +863,9 @@ def export_peak_summary_note(rows):
         "",
         "## Estimación de S/N instrumental",
         "",
-        "Se añadió una estimación simple de S/N usando los archivos planos de ruido de `1` tránsito en `synthetic_data/base_1transit/`. Para cada pico se toma el punto instrumental más cercano dentro de la cobertura de `NIRSpec_PRISM` o `MIRI_LRS`. La incertidumbre se expresa en ppm y se escala como `sigma_N = sigma_1 / sqrt(N)` para `N = 1, 10, 100` tránsitos.",
+        "Se añadió una estimación simple de S/N usando los archivos planos de ruido de `1` tránsito en `synthetic_data/base_1transit/`. Los archivos planos almacenan `depth` y `depth_err` como profundidad de tránsito adimensional, es decir `(R_p/R_s)^2`. Para comparar con la figura, tanto la señal molecular como el ruido se expresan en ppm de `(R_p/R_s)^2`: `signal_ppm = signal_(Rp/Rs)^2 * 1e6` y `sigma_1transit_ppm = depth_err * 1e6`. Por tanto, el S/N exportado es adimensional.",
+        "",
+        "Para cada pico se toma el punto instrumental más cercano dentro de la cobertura de `NIRSpec_PRISM` o `MIRI_LRS`. La incertidumbre se escala como `sigma_N = sigma_1 / sqrt(N)` para `N = 1, 10, 100` tránsitos, y el cociente reportado es `S/N_N = |signal_ppm| / sigma_N`.",
         "",
         "Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism + MIRI LRS se marcan como `outside_coverage` y no reciben S/N.",
         "",
