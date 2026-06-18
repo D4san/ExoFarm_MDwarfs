@@ -51,9 +51,9 @@ Para evitar que la señal molecular fuera un artefacto de indexación, el script
 ## Regla de picos
 
 - Se usa la curva residual rebineada que se grafica en la figura final.
-- Se seleccionan los `3` picos de mayor `|signal|` por combinación `(escenario, molécula)`.
-- Se impone una separación mínima de `25` bins para evitar duplicar subestructura fina del mismo rasgo espectral.
-- Se reporta la señal molecular con signo y su valor absoluto.
+- Se definen ventanas espectrales por molécula y se reporta el máximo de `|signal|` dentro de cada ventana.
+- Esto evita que un pico global fuera de la región interpretativa domine el resumen de una molécula.
+- Se reporta la señal molecular con signo, su valor absoluto, el identificador de ventana y los límites usados.
 
 ## Estimación de S/N instrumental
 
@@ -69,79 +69,82 @@ Los picos fuera de la cobertura `0.6-12 μm` de esta combinación NIRSpec Prism 
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 7.651 | 4.272 | 4.272 | MIRI_LRS | 468.67 | 0.009 | 0.029 | 0.091 |
-| 2 | 16.972 | 3.220 | 3.220 | outside_coverage |  |  |  |  |
-| 3 | 4.465 | 2.899 | 2.899 | NIRSpec_PRISM | 277.33 | 0.010 | 0.033 | 0.105 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| N2O_2p6_3p0 | 2.60-3.00 | 2.857 | 1.863 | 1.863 | NIRSpec_PRISM | 152.86 | 0.012 | 0.039 | 0.122 |
+| N2O_4p3_4p8 | 4.30-4.80 | 4.465 | 2.899 | 2.899 | NIRSpec_PRISM | 277.33 | 0.010 | 0.033 | 0.105 |
+| N2O_7p5_9p0 | 7.50-9.00 | 7.651 | 4.272 | 4.272 | MIRI_LRS | 468.67 | 0.009 | 0.029 | 0.091 |
+| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 3.220 | 3.220 | outside_coverage |  |  |  |  |
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 10.353 | 4.400 | 4.400 | MIRI_LRS | 1204.62 | 0.004 | 0.012 | 0.037 |
-| 2 | 9.133 | 1.998 | 1.998 | MIRI_LRS | 691.72 | 0.003 | 0.009 | 0.029 |
-| 3 | 11.999 | 0.996 | 0.996 | MIRI_LRS | 6698.89 | 0.000 | 0.000 | 0.001 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| NH3_9p0_10p0 | 9.00-10.00 | 9.476 | 3.276 | 3.276 | MIRI_LRS | 799.38 | 0.004 | 0.013 | 0.041 |
+| NH3_10p0_11p2 | 10.00-11.20 | 10.353 | 4.400 | 4.400 | MIRI_LRS | 1204.62 | 0.004 | 0.012 | 0.037 |
+| NH3_11p2_12p0 | 11.20-12.00 | 11.999 | 0.996 | 0.996 | MIRI_LRS | 6698.89 | 0.000 | 0.000 | 0.001 |
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 5.469 | -0.001 | 0.001 | MIRI_LRS | 246.97 | 0.000 | 0.000 | 0.000 |
-| 2 | 1.876 | -0.001 | 0.001 | NIRSpec_PRISM | 92.29 | 0.000 | 0.000 | 0.000 |
-| 3 | 6.900 | -0.001 | 0.001 | MIRI_LRS | 374.33 | 0.000 | 0.000 | 0.000 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| H2O_2p4_3p0 | 2.40-3.00 | 2.654 | -0.001 | 0.001 | NIRSpec_PRISM | 126.92 | 0.000 | 0.000 | 0.000 |
+| H2O_5p0_6p2 | 5.00-6.20 | 5.469 | -0.001 | 0.001 | MIRI_LRS | 246.97 | 0.000 | 0.000 | 0.000 |
+| H2O_6p2_7p2 | 6.20-7.20 | 6.900 | -0.001 | 0.001 | MIRI_LRS | 374.33 | 0.000 | 0.000 | 0.000 |
 
 ### A2
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 8.641 | 6.745 | 6.745 | MIRI_LRS | 576.87 | 0.012 | 0.037 | 0.117 |
-| 2 | 16.972 | 6.238 | 6.238 | outside_coverage |  |  |  |  |
-| 3 | 4.465 | 6.098 | 6.098 | NIRSpec_PRISM | 277.33 | 0.022 | 0.070 | 0.220 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| N2O_2p6_3p0 | 2.60-3.00 | 2.878 | 5.304 | 5.304 | NIRSpec_PRISM | 149.49 | 0.035 | 0.112 | 0.355 |
+| N2O_4p3_4p8 | 4.30-4.80 | 4.465 | 6.098 | 6.098 | NIRSpec_PRISM | 277.33 | 0.022 | 0.070 | 0.220 |
+| N2O_7p5_9p0 | 7.50-9.00 | 8.641 | 6.745 | 6.745 | MIRI_LRS | 576.87 | 0.012 | 0.037 | 0.117 |
+| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 6.238 | 6.238 | outside_coverage |  |  |  |  |
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 10.742 | 8.319 | 8.319 | MIRI_LRS | 1732.66 | 0.005 | 0.015 | 0.048 |
-| 2 | 9.476 | 3.288 | 3.288 | MIRI_LRS | 799.38 | 0.004 | 0.013 | 0.041 |
-| 3 | 11.780 | 1.543 | 1.543 | MIRI_LRS | 4639.88 | 0.000 | 0.001 | 0.003 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| NH3_9p0_10p0 | 9.00-10.00 | 9.476 | 3.288 | 3.288 | MIRI_LRS | 799.38 | 0.004 | 0.013 | 0.041 |
+| NH3_10p0_11p2 | 10.00-11.20 | 10.742 | 8.319 | 8.319 | MIRI_LRS | 1732.66 | 0.005 | 0.015 | 0.048 |
+| NH3_11p2_12p0 | 11.20-12.00 | 11.228 | 1.967 | 1.967 | MIRI_LRS | 2930.42 | 0.001 | 0.002 | 0.007 |
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 5.888 | 0.001 | 0.001 | MIRI_LRS | 255.75 | 0.000 | 0.000 | 0.000 |
-| 2 | 1.904 | -0.001 | 0.001 | NIRSpec_PRISM | 88.83 | 0.000 | 0.000 | 0.000 |
-| 3 | 1.346 | -0.001 | 0.001 | NIRSpec_PRISM | 77.62 | 0.000 | 0.000 | 0.000 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| H2O_2p4_3p0 | 2.40-3.00 | 2.644 | -0.001 | 0.001 | NIRSpec_PRISM | 126.92 | 0.000 | 0.000 | 0.000 |
+| H2O_5p0_6p2 | 5.00-6.20 | 5.888 | 0.001 | 0.001 | MIRI_LRS | 255.75 | 0.000 | 0.000 | 0.000 |
+| H2O_6p2_7p2 | 6.20-7.20 | 6.409 | 0.001 | 0.001 | MIRI_LRS | 293.93 | 0.000 | 0.000 | 0.000 |
 
 ### A3
 
 #### N2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 8.641 | 18.954 | 18.954 | MIRI_LRS | 576.87 | 0.033 | 0.104 | 0.329 |
-| 2 | 4.514 | 16.231 | 16.231 | NIRSpec_PRISM | 305.36 | 0.053 | 0.168 | 0.532 |
-| 3 | 16.972 | 16.074 | 16.074 | outside_coverage |  |  |  |  |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| N2O_2p6_3p0 | 2.60-3.00 | 2.868 | 13.166 | 13.166 | NIRSpec_PRISM | 151.76 | 0.087 | 0.274 | 0.868 |
+| N2O_4p3_4p8 | 4.30-4.80 | 4.514 | 16.231 | 16.231 | NIRSpec_PRISM | 305.36 | 0.053 | 0.168 | 0.532 |
+| N2O_7p5_9p0 | 7.50-9.00 | 8.641 | 18.954 | 18.954 | MIRI_LRS | 576.87 | 0.033 | 0.104 | 0.329 |
+| N2O_16p0_18p0 | 16.00-18.00 | 16.972 | 16.074 | 16.074 | outside_coverage |  |  |  |  |
 
 #### NH3
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 10.742 | 18.976 | 18.976 | MIRI_LRS | 1732.66 | 0.011 | 0.035 | 0.110 |
-| 2 | 9.688 | 5.267 | 5.267 | MIRI_LRS | 821.64 | 0.006 | 0.020 | 0.064 |
-| 3 | 11.999 | 3.183 | 3.183 | MIRI_LRS | 6698.89 | 0.000 | 0.002 | 0.005 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| NH3_9p0_10p0 | 9.00-10.00 | 9.688 | 5.267 | 5.267 | MIRI_LRS | 821.64 | 0.006 | 0.020 | 0.064 |
+| NH3_10p0_11p2 | 10.00-11.20 | 10.742 | 18.976 | 18.976 | MIRI_LRS | 1732.66 | 0.011 | 0.035 | 0.110 |
+| NH3_11p2_12p0 | 11.20-12.00 | 11.999 | 3.183 | 3.183 | MIRI_LRS | 6698.89 | 0.000 | 0.002 | 0.005 |
 
 #### H2O
 
-| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
-| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
-| 1 | 5.888 | -17.023 | 17.023 | MIRI_LRS | 255.75 | 0.067 | 0.210 | 0.666 |
-| 2 | 6.577 | -15.966 | 15.966 | MIRI_LRS | 349.67 | 0.046 | 0.144 | 0.457 |
-| 3 | 2.625 | -12.579 | 12.579 | NIRSpec_PRISM | 126.86 | 0.099 | 0.314 | 0.992 |
+| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |
+| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |
+| H2O_2p4_3p0 | 2.40-3.00 | 2.625 | -12.579 | 12.579 | NIRSpec_PRISM | 126.86 | 0.099 | 0.314 | 0.992 |
+| H2O_5p0_6p2 | 5.00-6.20 | 5.888 | -17.023 | 17.023 | MIRI_LRS | 255.75 | 0.067 | 0.210 | 0.666 |
+| H2O_6p2_7p2 | 6.20-7.20 | 6.409 | -16.041 | 16.041 | MIRI_LRS | 293.93 | 0.055 | 0.173 | 0.546 |
 
 ## Archivos conservados
 

@@ -758,6 +758,9 @@ def export_peak_summary_csv(rows):
         "scenario",
         "molecule",
         "peak_rank",
+        "band_id",
+        "window_min_micron",
+        "window_max_micron",
         "wavelength_micron",
         "signal_ppm",
         "absolute_signal_ppm",
@@ -857,9 +860,9 @@ def export_peak_summary_note(rows):
         "## Regla de picos",
         "",
         f"- Se usa la curva residual rebineada que se grafica en la figura final.",
-            f"- Se seleccionan los `3` picos de mayor `|signal|` por combinación `(escenario, molécula)`.",
-            f"- Se impone una separación mínima de `{PEAK_MIN_SEPARATION_BINS}` bins para evitar duplicar subestructura fina del mismo rasgo espectral.",
-            "- Se reporta la señal molecular con signo y su valor absoluto.",
+            "- Se definen ventanas espectrales por molécula y se reporta el máximo de `|signal|` dentro de cada ventana.",
+            "- Esto evita que un pico global fuera de la región interpretativa domine el resumen de una molécula.",
+            "- Se reporta la señal molecular con signo, su valor absoluto, el identificador de ventana y los límites usados.",
         "",
         "## Estimación de S/N instrumental",
         "",
@@ -879,15 +882,15 @@ def export_peak_summary_note(rows):
         for species in MOLECULAR_DELTA_SPECIES:
             lines.append(f"#### {species}")
             lines.append("")
-            lines.append("| Pico | Longitud de onda (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |")
-            lines.append("| ---: | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |")
+            lines.append("| Ventana | Rango (μm) | Pico (μm) | Signal (ppm) | |Signal| (ppm) | Instrumento | σ 1 tránsito (ppm) | S/N 1 | S/N 10 | S/N 100 |")
+            lines.append("| :--- | :--- | ---: | ---: | ---: | :--- | ---: | ---: | ---: | ---: |")
             for row in grouped[(scenario_key, species)]:
                 sigma = "" if not np.isfinite(row["sigma_1transit_ppm"]) else f"{row['sigma_1transit_ppm']:.2f}"
                 snr_1 = "" if not np.isfinite(row["snr_1transit"]) else f"{row['snr_1transit']:.3f}"
                 snr_10 = "" if not np.isfinite(row["snr_10transit"]) else f"{row['snr_10transit']:.3f}"
                 snr_100 = "" if not np.isfinite(row["snr_100transit"]) else f"{row['snr_100transit']:.3f}"
                 lines.append(
-                    f"| {row['peak_rank']} | {row['wavelength_micron']:.3f} | {row['signal_ppm']:.3f} | {row['absolute_signal_ppm']:.3f} | {row['noise_instrument']} | {sigma} | {snr_1} | {snr_10} | {snr_100} |"
+                    f"| {row['band_id']} | {row['window_min_micron']:.2f}-{row['window_max_micron']:.2f} | {row['wavelength_micron']:.3f} | {row['signal_ppm']:.3f} | {row['absolute_signal_ppm']:.3f} | {row['noise_instrument']} | {sigma} | {snr_1} | {snr_10} | {snr_100} |"
                 )
             lines.append("")
 
@@ -1100,7 +1103,11 @@ def plot_legacy_molecular_delta_grid(system_key, products, counterfactual_spectr
                 label=f"{scenario_key} - A0",
                 zorder=scenario_delta_zorder(scenario_key),
             )
-            for peak_row in detect_top_abs_peaks(wl_b, delta):
+            for peak_row in detect_window_signal_peaks(
+                wl_b,
+                delta,
+                MOLECULAR_SIGNAL_WINDOWS[species],
+            ):
                 peak_summary_rows.append(
                     {
                         "scenario": scenario_key,
@@ -1167,7 +1174,11 @@ def summarize_molecular_signal_peaks(products, counterfactual_spectra, wl_min, w
                 n_bins,
             )
             delta = full_binned - reset_binned
-            for peak_row in detect_top_abs_peaks(wl_b, delta):
+            for peak_row in detect_window_signal_peaks(
+                wl_b,
+                delta,
+                MOLECULAR_SIGNAL_WINDOWS[species],
+            ):
                 peak_summary_rows.append(
                     {
                         "scenario": scenario_key,
@@ -1248,8 +1259,8 @@ def plot_molecular_delta_grid_v2(system_key, products, counterfactual_spectra, w
     top_pad = max(14.0, 0.10 * top_span)
     annotate_instrument_coverage(
         ax_top,
-        y_base=top_min + 0.025 * top_span,
-        y_step=max(3.2, 0.026 * top_span),
+        y_base=top_min - 0.82 * top_pad,
+        y_step=0.18 * top_pad,
     )
     ax_top.set_ylim(top_min - top_pad, top_max + top_pad)
 

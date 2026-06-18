@@ -38,8 +38,6 @@ selection and will likely change as the analysis matures.
 | Family | Generator | Canonical output stem |
 | :--- | :--- | :--- |
 | Synthetic spectra and molecular signals | `notebooks/plot_pure_transmission_spectra.py` | `trappist1e_pure_a0_molecular_residuals_v2` |
-| Retrieval result A0 | `notebooks/plot_retrieved_truth_extremes.py` | `trappist_retrieved_truth_A0_10_100transits_single_panel` |
-| Retrieval result A3 | `notebooks/plot_retrieved_truth_extremes.py` | `trappist_retrieved_truth_A3_10_100transits_single_panel` |
 | A0/A3 joint sigma separation | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_joint_sigma_separation` |
 | A0/A3 posterior-difference distributions | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_logX_difference_posteriors` |
 | A3 distance from best A0 reference | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A3_distance_from_best_A0_reference` |
@@ -51,8 +49,6 @@ selection and will likely change as the analysis matures.
 Current files already present in `figures/`:
 
 - `trappist1e_pure_a0_molecular_residuals_v2.{png,pdf}`
-- `trappist_retrieved_truth_A0_10_100transits_single_panel.{png,pdf}`
-- `trappist_retrieved_truth_A3_10_100transits_single_panel.{png,pdf}`
 - `trappist_A0_A3_diagonal_joint_sigma_separation.{png,pdf}`
 - `trappist_A0_A3_diagonal_logX_difference_posteriors.{png,pdf}`
 - `trappist_A3_distance_from_best_A0_reference.{png,pdf}`

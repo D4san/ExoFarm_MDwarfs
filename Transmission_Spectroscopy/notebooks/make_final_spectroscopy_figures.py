@@ -12,7 +12,6 @@ import shutil
 
 import plot_a0_a3_diagonal_distinguishability
 import plot_pure_transmission_spectra
-import plot_retrieved_truth_extremes
 import plot_retrieved_zooms
 
 
@@ -28,14 +27,6 @@ FINAL_PLOT_SOURCES = (
     (
         PURE_SPECTRA_PLOTS_DIR,
         "trappist1e_pure_a0_molecular_residuals_v2",
-    ),
-    (
-        TRAPPIST_PLOTS_DIR,
-        "trappist_retrieved_truth_A0_10_100transits_single_panel",
-    ),
-    (
-        TRAPPIST_PLOTS_DIR,
-        "trappist_retrieved_truth_A3_10_100transits_single_panel",
     ),
     (
         TRAPPIST_PLOTS_DIR,
@@ -85,7 +76,6 @@ def main():
     FINAL_FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
     plot_pure_transmission_spectra.main()
-    plot_retrieved_truth_extremes.main()
     plot_a0_a3_diagonal_distinguishability.main()
     plot_retrieved_zooms.main()
 
