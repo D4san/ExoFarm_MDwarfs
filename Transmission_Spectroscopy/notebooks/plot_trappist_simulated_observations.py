@@ -25,30 +25,44 @@ RETRIEVAL_SAMPLES_DIR = POSEIDON_OUTPUT_DIR / "retrievals" / "samples"
 PLOTS_DIR = POSEIDON_OUTPUT_DIR / "plots"
 
 PLANET_NAME = "TRAPPIST-1e"
-RS_TRAPPIST_KM = 0.11697 * 695700.0
-RP_TRAPPIST_KM = 0.917985 * 6371.0
+RS_TRAPPIST_KM = 0.1192 * 695700.0
+RP_TRAPPIST_KM = 0.920 * 6371.0
 
 TRANSIT_STYLES = {
     5: {
-        "color": PALETTE["dust_grey"],
+        "color": PALETTE["dark_amaranth"],
         "alpha": 0.30,
         "marker": "+",
         "label": "Synthetic JWST data: 5 Transits",
         "zorder": 1,
     },
     10: {
-        "color": PALETTE["dim_grey"],
+        "color": PALETTE["deep_space_blue"],
         "alpha": 0.42,
         "marker": "+",
         "label": "Synthetic JWST data: 10 Transits",
         "zorder": 2,
     },
-    20: {
-        "color": PALETTE["ink_black"],
+    50: {
+        "color": PALETTE["rusty_spice"],
         "alpha": 0.54,
         "marker": "+",
-        "label": "Synthetic JWST data: 20 Transits",
+        "label": "Synthetic JWST data: 50 Transits",
         "zorder": 3,
+    },
+    100: {
+        "color": PALETTE["dim_grey"],
+        "alpha": 0.60,
+        "marker": "+",
+        "label": "Synthetic JWST data: 100 Transits",
+        "zorder": 4,
+    },
+    200: {
+        "color": PALETTE["ink_black"],
+        "alpha": 0.80,
+        "marker": "+",
+        "label": "Synthetic JWST data: 200 Transits",
+        "zorder": 5,
     },
 }
 

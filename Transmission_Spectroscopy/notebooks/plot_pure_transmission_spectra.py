@@ -42,7 +42,7 @@ INSTRUMENT_NOISE_FILES = {
     "NIRSpec_PRISM": SYNTHETIC_DATA_DIR / "TRAPPIST-1e_flat_NIRSpec_Prism_1_transits.dat",
     "MIRI_LRS": SYNTHETIC_DATA_DIR / "TRAPPIST-1e_flat_MIRI_LRS_1_transits.dat",
 }
-MOLECULAR_DELTA_SPECIES = ("N2O", "NH3", "H2O")
+MOLECULAR_DELTA_SPECIES = ("N2O", "NH3")
 MOLECULE_LABELS = {
     "N2O": r"N$_2$O",
     "NH3": r"NH$_3$",
@@ -114,10 +114,10 @@ MOLECULAR_SIGNAL_WINDOWS = {
     ),
 }
 TOP_SPECTRUM_ANNOTATIONS = (
-    (2.85, r"N$_2$O", 42.0),
-    (4.55, r"N$_2$O", 14.0),
-    (8.65, r"N$_2$O", 6.0),
-    (10.75, r"NH$_3$", 6.0),
+    (2.95, r"N$_2$O", 35.0),
+    (4.60, r"N$_2$O", 35.0),
+    (8.60, r"N$_2$O", 15.0),
+    (10.50, r"NH$_3$", 15.0),
 )
 INSTRUMENT_COVERAGE_BARS = (
     (0.6025, 5.2976, "NIRSpec PRISM", PALETTE["charcoal_violet"]),
@@ -174,7 +174,7 @@ def create_earth_sun_system():
 
 def create_trappist_system():
     star = create_star(
-        0.11697 * R_Sun,
+        0.1192 * R_Sun,
         2559.0,
         5.21,
         0.04,
@@ -182,15 +182,15 @@ def create_trappist_system():
     )
     planet = create_planet(
         "TRAPPIST-1e",
-        0.917985 * R_E,
+        0.920 * R_E,
         mass=0.6356 * M_E,
         T_eq=255.0,
     )
-    return star, planet, 0.917985 * R_E
+    return star, planet, 0.920 * R_E
 
 
 def pressure_grid():
-    P = np.logspace(np.log10(10.0), np.log10(1.0e-10), 100)
+    P = np.logspace(np.log10(1.0), np.log10(1.0e-10), 100)
     P_surf = 1.0
     P_ref = P_surf
     return P, P_surf, P_ref
@@ -206,7 +206,7 @@ def define_models(system_key):
             PT_profile="file_read",
             X_profile="file_read",
             radius_unit="R_E",
-            surface=True,
+            surface=False,
         )
     return models
 
@@ -241,7 +241,6 @@ def load_atmospheres(system_key, planet, models, P, P_surf, P_ref, R_p_ref):
             R_p_ref,
             T_input=temperatures[scenario_key],
             X_input=compositions[scenario_key],
-            P_surf=P_surf,
         )
     return atmospheres, temperatures, compositions
 
@@ -606,7 +605,7 @@ def compute_counterfactual_spectrum(products, scenario_key, species, chemistry_p
         products["R_p_ref"],
         T_input=temperatures,
         X_input=modified_composition,
-        P_surf=products["P_surf"],
+        surface_params=np.array([np.log10(products["P_surf"])]),
     )
 
     return compute_spectrum(
@@ -1196,12 +1195,12 @@ def plot_molecular_delta_grid_v2(system_key, products, counterfactual_spectra, w
     wl = products["wl"]
     spectra = products["spectra"]
     fig, axes = plt.subplots(
-        4,
+        3,
         1,
-        figsize=(13.8, 11.2),
+        figsize=(13.8, 9.6),
         sharex=True,
         constrained_layout=True,
-        gridspec_kw={"height_ratios": [2.85, 1.0, 1.0, 1.0]},
+        gridspec_kw={"height_ratios": [2.85, 1.0, 1.0]},
     )
     ax_top = axes[0]
     species_axes = dict(zip(MOLECULAR_DELTA_SPECIES, axes[1:]))
@@ -1346,7 +1345,7 @@ def plot_molecular_delta_grid_v2(system_key, products, counterfactual_spectra, w
                         [0],
                         color=SCENARIO_COLOURS[scenario_key],
                         lw=2.2,
-                        label=f"{scenario_key} mol signal",
+                        label=rf"A$_{scenario_key[1]}$ mol signal",
                     )
                 )
                 legend_handles.append(
@@ -1356,7 +1355,7 @@ def plot_molecular_delta_grid_v2(system_key, products, counterfactual_spectra, w
                         color=RESIDUAL_DARK_COLOURS[scenario_key],
                         lw=1.4,
                         linestyle="-",
-                        label=f"{scenario_key}-A0 total",
+                        label=rf"$\Delta$(A$_{scenario_key[1]}$ $-$ A$_0$)",
                     )
                 )
             ax.legend(
@@ -1364,7 +1363,8 @@ def plot_molecular_delta_grid_v2(system_key, products, counterfactual_spectra, w
                 frameon=False,
                 fontsize=9.5,
                 ncol=3,
-                loc="lower left",
+                loc="center left",
+                bbox_to_anchor=(0.01, 0.50),
             )
 
     axes[-1].set_xlabel("Wavelength (μm)", fontfamily="serif", fontsize=17, color="black")

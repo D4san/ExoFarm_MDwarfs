@@ -65,7 +65,7 @@ SCENARIOS = {
 
 # Observation plan used for the final synthetic datasets.  Each number means
 # N NIRSpec Prism transits and N MIRI LRS transits.
-OBSERVATION_TRANSIT_COUNTS = [5, 10, 20, 100]
+OBSERVATION_TRANSIT_COUNTS = [5, 10, 50, 100, 200]
 INSTRUMENTS = ["JWST_NIRSpec_PRISM", "JWST_MIRI_LRS"]
 
 # R_TO_BIN is passed to POSEIDON's synthetic-data generator.  Keep the list in
@@ -137,7 +137,7 @@ CHEM_SPECIES_FILE = [
 def create_trappist_system():
     """Create POSEIDON star and planet objects for the TRAPPIST-1e setup."""
     star = create_star(
-        0.11697 * R_Sun,
+        0.1192 * R_Sun,
         2559.0,
         5.21,
         0.04,
@@ -146,7 +146,7 @@ def create_trappist_system():
 
     planet = create_planet(
         PLANET_NAME,
-        0.917985 * R_E,
+        0.920 * R_E,
         mass=0.6356 * M_E,
         T_eq=255.0,
     )
@@ -169,7 +169,7 @@ def create_pressure_grid(P_min=1.0e-10, P_max=10.0, n_layers=100):
     # directly comparable.
     P_surf = 1.0
     P_ref = P_surf
-    R_p_ref = 0.917985 * R_E
+    R_p_ref = 0.920 * R_E
 
     return P, P_surf, P_ref, R_p_ref
 
@@ -245,7 +245,7 @@ def make_atmospheres(planet, models, P, P_ref, R_p_ref, P_surf, temperatures, co
             R_p_ref,
             T_input=temperatures[scenario_key],
             X_input=compositions[scenario_key],
-            P_surf=P_surf,
+            surface_params=np.array([np.log10(P_surf)]),
         )
 
     return atmospheres

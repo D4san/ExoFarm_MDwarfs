@@ -9,6 +9,8 @@ secciones de un artículo.
 
 ## Informes
 
+- [Auditoría Científica de Modelos, 2026-07-01](scientific_audit_2026-07-01.md)
+  Revisión técnica de inconsistencias matemáticas en flujos N2O, discrepancias de radio planetario/estelar y advertencias sobre el 'model mismatch' en retrievals isotérmicos.
 - [Construcción de los perfiles fotoquímicos de ExoFarm con VULCAN](photochemical_profiles_methodology.md)
   Descripción narrativa y auditable de la red química, malla vertical, flujos
   A0-A3, espectros estelares, geometría de iluminación y bloqueo por marea.
@@ -43,6 +45,8 @@ secciones de un artículo.
 - [Workflow de revisión, organización y limpieza del repositorio](repository_cleanup_workflow.md)
   Procedimiento liviano para auditar estructura, clasificar evidencia, borrar
   residuos temporales solo con aprobación y registrar decisiones duraderas.
+- [Seguimiento y Estado de Gestión del Proyecto](project_status_tracker.md)
+  Centraliza el estado operativo de las Etapas 0-2, versiones de dependencias, decisiones de diseño tomadas y backlog de tareas técnicas.
 
 ## Convención documental
 

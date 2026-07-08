@@ -248,10 +248,10 @@ Preferred commands inside Ubuntu:
 
 ```bash
 cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks
-source /home/dasan/anaconda3/etc/profile.d/conda.sh
+source /home/wsldasan/miniconda3/etc/profile.d/conda.sh
 conda activate POSEIDON
-export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/
-export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids/
+export POSEIDON_input_data=/home/wsldasan/POSEIDON/inputs/
+export PYSYN_CDBS=/home/wsldasan/POSEIDON/inputs/stellar_grids/
 ```
 
 Then run examples such as:
@@ -434,6 +434,15 @@ Before trusting an LPJmL output, record:
 - output unit;
 - whether values are grid-cell totals or per-area fluxes;
 - conversion path into atmospheric lower-boundary fluxes.
+
+## Project Management and Status Tracking
+
+A central status log is maintained in [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md). All coding agents must use and maintain this file as follows:
+
+- **Consult status before coding:** Read [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md) to understand the technical status of Stage 0, I, and II, active dependencies, and design decisions.
+- **Maintain the backlog:** When the user requests new technical tasks, open questions, or modifications, check if they are in the backlog section. Mark completed tasks, and add new ones as appropriate.
+- **Record design decisions:** Add rows to the design decisions table in [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md) when an architectural decision, parameter correction, or control profile constraint is established.
+- **Document tools and versions:** Ensure the versions of VULCAN, POSEIDON, and LPJmL and the host star spectrum configurations remain documented and up-to-date.
 
 ## Communication Style for This Repo
 

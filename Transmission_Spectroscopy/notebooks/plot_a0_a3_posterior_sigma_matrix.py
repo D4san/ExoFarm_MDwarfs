@@ -66,6 +66,13 @@ def summarize_campaign(path):
     return summary
 
 
+def total_transits(case):
+    # 'both' observations use the specified transit count for each instrument.
+    if case["instrument"] == "NIRSpec_MIRI":
+        return case["transits"] * 2
+    return case["transits"]
+
+
 def load_campaigns():
     campaigns = {"A0": [], "A3": []}
     for path in SAMPLES_DIR.glob("*_samples.txt"):
@@ -77,7 +84,7 @@ def load_campaigns():
     for scenario in campaigns:
         campaigns[scenario].sort(
             key=lambda case: (
-                case["transits"],
+                total_transits(case),
                 INSTRUMENT_ORDER[case["instrument"]],
             )
         )
@@ -85,7 +92,7 @@ def load_campaigns():
 
 
 def campaign_label(case):
-    return f"{case['transits']} {INSTRUMENT_LABELS[case['instrument']]}"
+    return f"{total_transits(case)} transits ({INSTRUMENT_LABELS[case['instrument']]})"
 
 
 def sigma_distance(a0_case, a3_case, parameter):

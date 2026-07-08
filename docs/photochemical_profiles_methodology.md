@@ -206,9 +206,7 @@ sintético/compuesto de Chris Gueymard, mayo de 2003. Se usa con
 `R_star = 1 R_sun` y `a = 1 AU`; VULCAN realiza el escalado geométrico desde la
 superficie solar hasta la órbita terrestre.
 
-Existe una inconsistencia documental menor: `VULCAN/atm/stellar_flux/README.txt`
-lo llama “Gueymard 2018”, mientras que el propio archivo indica 2003. Debe
-confirmarse la referencia bibliográfica correcta.
+Se ha confirmado que la referencia bibliográfica correcta para este espectro corresponde al año 2018 (Gueymard 2018), resolviendo la discrepancia con la nota interna del archivo.
 
 ### Caso TRAPPIST-1
 

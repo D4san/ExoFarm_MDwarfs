@@ -70,12 +70,12 @@ from POSEIDON.core import (
 # ============================================================
 PLANET_NAME = "TRAPPIST-1e"
 
-R_S = 0.11697 * R_Sun
+R_S = 0.1192 * R_Sun
 T_S = 2559.0
 MET_S = 0.04
 LOG_G_S = 5.21
 
-R_P = 0.917985 * R_E
+R_P = 0.920 * R_E
 M_P = 0.6356 * M_E
 T_EQ = 255.0
 
@@ -132,7 +132,7 @@ SCENARIO_LABELS = {
 
 # Pares de observaciones sintéticas usados en el flujo principal:
 # NIRSpec Prism = N tránsitos y MIRI LRS = N tránsitos.
-OBSERVATION_TRANSIT_COUNTS = [5, 10, 20, 100]
+OBSERVATION_TRANSIT_COUNTS = [5, 10, 20, 50, 100, 200]
 
 # Carpeta común con las plantillas de PandExo de 1 tránsito y los
 # datasets sintéticos generados para los pares de observaciones.
@@ -140,11 +140,13 @@ SYNTHETIC_DATA_DIR = Path(
     "POSEIDON_output/TRAPPIST-1e/synthetic_data/base_1transit"
 )
 
-# Prior superior de abundancias libres.
-# Si quieres abrir más el espacio, puedes cambiar -1.0 -> 0.0,
-# pero -1.0 suele ser una opción más conservadora con 7 especies libres.
+# Prior general para la mayoría de especies
 LOG_X_LOWER = -10.0
-LOG_X_UPPER = -1.0
+LOG_X_UPPER = 0.0
+
+# Prior especial para NH3
+LOG_NH3_LOWER = -12.0
+LOG_NH3_UPPER = -4.0
 
 T_LOWER = 200.0
 T_UPPER = 500.0
@@ -212,7 +214,7 @@ def make_retrieval_model(scenario_key: str, n_transits: int, instrument_mode: st
         PT_profile="isotherm",
         X_profile="isochem",
         radius_unit="R_E",
-        surface=False,
+        surface=True,
     )
 
     return model
@@ -284,14 +286,23 @@ def make_priors(planet, star, model, data):
     prior_types = {
         "T": "uniform",
         "R_p_ref": "uniform",
-        "log_X": "uniform",
+        "log_P_surf": "uniform",
     }
 
     prior_ranges = {
         "T": [T_LOWER, T_UPPER],
         "R_p_ref": [0.9 * R_P, 1.1 * R_P],
-        "log_X": [LOG_X_LOWER, LOG_X_UPPER],
+        "log_P_surf": [-2.0, 1.0],
     }
+
+    # Asignar priors moleculares individualmente
+    for sp in PARAM_SPECIES:
+        key = f"log_{sp}"
+        prior_types[key] = "uniform"
+        if sp == "NH3":
+            prior_ranges[key] = [LOG_NH3_LOWER, LOG_NH3_UPPER]
+        else:
+            prior_ranges[key] = [LOG_X_LOWER, LOG_X_UPPER]
 
     priors = set_priors(
         planet,

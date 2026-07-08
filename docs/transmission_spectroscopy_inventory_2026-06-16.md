@@ -135,7 +135,8 @@ Notebooks relevantes:
 | :--- | :--- |
 | `ExoFarm_Transmission_Spectra.ipynb` | Entrada narrativa/presentacional para espectros de transmision. |
 | `Plot_Transmission_Spectra_TRAPPIST.ipynb` | Notebook historico importante, pero con copias backup/recovered al mismo nivel. |
-| `Plot_Profile_Posterior_Comparison_TRAPPIST.ipynb` | Comparacion perfiles/posteriores. |
+| `Plot_Profile_Posterior_Comparison_TRAPPIST.ipynb` | *(Deprecado)* Notebook original para comparación de perfiles/posteriores. Reemplazado por el script oficial `.py`. |
+| `plot_profile_posterior_comparison.py` | Genera la grilla gigante (perfiles vs posteriores) para las combinaciones de la campaña. |
 | `Plot_Vertical_Profiles.ipynb` | Revision de perfiles verticales. |
 | `Observation.ipynb` | Exploracion/observacion; necesita clasificacion futura. |
 

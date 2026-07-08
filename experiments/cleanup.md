@@ -20,12 +20,12 @@ General cleanup procedure:
 | `Transmission_Spectroscopy/notebooks/Plot_Transmission_Spectra_TRAPPIST.*backup*.ipynb`, `*.recovered_from_git.ipynb`, `Observation.ipynb` | Moved on 2026-06-16 to `Transmission_Spectroscopy/notebooks/legacy/` after approval. | Current scripts and curated outputs remain in `notebooks/` and `final_products/`; archived notebooks remain available for audit. |
 | `Transmission_Spectroscopy/notebooks/POSEIDON_output/Earth/`, `Transmission_Spectroscopy/notebooks/POSEIDON_output/Trappist/` | Moved on 2026-06-16 to `Transmission_Spectroscopy/notebooks/POSEIDON_output/legacy/` after approval. | Current active POSEIDON products remain in `POSEIDON_output/TRAPPIST-1e/`; pure spectra remain in `POSEIDON_output/pure_spectra/`. |
 | `Transmission_Spectroscopy/notebooks/POSEIDON_output/TRAPPIST-1e/retrievals/MultiNest_raw/failed_A0_5_MIRI_20260529`, `legacy_failed_resume` | Moved on 2026-06-16 to `Transmission_Spectroscopy/notebooks/POSEIDON_output/TRAPPIST-1e/retrievals/legacy_failed_runs/` after approval. | Active MultiNest raw products remain in `retrievals/MultiNest_raw/`; failed/resume evidence remains separated for audit. |
+| `photochemical_modelling_photochem...Earth_A1_profile_comparison.png` | Removed on 2026-06-29 after approval because it was a malformed root-level duplicate with encoded path separators. | Canonical figure exists under `output/figures/Earth_A1_profile_comparison.png`. |
 
 ## Review before deletion
 
 | Path | Reason | Keep before deleting |
 | --- | --- | --- |
-| `photochemical_modelling_photochem...Earth_A1_profile_comparison.png` | Malformed root-level duplicate with encoded path separators. | Confirm the canonical figure exists under `output/figures/` or `Photochemical_Modeling/Results/Plots/`. |
 | `output/` | Legacy root-level figures. | Keep unless every figure has a documented canonical replacement and no report depends on the legacy copy. |
 | `POSEIDON_output/` | Empty or obsolete root-level POSEIDON tree if unused. | Confirm active POSEIDON products are under `Transmission_Spectroscopy/notebooks/POSEIDON_output/`. |
 

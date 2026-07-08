@@ -44,6 +44,7 @@ def create_vulcan_cfg(config_file):
     # Convert const_mix dict to string representation for python file
     const_mix_str = str(conf['atmosphere']['const_mix'])
     numerics = numerical_settings(conf)
+    co2_val = conf['atmosphere']['const_mix'].get('CO2', 4E-4)
     
     cfg_content = f"""# =============================================================================
 # Configuration file of VULCAN (Auto-generated from {config_file})
@@ -132,7 +133,7 @@ update_frq = 100
 # ====== Setting up the boundary conditions ======
 use_topflux = False
 use_botflux = {conf['chemistry']['use_botflux']}
-use_fix_sp_bot = {{"H2O":0.00894, "H2O_l_s":0, 'CO2':4E-4}}
+use_fix_sp_bot = {{"H2O":0.00894, "H2O_l_s":0, 'CO2':{co2_val}}}
 diff_esc = ['H2', 'H'] # species for diffusion-limit escape at TOA
 max_flux = 1e13  # upper limit for the diffusion-limit fluxes
 

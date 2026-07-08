@@ -1,16 +1,14 @@
 planet:
-  name: 'Earth-Trappist-Current'
-  # TRAPPIST-1e bulk/orbital parameters from Agol et al. (2021).
+  name: 'Trappist_A1'
   Rp: 5.867852e8
   gs: 801.2287
-  orbit_radius: 0.02925 # Semi-major axis in AU
-  sl_angle: 48.0        # Solar Zenith Angle (Effective angle for tidally locked day-side)
-                        # Specific to TRAPPIST-1e setup (approx. arccos(2/3) or derived from GCMs)
-  f_diurnal: 1.0        # Diurnal factor (1.0 = permanent day / no night averaging)
+  orbit_radius: 0.02925
+  sl_angle: 48.0
+  f_diurnal: 1.0
   rocky: True
 atmosphere:
   atm_type: 'file'
-  atm_file: 'atm/atm_Earth_Jan_Kzz.txt'
+  atm_file: 'atm/atm_Trappist1e_Lin_Kzz.txt'
   P_b: 1.0e6
   P_t: 5.0e-2
   nz: 120
@@ -19,12 +17,12 @@ atmosphere:
     N2: 0.78
     O2: 0.20
     H2O: 1.0e-6
-    CO2: 0.0004
+    CO2: 0.036
     Ar: 9.34e-3
     SO2: 2.0e-10
 star:
   type: 'TRAPPIST-1'
-  r_star: 0.1192        # Stellar radius in Solar radii
+  r_star: 0.1192
   sflux_file: 'atm/stellar_flux/TRAPPIST1_surface.txt'
 chemistry:
   network: 'thermo/SNCHO_full_photo_network.txt'
@@ -32,6 +30,3 @@ chemistry:
   use_botflux: True
   bot_BC_flux_file: 'atm/BC_bot_Earth.txt'
   out_name: 'Trappist_A1_Current.vul'
-
-
-
