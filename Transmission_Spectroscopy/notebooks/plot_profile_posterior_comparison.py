@@ -2,11 +2,16 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
+import sys
 
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import AnchoredOffsetbox, TextArea, VPacker
+
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(BASE_DIR))
+from exofarm_plot_style import EXOFARM_GENERAL_PALETTE as PALETTE
 
 try:
     import pandas as pd
@@ -46,12 +51,12 @@ SCENARIOS = {
     "A0": {
         "label": "A0 (PreAgri)",
         "profile_stem": "Trappist_A0_PreAgri",
-        "color": "#e76f51",
+        "color": PALETTE["scenario_green"],
     },
     "A3": {
         "label": "A3 (Extreme)",
         "profile_stem": "Trappist_A3_Extreme",
-        "color": "#2a9d8f",
+        "color": PALETTE["scenario_pink"],
     },
 }
 
@@ -59,13 +64,13 @@ SCENARIO_ORDER = ("A0", "A3")
 OBSERVATION_RETRIEVALS = (
     {"key": "10_MIRI", "label": "10 MIRI", "n_transits": 10, "instrument_suffix": "MIRI"},
     {"key": "10_NIRSpec", "label": "10 NIRSpec", "n_transits": 10, "instrument_suffix": "NIRSpec"},
-    {"key": "5_NIRSpec_MIRI", "label": "10 NIRSpec+MIRI (5+5)", "n_transits": 5, "instrument_suffix": "NIRSpec_MIRI"},
+    {"key": "5_NIRSpec_MIRI", "label": "5 NIRSpec + 5 MIRI", "n_transits": 5, "instrument_suffix": "NIRSpec_MIRI"},
     {"key": "100_MIRI", "label": "100 MIRI", "n_transits": 100, "instrument_suffix": "MIRI"},
     {"key": "100_NIRSpec", "label": "100 NIRSpec", "n_transits": 100, "instrument_suffix": "NIRSpec"},
-    {"key": "50_NIRSpec_MIRI", "label": "100 NIRSpec+MIRI (50+50)", "n_transits": 50, "instrument_suffix": "NIRSpec_MIRI"},
+    {"key": "50_NIRSpec_MIRI", "label": "50 NIRSpec + 50 MIRI", "n_transits": 50, "instrument_suffix": "NIRSpec_MIRI"},
     {"key": "200_MIRI", "label": "200 MIRI", "n_transits": 200, "instrument_suffix": "MIRI"},
     {"key": "200_NIRSpec", "label": "200 NIRSpec", "n_transits": 200, "instrument_suffix": "NIRSpec"},
-    {"key": "100_NIRSpec_MIRI", "label": "200 NIRSpec+MIRI (100+100)", "n_transits": 100, "instrument_suffix": "NIRSpec_MIRI"},
+    {"key": "100_NIRSpec_MIRI", "label": "100 NIRSpec + 100 MIRI", "n_transits": 100, "instrument_suffix": "NIRSpec_MIRI"},
 )
 MOLECULES = ("H2O", "CO2", "CH4", "O2", "O3", "N2O", "NH3")
 ABUNDANCE_FLOOR = 1.0e-80
@@ -286,7 +291,7 @@ def main():
             "A3_lnZ": 2,
             "sep_sigma": 2,
         })
-        display(comparison_df)
+        print(comparison_df.to_string(index=False))
     else:
         comparison_rows
 
@@ -515,20 +520,25 @@ def main():
             va="top",
             fontsize=9.5,
         )
-
+        return fig
     for missing in missing_retrievals:
         print(f"Missing: {missing}")
 
     fig = plot_profile_posterior_grid(sample_store, profile_store, summary_store, x_limits, profile_ylim)
 
-    output_dir = repo_root / "Transmission_Spectroscopy" / "notebooks" / "figures"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    figure_path = output_dir / "trappist_profile_posterior_observation_combinations.png"
-    figure_pdf_path = output_dir / "trappist_profile_posterior_observation_combinations.pdf"
-    fig.savefig(figure_path, dpi=220, bbox_inches="tight")
-    fig.savefig(figure_pdf_path, bbox_inches="tight")
-    print(f"Saved: {figure_path}")
-    print(f"Saved: {figure_pdf_path}")
+    output_dirs = (
+        repo_root / "Transmission_Spectroscopy" / "notebooks" / "figures",
+        repo_root / "Transmission_Spectroscopy" / "notebooks" / "POSEIDON_output" / "TRAPPIST-1e" / "plots",
+        repo_root / "Transmission_Spectroscopy" / "final_products" / "figures",
+    )
+    for output_dir in output_dirs:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        figure_path = output_dir / "trappist_retrieval_profiles_posteriors_A0_A3_all_campaigns.png"
+        figure_pdf_path = output_dir / "trappist_retrieval_profiles_posteriors_A0_A3_all_campaigns.pdf"
+        fig.savefig(figure_path, dpi=220, bbox_inches="tight")
+        fig.savefig(figure_pdf_path, bbox_inches="tight")
+        print(f"Saved: {figure_path}")
+        print(f"Saved: {figure_pdf_path}")
 
 
 if __name__ == "__main__":

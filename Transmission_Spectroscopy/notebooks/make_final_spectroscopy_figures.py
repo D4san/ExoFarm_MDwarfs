@@ -13,6 +13,8 @@ import shutil
 import plot_a0_a3_diagonal_distinguishability
 import plot_pure_transmission_spectra
 import plot_retrieved_zooms
+import plot_retrieval_campaign_comparison
+import plot_profile_posterior_comparison
 import plot_molecular_snr_summary
 import plot_trappist_simulated_observations
 
@@ -60,6 +62,17 @@ FINAL_PLOT_SOURCES = (
     ),
     (
         TRAPPIST_PLOTS_DIR,
+        "trappist_retrieval_bands_A0_A3_10_100total",
+    ),
+    (
+        TRAPPIST_PLOTS_DIR,
+        "trappist_retrieval_total_A0_A3_10_100total",
+    ),
+    (
+        TRAPPIST_PLOTS_DIR,
+        "trappist_retrieval_profiles_posteriors_A0_A3_all_campaigns",
+    ),    (
+        TRAPPIST_PLOTS_DIR,
         "trappist1e_net_molecular_snr_comparison",
     ),
     (
@@ -88,6 +101,8 @@ def main():
     plot_pure_transmission_spectra.main()
     plot_a0_a3_diagonal_distinguishability.main()
     plot_retrieved_zooms.main()
+    plot_retrieval_campaign_comparison.main()
+    plot_profile_posterior_comparison.main()
     plot_molecular_snr_summary.main()
     plot_trappist_simulated_observations.main()
 

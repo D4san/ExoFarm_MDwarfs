@@ -1,6 +1,6 @@
 # ExoFarm Project Status and Management Tracker
 
-**Fecha de actualización:** 2026-06-29  
+**Fecha de actualización:** 2026-07-13
 **Proósito:** Centralizar el estado operativo, dependencias de software, decisiones de diseño y tareas técnicas pendientes (backlog) del pipeline ExoFarm.
 
 ---
@@ -25,8 +25,8 @@ graph TD
 
 ### Etapa II: Espectroscopia de Transmisión y Retrieval ([Transmission_Spectroscopy](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/Transmission_Spectroscopy/README.md))
 *   **Espectros Forward y Ruido:** Completado para la grilla de 1 tránsito y tránsitos acumulados.
-*   **Campaña de Inversión (Advertencia Importante):** Las 42 corridas de MultiNest guardadas en el repositorio son **obsoletas / científicamente inválidas** debido a que se ejecutaron antes de corregir los perfiles fotoquímicos (promovidos el 2026-06-15). Queda pendiente re-definir la campaña de retrievals; se planea reducir el número total de combinaciones (no serán tantas corridas) y volver a ejecutar estas simulaciones utilizando los perfiles corregidos.
-*   **Capa Curada:** Figuras finales de publicación generadas en [final_products/figures/](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/Transmission_Spectroscopy/final_products/figures/) (deben actualizarse tras re-ejecutar la campaña).
+*   **Campaña de Inversión:** La matriz optimizada A0/A3 de 18 combinaciones ya terminó en Ubuntu/WSL con los perfiles fotoquímicos corregidos. Las cuatro ejecuciones finales (A0 100 NIRSpec+MIRI; A3 200 MIRI; A3 200 NIRSpec; A3 100 NIRSpec+MIRI) cerraron el 2026-07-12 con código 0. Las 42 corridas previas se conservan únicamente como evidencia legacy y no se usan para la interpretación actual.
+*   **Capa Curada:** Se actualizaron las figuras asociadas al par conjunto A0/A3 de 100+100 tránsitos: espectro por bandas, espectro total y grilla de posteriores, en [final_products/figures/](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/Transmission_Spectroscopy/final_products/figures/).
 
 ---
 
@@ -47,7 +47,8 @@ graph TD
 | 2026-06-30 | **Promover Modelo TRAPPIST-1e Lin PT + 100x CO2** | Se adopta el perfil térmico P-T de Lin et al. (2023) y una abundancia de $CO_2$ de $3.6\%$ ($100\text{x}$) como el nuevo baseline oficial. Los antiguos modelos isoquímicos (Earth PT, 400ppm) pasan a ser legacy. | **Cerrado** |
 | 2026-06-29 | **Estructura Térmica de TRAPPIST-1e Abierta** | Superado por la decisión del 2026-06-30 de adoptar Lin et al. | **Cerrado / Actualizado** |
 | 2026-06-29 | **Preservar Modelo Isoquímico** | El retrieval asume mezcla química constante con la altura (isoquímico) e isotérmico para mantener la uniformidad de la campaña de 42 corridas. | **Cerrado** |
-| 2026-06-29 | **Re-definir y Re-ejecutar Campaña de Retrievals** | Los retrievals existentes se consideran obsoletos por usar perfiles antiguos (y ahora el nuevo PT de Lin). Se re-definió la matriz de combinaciones a 18 corridas clave. Pendiente ejecución. | **Abierto / Planificado** |
+| 2026-07-12 | **Completar campaña optimizada de retrievals** | Las 18 corridas A0/A3 con perfiles corregidos terminaron; las últimas cuatro cerraron con código 0. Las advertencias de borde de prior se registran como salvedad, no como fallos. | **Cerrado** |
+| 2026-07-13 | **Promover el par conjunto A0/A3 de 100+100** | Este presupuesto de 200 tránsitos totales alimenta las figuras de espectro por bandas, espectro total y posteriores; las figuras de 5/50 tránsitos se preservan como legacy. | **Cerrado** |
 | 2026-06-29 | **Mantener `sl_angle = 48 deg`** | Se decidió ignorar el frente abierto sobre el ángulo cenital y mantener la configuración actual (heredada). | **Cerrado / Descartado** |
 | 2026-07-01 | **Corregir Alpha N2O y Noise Floor** | Se alinearon los flujos de N2O con los alpha 2.55 y 15. Se impuso piso de ruido de 10ppm en PandExo. | **Cerrado** |
 | 2026-07-01 | **Optimización Matriz de Retrievals** | Se redujo la campaña de 42 a 18 corridas, enfocándose solo en A0 y A3. Para mantener el tiempo de observación constante, "both" usa la mitad de tránsitos (ej: 5+5=10). Los tiempos totales simulados son equivalentes a 10, 100 y 200 tránsitos. | **Planificado** |
@@ -60,7 +61,7 @@ graph TD
 
 ### Prioridad Alta (LPJmL y Re-corridas Críticas)
 1.  `[x]` Definir la nueva matriz optimizada de combinaciones para la campaña de retrievals (reduciendo el número de ejecuciones respecto a las 42 originales).
-2.  `[ ]` Re-ejecutar la campaña optimizada de retrievals con POSEIDON/MultiNest en Ubuntu/WSL utilizando los perfiles fotoquímicos corregidos.
+2.  `[x]` Re-ejecutar la campaña optimizada de retrievals con POSEIDON/MultiNest en Ubuntu/WSL utilizando los perfiles fotoquímicos corregidos (cerrada el 2026-07-12).
 3.  `[ ]` Instalar LPJmL en la ruta [Agricultural_Fluxes_LPJmL/software/LPJmL/](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/Agricultural_Fluxes_LPJmL/software/LPJmL/) (fuera del control de Git).
 4.  `[ ]` Correr simulaciones piloto LPJmL regionales/globales con ciclo de N activo.
 5.  `[ ]` Acoplar las salidas de LPJmL generadas como forzamiento real de la Etapa I.
