@@ -9,6 +9,14 @@ atmospheric abundances directly. Its role is to estimate spatially explicit
 land-use, crop, water, carbon, and nitrogen fluxes, then let the photochemical
 stage decide the atmospheric response.
 
+> **Estado de proyecto (2026-07-20): suspendido.** El checkout, el conversor y
+> esta documentación se conservan, pero no se deben iniciar corridas LPJmL ni
+> acoplamientos nuevos hasta una reactivación explícita. Esta pausa no bloquea
+> la interpretación de la Etapa II ni la **planificación/preparación** de la
+> Etapa III; la Etapa III todavía no tiene ejecuciones LIFE autorizadas.
+> Para recuperar el estado completo, leer
+> [`../docs/project_resume.md`](../docs/project_resume.md).
+
 ## Role in the ExoFarm Pipeline
 
 The intended workflow is:

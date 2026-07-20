@@ -4,6 +4,12 @@
 **Etapa:** modelado fotoquímico directo  
 **Implementación:** VULCAN local en `VULCAN/`
 
+**Reanudación:** el estado operativo vive en
+[`project_resume.md`](project_resume.md) y
+[`project_status_tracker.md`](project_status_tracker.md). Antes de usar los
+perfiles Tierra--Sol en LIFE, leer la
+[nota de procedencia N2O](earth_sun_n2o_matrix_provenance_2026-07-20.md).
+
 ## Propósito del experimento
 
 La etapa fotoquímica de ExoFarm traduce una perturbación agrícola superficial
@@ -12,18 +18,18 @@ en una estructura química vertical. La pregunta no es simplemente cuánto
 gases se emiten desde la superficie, se mezclan verticalmente, se depositan,
 reaccionan y son fotodisociados bajo distintos campos estelares.
 
-El experimento compara dos ambientes:
+El experimento completado compara dos ambientes:
 
-1. una Tierra alrededor del Sol;
-2. un planeta con los parámetros físicos y orbitales de TRAPPIST-1e, pero que
-   conserva deliberadamente el perfil terrestre de temperatura y difusión
-   turbulenta `Kzz`.
+1. una Tierra alrededor del Sol, con `atm_Earth_Jan_Kzz.txt`;
+2. un planeta con los parámetros físicos y orbitales de TRAPPIST-1e, con el
+   perfil lineal activo `atm_Trappist1e_Lin_Kzz.txt` y el baseline de
+   `CO2 = 0.036` declarado en sus YAML.
 
-Esta segunda elección convierte la comparación en un experimento controlado:
-permite estudiar primero la respuesta química al ambiente estelar y a los
-flujos agrícolas sin introducir simultáneamente un nuevo perfil climático.
-También limita la interpretación: el caso TRAPPIST-1e no representa todavía
-una atmósfera climáticamente autoconsistente de ese planeta.
+La rama TRAPPIST-1e es una hipótesis termodinámica/composicional distinta de la
+Tierra--Sol; por ello no debe describirse como una simple sustitución del
+espectro estelar ni como una atmósfera climáticamente autoconsistente del
+planeta real. El próximo experimento Proxima conservará explícitamente el
+PT/Kzz terrestre como control para aislar primero el efecto de la SED.
 
 ## Cadena reproducible
 
@@ -75,13 +81,19 @@ reacciones duplicadas.
 
 ### Perfil atmosférico controlado
 
-Ambos ambientes usan:
+El caso Earth--Sun usa:
 
 ```text
 VULCAN/atm/atm_Earth_Jan_Kzz.txt
 ```
 
-El perfil resultante abarca aproximadamente:
+El caso TRAPPIST-1e activo usa:
+
+```text
+VULCAN/atm/atm_Trappist1e_Lin_Kzz.txt
+```
+
+El intervalo siguiente corresponde al perfil Earth--Sun:
 
 | Magnitud | Intervalo |
 | --- | ---: |
@@ -119,18 +131,30 @@ F_i(A_j) = F_i(A0) + alpha_i,j * Delta F_i,agri
 donde `A0` es el fondo preagrícola y `Delta F_i,agri` representa la
 contribución agrícola moderna que se intensifica.
 
-### Flujos implementados
+### Flujos configurados actualmente
 
-Los valores realmente usados por VULCAN son:
+Los BC que el runner vigente de VULCAN copia a `atm/BC_bot_Earth.txt` son:
 
 | Caso | Interpretación | `NH3` | `N2O` |
 | --- | --- | ---: | ---: |
 | A0 | fondo preagrícola | `2.94e9` | `1.58e9` |
 | A1 | Tierra actual | `1.30e10` | `2.30e9` |
-| A2 | ExoFarm moderado, inspirado en 30B | `3.82e10` | `3.35e9` |
-| A3 | ExoFarm extremo, inspirado en S2 | `1.54e11` | `1.20e10` |
+| A2 | ExoFarm moderado, inspirado en 30B | `3.82e10` | `3.416e9` |
+| A3 | ExoFarm extremo, inspirado en S2 | `1.54e11` | `1.238e10` |
 
 Unidades: `molecules cm^-2 s^-1`.
+
+### Procedencia de los perfiles guardados
+
+Los perfiles Earth--Sun aceptados en `Results/Outputs/` fueron guardados el
+2026-06-15. Sus snapshots A2/A3 contienen `N2O = 3.35e9` y `1.20e10`,
+respectivamente, y por tanto son anteriores a la tabla configurada arriba. No
+se reescriben ni se invalidan por ello: se conservan como benchmark congelado
+para validar interfaces. Un producto LIFE derivado de ellos debe declarar
+`earth_20260615_pre_n2o_correction` hasta que se decida y ejecute un rerun con
+los BC actuales, o se apruebe un uso histórico explícito. La evidencia de
+archivos y la regla de reanudación están en
+[`earth_sun_n2o_matrix_provenance_2026-07-20.md`](earth_sun_n2o_matrix_provenance_2026-07-20.md).
 
 Estos valores viven en
 `Photochemical_Modeling/Config/Boundary_Conditions/`. Además del flujo, cada
@@ -159,21 +183,18 @@ alpha_N2O,A2 = (590 - 170) / (335 - 170) = 2.55
 A3 adopta `alpha = 15` como envolvente inspirada en el índice agrícola S2 de
 Haqq-Misra et al. (2025).
 
-Sin embargo, existe una inconsistencia que debe resolverse antes de presentar
-la matriz como una aplicación exacta de la ecuación. Si se calcula
-`Delta F = F(A1) - F(A0)` usando los valores redondeados implementados, los
-flujos de `N2O` implican:
+La corrección ya está aplicada en los BC activos. Con
+`Delta F_N2O,agri = 2.30e9 - 1.58e9 = 0.72e9`, la ecuación da:
 
 ```text
-alpha_N2O,A2 = 2.458, no 2.55
-alpha_N2O,A3 = 14.472, no 15
+F_N2O(A2) = 1.58e9 + 2.55 * 0.72e9 = 3.416e9
+F_N2O(A3) = 1.58e9 + 15 * 0.72e9 = 1.238e10
 ```
 
-Para `NH3`, los factores implícitos son `3.505` y `15.016`, compatibles con
-redondeo. Para `N2O` la diferencia es mayor. Debe recuperarse la derivación con
-valores no redondeados o decidir si se corrigen los flujos o los factores
-documentados. Hasta entonces, los valores de la tabla son los forzamientos
-ejecutados, mientras que los `alpha` son las anclas conceptuales declaradas.
+Los valores antiguos implicaban `alpha_N2O,A2 = 2.458` y
+`alpha_N2O,A3 = 14.472`; ahora son evidencia histórica de los perfiles de
+junio, no la definición vigente. La distinción entre configuración y producto
+existente se conserva en la nota de procedencia enlazada arriba.
 
 ## Tratamiento de los espectros estelares
 
@@ -206,7 +227,10 @@ sintético/compuesto de Chris Gueymard, mayo de 2003. Se usa con
 `R_star = 1 R_sun` y `a = 1 AU`; VULCAN realiza el escalado geométrico desde la
 superficie solar hasta la órbita terrestre.
 
-Se ha confirmado que la referencia bibliográfica correcta para este espectro corresponde al año 2018 (Gueymard 2018), resolviendo la discrepancia con la nota interna del archivo.
+La metodología adopta Gueymard (2018) como referencia bibliográfica, pero el
+encabezado del archivo local debe conservarse junto con su ruta y checksum antes
+de usarlo como fuente de una nueva interfaz de emisión; no se infiere una nueva
+SED solar a partir de esta nota.
 
 ### Caso TRAPPIST-1
 
@@ -290,13 +314,24 @@ permanentemente con geometría efectiva.
 | Gravedad superficial | `980.0 cm s^-2` | `801.2287 cm s^-2` |
 | Distancia orbital | `1 AU` | `0.02925 AU` |
 | Radio estelar | `1 R_sun` | `0.1192 R_sun` |
-| Perfil P-T-Kzz | Tierra | Tierra, controlado |
+| Perfil P-T-Kzz | `atm_Earth_Jan_Kzz.txt` | `atm_Trappist1e_Lin_Kzz.txt` |
 | Red química | SNCHO completa | SNCHO completa |
 | Flujos A0-A3 | iguales | iguales |
 
 Los parámetros físicos corregidos de TRAPPIST-1e están basados en Agol et al.
-(2021). El perfil térmico y `Kzz` no se corrigieron porque se mantienen como
-parte deliberada del experimento controlado.
+(2021). El perfil lineal y `CO2 = 0.036` de sus YAML son el baseline oficial
+actual de esa rama; no deben transferirse automáticamente a otra enana M.
+
+### Caso Proxima planificado
+
+`life_proxima_b_earthlike` no tiene todavía SED almacenada, YAML, perfil VULCAN
+o producto espectral. Su secuencia obligatoria es: MUSCLES v22 crudo y notas de
+reducción → conversor a flujo superficial en nm y
+`erg cm^-2 s^-1 nm^-1` → validación de la escala única `(R_star/a)^2` → VULCAN
+A0--A3 con `atm_Earth_Jan_Kzz.txt` → exportación de PT/química. El nombre
+`earthlike` describe un control de proyecto, no una atmósfera observada de
+Proxima b. La extensión MIR para LIFE se documentará separadamente de la SED UV
+empleada en VULCAN.
 
 ## Estado de los resultados
 
@@ -336,14 +371,16 @@ Photochemical_Modeling/Results/Reproduction_2026-06-15/
 - Usar abundancias de Haqq-Misra (2022) para construir factores efectivos, no
   como condiciones de frontera.
 - Usar el índice S2 `15x` de Haqq-Misra (2025) como envolvente extrema.
-- Mantener el perfil terrestre P-T-Kzz para aislar inicialmente la respuesta
-  fotoquímica.
+- Usar `atm_Earth_Jan_Kzz.txt` para Earth--Sun y, como baseline controlado de
+  la futura rama Proxima, para aislar inicialmente la respuesta a la SED.
+- Mantener el perfil lineal/`100x CO2` documentado para TRAPPIST-1e como una
+  decisión específica de esa rama, no como un PT universal de enanas M.
 - Representar TRAPPIST-1e como una columna permanentemente iluminada.
 
 ### Preguntas aún abiertas
 
-- Resolver la inconsistencia entre los `alpha` declarados y los flujos
-  implementados de `N2O`.
+- Decidir si se rerun/reexporta el conjunto Earth--Sun A0--A3 con los BC N2O
+  corregidos antes de usar resultados LIFE como matriz ExoFarm vigente.
 - Registrar la referencia y el script exactos usados para convertir el producto
   Mega-MUSCLES en `TRAPPIST1_surface.txt`.
 - Confirmar la edición correcta del espectro Gueymard.

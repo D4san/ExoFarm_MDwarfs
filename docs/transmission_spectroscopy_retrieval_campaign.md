@@ -5,6 +5,16 @@
 **Herramientas:** POSEIDON (v1.4+) [2], PyMultiNest [3]  
 **Sistema:** Análogo de TRAPPIST-1e  
 
+> [!WARNING]
+> **Registro histórico, no receta vigente.** Este informe describe la campaña
+> legacy de 42 corridas del 2026-06-18 y su configuración `surface=False`.
+> No debe usarse para lanzar o interpretar la campaña actual. La matriz vigente
+> es de 18 corridas A0/A3 y usa `surface=True`; consultar
+> [`project_resume.md`](project_resume.md),
+> [`project_status_tracker.md`](project_status_tracker.md) y
+> [`../Transmission_Spectroscopy/README.md`](../Transmission_Spectroscopy/README.md)
+> antes de una acción de transmisión/JWST.
+
 ---
 
 ## 1. Ajuste Atmosférico y Recuperación con POSEIDON (Retrieval Model)
@@ -52,9 +62,12 @@ El muestreo del espacio de parámetros se realiza mediante la implementación de
 
 ---
 
-## 4. Estructura y Combinaciones de la Campaña Activa
+## 4. Estructura y Combinaciones de la Campaña Histórica (legacy)
 
-La campaña de retrievals está configurada para explorar la distinguibilidad en función del escenario atmosférico, la cantidad de tránsitos acumulados y el canal instrumental utilizado. Comprende un total de **42 ejecuciones completas de MultiNest** definidas por la siguiente matriz:
+En la fecha de este informe, la campaña de retrievals se configuró para explorar
+la distinguibilidad en función del escenario atmosférico, la cantidad de
+tránsitos acumulados y el canal instrumental utilizado. Comprendía un total de
+**42 ejecuciones completas de MultiNest** definidas por la siguiente matriz:
 
 *   **Matriz de Escenarios y Tránsitos:**
     *   **Escenarios `A0` (Preagrícola) y `A3` (ExoFarm Extremo):** Se fitean para tránsitos de $5$, $10$, $20$ y $100$.

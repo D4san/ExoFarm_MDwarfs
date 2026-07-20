@@ -9,6 +9,18 @@ The current implementation focuses on TRAPPIST-1e-like configurations and combin
 - **POSEIDON** for forward transmission-spectrum synthesis and retrieval
 - **PandExo** for synthetic JWST observational noise modelling
 
+## Scope boundary
+
+This module remains exclusively the **transmission/JWST** branch. The planned
+LIFE direct-observability work uses thermal-emission spectra, LIFEsimMC/PHRINGE
+noise, integration time and covariance-aware diagnostics; it belongs in the
+sibling [`../Thermal_Emission_Spectroscopy/`](../Thermal_Emission_Spectroscopy/)
+module and must not write into this module's `POSEIDON_output/` tree. Before
+resuming either branch, use the shared
+[`../docs/project_resume.md`](../docs/project_resume.md) and
+[`../docs/project_status_tracker.md`](../docs/project_status_tracker.md), not a
+historical report or notebook alone.
+
 ## Current Scientific Status
 
 The present TRAPPIST-1e spectroscopy and retrieval products derive from VULCAN
@@ -17,7 +29,11 @@ VULCAN's global steady-state criterion (`end_case = 3`). The upstream
 photochemical report identifies the remaining non-convergence as trace-species
 dominated, so these spectra and retrievals are part of the active analysis, not
 automatically blocked products. Interpretations must nevertheless state that
-the TRAPPIST-1e chemistry is accepted with a partial-convergence caveat.
+the TRAPPIST-1e chemistry is accepted with a partial-convergence caveat. The
+current TRAPPIST `.vul` and exported profiles were regenerated in commit
+`fb9812d` together with the active N2O boundary-condition correction; the
+Earth--Sun pre-correction provenance note belongs only to the planned Stage III
+benchmark and does not relabel this JWST campaign.
 
 ## Scientific Inputs
 
@@ -132,7 +148,9 @@ python make_final_spectroscopy_figures.py
 ### Synthetic observation campaign
 
 The current synthetic-observation grid is defined for the TRAPPIST-1e
-photochemical scenarios A0-A3 using the updated ExoFarm flux matrix:
+photochemical scenarios A0-A3 using the current accepted TRAPPIST profile set.
+The Earth--Sun pre-correction benchmark described for Stage III is a separate
+provenance issue and must not be used to relabel these transmission products.
 
 | Dimension | Values |
 | :--- | :--- |
@@ -154,24 +172,25 @@ notebooks/POSEIDON_output/TRAPPIST-1e/synthetic_data/base_1transit/
 ```
 
 This directory can also contain 1-transit reference products and legacy files.
-As audited on 2026-06-12, the active 5/10/20/100 naming set contains 28 files:
-the A1 and A2 100-transit products are absent. Treat the grid as active rather
-than complete until the spectroscopy README or a dedicated report confirms all
-32 datasets.
+The file-count statement above is a dated 2026-06-12 audit, not the current
+campaign status. Consult [`../docs/project_status_tracker.md`](../docs/project_status_tracker.md)
+and the current scripts before planning new transmission work; do not use this
+historical inventory to define LIFE inputs or a retrieval queue.
 
 ### Retrieval campaign
 
-Full MultiNest retrievals are expensive, so the current queue is narrower than
-the full synthetic grid. The source of truth is `DEFAULT_CAMPAIGN` in
+Full MultiNest retrievals are expensive, so the current campaign is the
+optimized A0/A3 matrix in `DEFAULT_CAMPAIGN` of
 `notebooks/run_trappist_retrieval_campaign.py`:
 
-| Scenarios | Transit counts | Instrument modes | Runs |
-| :--- | :--- | :--- | ---: |
-| A0, A3 | 5, 10, 20, 100 | MIRI, NIRSpec, NIRSpec + MIRI | 24 |
-| A1, A2 | 5, 10, 20 | MIRI, NIRSpec, NIRSpec + MIRI | 18 |
-| **Current queue total** |  |  | **42** |
+| Scenarios | Equivalent total observing budgets | Instrument modes | Runs |
+| --- | --- | --- | ---: |
+| A0, A3 | 10, 100, 200 transits | MIRI and NIRSpec at 10/100/200; joint NIRSpec+MIRI at 5/50/100 per instrument | 18 |
+| **Current campaign total** |  |  | **18** |
 
-The queue runner is skip-aware: existing results are not rerun unless
+All 18 runs completed on 2026-07-12. The earlier 42-run queue and its products
+remain legacy/audit evidence; they are not the source for current interpretation.
+The queue runner remains skip-aware: existing results are not rerun unless
 `--force` is passed.
 
 Legacy retrieval products from the older 10/100-transit exploratory setup may

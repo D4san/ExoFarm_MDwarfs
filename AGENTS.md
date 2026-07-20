@@ -234,6 +234,13 @@ Notebook cells should be atomized:
 
 ## POSEIDON and Ubuntu Workflow
 
+Before resuming any modelling task, read `docs/project_resume.md` and then
+`docs/project_status_tracker.md`. For the Earth--Sun Stage III benchmark, read
+`docs/earth_sun_n2o_matrix_provenance_2026-07-20.md` as well. The resume
+document identifies the current scope; the tracker owns the detailed backlog.
+Verify live state before treating an older report, command or environment path
+as current.
+
 POSEIDON work generally does not run in the repo `.venv`. It should be run in
 the Ubuntu/Anaconda environment named `POSEIDON`.
 
@@ -244,14 +251,15 @@ plot scripts, figure locations, and legacy/ambiguous outputs. Do not delete or
 move spectroscopy plots, notebooks, retrieval products, or POSEIDON outputs
 without explicit user approval for exact paths.
 
-Preferred commands inside Ubuntu:
+Current known-good command pattern inside Ubuntu (verify these paths before
+executing, since environment locations can move):
 
 ```bash
 cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks
-source /home/wsldasan/miniconda3/etc/profile.d/conda.sh
+source /home/dasan/anaconda3/etc/profile.d/conda.sh
 conda activate POSEIDON
-export POSEIDON_input_data=/home/wsldasan/POSEIDON/inputs/
-export PYSYN_CDBS=/home/wsldasan/POSEIDON/inputs/stellar_grids/
+export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs
+export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids
 ```
 
 Then run examples such as:
@@ -278,6 +286,59 @@ Important Windows/WSL note:
 Local Windows `.venv` is acceptable for lightweight post-processing that only
 needs packages such as `numpy`, `matplotlib`, and `pandas`. It is not a
 substitute for the POSEIDON environment when scripts import `POSEIDON`.
+
+## Stage III: Thermal Emission, LIFE, and LIFEsimMC
+
+Stage III is a planned branch parallel to Stage II. It consumes the canonical
+VULCAN-derived PT/chemistry profiles but produces thermal-emission/direct-
+observability products. It must not reuse transmission depth, PandExo noise,
+JWST `.dat` assumptions, transit counts, or `Transmission_Spectroscopy`
+output trees by analogy.
+
+- Keep all future Stage III code, configurations, campaign manifests, products,
+  tables, plots, and retrievals under `Thermal_Emission_Spectroscopy/`.
+- Use POSEIDON's emission forward model, not its transmission output. Record
+  whether a quantity is `Fp/Fs`, observed `Fp`, or surface radiance at every
+  interface; unit conversions and geometry must be explicit.
+- The instrumental-noise route is LIFEsimMC/PHRINGE. LIFEsim classic may support
+  astrophysical/yield sensitivity studies, but it does not replace a
+  time-dependent instrumental-instability simulation.
+- The first Stage III implementation is the synthetic `life_earth_sun_10pc`
+  benchmark using converged Earth--Sun A0--A3 profiles. Its frozen 2026-06-15
+  A2/A3 values predate the active N2O correction: use it for interface
+  validation only and label manifests `earth_20260615_pre_n2o_correction`.
+  Before interpreting LIFE SNR/retrievals as the current matrix, decide/rerun
+  as required by `docs/earth_sun_n2o_matrix_provenance_2026-07-20.md`. It must
+  load the documented PT/chemistry hand-off rather than regenerate or
+  approximate it spontaneously.
+- The approved second layer is `life_proxima_b_earthlike`: first preserve and
+  validate the MUSCLES Proxima SED, convert it to VULCAN surface flux, create
+  and accept a separate Proxima A0--A3 photochemical branch, and only then
+  create emission/LIFE products. Use `atm_Earth_Jan_Kzz.txt` as the initial
+  controlled PT/Kzz baseline; do not present it as Proxima b's measured climate
+  or silently reuse TRAPPIST's Lin PT/`100x CO2` configuration.
+- An M8V/TRAPPIST-1-like case at 5 pc, Teegarden's Star b, and TRAPPIST-1e real
+  remain deferred controls. Do not create products for them by analogy. Consult
+  `docs/life_stage_iii_two_layer_workplan_2026-07-20.md` and
+  `docs/life_target_selection_2026-07-20.md` for rationale and references.
+- Before coding a campaign, verify the actual LIFEsimMC custom-spectrum
+  contract, POSEIDON export, wavelength units, radiance conversion, target
+  distance, planet/star radii, resolution, scene, instrument architecture, time
+  budget, noise model, package versions, seed, and hardware requirements.
+- For a new stellar SED, record raw file/version/checksum, whether flux is at
+  the observer or stellar surface, every wavelength/flux conversion, and the
+  single geometric scaling applied by VULCAN. Do not reuse the TRAPPIST-1
+  normalization factor for Proxima or apply `(R_star/a)^2` twice.
+- Preserve LIFEsimMC's covariance or document a reproducible whitening/
+  covariance-aware likelihood strategy. Do not silently collapse correlated
+  instrumental noise into independent POSEIDON error bars.
+- Build the scientific sequence explicitly: emission forward → molecular
+  counterfactuals → LIFE noise/extraction → SNR tables/plots → approved retrieval
+  matrix. Do not launch retrievals until the first four products have been
+  validated and a campaign entry is recorded in `experiments/README.md`.
+- SNR is a diagnostic, not a detection claim. Retrievals must examine molecular
+  degeneracies, profile mismatch, multiple noise realizations, and evidence for
+  models with/without `N2O` and `NH3`.
 
 ## Retrieval and Plotting Conventions
 
@@ -437,12 +498,28 @@ Before trusting an LPJmL output, record:
 
 ## Project Management and Status Tracking
 
-A central status log is maintained in [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md). All coding agents must use and maintain this file as follows:
+The durable entrypoint is [`docs/project_resume.md`](docs/project_resume.md).
+It states the recoverable current scope and the first authorized next action;
+the detailed central log is
+[`docs/project_status_tracker.md`](docs/project_status_tracker.md). All coding
+agents must use and maintain both as follows:
 
-- **Consult status before coding:** Read [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md) to understand the technical status of Stage 0, I, and II, active dependencies, and design decisions.
-- **Maintain the backlog:** When the user requests new technical tasks, open questions, or modifications, check if they are in the backlog section. Mark completed tasks, and add new ones as appropriate.
-- **Record design decisions:** Add rows to the design decisions table in [docs/project_status_tracker.md](file:///c:/Proyetos/Repos/ExoFarm_MDwarfs/docs/project_status_tracker.md) when an architectural decision, parameter correction, or control profile constraint is established.
-- **Document tools and versions:** Ensure the versions of VULCAN, POSEIDON, and LPJmL and the host star spectrum configurations remain documented and up-to-date.
+- **Consult status before coding:** Read the resume document, then the tracker,
+  to understand the technical state of Stages 0--III, active dependencies and
+  design decisions.
+- **Maintain the backlog:** When the user requests new technical tasks, open
+  questions or modifications, check the tracker backlog. Mark completed tasks
+  and add new ones as appropriate.
+- **Record design decisions:** Add rows to the tracker decision table when an
+  architectural decision, parameter correction or control-profile constraint is
+  established.
+- **Maintain recoverability:** After material execution, validation, a scope
+  decision or a new blocker, update `docs/project_resume.md`, the tracker,
+  `experiments/README.md` and the relevant stage README. Do not leave the next
+  chat to infer state from an old conversation.
+- **Document tools and versions:** Ensure the versions of VULCAN, POSEIDON,
+  LIFEsimMC/PHRINGE when used, LPJmL and host-star spectrum configurations
+  remain documented and up-to-date.
 
 ## Communication Style for This Repo
 

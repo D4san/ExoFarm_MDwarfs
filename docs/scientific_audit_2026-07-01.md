@@ -1,5 +1,13 @@
 # Auditoría Científica de Modelos: Etapas I y II (2026-07-01)
 
+> [!NOTE]
+> **Auditoría histórica.** Detectó la inconsistencia de N2O que se corrigió
+> después en los BC activos. No usar sus descripciones de campaña o pendientes
+> como estado vivo: consultar [`project_resume.md`](project_resume.md) y el
+> [`project_status_tracker.md`](project_status_tracker.md). La diferencia entre
+> los BC actuales y el conjunto Earth--Sun guardado de junio está separada en
+> [`earth_sun_n2o_matrix_provenance_2026-07-20.md`](earth_sun_n2o_matrix_provenance_2026-07-20.md).
+
 ## Contexto y Alcance
 Esta auditoría revisa la implementación técnica de las etapas de Modelado Fotoquímico (VULCAN) y Espectroscopia de Transmisión (POSEIDON) para el proyecto ExoFarm, contrastando el código real ejecutado contra la documentación, decisiones de diseño y ecuaciones físicas subyacentes.
 

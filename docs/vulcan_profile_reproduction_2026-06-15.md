@@ -1,5 +1,14 @@
 # VULCAN vertical-profile reproduction audit, 2026-06-15
 
+> [!NOTE]
+> **Registro histórico de perfiles.** Esta auditoría conserva la evidencia de
+> reproducción/aceptación del 2026-06-15. Los BC N2O activos se corrigieron más
+> tarde; los perfiles Earth--Sun de esta fecha permanecen como benchmark
+> `earth_20260615_pre_n2o_correction` para la interfaz LIFE. Para el estado
+> actual, leer [`project_resume.md`](project_resume.md),
+> [`project_status_tracker.md`](project_status_tracker.md) y la
+> [nota de procedencia N2O](earth_sun_n2o_matrix_provenance_2026-07-20.md).
+
 ## Question
 
 This audit re-ran the active A0-A3 VULCAN chemistry matrix to test whether the

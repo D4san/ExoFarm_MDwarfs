@@ -3,12 +3,16 @@
 This directory is the presentation layer for the current TRAPPIST-1e
 transmission-spectroscopy analysis. It does not replace the working POSEIDON
 output tree. Instead, it records the small set of products that are considered
-useful for the current scientific narrative.
+useful for the current scientific narrative. Before regenerating or promoting a
+figure, consult [`../../docs/project_resume.md`](../../docs/project_resume.md)
+and [`../../docs/project_status_tracker.md`](../../docs/project_status_tracker.md);
+this presentation README is not the source of the active campaign definition.
 
 ## Execution Environment
 
 Run the final spectroscopy layer from Ubuntu/WSL in the Anaconda environment
-named `POSEIDON`:
+named `POSEIDON`. The paths below are known historical paths and must be
+verified in the live WSL environment before executing:
 
 ```bash
 cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks

@@ -6,6 +6,12 @@
 **Comparación:** línea base preagrícola A0 frente a ExoFarm extremo A3  
 **Campañas:** 5, 10, 20 y 100 tránsitos con MIRI, NIRSpec y NIRSpec+MIRI
 
+> [!NOTE]
+> **Evidencia fechada, no cola vigente.** Esta comparación conserva resultados
+> de la matriz de tránsitos indicada arriba. La campaña actual de 18 retrievals
+> A0/A3 y sus configuraciones se definen en el tracker y el README de
+> transmisión; no lanzar corridas desde este informe.
+
 > [!WARNING]
 > **Estado científico revisado el 2026-06-16:** los perfiles TRAPPIST-1e de
 > VULCAN usados aguas arriba terminaron con `end_case = 3`, es decir, excedieron

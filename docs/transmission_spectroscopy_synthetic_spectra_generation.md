@@ -5,6 +5,15 @@
 **Herramientas:** POSEIDON (v1.4+) [2], PandExo [4]  
 **Sistema:** Análogo de TRAPPIST-1e  
 
+> [!WARNING]
+> **Registro histórico de generación.** Describe el flujo y parámetros
+> documentados el 2026-06-18; no define una cola ni una configuración actual.
+> Antes de ejecutar transmisión/JWST, consultar
+> [`project_resume.md`](project_resume.md),
+> [`project_status_tracker.md`](project_status_tracker.md) y
+> [`../Transmission_Spectroscopy/README.md`](../Transmission_Spectroscopy/README.md).
+> La Etapa III LIFE usa emisión y no reutiliza este documento como receta.
+
 ---
 
 ## 1. Introducción y Flujo de Trabajo General
@@ -45,7 +54,7 @@ El modelo directo implementado en POSEIDON simula el paso de la luz estelar a tr
 Para definir la dispersión de ruido y la cuadrícula espectral de los instrumentos de JWST, se generan **plantillas espectrales planas de 1 tránsito** utilizando el motor de PandExo (`pandexo.engine.justdoit`). 
 
 ### Configuración de la Simulación Base de PandExo
-El script [Observation.ipynb](file:///c:/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/notebooks/legacy/Observation.ipynb) define los parámetros de PandExo para simular el límite de ruido instrumental de TRAPPIST-1e:
+El script [Observation.ipynb](../Transmission_Spectroscopy/notebooks/legacy/Observation.ipynb) define los parámetros de PandExo para simular el límite de ruido instrumental de TRAPPIST-1e:
 
 *   **Configuración Observacional del Sistema:**
     *   Magnitud estelar en banda J ($1.25 \, \mu\text{m}$): $J = 11.354$
