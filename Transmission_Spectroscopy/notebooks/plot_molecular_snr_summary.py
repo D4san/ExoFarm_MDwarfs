@@ -14,7 +14,7 @@ def main():
     # Output and Input paths
     BASE_DIR = Path(__file__).resolve().parent
     CSV_PATH = BASE_DIR / "POSEIDON_output" / "pure_spectra" / "plots" / "trappist1e_net_molecular_peak_summary.csv"
-    OUTPUT_DIR = BASE_DIR / "POSEIDON_output" / "TRAPPIST-1e" / "plots"
+    OUTPUT_DIR = BASE_DIR.parent / "final_products" / "figures"
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # 1. Load data
