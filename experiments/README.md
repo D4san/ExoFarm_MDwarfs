@@ -29,7 +29,7 @@ an execution instruction.
 
 | Campaign | Status | Main evidence | Notes |
 | --- | --- | --- | --- |
-| `life_earth_sun_10pc` thermal-emission observability | Planned; only environment/interface design, no products yet | `Thermal_Emission_Spectroscopy/README.md`, `docs/life_stage_iii_two_layer_workplan_2026-07-20.md` | Capa 1 uses the pre-correction Earth--Sun PT/química set only for interface validation. Environment/manifiesto precede a forward A0; no SNR/retrieval result may represent the current matrix before the provenance decision. |
+| `life_earth_sun_10pc` thermal-emission observability | Interface benchmark executed (classic branch); LIFEsimMC branch pending | `docs/life_earth_sun_10pc_interface_snr_2026-07-22.md`, `Thermal_Emission_Spectroscopy/outputs/life_earth_sun_10pc_interface_v1/` | Campaign `life_earth_sun_10pc_interface_v1`: POSEIDON emission A0--A3 + N2O/NH3 counterfactuals + LIFEsim-classic S/N. Interface validated (blackbody check PASS); ExoFarm signal below noise at LIFE baseline/10 pc (best peak N2O 7.82 µm). Pre-correction profiles (`earth_20260615_pre_n2o_correction`) — NOT the current matrix. Instrumental noise/covariance (LIFEsimMC/PHRINGE) and any retrieval still pending; SNR is a diagnostic, not a detection. |
 | `life_proxima_b_earthlike` | Planned; blocked by SED-to-VULCAN and new photochemistry | `docs/life_stage_iii_two_layer_workplan_2026-07-20.md`, `docs/life_target_selection_2026-07-20.md` | Capa 2: SED MUSCLES → flujo superficial VULCAN → Proxima A0--A3 → misma cadena LIFE. Es análogo terrestre controlado, no atmósfera medida de Proxima b. |
 
 ## Legacy campaigns

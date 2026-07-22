@@ -76,6 +76,12 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
   Justifica Tierra--Sol a 10 pc como benchmark, Proxima como extensión M
   prioritaria y los límites que impiden presentar el segundo caso como una
   atmósfera medida de Proxima b.
+- [Capa 1 LIFE `life_earth_sun_10pc`: emisión, contrafactuales y S/N clásico, 2026-07-22](life_earth_sun_10pc_interface_snr_2026-07-22.md)
+  Primer producto ejecutado de la Etapa III: forward de emisión POSEIDON A0--A3,
+  contrafactuales N2O/NH3, y S/N diagnóstico con LIFEsim clásico. Interfaz
+  validada (chequeo cuerpo negro); la tecnofirma ExoFarm queda bajo el ruido en
+  la config baseline de LIFE a 10 pc (mejor pico N2O 7.82 µm). Falta la rama
+  LIFEsimMC/PHRINGE (ruido instrumental + covarianza) antes de retrievals.
 
 ## Convención documental
 

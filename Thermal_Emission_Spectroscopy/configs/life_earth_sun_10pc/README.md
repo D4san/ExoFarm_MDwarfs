@@ -4,7 +4,12 @@ Destino de los manifiestos de la Capa 1. La futura configuración debe leer los
 perfiles Tierra--Sol A0--A3 canónicos desde `Transmission_Spectroscopy/profiles/`
 y declarar por separado el forward de emisión y la escena LIFEsimMC/PHRINGE.
 
-No hay resultados ni configuración ejecutable en esta carpeta aún.
+**Actualización 2026-07-22:** la rama clásica de la Capa 1 ya se ejecutó como
+campaña `life_earth_sun_10pc_interface_v1`. El manifiesto y los productos viven
+en [`../../outputs/life_earth_sun_10pc_interface_v1/`](../../outputs/life_earth_sun_10pc_interface_v1/)
+(no en esta carpeta de config), y el informe en
+[`life_earth_sun_10pc_interface_snr_2026-07-22.md`](../../../docs/life_earth_sun_10pc_interface_snr_2026-07-22.md).
+Pendiente en esta capa: rama LIFEsimMC/PHRINGE y decisión de procedencia N2O.
 
 > **Reanudación:** leer primero el [contrato de Etapa III](../../README.md), la [guía de reanudación](../../../docs/project_resume.md) y la [nota de procedencia N2O](../../../docs/earth_sun_n2o_matrix_provenance_2026-07-20.md). Este destino es solo para el benchmark `earth_20260615_pre_n2o_correction` hasta una decisión de rerun.
 

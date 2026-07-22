@@ -28,7 +28,7 @@ archivos/outputs en vivo y actualizar el tracker y este documento.
 | I — VULCAN Tierra--Sol | **Aceptada, benchmark pre-corrección de N2O** | Los cuatro A0--A3 tienen `end_case = 1`, pero A2/A3 proceden del conjunto guardado el 2026-06-15, anterior a la corrección actual de N2O. Sirven para validar la interfaz LIFE, no para presentar todavía la matriz vigente como resultado final. |
 | I — VULCAN TRAPPIST-1e | **Aceptada con salvedad** | `end_case = 3` por química traza; conservar la salvedad en cualquier uso de esos productos. No usar esos perfiles para Proxima. |
 | II — transmisión/JWST | **Campaña A0/A3 cerrada** | La matriz optimizada de 18 retrievals es la evidencia vigente. Los perfiles TRAPPIST actuales se regeneraron junto con los BC corregidos en `fb9812d`; no confundir esta campaña con la salvedad Tierra--Sol de Stage III ni reabrir una cola sin verificar outputs y procesos en vivo. |
-| III — LIFE | **Planificada; sin productos** | La única acción inmediata es la auditoría de entorno y manifiesto de Capa 1. No hay instalación/configuración versionada de LIFEsimMC/PHRINGE, forward térmico, ruido, SNR ni retrievals LIFE. |
+| III — LIFE | **Entorno listo; Capa 1 rama clásica ejecutada (2026-07-22)** | Env `ExoFarm_LIFE` con POSEIDON+opacidades, LIFEsim, LIFEsimMC/PHRINGE. Campaña `life_earth_sun_10pc_interface_v1`: forward emisión A0--A3 + contrafactuales + S/N clásico ([informe](life_earth_sun_10pc_interface_snr_2026-07-22.md)); interfaz validada, señal ExoFarm bajo el ruido a 10 pc. Perfiles pre-corrección. **Próximo:** rama LIFEsimMC/PHRINGE (ruido instrumental + covarianza), luego decisión de procedencia N2O; no lanzar retrievals aún. |
 
 ## Próximo trabajo autorizado
 

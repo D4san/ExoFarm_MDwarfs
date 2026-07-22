@@ -66,9 +66,18 @@ graph TD
 
 ### Etapa III: emisión térmica, LIFE y LIFEsimMC
 
-- **Estado:** **planificada; no ejecutada.** No hay instalación/configuración
-  versionada de LIFEsimMC/PHRINGE, espectros de emisión, observaciones LIFE,
-  tablas de SNR ni retrievals de esta etapa.
+- **Estado (2026-07-22):** **entorno provisionado; Capa 1 rama clásica
+  ejecutada.** Env conda `ExoFarm_LIFE` con POSEIDON 1.4.0 (+71 GB opacidades,
+  MD5 verificado), LIFEsim 0.2.32, LIFEsimMC 1.3.5 + PHRINGE 1.8.2
+  (`source /home/castello/POSEIDON/activate_exofarm_life.sh`; `lifesim` requiere
+  el SpectRes modificado de fdannert). Campaña `life_earth_sun_10pc_interface_v1`:
+  forward de emisión A0--A3 + 18 contrafactuales + S/N con LIFEsim clásico
+  ([informe](life_earth_sun_10pc_interface_snr_2026-07-22.md)). Interfaz validada
+  (chequeo cuerpo negro PASS); tecnofirma ExoFarm **bajo el ruido** en baseline
+  LIFE 2 m a 10 pc (mejor pico N2O 7.82 µm; √t confirmado). Perfiles
+  pre-corrección: no es la matriz vigente. **Pendiente:** rama LIFEsimMC/PHRINGE
+  (inestabilidad instrumental + covarianza), decisión de procedencia N2O, y solo
+  después retrievals.
 - **Objetivo:** generar forwards de emisión térmica con POSEIDON desde los
   perfiles fotoquímicos, diagnosticar señales de `N2O`/`NH3`, simular ruido
   astrofísico e instrumental de LIFE, analizar SNR y solo después diseñar una
