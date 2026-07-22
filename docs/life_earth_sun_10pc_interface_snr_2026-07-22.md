@@ -27,6 +27,13 @@ S/N tendría la tecnofirma agrícola (N2O, NH3) en emisión directa con LIFE?
 - Contrafactuales: [`make_counterfactuals.py`](../Thermal_Emission_Spectroscopy/scripts/make_counterfactuals.py), [`run_counterfactual_forward.py`](../Thermal_Emission_Spectroscopy/scripts/run_counterfactual_forward.py)
 - Escena LIFE + adaptador de unidades: [`life_scene_classic.py`](../Thermal_Emission_Spectroscopy/scripts/life_scene_classic.py)
 - Análisis S/N: [`run_life_snr_classic.py`](../Thermal_Emission_Spectroscopy/scripts/run_life_snr_classic.py)
+  (guarda además los productos por bin en `lifesim/life_classic_binned_products.npz`)
+- Figuras estilo capa curada (calcadas de las figuras finales de transmisión
+  `trappist1e_pure_a0_molecular_residuals_v2` y
+  `trappist1e_net_molecular_snr_comparison`, adaptadas a emisión):
+  [`plot_emission_molecular_residuals.py`](../Thermal_Emission_Spectroscopy/scripts/plot_emission_molecular_residuals.py),
+  [`plot_life_signal_noise_times.py`](../Thermal_Emission_Spectroscopy/scripts/plot_life_signal_noise_times.py),
+  [`plot_emission_snr_comparison.py`](../Thermal_Emission_Spectroscopy/scripts/plot_emission_snr_comparison.py)
 - Insumos: `Transmission_Spectroscopy/profiles/Earth_A0..A3_{PT,chem}.txt` (VULCAN
   `end_case = 1`), enlazados por checksum en el manifiesto.
 - Productos: `Thermal_Emission_Spectroscopy/outputs/life_earth_sun_10pc_interface_v1/`
@@ -83,6 +90,17 @@ escenario completo.
 - **S/N vs tiempo:** escalado `√t` confirmado (A3 total 1.8/5.6/17.7 a 1/10/100 h;
   ratio 100h/1h = 10.0). La señal más fuerte (A3 N2O, banda 0.163 @ 10 h) alcanza
   SNR≈5 recién hacia ~1e4 h; ni a 1000 h llega a 5.
+- **Figuras de capa curada (2026-07-22, mismo estilo que transmisión):**
+  `plots/life_earth_sun_emission_molecular_residuals_v1.png` (espectros A0--A3 +
+  paneles de señal N2O/NH3, con convención de déficit de emisión
+  `F(reset)−F(full) ≥ 0` para reflejar la convención positiva en ppm de la figura
+  de transmisión), `plots/life_classic_A3_signal_vs_noise_times.png` (pisos de
+  ruido 1σ a 10/100/1000 h, σ ∝ 1/√t verificado) y
+  `plots/life_classic_snr_comparison.png` con (a) S/N pico por rasgo espectral
+  (7.8/17.0 µm N2O, 10.7 µm NH3) × escenario × tiempo (10/100/1000 h) y
+  (b) horas requeridas para S/N fijo en A3: N2O 7.8 µm cruza S/N=3 a ~6.8e3 h y
+  S/N=5 a ~1.9e4 h; NH3 10.7 µm necesita ~6.8e6 / ~1.9e7 h — fuera de todo
+  presupuesto observacional realista.
 
 ## 5. Interpretación
 

@@ -126,6 +126,26 @@ def main():
             F_reset = rebin_photon(w, fp, wl_bins_m)
             signals[(s, sp)] = F_full - F_reset
 
+    # --- persist per-bin products for downstream figure scripts ------------
+    # (sigma scales exactly as 1/sqrt(t) in the photon-noise-dominated classic
+    # case, so saving the 10 h products is enough for any integration time.)
+    lifesim_dir = OUT / "lifesim"
+    lifesim_dir.mkdir(parents=True, exist_ok=True)
+    save_payload = {
+        "wl_bins_um": wl_um,
+        "t_ref_hours": REF_HOURS,
+        "provenance": ef.PROVENANCE_LABEL,
+    }
+    for s in SCENARIOS:
+        save_payload[f"flux_binned_{s}"] = obs[s]["flux_binned_ph"]
+        save_payload[f"sigma_{s}"] = obs[s]["sigma_ph"]
+        save_payload[f"snr_{s}"] = obs[s]["snr_per_bin"]
+    for (s, sp), dF in signals.items():
+        save_payload[f"dF_{s}_{sp}"] = dF
+    np.savez_compressed(lifesim_dir / "life_classic_binned_products.npz",
+                        **save_payload)
+    print(f"[save] {(lifesim_dir / 'life_classic_binned_products.npz').relative_to(ef.REPO)}")
+
     # --- results table: band SNR per (scenario, molecule) at t_ref ---------
     rows = []
     for s in PERTURBED:
