@@ -21,6 +21,8 @@ residual dark colours) so visual meaning stays stable across tracks.
 Provenance: earth_20260615_pre_n2o_correction (interface validation only).
 """
 
+import argparse
+
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -28,11 +30,14 @@ import numpy as np
 
 import emission_forward as ef
 
-CAMPAIGN_ID = "life_earth_sun_10pc_interface_v1"
-OUT = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / CAMPAIGN_ID
-FWD = OUT / "forward_emission"
-CF = OUT / "molecular_diagnostics"
-PLOTS = OUT / "plots"
+CAMPAIGNS = {
+    "earth_sun": ("life_earth_sun_10pc_interface_v1", "Earth–Sun", "10 pc"),
+    "proxima": ("life_proxima_b_earthlike_v1", "Proxima b (Earth-like)", "1.30 pc"),
+}
+# Set by main() from --campaign.
+FWD = None
+CF = None
+PLOTS = None
 
 # Exact palette of the curated transmission residuals figure.
 SCENARIO_COLOURS = {
@@ -102,6 +107,16 @@ def load_reset(s, sp):
 
 
 def main():
+    global FWD, CF, PLOTS
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
+    args = ap.parse_args()
+    campaign_id, target_name, dist_label = CAMPAIGNS[args.campaign]
+    out_dir = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
+    FWD = out_dir / "forward_emission"
+    CF = out_dir / "molecular_diagnostics"
+    PLOTS = out_dir / "plots"
+
     _style()
     PLOTS.mkdir(parents=True, exist_ok=True)
 
@@ -123,6 +138,20 @@ def main():
         for sp in ["N2O", "NH3"]:
             deficit = load_reset(s, sp) - F[s]
             _, mol_sig[(s, sp)] = log_rebin(wl_native, deficit)
+
+    # Auto-scale the y-axes to the target brightness (Earth-Sun ~1e-20;
+    # Proxima ~100x closer -> ~1e-18). Round to the enclosing power of ten.
+    def _pow10(x):
+        return 10.0 ** np.floor(np.log10(x)) if x > 0 else 1.0
+    band0 = (wl_b >= LIFE_MIN) & (wl_b <= LIFE_MAX)
+    top_scale = _pow10(np.nanmax(Fb["A0"][band0]))
+    sig_peak = max(np.nanmax(np.abs(mol_sig[(s, sp)][band0]))
+                   for s in ["A1", "A2", "A3"] for sp in ["N2O", "NH3"])
+    res_scale = _pow10(sig_peak)
+    top_exp = int(np.round(np.log10(top_scale)))
+    res_exp = int(np.round(np.log10(res_scale)))
+    TOP_SCALE = top_scale
+    RES_SCALE = res_scale
 
     fig, (ax_top, ax_n2o, ax_nh3) = plt.subplots(
         3, 1, figsize=(10.6, 7.6), sharex=True,
@@ -148,7 +177,8 @@ def main():
             ax_top.text(wl_c, y_max * 1.04, name, ha="center", va="bottom",
                         fontsize=8.5, color="0.25")
     ax_top.set_ylim(0, y_max * 1.22)
-    ax_top.set_ylabel(r"$F_p$ @ 10 pc" "\n" r"($10^{-20}$ W m$^{-2}$ $\mu$m$^{-1}$)",
+    ax_top.set_ylabel(rf"$F_p$ @ {dist_label}" "\n"
+                      rf"($10^{{{top_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$)",
                       fontsize=11)
     # LIFE band bar (analogue of the NIRSpec/MIRI bars).
     ax_top.plot([LIFE_MIN, LIFE_MAX], [y_max * 0.045] * 2,
@@ -174,18 +204,19 @@ def main():
             )
         ax.axhline(0.0, color="0.4", lw=0.6, ls=":")
         ax.text(0.012, 0.86, label, transform=ax.transAxes, fontsize=10)
-        ax.set_ylabel(r"$\Delta F_p$" "\n" r"($10^{-21}$ W m$^{-2}$ $\mu$m$^{-1}$)",
+        ax.set_ylabel(rf"$\Delta F_p$" "\n"
+                      rf"($10^{{{res_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$)",
                       fontsize=10)
     ax_n2o.legend(frameon=False, fontsize=6.8, ncol=3, loc="upper right")
 
     ax_nh3.set_xlim(LIFE_MIN, LIFE_MAX)
     ax_nh3.set_xlabel(r"Wavelength ($\mu$m)", fontsize=12)
     fig.suptitle("ExoFarm thermal-emission spectra and molecular residuals\n"
-                 f"(Earth–Sun @ 10 pc; interface benchmark, {ef.PROVENANCE_LABEL})",
+                 f"({target_name} @ {dist_label}; campaign {campaign_id})",
                  fontsize=11.5)
     fig.tight_layout(rect=(0, 0, 1, 0.965))
 
-    out = PLOTS / "life_earth_sun_emission_molecular_residuals_v1.png"
+    out = PLOTS / f"emission_molecular_residuals_{args.campaign}.png"
     fig.savefig(out, bbox_inches="tight")
     print(f"saved {out.relative_to(ef.REPO)}")
 

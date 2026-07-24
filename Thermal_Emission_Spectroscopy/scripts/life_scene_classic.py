@@ -45,10 +45,21 @@ def fp_obs_to_photon_flux(wl_um, Fp_obs_W_m2_m):
 
 @dataclass
 class LifeSceneClassic:
+    """LIFEsim classic scene. Defaults reproduce the Layer-1 Earth--Sun @10 pc
+    benchmark; pass explicit values for other targets (e.g. the Proxima b scene
+    frozen from LIFE X: temp_s=3050, radius_s=0.14, distance_pc=1.30,
+    exozodi=3.0, angsep_arcsec=0.0373, spec_res=20)."""
+
     spec_res: float = LIFE_R
     diameter_m: float = LIFE_DIAMETER_M
     wl_min: float = LIFE_WL_MIN
     wl_max: float = LIFE_WL_MAX
+    temp_s: float = SUN["temp_s"]
+    radius_s: float = SUN["radius_s"]
+    distance_pc: float = DISTANCE_PC
+    ecl_lat_rad: float = ECL_LAT_RAD
+    exozodi: float = EXOZODI
+    angsep_arcsec: float = ANGSEP_ARCSEC
     _inst: object = field(default=None, repr=False)
 
     def __post_init__(self):
@@ -83,9 +94,9 @@ class LifeSceneClassic:
         wl_m, F_ph = fp_obs_to_photon_flux(wl_um, Fp_obs_W_m2_m)
         fps = [wl_m * u.m, F_ph * (u.ph / u.m**3 / u.s)]
         (wl_bins, snr_spec), flux_ph, noise_ph = self._inst.get_spectrum(
-            temp_s=SUN["temp_s"], radius_s=SUN["radius_s"],
-            distance_s=DISTANCE_PC, lat_s=ECL_LAT_RAD, z=EXOZODI,
-            angsep=ANGSEP_ARCSEC, flux_planet_spectrum=fps,
+            temp_s=self.temp_s, radius_s=self.radius_s,
+            distance_s=self.distance_pc, lat_s=self.ecl_lat_rad, z=self.exozodi,
+            angsep=self.angsep_arcsec, flux_planet_spectrum=fps,
             integration_time=integration_time_s,
         )
         wl_bins = np.array(wl_bins)

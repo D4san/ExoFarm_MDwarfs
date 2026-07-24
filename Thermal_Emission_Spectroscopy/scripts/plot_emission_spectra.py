@@ -18,10 +18,13 @@ import numpy as np
 
 import emission_forward as ef
 
-CAMPAIGN_ID = "life_earth_sun_10pc_interface_v1"
-OUTPUT_DIR = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / CAMPAIGN_ID
-FORWARD_DIR = OUTPUT_DIR / "forward_emission"
-PLOTS_DIR = OUTPUT_DIR / "plots"
+CAMPAIGNS = {
+    "earth_sun": ("life_earth_sun_10pc_interface_v1", "Earth--Sun", "10 pc"),
+    "proxima": ("life_proxima_b_earthlike_v1", "Proxima b (Earth-like)", "1.30 pc"),
+}
+# Set by main() from --campaign.
+FORWARD_DIR = None
+PLOTS_DIR = None
 
 # Scenario colours: exact hex from the shared project palette
 # (Transmission_Spectroscopy/notebooks/exofarm_plot_style.py). Kept literal here
@@ -80,10 +83,16 @@ def load(scenario):
 
 
 def main():
+    global FORWARD_DIR, PLOTS_DIR
     ap = argparse.ArgumentParser()
+    ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
     ap.add_argument("--quantity", choices=["Fp_obs", "Fp_Fs"], default="Fp_obs")
     ap.add_argument("--R", type=int, default=120)
     args = ap.parse_args()
+    campaign_id, target_name, dist_label = CAMPAIGNS[args.campaign]
+    out_dir = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
+    FORWARD_DIR = out_dir / "forward_emission"
+    PLOTS_DIR = out_dir / "plots"
 
     _apply_style()
     PLOTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -111,15 +120,14 @@ def main():
     ax.set_ylim(0, ymax * 1.18)
     ax.set_xlabel(r"Wavelength [$\mu$m]")
     if args.quantity == "Fp_obs":
-        ax.set_ylabel(r"$F_p$ observed @ 10 pc [W m$^{-2}$ $\mu$m$^{-1}$]")
+        ax.set_ylabel(rf"$F_p$ observed @ {dist_label} [W m$^{{-2}}$ $\mu$m$^{{-1}}$]")
         title_q = "observed planet flux (direct emission)"
     else:
         ax.set_ylabel(r"$F_p/F_s$")
         title_q = "planet/star contrast"
-    ax.set_title(f"Earth--Sun A0--A3 thermal emission, {title_q} "
-                 f"(interface benchmark, {ef.PROVENANCE_LABEL})", fontsize=9)
+    ax.set_title(f"{target_name} A0--A3 thermal emission, {title_q}", fontsize=9)
     ax.legend(frameon=False, fontsize=9, loc="upper right")
-    ax.text(0.01, 0.02, "life_earth_sun_10pc  |  SNR is a diagnostic, not a detection",
+    ax.text(0.01, 0.02, f"{campaign_id}  |  SNR is a diagnostic, not a detection",
             transform=ax.transAxes, fontsize=6.5, color="0.5")
     fig.tight_layout()
 

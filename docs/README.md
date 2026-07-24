@@ -76,6 +76,12 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
   Justifica Tierra--Sol a 10 pc como benchmark, Proxima como extensión M
   prioritaria y los límites que impiden presentar el segundo caso como una
   atmósfera medida de Proxima b.
+- [Bitácora Capa 2 `life_proxima_b_earthlike`: SED MUSCLES, fotoquímica y rama LIFE, 2026-07-22](life_proxima_b_branch_bitacora_2026-07-22.md)
+  Registra la descarga/preservación del SED MUSCLES v22 de Proxima (checksums),
+  la conversión observador→superficie estelar validada (razón bolométrica
+  1.037), los parámetros congelados desde LIFE X (Carrión-González et al.
+  2023), las decisiones de configuración VULCAN A0--A3 con BC corregidos, y la
+  configuración LIFE prevista (R=20, 3 zodis, ancla S/N=170 en 10 h).
 - [Capa 1 LIFE `life_earth_sun_10pc`: emisión, contrafactuales y S/N clásico, 2026-07-22](life_earth_sun_10pc_interface_snr_2026-07-22.md)
   Primer producto ejecutado de la Etapa III: forward de emisión POSEIDON A0--A3,
   contrafactuales N2O/NH3, y S/N diagnóstico con LIFEsim clásico. Interfaz

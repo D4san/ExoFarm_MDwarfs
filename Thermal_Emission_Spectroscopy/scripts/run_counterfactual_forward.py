@@ -21,14 +21,17 @@ import numpy as np
 
 import emission_forward as ef
 
-CAMPAIGN_ID = "life_earth_sun_10pc_interface_v1"
-OUTPUT_DIR = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / CAMPAIGN_ID
-CF_DIR = OUTPUT_DIR / "molecular_diagnostics"
+TARGETS = {"earth_sun": ef.EARTH_SUN, "proxima": ef.PROXIMA_B}
+CAMPAIGN_BY_TARGET = {
+    "earth_sun": "life_earth_sun_10pc_interface_v1",
+    "proxima": "life_proxima_b_earthlike_v1",
+}
 REPLACEMENT_DIR = ef.PROFILES_DIR / "counterfactual_A0_replacements"
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--target", choices=list(TARGETS), default="earth_sun")
     ap.add_argument("--scenarios", nargs="+", default=["A1", "A2", "A3"],
                     choices=["A1", "A2", "A3"])
     ap.add_argument("--species", nargs="+",
@@ -38,20 +41,23 @@ def main():
     ap.add_argument("--R", type=int, default=10000)
     args = ap.parse_args()
 
-    CF_DIR.mkdir(parents=True, exist_ok=True)
+    tgt = TARGETS[args.target]
+    cf_dir = (ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" /
+              CAMPAIGN_BY_TARGET[args.target] / "molecular_diagnostics")
+    cf_dir.mkdir(parents=True, exist_ok=True)
 
     wl = ef.make_wavelength_grid(args.wl_min, args.wl_max, args.R)
-    star = ef.build_star(wl)
-    planet = ef.build_planet()
-    P, P_surf, P_ref, R_p_ref = ef.pressure_grid()
+    star = ef.build_star(wl, tgt)
+    planet = ef.build_planet(tgt)
+    P, P_surf, P_ref, R_p_ref = ef.pressure_grid(tgt)
 
-    ref_model = ef.build_model("A0")
+    ref_model = ef.build_model("A0", tgt)
     print("[opacities] reading High-T tables (once)...")
     opac = ef.read_opacities_for(ref_model, wl)
 
     for key in args.scenarios:
-        pt_label = ef.SCENARIOS[key]
-        model = ef.build_model(key)
+        pt_label = tgt.scenarios[key]
+        model = ef.build_model(key, tgt)
         for sp in args.species:
             chem_fn = f"{pt_label}_reset_{sp}_to_A0_chem.txt"
             if not (REPLACEMENT_DIR / chem_fn).exists():
@@ -63,10 +69,10 @@ def main():
                 planet, star, model, atm, opac, wl,
                 spectrum_type="direct_emission",
             )
-            out = CF_DIR / f"{key}_reset_{sp}_Fp_obs.npz"
+            out = cf_dir / f"{key}_reset_{sp}_Fp_obs.npz"
             np.savez_compressed(out, wl_um=wl, Fp_obs_W_m2_m=Fp_obs,
                                 scenario=key, reset_species=sp,
-                                provenance=ef.PROVENANCE_LABEL)
+                                provenance=tgt.provenance_label)
             print(f"[{key}/{sp}] saved {out.relative_to(ef.REPO)}")
 
     print("[done]")

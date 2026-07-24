@@ -70,6 +70,31 @@ zodi local + exozodi + shot fotónico. Tiempo de referencia 10 h.
 diagnóstica `SNR_i,band = sqrt(Σ_bins (ΔF_i/σ)²)`, con σ de la observación del
 escenario completo.
 
+### 3.1 Verificación de la base de opacidades (High-T vs Temperate, 2026-07-22)
+
+Toda la campaña usa la base **High-T** (`Opacity_database_v1.3.hdf5`), igual que
+la Etapa II de transmisión y por la misma razón verificada en el HDF5: la base
+Temperate (`Opacity_database_0.01cm-1_Temperate.hdf5`) **no contiene NH3**, una
+de las dos moléculas objetivo. Diferencias estructurales relevantes: High-T
+muestrea T en [100, 200, 300, 400, ...] K (pasos de 100 K en el régimen
+terrestre), mientras Temperate usa pasos de 20 K en 100–400 K; la resolución
+espectral en la banda LIFE es la misma (0.01 cm⁻¹). El rango de la atmósfera
+(187–300 K) queda **interpolado, no extrapolado**, en ambas.
+
+Para cuantificar el sesgo se recomputó el forward A3 con las 6 especies comunes
+(sin NH3) en ambas bases (producto:
+`forward_emission/A3_dbcheck_HT_vs_Temperate.npz`). A la resolución LIFE
+(R=50): continuo +0.3%, O3 −0.4%, CO2 15 µm −1.6%, banda N2O 7.8 µm +3.6%
+(máx 8% por bin), y el peor bin es la banda de H2O a 6.3 µm (+32%, región de
+señal pequeña). La cantidad que gobierna el diagnóstico —la **profundidad de la
+banda N2O 7.8 µm** (continuo−banda)— difiere solo **−1.8%** entre bases. Dado
+que la conclusión central es un déficit de detectabilidad de ~1.5–3 órdenes de
+magnitud, un sesgo de pocos por ciento en señal/flujo no altera ninguna
+conclusión. Caveat registrado: si una campaña futura (p. ej. tras optimizar
+apertura/distancia) acerca la S/N a los umbrales, repetir el subconjunto de 6
+especies con Temperate como control sistemático y tratar con cautela la región
+H2O 6.3 µm.
+
 ## 4. Resultado directo
 
 - **Interfaz validada:** forward A0 físico (chequeo cuerpo negro PASS); espectro

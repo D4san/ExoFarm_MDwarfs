@@ -48,36 +48,76 @@ REPO = Path(__file__).resolve().parents[2]
 PROFILES_DIR = REPO / "Transmission_Spectroscopy" / "profiles"
 
 # ---------------------------------------------------------------------------
-# Scene geometry. The 10 pc distance belongs to the LIFE observational scene
-# only; it does NOT alter the Earth--Sun photochemistry.
+# Targets. The system distance belongs to the LIFE observational scene only; it
+# does NOT alter the photochemistry. A Target bundles everything that changes
+# between the Layer-1 Earth--Sun benchmark and the Layer-2 Proxima b branch, so
+# the forward machinery below stays single-source.
 # ---------------------------------------------------------------------------
+from dataclasses import dataclass, field
+
 PARSEC_M = 3.0856775814913673e16          # 1 parsec in metres (not in POSEIDON.constants)
-DISTANCE_PC = 10.0
-SYSTEM_DISTANCE_M = DISTANCE_PC * PARSEC_M
-
-# Sun (G2V) reference star for the interface benchmark. PHOENIX grid gives the
-# stellar flux POSEIDON uses to normalize Fp/Fs. This is an interface-validation
-# choice, not a claim that the LIFE stellar treatment is finalized.
-STAR = dict(R_s=1.0 * R_Sun, T_eff=5772.0, log_g=4.44, Met=0.0)
-
-# Earth. The emission is driven by the file-read PT profile (surface ~300 K at
-# 1 bar), so T_eq here is only metadata for create_planet.
-PLANET = dict(R_p=1.0 * R_E, mass=1.0 * M_E, T_eq=255.0)
 
 # N2 is the bulk filler; the 7 radiatively active species match the transmission
-# study so the two tracks stay comparable. VULCAN carries ~100 species but only
+# study so the tracks stay comparable. VULCAN carries ~100 species but only
 # these are loaded as opacity sources in the LIFE mid-IR band.
 BULK_SPECIES = ["N2"]
 PARAM_SPECIES = ["H2O", "CO2", "CH4", "O2", "O3", "N2O", "NH3"]
 
-SCENARIOS = {
-    "A0": "Earth_A0_PreAgri",
-    "A1": "Earth_A1_Current",
-    "A2": "Earth_A2_Moderate",
-    "A3": "Earth_A3_Extreme",
-}
 
-PROVENANCE_LABEL = "earth_20260615_pre_n2o_correction"
+@dataclass(frozen=True)
+class Target:
+    name: str
+    star: dict                 # R_s (m), T_eff (K), log_g, Met -> create_star(phoenix)
+    planet: dict               # R_p (m), mass (kg), T_eq (K)
+    distance_pc: float
+    scenarios: dict            # scenario key -> profile file label
+    provenance_label: str
+    P_max_bar: float = 1.0     # surface pressure (opaque lower boundary)
+    P_min_bar: float = 3.0e-8  # just below the exported profile top
+
+    @property
+    def distance_m(self):
+        return self.distance_pc * PARSEC_M
+
+
+# Layer 1 -- Earth--Sun @ 10 pc interface benchmark. Sun via PHOENIX grid.
+EARTH_SUN = Target(
+    name="earth_sun_10pc",
+    star=dict(R_s=1.0 * R_Sun, T_eff=5772.0, log_g=4.44, Met=0.0),
+    planet=dict(R_p=1.0 * R_E, mass=1.0 * M_E, T_eq=255.0),
+    distance_pc=10.0,
+    scenarios={
+        "A0": "Earth_A0_PreAgri", "A1": "Earth_A1_Current",
+        "A2": "Earth_A2_Moderate", "A3": "Earth_A3_Extreme",
+    },
+    provenance_label="earth_20260615_pre_n2o_correction",
+)
+
+# Layer 2 -- Earth-like analogue under the Proxima Centauri environment.
+# Star/planet/distance frozen from LIFE X (Carrion-Gonzalez et al. 2023,
+# Table G.1): d=1.30 pc, T=3050 K, R_star=0.14 R_sun; R_p=1.23 R_E,
+# M_p=1.59 M_E, T_eq=229 K. log_g_star~5.2 (M5.5V). BCs are the corrected
+# active matrix (not the pre-correction set), so this branch carries the
+# current ExoFarm N2O values from the start.
+PROXIMA_B = Target(
+    name="proxima_b_earthlike",
+    star=dict(R_s=0.14 * R_Sun, T_eff=3050.0, log_g=5.2, Met=0.0),
+    planet=dict(R_p=1.23 * R_E, mass=1.59 * M_E, T_eq=229.0),
+    distance_pc=1.30,
+    scenarios={
+        "A0": "Proxima_b_A0_PreAgri", "A1": "Proxima_b_A1_Current",
+        "A2": "Proxima_b_A2_Moderate", "A3": "Proxima_b_A3_Extreme",
+    },
+    provenance_label="proxima_muscles_v22_terrestrialPT_correctedBC",
+)
+
+# --- Backward-compatible module aliases (Layer-1 scripts import these) -------
+DISTANCE_PC = EARTH_SUN.distance_pc
+SYSTEM_DISTANCE_M = EARTH_SUN.distance_m
+STAR = EARTH_SUN.star
+PLANET = EARTH_SUN.planet
+SCENARIOS = EARTH_SUN.scenarios
+PROVENANCE_LABEL = EARTH_SUN.provenance_label
 
 
 def read_chem_file_species(scenario_label):
@@ -100,38 +140,40 @@ def make_wavelength_grid(wl_min=3.0, wl_max=20.0, R=10000):
     return wl_grid_constant_R(wl_min, wl_max, R)
 
 
-def build_star(wl):
+def build_star(wl, target=EARTH_SUN):
+    s = target.star
     return create_star(
-        STAR["R_s"], STAR["T_eff"], STAR["log_g"], STAR["Met"],
+        s["R_s"], s["T_eff"], s["log_g"], s["Met"],
         wl=wl, stellar_grid="phoenix",
     )
 
 
-def build_planet():
+def build_planet(target=EARTH_SUN):
     # d (system distance) is required for the direct_emission geometry.
+    p = target.planet
     return create_planet(
-        "Earth_life", PLANET["R_p"], mass=PLANET["mass"],
-        T_eq=PLANET["T_eq"], d=SYSTEM_DISTANCE_M,
+        target.name, p["R_p"], mass=p["mass"],
+        T_eq=p["T_eq"], d=target.distance_m,
     )
 
 
-def pressure_grid(P_max=1.0, P_min=3.0e-8, n_layers=100):
-    """Log-spaced pressure grid (bar). Surface is the opaque 1 bar lower boundary.
+def pressure_grid(target=EARTH_SUN, n_layers=100):
+    """Log-spaced pressure grid (bar). Surface is the opaque lower boundary.
 
-    The Earth profiles run 5e-8 .. 1.0 bar; P_min is set just below the profile
-    top so the read_*_file interpolation never extrapolates.
+    Profiles run P_min_bar .. P_max_bar (1 bar surface for both targets here);
+    P_min is set just below the profile top so read_*_file never extrapolates.
     """
-    P = np.logspace(np.log10(P_max), np.log10(P_min), n_layers)
-    P_surf = 1.0
+    P = np.logspace(np.log10(target.P_max_bar), np.log10(target.P_min_bar), n_layers)
+    P_surf = target.P_max_bar
     P_ref = P_surf                 # anchor R_p at the surface, as in the transmission track
-    R_p_ref = PLANET["R_p"]
+    R_p_ref = target.planet["R_p"]
     return P, P_surf, P_ref, R_p_ref
 
 
-def build_model(scenario_key):
+def build_model(scenario_key, target=EARTH_SUN):
     """File-read PT + chemistry emission model (thermal, single-stream)."""
     return define_model(
-        f"life_earth_{scenario_key}",
+        f"life_{target.name}_{scenario_key}",
         BULK_SPECIES,
         PARAM_SPECIES,
         PT_profile="file_read",
@@ -143,9 +185,9 @@ def build_model(scenario_key):
     )
 
 
-def load_profiles(model, P, scenario_key):
+def load_profiles(model, P, scenario_key, target=EARTH_SUN):
     """Interpolate the VULCAN hand-off PT/chem onto the POSEIDON pressure grid."""
-    label = SCENARIOS[scenario_key]
+    label = target.scenarios[scenario_key]
     # PT file columns are ALT(km) P(bar) T(K) -> 1-based P_column=2, T_column=3.
     T = read_PT_file(
         str(PROFILES_DIR), f"{label}_PT.txt", P,

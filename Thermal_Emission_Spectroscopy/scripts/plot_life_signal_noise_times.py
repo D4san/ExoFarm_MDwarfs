@@ -15,12 +15,14 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+import argparse
+
 import emission_forward as ef
 
-CAMPAIGN_ID = "life_earth_sun_10pc_interface_v1"
-OUT = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / CAMPAIGN_ID
-PRODUCTS = OUT / "lifesim" / "life_classic_binned_products.npz"
-PLOTS = OUT / "plots"
+CAMPAIGNS = {
+    "earth_sun": ("life_earth_sun_10pc_interface_v1", "10 pc, LIFE baseline"),
+    "proxima": ("life_proxima_b_earthlike_v1", "1.30 pc, LIFE X scene"),
+}
 
 SCENARIO = "A3"
 TARGETS = {"N2O": "#1f77b4", "NH3": "#ff7f0e"}   # shared molecular colours
@@ -37,12 +39,21 @@ def _style():
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
+    args = ap.parse_args()
+    campaign_id, scene_note = CAMPAIGNS[args.campaign]
+    out = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
+    products = out / "lifesim" / "life_classic_binned_products.npz"
+    plots = out / "plots"
+
     _style()
-    PLOTS.mkdir(parents=True, exist_ok=True)
-    d = np.load(PRODUCTS, allow_pickle=True)
+    plots.mkdir(parents=True, exist_ok=True)
+    d = np.load(products, allow_pickle=True)
     wl_um = d["wl_bins_um"]
     t_ref = float(d["t_ref_hours"])
     sigma_ref = d[f"sigma_{SCENARIO}"]
+    provenance = str(d["provenance"]) if "provenance" in d else campaign_id
 
     fig, ax = plt.subplots(figsize=(9.2, 5.2))
 
@@ -65,15 +76,15 @@ def main():
                   fontsize=11)
     ax.set_title("A3 ExoFarm molecular signals vs LIFE noise floor "
                  "(classic, photon noise)\n"
-                 f"noise bands for 10 / 100 / 1000 h; interface benchmark, "
-                 f"{ef.PROVENANCE_LABEL}", fontsize=9.5)
+                 f"noise bands for 10 / 100 / 1000 h; {scene_note}, "
+                 f"{provenance}", fontsize=9.5)
     ax.legend(frameon=False, fontsize=8.5, loc="lower center", ncol=2)
     ax.grid(alpha=0.12, which="both", color="#02040F")
     fig.tight_layout()
 
-    out = PLOTS / "life_classic_A3_signal_vs_noise_times.png"
-    fig.savefig(out, bbox_inches="tight")
-    print(f"saved {out.relative_to(ef.REPO)}")
+    out_png = plots / f"life_classic_A3_signal_vs_noise_times_{args.campaign}.png"
+    fig.savefig(out_png, bbox_inches="tight")
+    print(f"saved {out_png.relative_to(ef.REPO)}")
 
 
 if __name__ == "__main__":

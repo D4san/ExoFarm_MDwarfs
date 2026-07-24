@@ -75,9 +75,18 @@ graph TD
   ([informe](life_earth_sun_10pc_interface_snr_2026-07-22.md)). Interfaz validada
   (chequeo cuerpo negro PASS); tecnofirma ExoFarm **bajo el ruido** en baseline
   LIFE 2 m a 10 pc (mejor pico N2O 7.82 µm; √t confirmado). Perfiles
-  pre-corrección: no es la matriz vigente. **Pendiente:** rama LIFEsimMC/PHRINGE
-  (inestabilidad instrumental + covarianza), decisión de procedencia N2O, y solo
-  después retrievals.
+  pre-corrección: no es la matriz vigente.
+- **Capa 2 `life_proxima_b_earthlike` — ejecutada (2026-07-23).** SED MUSCLES v22
+  GJ551 → flujo superficial VULCAN (validado, bolométrica 1.037) → VULCAN Proxima
+  A0--A3 **todos `end_case=1`** (BC corregidos, PT terrestre) → emisión POSEIDON +
+  contrafactuales → S/N escena LIFE X (R=20, z=3, 1.30 pc; calibrada 166.5 vs 170
+  @D=2m). Resultado: la tecnofirma A3 alcanza **S/N=5 en ~11--32 h** (N2O 17/7.8 µm)
+  frente a años en Tierra--Sol — ~30--65× más detectable por cercanía. Análogo M
+  controlado, no la atmósfera medida de Proxima b.
+  [Bitácora](life_proxima_b_branch_bitacora_2026-07-22.md).
+- **Pendiente Etapa III:** rama LIFEsimMC/PHRINGE (inestabilidad instrumental +
+  covarianza) para ambas capas, decisión de procedencia N2O de Tierra--Sol, y solo
+  después retrievals. Memoria: máx 2 solvers VULCAN a la vez (WSL 7.6 GB).
 - **Objetivo:** generar forwards de emisión térmica con POSEIDON desde los
   perfiles fotoquímicos, diagnosticar señales de `N2O`/`NH3`, simular ruido
   astrofísico e instrumental de LIFE, analizar SNR y solo después diseñar una

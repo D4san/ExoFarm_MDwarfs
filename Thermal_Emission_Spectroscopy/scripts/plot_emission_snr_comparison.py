@@ -19,6 +19,8 @@ Reads lifesim/life_classic_binned_products.npz. SNR here is the band-peak
 earth_20260615_pre_n2o_correction (interface validation only).
 """
 
+import argparse
+
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -26,10 +28,11 @@ import numpy as np
 
 import emission_forward as ef
 
-CAMPAIGN_ID = "life_earth_sun_10pc_interface_v1"
-OUT = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / CAMPAIGN_ID
-PRODUCTS = OUT / "lifesim" / "life_classic_binned_products.npz"
-PLOTS = OUT / "plots"
+# Campaign is chosen at runtime (--campaign). Default = Layer-1 Earth--Sun.
+CAMPAIGNS = {
+    "earth_sun": ("life_earth_sun_10pc_interface_v1", "10 pc, LIFE baseline"),
+    "proxima": ("life_proxima_b_earthlike_v1", "1.30 pc, LIFE X scene"),
+}
 
 # Features: (species, band window um, axis label)
 FEATURES = [
@@ -74,10 +77,19 @@ def peak_snr_10h(d, scenario, species, window):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
+    args = ap.parse_args()
+    campaign_id, scene_note = CAMPAIGNS[args.campaign]
+    out = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
+    products = out / "lifesim" / "life_classic_binned_products.npz"
+    plots = out / "plots"
+
     _style()
-    PLOTS.mkdir(parents=True, exist_ok=True)
-    d = np.load(PRODUCTS, allow_pickle=True)
+    plots.mkdir(parents=True, exist_ok=True)
+    d = np.load(products, allow_pickle=True)
     t_ref = float(d["t_ref_hours"])
+    provenance = str(d["provenance"]) if "provenance" in d else campaign_id
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9.4, 10.4),
                                    gridspec_kw={"height_ratios": [1.15, 1.0]})
@@ -164,13 +176,13 @@ def main():
     ax2.set_title("(b) Integration time required to reach fixed S/N thresholds in A3",
                   fontsize=12, pad=12, fontweight="bold")
 
-    fig.suptitle(f"LIFE classic (photon noise) — interface benchmark, "
-                 f"{ef.PROVENANCE_LABEL}; S/N is a diagnostic, not a detection",
+    fig.suptitle(f"LIFE classic (photon noise) — {scene_note}, "
+                 f"{provenance}; S/N is a diagnostic, not a detection",
                  fontsize=9, y=0.995)
     fig.tight_layout(rect=(0, 0, 1, 0.985))
-    out = PLOTS / "life_classic_snr_comparison.png"
-    fig.savefig(out, bbox_inches="tight")
-    print(f"saved {out.relative_to(ef.REPO)}")
+    out_png = plots / f"life_classic_snr_comparison_{args.campaign}.png"
+    fig.savefig(out_png, bbox_inches="tight")
+    print(f"saved {out_png.relative_to(ef.REPO)}")
 
 
 if __name__ == "__main__":

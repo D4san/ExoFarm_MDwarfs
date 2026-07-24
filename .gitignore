@@ -23,6 +23,14 @@ Thumbs.db
 # *.vul files can be large. If they are >100MB, GitHub will reject them.
 # Uncomment the next line to ignore all .vul files:
 # *.vul
+# NOTE: the ~20 MB Earth/TRAPPIST/Proxima .vul products ARE version-controlled
+# (repo convention); do not ignore them.
+
+# Large MUSCLES reference SED (~80 MB) NOT used by the pipeline. The converter
+# (convert_proxima_muscles_sed.py) reads only the ~5 MB adapt-const-res product,
+# which stays tracked. The full var-res product is kept locally as an archive
+# reference; keep it out of git per AGENTS.md (do not duplicate large data).
+Photochemical_Modeling/Config/Stellar_Spectra/*_var-res-sed.fits
 
 # Ignore log files
 *.log

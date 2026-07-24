@@ -1,0 +1,101 @@
+{
+  "campaign_id": "life_proxima_b_earthlike_v1",
+  "created_utc": "2026-07-23T21:34:47.248357+00:00",
+  "layer": "2 - life_proxima_b_earthlike (Proxima environment, controlled)",
+  "provenance_label": "proxima_muscles_v22_terrestrialPT_correctedBC",
+  "provenance_note": "Earth-like analogue under the Proxima Centauri radiation field, NOT Proxima b's measured atmosphere. Chemistry from VULCAN Proxima A0-A3 with the CORRECTED active BC (current ExoFarm matrix) and terrestrial PT/Kzz (atm_Earth_Jan_Kzz.txt). Stellar SED: MUSCLES v22 GJ551 (MAST HLSP DOI 10.17909/T9DG6F), converted to VULCAN surface flux by convert_proxima_muscles_sed.py. See docs/life_proxima_b_branch_bitacora_2026-07-22.md.",
+  "scene": {
+    "distance_pc": 1.3,
+    "distance_m": 4.011380855938778e+16,
+    "source": "Carri\u00f3n-Gonz\u00e1lez et al. 2023 (LIFE X), Table G.1"
+  },
+  "star_proxima": {
+    "R_s": 97398000.00000001,
+    "T_eff": 3050.0,
+    "log_g": 5.2,
+    "Met": 0.0,
+    "stellar_grid": "phoenix",
+    "note": "T=3050 K, R=0.14 Rsun (LIFE X)"
+  },
+  "planet_proxima_b": {
+    "R_p": 7845063.0,
+    "mass": 9.495480000000001e+24,
+    "T_eq": 229.0,
+    "note": "R_p=1.23 R_E, M_p=1.59 M_E, T_eq=229 K (LIFE X, Table G.1)"
+  },
+  "forward_config": {
+    "spectrum_types": [
+      "emission (Fp/Fs)",
+      "direct_emission (Fp_obs at d)"
+    ],
+    "bulk_species": [
+      "N2"
+    ],
+    "param_species": [
+      "H2O",
+      "CO2",
+      "CH4",
+      "O2",
+      "O3",
+      "N2O",
+      "NH3"
+    ],
+    "opacity_database": "High-T (Opacity_database_v1.3.hdf5; contains NH3/N2O)",
+    "wl_min_um": 3.0,
+    "wl_max_um": 20.0,
+    "wl_n_points": 18971,
+    "wl_native_R": 10000,
+    "surface": true,
+    "P_surf_bar": 1.0
+  },
+  "profiles": {
+    "A0": {
+      "PT": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_PT.txt",
+        "md5": "66ef7caa0fec5e825b80d150d74f8a3b"
+      },
+      "chem": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_chem.txt",
+        "md5": "928b455d8e0a737d12157f70f2426872"
+      }
+    },
+    "A1": {
+      "PT": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A1_Current_PT.txt",
+        "md5": "b19440e97b885c513c9ca9df2ae345ed"
+      },
+      "chem": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A1_Current_chem.txt",
+        "md5": "f5ca35150975a4ba91294031bfd15be6"
+      }
+    },
+    "A2": {
+      "PT": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A2_Moderate_PT.txt",
+        "md5": "2f93c9cda51d4d00f3756cca11e44ed8"
+      },
+      "chem": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A2_Moderate_chem.txt",
+        "md5": "148d8046ff18dcfa13c1dd439b004ba9"
+      }
+    },
+    "A3": {
+      "PT": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_PT.txt",
+        "md5": "0865b6b784915b5bbffca40096f8a90b"
+      },
+      "chem": {
+        "path": "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_chem.txt",
+        "md5": "b2234eff9da01c0aef0837035fead6fd"
+      }
+    }
+  },
+  "versions": {
+    "python": "3.11.15",
+    "POSEIDON": "1.4.0",
+    "lifesim": "0.2.32",
+    "lifesimmc": "1.3.5",
+    "phringe": "1.8.2",
+    "numpy": "1.26.4"
+  }
+}

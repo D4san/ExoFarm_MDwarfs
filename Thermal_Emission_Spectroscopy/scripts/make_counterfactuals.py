@@ -30,7 +30,7 @@ import emission_forward as ef
 REPLACEMENT_DIR = ef.PROFILES_DIR / "counterfactual_A0_replacements"
 
 TARGET_SPECIES = ["N2O", "NH3", "H2O", "CO2", "O3", "CH4"]
-A0_LABEL = ef.SCENARIOS["A0"]
+TARGETS = {"earth_sun": ef.EARTH_SUN, "proxima": ef.PROXIMA_B}
 
 # Scenarios that carry an ExoFarm perturbation relative to A0.
 PERTURBED = ["A1", "A2", "A3"]
@@ -70,10 +70,10 @@ def a0_profile_on_grid(a0_species, a0_press, a0_X, target, press_target):
     return 10.0 ** log_a0
 
 
-def make_for_scenario(scenario_key, species_list):
-    label = ef.SCENARIOS[scenario_key]
+def make_for_scenario(scenario_key, species_list, tgt):
+    label = tgt.scenarios[scenario_key]
     sp, press, X = read_chem(label)
-    a0_sp, a0_press, a0_X = read_chem(A0_LABEL)
+    a0_sp, a0_press, a0_X = read_chem(tgt.scenarios["A0"])
     assert sp == a0_sp, "species column mismatch between scenario and A0"
 
     REPLACEMENT_DIR.mkdir(parents=True, exist_ok=True)
@@ -92,14 +92,16 @@ def make_for_scenario(scenario_key, species_list):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--target", choices=list(TARGETS), default="earth_sun")
     ap.add_argument("--scenarios", nargs="+", default=PERTURBED,
                     choices=["A1", "A2", "A3"])
     ap.add_argument("--species", nargs="+", default=TARGET_SPECIES)
     args = ap.parse_args()
 
+    tgt = TARGETS[args.target]
     for key in args.scenarios:
-        print(f"[{key}] generating counterfactuals -> reset to {A0_LABEL}")
-        names = make_for_scenario(key, args.species)
+        print(f"[{key}] counterfactuals ({tgt.name}) -> reset to {tgt.scenarios['A0']}")
+        names = make_for_scenario(key, args.species, tgt)
         for n in names:
             print(f"   wrote {n}")
     print("[done]")
