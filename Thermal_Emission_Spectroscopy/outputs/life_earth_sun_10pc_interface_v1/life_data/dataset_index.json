@@ -1,0 +1,26 @@
+{
+  "generated_from": "life_earth_sun_10pc_interface_v1",
+  "master_seed": 20260725,
+  "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
+  "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "datasets": [
+    {
+      "file": "LIFE_earth_sun_A0_1200h.dat",
+      "campaign": "life_earth_sun_10pc_interface_v1",
+      "scenario": "A0",
+      "hours": 1200.0,
+      "seed": 753141435,
+      "n_bins": 77,
+      "median_continuum_SNR": 3.72
+    },
+    {
+      "file": "LIFE_earth_sun_A3_1200h.dat",
+      "campaign": "life_earth_sun_10pc_interface_v1",
+      "scenario": "A3",
+      "hours": 1200.0,
+      "seed": 1546673832,
+      "n_bins": 77,
+      "median_continuum_SNR": 3.56
+    }
+  ]
+}

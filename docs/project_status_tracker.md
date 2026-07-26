@@ -84,9 +84,16 @@ graph TD
   frente a años en Tierra--Sol — ~30--65× más detectable por cercanía. Análogo M
   controlado, no la atmósfera medida de Proxima b.
   [Bitácora](life_proxima_b_branch_bitacora_2026-07-22.md).
+- **Retrievals de emisión (2026-07-25):** matriz de 8 corridas Proxima A0--A3 x
+  {10 h, 240 h} ejecutada con configuración validada (PT Madhu + `Piette20` +
+  prior `R_p_ref` en metros). Con una campaña estándar de 10 d solo A3 mide N2O
+  excluyendo el valor pre-agrícola (3.6σ); A2/A1 quedan como límites superiores
+  (~5 y ~12 campañas). El retrieval es más conservador que el diagnóstico de S/N.
+  [Diseño y resultados](life_retrieval_campaign_design_2026-07-25.md),
+  [auditoría](stage_iii_scientific_audit_2026-07-25.md).
 - **Pendiente Etapa III:** rama LIFEsimMC/PHRINGE (inestabilidad instrumental +
-  covarianza) para ambas capas, decisión de procedencia N2O de Tierra--Sol, y solo
-  después retrievals. Memoria: máx 2 solvers VULCAN a la vez (WSL 7.6 GB).
+  covarianza) para ambas capas y decisión de procedencia N2O de Tierra--Sol.
+  Memoria: máx 2 solvers VULCAN a la vez (WSL 7.6 GB).
 - **Objetivo:** generar forwards de emisión térmica con POSEIDON desde los
   perfiles fotoquímicos, diagnosticar señales de `N2O`/`NH3`, simular ruido
   astrofísico e instrumental de LIFE, analizar SNR y solo después diseñar una
@@ -152,6 +159,8 @@ graph TD
 | 2026-07-20 | Separar el benchmark Tierra--Sol de junio de la matriz N2O corregida | Los perfiles A2/A3 aceptados usan `3.35e9`/`1.20e10`; los BC activos usan `3.416e9`/`1.238e10`. El benchmark puede validar interfaz LIFE, pero resultados científicos finales requieren rerun o rótulo histórico explícito. | Abierto: decisión antes de interpretación LIFE |
 | 2026-07-20 | Diferir M8V a 5 pc, Teegarden y TRAPPIST-1e real | Siguen siendo preguntas alternativas de geometría/fotoquímica, no sustitutos de las dos capas aprobadas. | Activo / diferido |
 | 2026-07-20 | Bloquear retrievals LIFE hasta validación | No lanzar retrievals sin interfaz POSEIDON--LIFEsimMC, piloto de ruido y diagnósticos de señal/SNR aprobados. | Planificado |
+| 2026-07-25 | **Anclar los tiempos de integración LIFE a la literatura** | Regímenes corto/razonable/extremo = **10 h / 240 h (~10 d) / 1200 h (50 d)**, tomados de LIFE X (S/N=170 en 10 h para Proxima b; criterio S/N=7 en <100 h), LIFE XII (~10 d para planeta templado alrededor de M a 5 pc; ~50--100 d para Tierra a 5 pc) y LIFE III (~7 semanas para R=50/S-N=10 en Tierra a 10 pc). Evita elegir tiempos arbitrarios. | **Cerrado** |
+| 2026-07-25 | **Abrir la matriz de retrievals de emisión con σ diagonal** | Con el diagnóstico de señal/SNR validado en ambas capas y el manifiesto registrado, se autoriza una matriz de 14 retrievals (Proxima A0--A3 × 3 tiempos + control Tierra--Sol A0/A3 @1200 h) usando σ por bin de LIFEsim clásico. Se declara explícitamente que es una **cota optimista** hasta correr LIFEsimMC/PHRINGE con covarianza. | **Cerrado**: matriz reducida a 8 corridas (10 h/240 h) por decisión del usuario; configuración validada = PT Madhu + `Piette20` + prior de `R_p_ref` en metros. Resultado: solo A3 mide N2O excluyendo A0 a 3.6σ en una campaña de 10 d. |
 
 ---
 

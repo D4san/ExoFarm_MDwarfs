@@ -25,6 +25,12 @@ an execution instruction.
 | LPJmL agricultural flux workflow | Suspended by project decision | `Agricultural_Fluxes_LPJmL/README.md`, `docs/project_status_tracker.md` | Preserve the workflow and conversion discipline; do not start LPJmL runs or force coupling until explicitly reactivated. |
 
 
+### Retrieval campaign gate (Stage III)
+
+| Campaign | Status | Main evidence | Notes |
+| --- | --- | --- | --- |
+| `life_retrieval_matrix_2026-07-25` | **Executed 2026-07-25 (8/8 complete)** | `docs/life_retrieval_campaign_design_2026-07-25.md`, `docs/stage_iii_scientific_audit_2026-07-25.md`, `Thermal_Emission_Spectroscopy/outputs/*/life_data/dataset_index.json` | 8 emission retrievals: Proxima b A0--A3 x {10 h, 240 h} (1200 h dropped by user decision: A2/A3 already separate in one standard campaign and lower S/N reduces model mismatch). Result: with one 10-day campaign only A3 yields an N2O measurement, and it excludes the pre-agricultural value at 3.1 sigma; A2 and A1 return upper limits (no measurement), so no campaign count can be extrapolated from their posteriors. Validity filter applied: a separation counts only if the posterior is constrained (sigma<0.5 dex) AND the offset has the physical sign. Integration times anchored to LIFE X (10 h detection / <100 h criterion), LIFE XII (~10 d standard M case; ~50--100 d challenging) and LIFE III (~7 weeks for an Earth twin at 10 pc). Datasets are `spectrum_unit='Fp'` .dat files with per-bin sigma scaled as sqrt(t) and one seeded noise realization each (seeds in `dataset_index.json`). Retrieval model (Madhu 6-parameter PT + isochemical abundances + fractional model-tolerance `x_tol`, Piette20) is deliberately simpler than the VULCAN truth — profile mismatch is absorbed by `x_tol` (~3%) and must be stated; retrieved abundances are column-like averages. **Sigma is diagonal (LIFEsim classic): these retrievals are an optimistic bound until LIFEsimMC/PHRINGE covariance is run.** |
+
 ## Planned campaigns
 
 | Campaign | Status | Main evidence | Notes |
