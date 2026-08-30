@@ -76,6 +76,26 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
   Justifica Tierra--Sol a 10 pc como benchmark, Proxima como extensión M
   prioritaria y los límites que impiden presentar el segundo caso como una
   atmósfera medida de Proxima b.
+- [Auditoría científica de la Etapa III, 2026-07-25](stage_iii_scientific_audit_2026-07-25.md)
+  Rastrea procedencia de cada insumo, decisiones etiquetadas [SRC]/[INF]/[VAL],
+  el anclaje de la configuración observacional a LIFE I/II/III/X/XII y las
+  cuatro validaciones numéricas (bolométrica, cuerpo negro, anclas LIFE X, √t).
+- [Diseño de campañas LIFE y matriz de retrievals, 2026-07-25](life_retrieval_campaign_design_2026-07-25.md)
+  Tiempos de integración anclados en la literatura (10 h / 240 h / 1200 h) y la
+  tabla de cuántas campañas separan cada escenario ExoFarm de A0. Incluye los
+  modos de fallo documentados de los pilotos de retrieval.
+- [Bitácora Capa 2 `life_proxima_b_earthlike`: SED MUSCLES, fotoquímica y rama LIFE, 2026-07-22](life_proxima_b_branch_bitacora_2026-07-22.md)
+  Registra la descarga/preservación del SED MUSCLES v22 de Proxima (checksums),
+  la conversión observador→superficie estelar validada (razón bolométrica
+  1.037), los parámetros congelados desde LIFE X (Carrión-González et al.
+  2023), las decisiones de configuración VULCAN A0--A3 con BC corregidos, y la
+  configuración LIFE prevista (R=20, 3 zodis, ancla S/N=170 en 10 h).
+- [Capa 1 LIFE `life_earth_sun_10pc`: emisión, contrafactuales y S/N clásico, 2026-07-22](life_earth_sun_10pc_interface_snr_2026-07-22.md)
+  Primer producto ejecutado de la Etapa III: forward de emisión POSEIDON A0--A3,
+  contrafactuales N2O/NH3, y S/N diagnóstico con LIFEsim clásico. Interfaz
+  validada (chequeo cuerpo negro); la tecnofirma ExoFarm queda bajo el ruido en
+  la config baseline de LIFE a 10 pc (mejor pico N2O 7.82 µm). Falta la rama
+  LIFEsimMC/PHRINGE (ruido instrumental + covarianza) antes de retrievals.
 
 ## Convención documental
 

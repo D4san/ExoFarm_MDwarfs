@@ -1,0 +1,80 @@
+{
+  "generated_from": "life_proxima_b_earthlike_v1",
+  "master_seed": 20260725,
+  "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
+  "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "datasets": [
+    {
+      "file": "LIFE_proxima_A0_10h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A0",
+      "hours": 10.0,
+      "seed": 753141435,
+      "n_bins": 31,
+      "median_continuum_SNR": 46.96
+    },
+    {
+      "file": "LIFE_proxima_A0_240h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A0",
+      "hours": 240.0,
+      "seed": 1546673832,
+      "n_bins": 31,
+      "median_continuum_SNR": 230.04
+    },
+    {
+      "file": "LIFE_proxima_A1_10h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A1",
+      "hours": 10.0,
+      "seed": 1099171982,
+      "n_bins": 31,
+      "median_continuum_SNR": 46.96
+    },
+    {
+      "file": "LIFE_proxima_A1_240h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A1",
+      "hours": 240.0,
+      "seed": 857409621,
+      "n_bins": 31,
+      "median_continuum_SNR": 230.03
+    },
+    {
+      "file": "LIFE_proxima_A2_10h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A2",
+      "hours": 10.0,
+      "seed": 852292324,
+      "n_bins": 31,
+      "median_continuum_SNR": 46.96
+    },
+    {
+      "file": "LIFE_proxima_A2_240h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A2",
+      "hours": 240.0,
+      "seed": 2145553899,
+      "n_bins": 31,
+      "median_continuum_SNR": 230.03
+    },
+    {
+      "file": "LIFE_proxima_A3_10h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A3",
+      "hours": 10.0,
+      "seed": 1469409748,
+      "n_bins": 31,
+      "median_continuum_SNR": 46.96
+    },
+    {
+      "file": "LIFE_proxima_A3_240h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A3",
+      "hours": 240.0,
+      "seed": 473833971,
+      "n_bins": 31,
+      "median_continuum_SNR": 230.03
+    }
+  ]
+}
