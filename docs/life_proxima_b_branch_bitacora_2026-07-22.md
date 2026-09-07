@@ -1,9 +1,10 @@
 # Bitácora Capa 2 — `life_proxima_b_earthlike`: SED, fotoquímica y rama LIFE
 
 **Fecha de inicio:** 2026-07-22
-**Estado al escribir:** SED preservada y convertida (validada); VULCAN Proxima
-A0–A3 **en ejecución**; rama de emisión térmica pendiente de la aceptación de la
-química.
+**Estado consolidado 2026-08-30:** SED preservada y conversión validada; VULCAN
+Proxima A0–A3 aceptado (`end_case=1`); emisión, contrafactuales y S/N LIFEsim
+clásico ejecutados; matriz canónica de retrievals A0--A3 × {10 h, 240 h}
+completa. LIFEsimMC/PHRINGE con covarianza permanece pendiente.
 **Regla de interpretación:** esto es un **análogo terrestre bajo el entorno
 radiativo de Proxima Centauri**, no la atmósfera medida de Proxima b
 ([plan de dos capas](life_stage_iii_two_layer_workplan_2026-07-20.md)).
@@ -231,7 +232,8 @@ Scripts (target-aware, `--campaign proxima`):
 2. Decisión de procedencia N2O de Tierra–Sol (rerun con BC corregidos) para una
    comparación de misma-procedencia.
 3. Análisis dedicado de por qué el N2O de A3 baja bajo Proxima.
-4. Diseño de retrievals (solo tras la puerta MC+covarianza).
+4. Robustez de los retrievals clásicos mediante múltiples semillas,
+   LIFEsimMC/PHRINGE con covarianza y modelos con/sin molécula.
 
 ## 8. Referencias
 

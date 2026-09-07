@@ -1,15 +1,22 @@
 """Run a POSEIDON emission retrieval on one LIFE synthetic dataset.
 
-Retrieves an isothermal-ish gradient PT plus constant-with-height abundances of
-the radiatively active species from the LIFE observable (`spectrum_unit='Fp'`,
-`spectrum_type='direct_emission'`). The retrieval model is deliberately SIMPLER
-than the truth (VULCAN vertical profiles) — that mismatch is part of the
-experiment and must be stated when interpreting posteriors, exactly as the
-transmission campaign does.
+Retrieves a flexible PT profile plus a configurable abundance parameterization
+for the radiatively active species from the LIFE observable
+(`spectrum_unit='Fp'`, `spectrum_type='direct_emission'`). The default model is
+deliberately simpler than the truth (VULCAN vertical profiles), while selected
+species can be given POSEIDON's ``gradient`` or ``two-gradients`` profile. That
+model choice is part of the experiment and must be stated when interpreting
+posteriors, exactly as the transmission campaign does.
 
 Usage (one run; memory-safe: never launch alongside VULCAN):
-    source /home/castello/POSEIDON/activate_exofarm_life.sh
-    python run_life_retrieval.py --campaign proxima --scenario A3 --hours 1200
+    source /home/wsldasan/miniconda3/etc/profile.d/conda.sh
+    conda activate POSEIDON
+    python run_life_retrieval.py --campaign proxima --scenario A3 --hours 500 \
+        --x-profile two-gradients --vertical-gradient-species NH3
+
+For an audit dataset with a non-standard filename, pass ``--dataset-file`` and
+use ``--output-tag`` to keep its MultiNest products separate from the canonical
+retrieval matrix.
 
 Caveats carried by every product: sigma is diagonal (LIFEsim classic photon
 noise, no instrumental covariance); one noise realization per dataset; Proxima
@@ -41,15 +48,46 @@ def main():
     ap.add_argument("--scenario", required=True, choices=["A0", "A1", "A2", "A3"])
     ap.add_argument("--hours", required=True, type=float)
     ap.add_argument("--n-live", type=int, default=400)
+    ap.add_argument(
+        "--dataset-file", type=Path, default=None,
+        help="optional dataset path relative to the repository root",
+    )
+    ap.add_argument(
+        "--output-tag", default="",
+        help="suffix for the retrieval name, e.g. _lifesim_direct",
+    )
+    ap.add_argument(
+        "--x-profile", choices=["isochem", "gradient", "two-gradients"],
+        default="isochem",
+        help="POSEIDON abundance profile parameterization",
+    )
+    ap.add_argument(
+        "--vertical-gradient-species", nargs="+", choices=PARAM_SPECIES,
+        default=[],
+        help="species that use a vertical gradient profile",
+    )
     ap.add_argument("--wl-min", type=float, default=3.8)
     ap.add_argument("--wl-max", type=float, default=19.0)
     ap.add_argument("--R", type=int, default=2000)
     args = ap.parse_args()
 
+    if args.x_profile == "isochem" and args.vertical_gradient_species:
+        raise SystemExit(
+            "[abort] --vertical-gradient-species requires --x-profile "
+            "gradient or two-gradients"
+        )
+
     campaign_id, target, prefix = CAMPAIGNS[args.campaign]
     out_root = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
-    data_dir = out_root / "life_data"
-    dataset = f"{prefix}_{args.scenario}_{int(args.hours)}h.dat"
+    if args.dataset_file is None:
+        data_dir = out_root / "life_data"
+        dataset = f"{prefix}_{args.scenario}_{int(args.hours)}h.dat"
+    else:
+        dataset_path = args.dataset_file
+        if not dataset_path.is_absolute():
+            dataset_path = ef.REPO / dataset_path
+        data_dir = dataset_path.parent
+        dataset = dataset_path.name
     if not (data_dir / dataset).exists():
         raise SystemExit(f"[abort] falta {dataset}; corre make_life_datasets.py")
 
@@ -59,7 +97,8 @@ def main():
     import os
     os.chdir(run_dir)
 
-    retrieval_name = f"{args.campaign}_{args.scenario}_{int(args.hours)}h"
+    retrieval_name = (f"{args.campaign}_{args.scenario}_{int(args.hours)}h"
+                      f"{args.output_tag}")
     print(f"[retrieval] {retrieval_name}  (n_live={args.n_live})")
 
     wl = wl_grid_constant_R(args.wl_min, args.wl_max, args.R)
@@ -72,14 +111,18 @@ def main():
     # MultiNest terminated without sampling. Two standard remedies are applied:
     #   - Madhu (Madhusudhan & Seager 2009) PT: 6 free parameters, flexible
     #     enough to track a real temperate thermal structure;
-    #   - error_inflation='Line15' (Line et al. 2015): a free parameter `b` that
-    #     inflates the per-bin errors, the accepted way to absorb model mismatch
-    #     rather than let it masquerade as a confident (wrong) posterior.
-    # Abundances stay isochemical, so retrieved values are column-like averages
-    # of the true vertical profiles — a caveat to state with every posterior.
+    #   - error_inflation='Piette20' (Piette et al. 2020): a free fractional
+    #     parameter `x_tol` that inflates the per-bin errors, the accepted way to
+    #     absorb model mismatch rather than let it masquerade as a confident
+    #     (wrong) posterior.
+    # Abundances are isochemical unless selected on the command line. For the
+    # A3 audit run, NH3 uses POSEIDON's two-gradient profile so the strong
+    # VULCAN depletion with altitude is representable instead of being forced
+    # into one column-like abundance.
     model = define_model(
         retrieval_name, ef.BULK_SPECIES, PARAM_SPECIES,
-        PT_profile="Madhu", X_profile="isochem",
+        PT_profile="Madhu", X_profile=args.x_profile, X_dim=1,
+        species_vert_gradient=args.vertical_gradient_species,
         radius_unit="R_E", surface=True,
         thermal=True, thermal_scattering=False,
         # Piette20 (fractional) rather than Line15 (absolute): the likelihood
@@ -94,10 +137,11 @@ def main():
                      skiprows=1, wl_unit="micron", bin_width="half",
                      spectrum_unit="Fp")
 
-    # Priors: broad but physical. Abundances down to 1e-12 so a non-detection
-    # can be expressed; surface pressure free within 0.1-10 bar. Madhu PT ranges
-    # follow the standard parameterization, with T_ref bracketing a temperate
-    # rocky atmosphere. `b` is the Line15 error-inflation parameter.
+    # Priors: broad but physical. The isochemical abundance prior extends to
+    # 1e-12 so a non-detection can be expressed; surface pressure is free within
+    # 0.1-10 bar. Madhu PT ranges follow the standard parameterization, with
+    # T_ref bracketing a temperate rocky atmosphere. `x_tol` is the Piette20
+    # fractional error-inflation parameter.
     prior_types = {
         "a1": "uniform", "a2": "uniform", "log_P1": "uniform",
         "log_P2": "uniform", "log_P3": "uniform", "T_ref": "uniform",
@@ -118,6 +162,29 @@ def main():
         # Fractional model-mismatch tolerance: up to 30% of the model flux.
         "x_tol": [0.0, 0.3],
     }
+    if args.x_profile == "two-gradients":
+        # POSEIDON's two-gradient profile introduces a transition pressure and
+        # high/mid/deep abundances for each selected species. The pressure prior
+        # covers the A3 NH3 transition near 10^-1--10^-2 bar while retaining
+        # room for the data to move it.
+        prior_types["log_P_X_mid"] = "uniform"
+        prior_ranges["log_P_X_mid"] = [-5, 0]
+        if "NH3" in args.vertical_gradient_species:
+            # A3 NH3 falls to ~10^-20 above the upper atmosphere in the VULCAN
+            # profile, so the generic -12 lower bound would artificially force
+            # excess upper-atmosphere NH3 into the retrieval.
+            prior_types.update({
+                "log_NH3_high": "uniform",
+                "log_NH3_mid": "uniform",
+                "log_P_NH3_mid": "uniform",
+                "log_NH3_deep": "uniform",
+            })
+            prior_ranges.update({
+                "log_NH3_high": [-25, -3],
+                "log_NH3_mid": [-12, -1],
+                "log_P_NH3_mid": [-5, 0],
+                "log_NH3_deep": [-12, -1],
+            })
     priors = set_priors(planet, star, model, data, prior_types, prior_ranges)
 
     P = np.logspace(np.log10(target.P_max_bar), np.log10(target.P_min_bar), 100)

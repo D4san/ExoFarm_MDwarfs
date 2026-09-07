@@ -9,11 +9,13 @@ atmospheric abundances directly. Its role is to estimate spatially explicit
 land-use, crop, water, carbon, and nitrogen fluxes, then let the photochemical
 stage decide the atmospheric response.
 
-> **Estado de proyecto (2026-07-20): suspendido.** El checkout, el conversor y
-> esta documentación se conservan, pero no se deben iniciar corridas LPJmL ni
-> acoplamientos nuevos hasta una reactivación explícita. Esta pausa no bloquea
-> la interpretación de la Etapa II ni la **planificación/preparación** de la
-> Etapa III; la Etapa III todavía no tiene ejecuciones LIFE autorizadas.
+> **Estado de proyecto (2026-09-06): primera prueba de interfaz aceptada.**
+> LPJmL `v6.0.6` (commit
+> `5af44a1ed023279a23c28d6dfe76945b97aaac57`) compila y pasa las comprobaciones
+> locales. El paquete oficial fue verificado por tamaño/MD5 y extracción; el
+> piloto de una celda completó el benchmark con ciclo de N y la rama de
+> rendimiento potencial, incluyendo NetCDF de `N2O` y `NH3`. Todavía no existe
+> un flujo **global** LPJmL aceptado ni un nuevo forzamiento para VULCAN.
 > Para recuperar el estado completo, leer
 > [`../docs/project_resume.md`](../docs/project_resume.md).
 
@@ -44,6 +46,13 @@ The intended workflow is:
   this pivot.
 - `scripts/convert_lpjml_n_flux.py`: small unit converter from LPJmL-style
   nitrogen-mass fluxes to atmospheric molecule fluxes.
+- `workflows/franck2011_reproduction/`: reproducción metodológica moderna de
+  la capacidad de carga y puente auditable hacia `N2O`/`NH3`.
+- `../docs/lpjml_franck2011_first_pilot_2026-09-06.md`: informe de aceptación
+  del piloto de una celda y sus límites científicos.
+- `../docs/lpjml_global_a1_mpi_other_pc_runbook.md`: instalación reproducible
+  de LPJmL 6.0.6 con MPI y estrategia por fases para la primera corrida global
+  A1 en el PC de ejecución.
 
 A local upstream LPJmL checkout may live under `software/LPJmL/`, but it is not
 vendored as ExoFarm source and is ignored by the top-level Git configuration.

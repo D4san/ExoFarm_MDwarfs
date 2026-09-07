@@ -1,9 +1,9 @@
-"""Plot the Layer-1 Earth--Sun A0--A3 thermal-emission spectra (LIFE band).
+"""Plot the A0--A3 thermal-emission spectra for a LIFE campaign.
 
 Phase-3 step 2: "generate the spectrum with the signals". Reads the noise-free
 POSEIDON forward products saved by ``run_layer1_forward.py`` and draws the four
-scenarios across the LIFE mid-IR band, annotating the ExoFarm-relevant molecular
-bands (N2O, NH3) plus the main controls (H2O, CO2, CH4, O3).
+scenarios across the LIFE mid-IR band, using compact molecular labels rather
+than vertical guide lines.
 
 Provenance: earth_20260615_pre_n2o_correction (interface validation only).
 """
@@ -41,10 +41,16 @@ SCENARIO_NAME = {
 }
 
 # Diagnostic mid-IR band centres (um) for annotation. N2O/NH3 are the ExoFarm
-# targets; the rest are overlap controls.
-BANDS = [
-    ("N$_2$O", 7.8), ("N$_2$O", 17.0), ("NH$_3$", 10.5),
-    ("CH$_4$", 7.7), ("O$_3$", 9.6), ("CO$_2$", 15.0), ("H$_2$O", 6.3),
+# targets; the rest are overlap controls. The third value staggers the two
+# labels near 7.7--7.8 um without adding guide lines.
+BAND_LABELS = [
+    ("H$_2$O", 6.3, 1.03),
+    ("CH$_4$", 7.7, 1.04),
+    ("N$_2$O", 7.8, 1.13),
+    ("O$_3$", 9.6, 1.03),
+    ("NH$_3$", 10.5, 1.13),
+    ("CO$_2$", 15.0, 1.03),
+    ("N$_2$O", 17.0, 1.13),
 ]
 
 # LIFE nominal science band.
@@ -97,7 +103,7 @@ def main():
     _apply_style()
     PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    fig, ax = plt.subplots(figsize=(10, 5.2))
+    fig, ax = plt.subplots(figsize=(10.2, 5.6))
     ymax = 0.0
     for key in ["A0", "A1", "A2", "A3"]:
         wl, Fp_Fs, Fp_obs = load(key)
@@ -110,26 +116,26 @@ def main():
                 lw=1.4, label=SCENARIO_NAME[key])
         ymax = max(ymax, np.nanmax(y_b[band]))
 
-    for name, wl_c in BANDS:
+    for name, wl_c, y_factor in BAND_LABELS:
         if LIFE_MIN <= wl_c <= LIFE_MAX:
-            ax.axvline(wl_c, color="0.75", lw=0.7, ls=":", zorder=0)
-            ax.text(wl_c, ymax * 1.02, name, rotation=90, va="bottom",
-                    ha="center", fontsize=7.5, color="0.35")
+            ax.text(wl_c, ymax * y_factor, name, va="bottom", ha="center",
+                    fontsize=7.8, color="#57635E")
 
     ax.set_xlim(LIFE_MIN, LIFE_MAX)
     ax.set_ylim(0, ymax * 1.18)
     ax.set_xlabel(r"Wavelength [$\mu$m]")
     if args.quantity == "Fp_obs":
-        ax.set_ylabel(rf"$F_p$ observed @ {dist_label} [W m$^{{-2}}$ $\mu$m$^{{-1}}$]")
-        title_q = "observed planet flux (direct emission)"
+        ax.set_ylabel(r"Observed planet flux $F_p$ [W m$^{-2}$ $\mu$m$^{-1}$]")
     else:
         ax.set_ylabel(r"$F_p/F_s$")
-        title_q = "planet/star contrast"
-    ax.set_title(f"{target_name} A0--A3 thermal emission, {title_q}", fontsize=9)
-    ax.legend(frameon=False, fontsize=9, loc="upper right")
-    ax.text(0.01, 0.02, f"{campaign_id}  |  SNR is a diagnostic, not a detection",
-            transform=ax.transAxes, fontsize=6.5, color="0.5")
-    fig.tight_layout()
+    short_target = "Earth–Sun" if args.campaign == "earth_sun" else "Proxima"
+    ax.set_title(f"{short_target} emission spectrum (A0–A3)", fontsize=12,
+                 pad=10)
+    ax.legend(frameon=False, fontsize=8.6, loc="upper right", ncol=2)
+    fig.text(0.01, 0.012,
+             f"LIFE 4–18.5 µm | {target_name} | S/N diagnostic",
+             fontsize=7, color="0.45")
+    fig.tight_layout(rect=(0, 0.035, 1, 1))
 
     out = PLOTS_DIR / f"emission_A0A3_{args.quantity}.png"
     fig.savefig(out, bbox_inches="tight")

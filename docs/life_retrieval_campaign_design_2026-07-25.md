@@ -1,8 +1,11 @@
 # Diseño de campañas de observación LIFE y matriz de retrievals (Etapa III)
 
 **Fecha:** 2026-07-25
-**Estado:** diseño aprobado para ejecución; manifiesto de campaña previo a los
-retrievals (puerta exigida por el [plan de dos capas](life_stage_iii_two_layer_workplan_2026-07-20.md)).
+**Estado:** **rama clásica ejecutada y cerrada documentalmente**: matriz
+canónica Proxima A0--A3 por `{10 h, 240 h}` completa (8/8). Los productos de
+1200 h se conservan como evidencia de auditoría/piloto y no cuentan en la
+matriz final. La validación consolidada está en
+[`lifesim_classic_stage_iii_validation_2026-08-30.md`](lifesim_classic_stage_iii_validation_2026-08-30.md).
 **Base de evidencia:** [auditoría científica](stage_iii_scientific_audit_2026-07-25.md),
 [Capa 1](life_earth_sun_10pc_interface_snr_2026-07-22.md),
 [Capa 2](life_proxima_b_branch_bitacora_2026-07-22.md).
@@ -27,9 +30,12 @@ LIFE usa para detección, caracterización y biofirmas difíciles.
 | **Extremo** (límite factible) | **1200 h = 50 días** (y 2400 h = 100 días como cota) | LIFE XII: "~50 - 100 days in the most challenging but still feasible cases, such as an Earth twin at 5 pc". Consistente con LIFE III (Konrad et al. 2022): "~7 weeks with 4x2m apertures" (≈1176 h) para R=50, S/N=10 en una Tierra a 10 pc. |
 | (referencia de "golden target") | pocos días | LIFE XII: "only a few days of observation time for certain very near-by 'Golden Target' scenarios" — categoría en la que cae Proxima b (1.3 pc). |
 
-**Decisión [INF]:** matriz de tiempos **{10 h, 240 h, 1200 h}** para los
-retrievals, más 2400 h reservado como cota superior si el caso extremo lo exige.
-Los tres se reportan siempre junto a su ancla.
+**Diseño inicial [INF]:** se propuso la matriz `{10 h, 240 h, 1200 h}`, más
+2400 h como cota superior. **Decisión final:** la matriz canónica se redujo a
+`{10 h, 240 h}` porque 240 h ya separaba A3 en el retrieval validado y el
+régimen de S/N extremo amplificaba el desajuste entre el truth VULCAN y el
+modelo paramétrico. Los productos de 1200 h generados durante el desarrollo se
+preservan como pilotos excluidos, no como resultados canónicos.
 
 ## 3. Matriz de campañas
 
@@ -39,17 +45,19 @@ Objetivo primario **Proxima b** (`life_proxima_b_earthlike_v1`), porque es el
 de contraste: allí ni el caso extremo alcanza el umbral (S/N=5 requeriría
 ~9 400 h para N2O 7.8 µm), lo que ya es un resultado.
 
-| Campaña | Objetivo | Escenarios | Tiempos | Runs |
-| --- | --- | --- | --- | --- |
-| `C-short` | Proxima b | A0, A1, A2, A3 | 10 h | 4 |
-| `C-standard` | Proxima b | A0, A1, A2, A3 | 240 h | 4 |
-| `C-extreme` | Proxima b | A0, A1, A2, A3 | 1200 h | 4 |
-| `C-control` | Tierra–Sol 10 pc | A0, A3 | 1200 h | 2 |
-| **Total** | | | | **14 retrievals** |
+| Campaña | Objetivo | Escenarios | Tiempos | Runs | Estado |
+| --- | --- | --- | --- | --- | --- |
+| `C-short` | Proxima b | A0, A1, A2, A3 | 10 h | 4 | **Canónica, completa** |
+| `C-standard` | Proxima b | A0, A1, A2, A3 | 240 h | 4 | **Canónica, completa** |
+| `C-extreme` | Proxima b | A0, A1, A2, A3 | 1200 h | 4 datasets; 1 retrieval A3 | **Piloto/auditoría, excluida** |
+| `C-control` | Tierra–Sol 10 pc | A0, A3 | 1200 h | 0 retrievals canónicos | No ejecutada como matriz |
+| **Total canónico** | | | | **8 retrievals** | **Cerrado 8/8** |
 
-Cada run: espectro LIFE binado (R=20 Proxima / R=50 Tierra–Sol) con σ por bin del
-simulador clásico, escalada `σ(t)=σ(10 h)·√(10/t)` (escalado √t validado), una
-realización de ruido con semilla registrada.
+Cada run canónico usa un espectro LIFE binado a R=20 para Proxima, con sigma por
+bin del simulador clásico, escalada como
+`σ(t)=σ(10 h)·√(10/t)` y una realización de ruido con semilla registrada. La
+clasificación exacta de los pilotos está en el
+[inventario de campaña](../Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/README.md).
 
 ## 4. Criterio de "distinguible de A0"
 
@@ -113,10 +121,10 @@ tabla completa (3 duraciones × 3 escenarios × 2 moléculas × 2 objetivos) en
 
 ### Lectura
 
-- **En Proxima b basta una sola campaña estándar (10 días) para separar A2 y A3
-  de A0 a 5σ vía N2O**; A3 lo logra en apenas **8 h** (menos que la campaña
-  corta de LIFE X). Incluso el escenario A1 —la Tierra actual, sin ExoFarm— se
-  separa del baseline pre-agrícola en **4 campañas** (~1 mes de integración).
+- **En el diagnóstico de S/N**, una campaña estándar bastaría para que la señal
+  contrafactual de N2O de A2/A3 supere 5. A3 cruza ese umbral en unas 8 h. Esta
+  es una cota optimista que presupone la forma de la señal; no reemplaza la
+  inferencia conjunta del retrieval descrita en §6b.
 - **NH3 es mucho más exigente**: solo A3 lo alcanza en una campaña; A2 necesita
   8 y A1 queda fuera de alcance práctico. Coherente con su carácter traza y con
   la advertencia del proyecto sobre NH3.
@@ -140,11 +148,29 @@ CSV `outputs/_comparison/retrieval_separation_from_A0.csv`.
 O3 y NH3 no. La evidencia pasó de `ln Z ≈ −9×10⁶` (configuración rota) a
 `ln Z = 895.4 ± 0.45` con 48 450 evaluaciones.
 
+Para la comparación de abundancias se usa una referencia A0 efectiva, no la
+capa superficial del perfil. Se calcula como el promedio columnar ponderado en
+presión del perfil vertical VULCAN de A0,
+
+```text
+X_A0,eff = ∫ X_A0(p) dp / (p_bot - p_top)
+```
+
+y se expresa en el mismo espacio escalar de abundancias isoquímicas del
+retrieval. La separación reportada es
+
+```text
+z_A3|A0 = (mu_A3 - log10(X_A0,eff)) / sigma_A3
+```
+
+Este mapeo evita escoger arbitrariamente una capa del perfil y no pretende ser
+un peso de función de contribución radiativa.
+
 **Separación respecto de A0 (240 h = una campaña de 10 días):**
 
-| Escenario | N2O recuperado (log) | ¿medido? | σ vs abundancia real de A0 | Veredicto |
+| Escenario | N2O recuperado (log) | ¿medido? | σ vs A0 efectivo | Veredicto |
 | --- | --- | --- | ---: | --- |
-| **A3** | **−6.19 ± 0.22** | **sí (medición)** | **3.12** | **distinguible en 1 campaña** |
+| **A3** | **−6.19 ± 0.22** | **sí (medición)** | **3.14** | **distinguible en 1 campaña** |
 | A2 | −9.26 ± 1.73 | no (límite superior) | — | no medido |
 | A1 | −8.30 ± 1.61 | no (límite superior) | — | no medido |
 | (NH3, cualquiera) | ≈ −9.5 ± 1.4 | no (límite superior) | — | no medido |
@@ -159,18 +185,18 @@ O3 y NH3 no. La evidencia pasó de `ln Z ≈ −9×10⁶` (configuración rota) 
 
 ### Régimen corto (10 h, campaña de reconocimiento LIFE X)
 
-| Escenario | N2O recuperado (log) | ¿medido? | σ vs verdad A0 | Veredicto |
+| Escenario | N2O recuperado (log) | ¿medido? | σ vs A0 efectivo | Veredicto |
 | --- | --- | --- | ---: | --- |
-| A3 | −6.50 ± 0.41 | **sí (medición)** | 0.92 | medido, **insuficiente** (≈11 campañas de 10 h) |
+| A3 | −6.50 ± 0.41 | **sí (medición)** | 0.93 | medido, **insuficiente** (≈11 campañas de 10 h) |
 | A2 | −8.23 ± 1.85 | no | — | límite superior |
 | A1 | −9.83 ± 1.37 | no | — | límite superior |
 
 **Lectura del régimen corto.** Ya en 10 h el retrieval **mide** N2O en A3
 (σ=0.41 dex), pero la medición todavía no excluye el valor pre-agrícola
-(0.92σ). Es la transición esperada: al pasar de 10 h a 240 h la anchura del
+(0.93σ). Es la transición esperada: al pasar de 10 h a 240 h la anchura del
 posterior se reduce de 0.41 a 0.22 dex (factor 1.9, compatible con el √24≈4.9
 sólo parcialmente, porque las degeneraciones no escalan con √t) y la separación
-sube de 0.92σ a 3.12σ. Es decir, **la campaña estándar de 10 días es
+sube de 0.93σ a 3.14σ. Es decir, **la campaña estándar de 10 días es
 efectivamente el umbral** donde A3 se vuelve distinguible; el reconocimiento de
 10 h detecta el planeta y mide N2O, pero no discrimina el escenario.
 
@@ -178,10 +204,11 @@ Se reportan **dos métricas** porque responden preguntas distintas:
 (a) *posterior vs posterior* `|μ_j−μ_0|/√(σ_j²+σ_0²)` — conservadora y sin
 suposiciones, pero **dominada por la anchura del posterior de A0**: en el
 baseline el N2O es demasiado débil para medirse (σ≈1.8 dex), así que la métrica
-castiga incluso a A3 (1.26σ). (b) *posterior vs abundancia verdadera de A0*
-`|μ_j−verdad_0|/σ_j` — responde "¿esta observación excluye el valor
-pre-agrícola?", que es la pregunta de una campaña real contra una hipótesis
-concreta. La tabla usa (b) como criterio principal y conserva (a) en el CSV.
+castiga incluso a A3 (1.26σ). (b) *posterior vs referencia A0 efectiva*
+`|μ_j−A0_eff|/σ_j` — responde "¿esta observación excluye el valor
+pre-agrícola?", usando el promedio columnar ponderado en presión que es
+comparable con la abundancia isoquímica recuperada. La tabla usa (b) como
+criterio principal y conserva (a) en el CSV.
 
 **Interpretación.** Con una sola campaña estándar de 10 días sobre Proxima b,
 **solo el escenario extremo A3 produce una medición de N2O, y esa medición
@@ -200,12 +227,11 @@ retrieval debe ajustar simultáneamente PT, radio, presión superficial y seis
 abundancias, y las degeneraciones consumen información. **La cifra del retrieval
 es la defendible**; la de S/N es una cota optimista útil para planificar.
 
-## 7. Estado de los retrievals bayesianos (trabajo en curso)
+## 7. Historial de desarrollo y modos de fallo resueltos
 
-Los 14 datasets están generados y el runner
-([`run_life_retrieval.py`](../Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py))
-existe, pero **la matriz aún no produce posteriores válidos**. Tres pilotos
-documentan los modos de fallo, todos reales y de interés metodológico:
+Antes de cerrar la matriz canónica 8/8, tres pilotos documentaron modos de
+fallo reales y metodológicamente útiles. Se preservan como evidencia de
+auditoría; no describen el estado final de la campaña:
 
 1. **PT rígido (gradiente de 2 parámetros):** ln Z ≈ −9×10⁶ y MultiNest termina
    sin muestrear. Con σ ≲1% del flujo (S/N≈514 a 1200 h) el desajuste entre un
@@ -233,8 +259,12 @@ model mismatch domina la verosimilitud y el muestreador no explora. Nótese la
 paradoja: **más S/N agrava el problema**, porque las barras de error se vuelven
 más pequeñas que el error intrínseco del modelo.
 
-**Pendiente:** los cuatro retrievals del régimen corto (10 h) se están
-ejecutando; completarán la tabla con la campaña de reconocimiento.
+La configuración final produjo los ocho posteriores canónicos de 10/240 h.
+Los cuatro datasets de 1200 h y el retrieval A3--1200 h quedan excluidos de esa
+matriz y preservados como evidencia de los pilotos. El trabajo pendiente ya no
+es completar la rama clásica, sino probar la robustez con LIFEsimMC/PHRINGE,
+covarianza instrumental, múltiples realizaciones de ruido y comparación de
+modelos con/sin molécula.
 
 ## 8. Referencias
 

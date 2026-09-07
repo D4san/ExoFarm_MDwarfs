@@ -1,6 +1,6 @@
 # ExoFarm Project Status and Management Tracker
 
-**Fecha de actualización:** 2026-07-20
+**Fecha de actualización:** 2026-09-06
 **Propósito:** Centralizar el estado operativo, dependencias de software,
 decisiones de diseño y tareas técnicas pendientes del pipeline ExoFarm.
 
@@ -15,7 +15,7 @@ Tierra--Sol que alimentará LIFE, leer también
 
 ```mermaid
 graph TD
-    Stage0["Etapa 0: LPJmL suspendida"] -. "futuro flujo molecular" .-> Stage1["Etapa I: VULCAN"]
+    Stage0["Etapa 0: LPJmL, prueba reactivada"] -. "flujo molecular tras validación" .-> Stage1["Etapa I: VULCAN"]
     Stage1 -->|"Earth A0--A3 2026-06-15: benchmark pre-N2O"| Stage3A["Capa 1: emisión/LIFE Tierra-Sol a 10 pc"]
     ProxSED["SED Proxima validada"] --> Stage1P["Nueva Etapa I: Proxima A0--A3"]
     Stage1P -->|"PT y química exportados"| Stage3B["Capa 2: emisión/LIFE Proxima"]
@@ -24,15 +24,25 @@ graph TD
 
 ### Etapa 0: flujos agrícolas upstream
 
-- **Estado:** **suspendida por decisión de proyecto el 2026-07-20**. No iniciar
-  compilaciones, descargas, pilotos ni acoplamientos hasta reactivación explícita.
-- **Activo conservado:** checkout local de LPJmL, workflow
-  `modern_vs_no_fertilizer`, notas metodológicas y conversor de masa de N a
-  flujo molecular en
+- **Estado:** **piloto de interfaz aceptado el 2026-09-06 y paquete MPI portátil
+  preparado** para Franck et al.
+  (2011), con benchmark agrícola de `N2O`/`NH3` y rama de rendimiento
+  potencial; reproducción global pendiente.
+- **Ejecución verificada:** checkout oficial LPJmL `v6.0.6`, commit
+  `5af44a1ed023279a23c28d6dfe76945b97aaac57`; compilación serial y comprobaciones
+  locales superadas. Paquete estándar oficial verificado por tamaño/MD5 y
+  extracción (76 archivos); campaña `pilot_20260907T031220Z` terminada con
+  código 0 en las tres etapas y NetCDF 1996--2005 auditados.
+- **Flujo reproducible:** `workflows/franck2011_reproduction`, además de las
+  notas metodológicas y el conversor de masa de N a flujo molecular en
   [`convert_lpjml_n_flux.py`](../Agricultural_Fluxes_LPJmL/scripts/convert_lpjml_n_flux.py).
-- **Al reactivar:** registrar dataset de entrada, versión/commit, metadatos de
-  salida, corridas con ciclo de N y un puente reproducible hacia VULCAN. La
-  existencia del checkout no equivale a un forzamiento agrícola validado.
+- **Límite actual:** no existen aún resultados LPJmL científicos ni un
+  forzamiento agrícola validado para VULCAN. El piloto solo aceptará la interfaz
+  y las unidades; la integración planetaria exige una corrida global completa.
+- **Próxima ejecución:** instalar el checkout fijado con MPICH en el otro PC,
+  verificar recursos/entradas, pasar el smoke test MPI de ocho celdas y correr
+  por separado el spin-up global y A1 según
+  [`lpjml_global_a1_mpi_other_pc_runbook.md`](lpjml_global_a1_mpi_other_pc_runbook.md).
 
 ### Etapa I: modelado fotoquímico
 
@@ -45,9 +55,10 @@ graph TD
   (`end_case = 3`), atribuida a `C2H5` traza alrededor de 0.019 bar.
 - **Parámetros físicos:** corregidos y auditados el 2026-06-15 (radio
   planetario, gravedad, espectro solar y eliminación del duplicado de `H2SO4`).
-- **Proxima / nueva rama:** planificada, sin SED versionada, YAML, perfiles ni
-  corridas todavía. Será una rama VULCAN A0--A3 con PT/Kzz terrestre controlado
-  y no una modificación de Earth--Sun ni TRAPPIST-1e.
+- **Proxima / nueva rama:** ejecutada como `life_proxima_b_earthlike`: SED
+  MUSCLES versionada, rama VULCAN A0--A3 con PT/Kzz terrestre controlado y
+  productos de emisión/LIFEsim bajo su propio árbol. No es una modificación de
+  Earth--Sun ni TRAPPIST-1e.
 
 ### Etapa II: espectroscopia de transmisión y retrieval
 
@@ -66,11 +77,20 @@ graph TD
 
 ### Etapa III: emisión térmica, LIFE y LIFEsimMC
 
-- **Estado (2026-07-22):** **entorno provisionado; Capa 1 rama clásica
-  ejecutada.** Env conda `ExoFarm_LIFE` con POSEIDON 1.4.0 (+71 GB opacidades,
-  MD5 verificado), LIFEsim 0.2.32, LIFEsimMC 1.3.5 + PHRINGE 1.8.2
-  (`source /home/castello/POSEIDON/activate_exofarm_life.sh`; `lifesim` requiere
-  el SpectRes modificado de fdannert). Campaña `life_earth_sun_10pc_interface_v1`:
+La reconstrucción metodológica reproducible de las dos capas, desde los datos
+de entrada hasta el análisis y los retrievals, está en
+[`life_stage_iii_classic_methodology_2026-08-30.md`](life_stage_iii_classic_methodology_2026-08-30.md).
+La síntesis que reúne metodología, tablas, resultados y el atlas de plots está
+en [`life_stage_iii_integrated_methodology_results_2026-08-30.md`](life_stage_iii_integrated_methodology_results_2026-08-30.md).
+
+- **Estado consolidado (2026-08-30, actualizado 2026-08-31):** **rama LIFEsim
+  clásica validada y cerrada documentalmente.** El entorno histórico conda
+  `ExoFarm_LIFE` contenía POSEIDON 1.4.0 (+71 GB de opacidades, MD5 verificado),
+  LIFEsim 0.2.32, LIFEsimMC 1.3.5 y PHRINGE 1.8.2. La reejecución actual se
+  completó en Ubuntu/WSL con el entorno `POSEIDON` de
+  `/home/wsldasan/miniconda3/envs/POSEIDON`, donde ahora están instalados
+  LIFEsim 0.2.32 y el SpectRes modificado de fdannert (`2.1.1`, con
+  `edge_mode`). Campaña `life_earth_sun_10pc_interface_v1`:
   forward de emisión A0--A3 + 18 contrafactuales + S/N con LIFEsim clásico
   ([informe](life_earth_sun_10pc_interface_snr_2026-07-22.md)). Interfaz validada
   (chequeo cuerpo negro PASS); tecnofirma ExoFarm **bajo el ruido** en baseline
@@ -84,20 +104,32 @@ graph TD
   frente a años en Tierra--Sol — ~30--65× más detectable por cercanía. Análogo M
   controlado, no la atmósfera medida de Proxima b.
   [Bitácora](life_proxima_b_branch_bitacora_2026-07-22.md).
-- **Retrievals de emisión (2026-07-25):** matriz de 8 corridas Proxima A0--A3 x
+- **Retrievals de emisión (2026-07-25):** matriz canónica de 8 corridas Proxima A0--A3 x
   {10 h, 240 h} ejecutada con configuración validada (PT Madhu + `Piette20` +
   prior `R_p_ref` en metros). Con una campaña estándar de 10 d solo A3 mide N2O
-  excluyendo el valor pre-agrícola (3.6σ); A2/A1 quedan como límites superiores
-  (~5 y ~12 campañas). El retrieval es más conservador que el diagnóstico de S/N.
+  excluyendo la referencia pre-agrícola efectiva (3.14σ); A2/A1 quedan como
+  límites superiores y no permiten extrapolar un número de campañas. El
+  retrieval es más conservador que el diagnóstico de S/N. Los cuatro datasets
+  de 1200 h y el retrieval A3--1200 h son evidencia de auditoría/piloto excluida
+  de la matriz canónica. El piloto adicional A3--500 h ejecutado el 2026-08-31
+  también queda excluido. El piloto histórico terminó con `ln Z = 893.18 +/-
+  0.40`, `chi^2_red = 1.59` y radio `1.23 R_E`; el dataset usado coincide byte
+  a byte con la observación directa de LIFEsim. Después se relanzaron por
+  separado A3--500 h y A3--1200 h con datasets directos, `N_live=800` y la
+  configuración actual de `Piette20`: `ln Z=901.17`, `chi^2_red=2.07` y
+  `R_p_ref=1.23 R_E` a 500 h; `ln Z=898.31`, `chi^2_red=2.82` y
+  `R_p_ref=1.26 R_E` a 1200 h. Ambos son auditoría/piloto y no cambian la
+  matriz canónica.
   [Diseño y resultados](life_retrieval_campaign_design_2026-07-25.md),
   [auditoría](stage_iii_scientific_audit_2026-07-25.md).
 - **Pendiente Etapa III:** rama LIFEsimMC/PHRINGE (inestabilidad instrumental +
-  covarianza) para ambas capas y decisión de procedencia N2O de Tierra--Sol.
+  covarianza), múltiples realizaciones de ruido, modelos con/sin molécula y
+  decisión de procedencia N2O de Tierra--Sol.
   Memoria: máx 2 solvers VULCAN a la vez (WSL 7.6 GB).
-- **Objetivo:** generar forwards de emisión térmica con POSEIDON desde los
-  perfiles fotoquímicos, diagnosticar señales de `N2O`/`NH3`, simular ruido
-  astrofísico e instrumental de LIFE, analizar SNR y solo después diseñar una
-  campaña de retrievals.
+- **Objetivo:** la rama clásica ya generó forwards, ruido astrofísico/fotónico,
+  S/N y retrievals diagonales. La extensión pendiente debe añadir ruido
+  instrumental/covarianza antes de convertir esos resultados en una conclusión
+  de detectabilidad instrumental de LIFE.
 - **Contrato:** es una rama paralela a transmisión/JWST. No reutiliza espectros
   de transmisión, ruido PandExo ni conteos de tránsitos como entradas LIFE.
   La ruta técnica de ruido instrumental prevista es LIFEsimMC/PHRINGE; LIFEsim
@@ -106,8 +138,9 @@ graph TD
   congelado de 2026-06-15 para la primera validación de interfaz. La
   interpretación científica de la matriz vigente queda bloqueada por la
   salvedad de N2O. `life_proxima_b_earthlike` es la
-  segunda capa: primero SED → VULCAN Proxima A0--A3; luego la misma cadena de
-  emisión/LIFE. Ninguna tiene productos LIFE autorizados todavía.
+  segunda capa y completó SED → VULCAN Proxima A0--A3 → emisión/LIFEsim clásico
+  → S/N → retrievals canónicos. Ambas tienen productos clásicos autorizados; la
+  rama instrumental LIFEsimMC/PHRINGE continúa pendiente.
 - **Plan y puertas de activación:**
   [`docs/life_lifesim_stage_iii_plan.md`](life_lifesim_stage_iii_plan.md),
   [plan operativo de dos capas](life_stage_iii_two_layer_workplan_2026-07-20.md)
@@ -124,7 +157,8 @@ graph TD
   Ubuntu/WSL. Las rutas activas y requisitos de entrada están documentados en
   `Transmission_Spectroscopy/README.md`.
 - **PandExo:** simulación de ruido de JWST exclusiva de la Etapa II.
-- **LIFEsimMC + PHRINGE:** dependencias futuras de la Etapa III. Antes de una
+- **LIFEsimMC + PHRINGE:** instalados y verificados por importación, pero aún no
+  ejecutados como campaña científica de la Etapa III. Antes de una
   corrida se deben congelar versión/commit, licencia, entorno, diseño LIFE,
   escena astrofísica y la compatibilidad con la exportación de emisión de
   POSEIDON.
@@ -133,9 +167,8 @@ graph TD
   genérica al construir el benchmark.
 - **Espectro TRAPPIST-1:** procedente de Mega-MUSCLES y escalado a flujo
   superficial en la etapa fotoquímica.
-- **Espectro Proxima futuro:** MUSCLES/MAST, con metadatos, checksum,
-  conversor a flujo superficial VULCAN y extensión MIR explícitamente
-  documentados antes de cualquier corrida.
+- **Espectro Proxima:** MUSCLES/MAST v22 preservado con metadatos y checksum;
+  conversión a flujo superficial VULCAN validada y usada en la rama A0--A3.
 
 ---
 
@@ -143,6 +176,10 @@ graph TD
 
 | Fecha | Decisión | Razón / justificación | Estado |
 | :--- | :--- | :--- | :--- |
+| 2026-09-06 | Preparar el primer global como A1 actual y ejecutarlo con MPI en otro PC | Permite obtener primero flujos físicos de N2O/NH3 sin mezclar la reconstrucción todavía incompleta de los escenarios de capacidad de carga. Se fijaron LPJmL 6.0.6, MPICH, salida compacta coordinada, smoke test de ocho celdas y fases spin-up/A1 recuperables. | Paquete y runbook verificados; ejecución global pendiente del PC destino |
+| 2026-09-06 | Aceptar el piloto LPJmL de una celda | Las entradas oficiales pasaron tamaño, MD5 y extracción; spin-up, A1 con N y rendimiento potencial terminaron con código 0; los NetCDF 1996--2005 tienen unidades, dimensiones y valores finitos plausibles. | Cerrado como prueba de interfaz; no es un resultado global ni un forzamiento VULCAN |
+| 2026-09-01 | Reactivar la Etapa 0 para una primera prueba Franck 2011 + N2O/NH3 | El usuario autorizó una prueba reproducible que separe la reproducción moderna de capacidad de carga del benchmark físico con ciclo de N. | Cerrado para el piloto; reproducción global activa |
+| 2026-09-01 | Evaluar Bayes factors rápidos para A3/A0 y el exceso de N2O | Se compararon plantillas fijas sobre el mismo dataset A3--240 h, con la likelihood diagonal de `Fp`; se separó la comparación de escenario de la comparación molecular. | Cerrado como experimento de auditoría; evidencia marginalizada e instrumental pendiente |
 | 2026-06-15 | Aceptar TRAPPIST-1e en `end_case = 3` | La no convergencia está dominada por química traza irrelevante para los objetivos espectrales. | Cerrado con salvedad |
 | 2026-06-30 | Promover Lin PT + `100x CO2` para TRAPPIST-1e | Perfil térmico y abundancia de `CO2` adoptados como baseline oficial; los isoquímicos anteriores pasan a legacy. | Cerrado |
 | 2026-07-01 | Corregir `alpha_N2O` y piso de ruido | Se alinearon los flujos de `N2O` con los alpha 2.55 y 15, y se impuso el piso de ruido de PandExo. | Cerrado |
@@ -158,21 +195,42 @@ graph TD
 | 2026-07-20 | Usar PT/Kzz terrestre controlado para el baseline Proxima | Aísla el efecto de sustituir la SED solar por la de Proxima; una sensibilidad climática requiere una campaña y evidencia distintas. | Cerrado para alcance inicial |
 | 2026-07-20 | Separar el benchmark Tierra--Sol de junio de la matriz N2O corregida | Los perfiles A2/A3 aceptados usan `3.35e9`/`1.20e10`; los BC activos usan `3.416e9`/`1.238e10`. El benchmark puede validar interfaz LIFE, pero resultados científicos finales requieren rerun o rótulo histórico explícito. | Abierto: decisión antes de interpretación LIFE |
 | 2026-07-20 | Diferir M8V a 5 pc, Teegarden y TRAPPIST-1e real | Siguen siendo preguntas alternativas de geometría/fotoquímica, no sustitutos de las dos capas aprobadas. | Activo / diferido |
-| 2026-07-20 | Bloquear retrievals LIFE hasta validación | No lanzar retrievals sin interfaz POSEIDON--LIFEsimMC, piloto de ruido y diagnósticos de señal/SNR aprobados. | Planificado |
+| 2026-07-20 | Bloquear retrievals LIFE hasta validación | No lanzar retrievals sin interfaz, diagnóstico de señal/SNR y registro de campaña. | **Superada para la rama clásica** por la decisión 2026-07-25 de ejecutar una cota optimista con sigma diagonal; sigue vigente para claims instrumentales/finales basados en LIFEsimMC. |
 | 2026-07-25 | **Anclar los tiempos de integración LIFE a la literatura** | Regímenes corto/razonable/extremo = **10 h / 240 h (~10 d) / 1200 h (50 d)**, tomados de LIFE X (S/N=170 en 10 h para Proxima b; criterio S/N=7 en <100 h), LIFE XII (~10 d para planeta templado alrededor de M a 5 pc; ~50--100 d para Tierra a 5 pc) y LIFE III (~7 semanas para R=50/S-N=10 en Tierra a 10 pc). Evita elegir tiempos arbitrarios. | **Cerrado** |
-| 2026-07-25 | **Abrir la matriz de retrievals de emisión con σ diagonal** | Con el diagnóstico de señal/SNR validado en ambas capas y el manifiesto registrado, se autoriza una matriz de 14 retrievals (Proxima A0--A3 × 3 tiempos + control Tierra--Sol A0/A3 @1200 h) usando σ por bin de LIFEsim clásico. Se declara explícitamente que es una **cota optimista** hasta correr LIFEsimMC/PHRINGE con covarianza. | **Cerrado**: matriz reducida a 8 corridas (10 h/240 h) por decisión del usuario; configuración validada = PT Madhu + `Piette20` + prior de `R_p_ref` en metros. Resultado: solo A3 mide N2O excluyendo A0 a 3.6σ en una campaña de 10 d. |
+| 2026-07-25 | **Abrir la matriz de retrievals de emisión con sigma diagonal** | Con el diagnóstico de señal/SNR validado en ambas capas y el manifiesto registrado, se autorizó inicialmente una matriz de 14 retrievals usando sigma por bin de LIFEsim clásico, declarada como cota optimista hasta LIFEsimMC/PHRINGE. | **Cerrado 8/8**: matriz final Proxima A0--A3 × {10 h, 240 h}; PT Madhu + `Piette20` + prior de `R_p_ref` en metros. Solo A3 a 240 h mide N2O y excluye la referencia A0 efectiva a 3.14 sigma. |
+| 2026-08-30 | **Clasificar los productos de 1200 h** | Fueron generados con la cadena clásica y documentan el diagnóstico de desajuste a S/N alto, pero no pertenecen a la matriz final 8/8. | **Evidencia de auditoría/piloto excluida**: conservar, no contar en resultados canónicos ni borrar como residuo. |
+| 2026-08-30 | **Validar documentalmente la rama LIFEsim clásica** | La interfaz, forwards, contrafactuales, S/N y retrievals clásicos tienen evidencia suficiente para un benchmark reproducible con limitaciones. | **Cerrado con salvedades**: sigma diagonal, una semilla, sin covarianza instrumental ni comparación con/sin molécula. |
+| 2026-08-30 | **Ajustar la legibilidad de las figuras Proxima de espectro/señal y SNR** | Títulos compactos, etiquetas moleculares sin guías verticales, rellenos claramente diferenciados, composición de tres paneles alineada al análogo de transmisión y límites de ejes ajustados a los datos separan mejor la información visual sin alterar los datos. | **Cerrado para la capa visual**; se regeneraron y verificaron los plots clásicos, y la comparación SNR/proyección quedó promovida en PNG/PDF. |
+| 2026-08-30 | **Generar y refinar el atlas de retrieval LIFE Proxima** | Se usaron los productos existentes de espectro, muestras, perfiles VULCAN y bins LIFE de la matriz canónica. Las figuras espectrales interpolan las curvas a 250 puntos globales y 75 por zoom, y muestran A0/A3 con la semántica Retrieved/True/Observed alineada al código de transmisión. La matriz de perfiles usa histogramas, medianas discontinuas, perfiles sólidos, barras de incertidumbre y métricas por panel según la referencia de transmisión. Los envelopes continuos quedan en alpha 0.025/0.05 y las líneas espectrales se atenúan para priorizar las observaciones; los marcadores ampliados llevan un borde gris fino y se dibujan opacos, mientras las barras de error conservan su transparencia. | **Cerrado para revisión**; tres figuras en PNG/PDF bajo `outputs/life_proxima_b_earthlike_v1/plots/`, sin incluir A3--1200 h ni modificar los datos. |
+| 2026-08-31 | **Usar una referencia A0 efectiva en el atlas de perfiles** | Para comparar el posterior isoquímico con el perfil vertical VULCAN sin escoger arbitrariamente la capa superficial, se añadió el promedio columnar ponderado en presión de A0 como referencia escalar reproducible. El atlas conserva el perfil VULCAN sólido y la mediana posterior discontinua de A3; las figuras espectrales mantienen A0/A3. | **Cerrado**; el código está en `retrieval_reference.py`, el CSV reporta `A0_effective` y la separación firmada, y el atlas muestra la distancia A3--A0 efectiva. |
+| 2026-08-31 | **Simplificar el encabezado y las métricas del atlas de perfiles** | Se eliminó el texto explicativo redundante bajo el título y el `Delta log X` de los recuadros. La leyenda de perfil VULCAN A3, posterior A3 y referencia A0 efectiva queda horizontal bajo el título; la fórmula de `z` se muestra aparte y los recuadros conservan la mediana A3, el valor A0 de referencia y su distancia en sigma. | **Cerrado**; se mantuvieron las líneas sólido/discontinua/punteada y se alinearon los colores con `True`/`Retrieved` de los plots espectrales. |
+| 2026-08-31 | **Priorizar las observaciones en el espectro global de retrieval** | Se retiró el grid de fondo del panel global y se aumentó el tamaño de sus marcadores observados, conservando los bins, barras de error y curvas de entrada. | **Cerrado**; cambio exclusivamente visual, regenerado en PNG/PDF. |
+| 2026-08-31 | **Ajustar la escala final de los puntos observados y la fórmula de distancia** | Los marcadores con barras de error se ampliaron a 5.8 pt en el panel global y 6.2 pt en los zooms, con borde gris ligeramente reforzado. La fórmula de `z` se desplazó un poco hacia arriba y a la izquierda en el atlas de perfiles. | **Cerrado**; tres PNG/PDF oficiales regenerados y revisados visualmente, sin cambios en datos ni retrievals. |
+| 2026-08-31 | **Ejecutar un piloto intermedio A3--500 h** | Comprobar la estabilidad de la configuración corregida entre 240 h y el piloto excluido de 1200 h sin alterar el índice ni la matriz canónica. Se usó WSL Ubuntu, conda `POSEIDON`, PT Madhu, `Piette20`, prior de `R_p_ref` en metros y 200 puntos vivos. | **Cerrado como auditoría**; MultiNest terminó normalmente (`43 893` evaluaciones, `chi^2_red = 1.59`, `R_p_ref = 1.23 R_E`). La ejecución inicial usó sigma escalada; la validación directa de LIFEsim 0.2.32 produjo un `.dat` idéntico, por lo que no se repitió MultiNest. Véanse `life_proxima_a3_500h_retrieval_audit_2026-08-31.md` y `life_proxima_a3_500h_lifesim_direct_validation_2026-08-31.md`. |
+| 2026-08-31 | **Instalar LIFEsim y validar el cálculo directo A3--500 h** | El entorno WSL `POSEIDON` necesitaba LIFEsim y el SpectRes de fdannert para comprobar la procedencia del piloto. Se preservaron el índice canónico y el dataset anterior. | **Cerrado**; LIFEsim 0.2.32 + SpectRes 2.1.1 pasan la calibración LIFE X (166.5 vs 170 a 2 m). El archivo directo tiene 31 bins y coincide byte a byte con el dataset usado por el retrieval. Sigue siendo auditoría/piloto, no matriz canónica. |
+| 2026-08-31 | **Comparar ruido directo de LIFEsim con el escalado temporal** | Se llamaron directamente las escenas Proxima A0/A3 en 1, 10, 100, 240, 500 y 1200 h y se compararon con `sigma(10 h)*sqrt(10 h/t)`, usando la misma realización normal emparejada. | **Cerrado como auditoría**; máxima diferencia relativa `6.7e-16` y máxima diferencia emparejada `8.5e-15 sigma`. El escalado reproduce el ruido clásico, pero no sustituye LIFEsimMC/PHRINGE ni prueba covarianza instrumental. Véase `docs/life_proxima_lifesim_noise_scaling_2026-08-31.md`. |
+| 2026-08-31 | **Relanzar retrievals robustos Proxima A3 a 500 h y 1200 h** | Se usaron datasets directos de LIFEsim, el prior físico de `R_p_ref` en metros, `Piette20`, `Madhu`, `isochem` y `N_live=800`, manteniendo salidas separadas del índice y la matriz canónicos. | **Cerrado como auditoría/piloto, con salvedad de prior**; ambos runs terminaron con posterior completo: 500 h `ln Z=901.17`, `chi^2_red=2.07`, `R_p_ref=1.23 R_E`; 1200 h `ln Z=898.31`, `chi^2_red=2.82`, `R_p_ref=1.26 R_E`. `a1` queda cerca de su límite superior en ambos casos; falta prueba de sensibilidad con prior ampliado. No se usan para claims canónicos ni de detección. Véase `docs/life_proxima_a3_500h_1200h_robust_retrieval_2026-08-31.md`. |
+| 2026-09-01 | **Probar un perfil vertical `two-gradients` para NH3 en A3--500 h** | Se reutilizó el dataset directo de LIFEsim y se mantuvieron PT `Madhu`, `Piette20` y el prior físico de radio. Sólo NH3 recibió `species_vert_gradient`; `N_live=1000` y salida separada `nh3twograd`. | **Cerrado como diagnóstico/auditoría excluida**; posterior completo con `ln Z=895.86`, `chi^2_red=3.15`, 18 parámetros y 16 001 muestras. La caída vertical tiene dirección compatible con VULCAN, pero la capa alta es ancha y el ajuste no mejora al isquímico robusto. Véase `docs/life_proxima_a3_500h_nh3_two_gradients_2026-09-01.md`. |
 
 ---
 
 ## 4. Tareas pendientes e incertidumbres
 
-### Suspendido: Etapa 0 LPJmL
+### Activo: Etapa 0 LPJmL
 
-1. `[~]` Reactivar LPJmL solo con decisión explícita; el checkout existe, pero
-   faltan datos de entrada y una corrida auditable.
-2. `[ ]` Al reactivar: correr pilotos regionales/globales con ciclo de N activo.
-3. `[ ]` Al reactivar: acoplar salidas reales de LPJmL a los lower-boundary
-   fluxes de la Etapa I, con unidades/metadatos auditados.
+1. `[x]` Reactivar LPJmL con decisión explícita y fijar versión/commit.
+2. `[x]` Compilar LPJmL `v6.0.6` y verificar el ejecutable local.
+3. `[x]` Descargar, verificar por checksum y extraer el paquete estándar oficial.
+4. `[x]` Correr y aceptar el piloto de una celda con ciclo de N activo y la
+   rama de rendimiento potencial.
+5. `[x]` Preparar instalación reproducible LPJmL/MPICH, auditoría del otro PC,
+   smoke test MPI y runner global A1 por fases.
+6. `[ ]` Ejecutar el benchmark global A1 actual y aceptar sus flujos de
+   `N2O`/`NH3`.
+7. `[ ]` Ejecutar la reproducción global moderna y comparar con los objetivos
+   publicados de Franck et al. (2011).
+8. `[ ]` Acoplar solo salidas globales aceptadas a los lower-boundary fluxes de
+   la Etapa I, con unidades/metadatos auditados.
 
 ### Prioridad activa: validación de Etapa II
 
@@ -183,41 +241,43 @@ graph TD
 3. `[ ]` Mantener separados los productos de la campaña optimizada de 18
    corridas y la evidencia legacy de 42 corridas.
 
-### Prioridad próxima: Etapa III LIFE/LIFEsimMC (sin ejecutar todavía)
+### Etapa III: rama clásica cerrada y rama instrumental pendiente
 
-#### Capa 1 — `life_earth_sun_10pc`
+#### Completado — LIFEsim clásico
 
-1. `[x]` Registrar el conjunto Tierra--Sol A0--A3 de 2026-06-15 y sus pares
-   PT/química como benchmark congelado de interfaz, etiquetado
-   `earth_20260615_pre_n2o_correction`.
-2. `[ ]` Decidir y registrar si se rerun/reexporta Tierra--Sol A0--A3 con los
-   BC N2O corregidos antes de interpretar SNR/retrievals LIFE como matriz actual;
-   si no, conservar el rótulo histórico en todos los productos.
-3. `[ ]` Verificar LIFEsimMC, PHRINGE y LIFEsim clásico; fijar versión, licencia
-   y entorno.
-4. `[ ]` Congelar estrella/planeta, 10 pc, geometría, superficie/emisividad,
-   zodi/exozodi, malla, resolución y configuración instrumental. No usar
-   tránsitos como proxy.
-5. `[ ]` Validar la interfaz POSEIDON → radiancia LIFEsimMC: `Fp/Fs`, flujo,
-   radiancia, unidades, malla, normalización y parámetros del sistema.
-6. `[ ]` Generar forwards A0--A3 y contrafactuales de `N2O`/`NH3` con moléculas
-   de control, primero sin ruido.
-7. `[ ]` Ejecutar un piloto LIFEsimMC, preservar SED/covarianza y crear tabla y
-   figuras de SNR con semilla/configuración declaradas.
-8. `[ ]` Diseñar y aprobar retrievals LIFE solo después de validar covarianza,
-   señal y SNR.
+1. `[x]` Forward de emisión POSEIDON A0--A3 para Tierra--Sol y Proxima.
+2. `[x]` Contrafactuales N2O/NH3 y moléculas de control.
+3. `[x]` Escenas LIFEsim clásico, validaciones de unidades/cuerpo negro/LIFE X
+   y tablas de S/N.
+4. `[x]` Fotoquímica Proxima A0--A3 convergida, SED y conversión auditadas.
+5. `[x]` Matriz canónica de retrievals Proxima A0--A3 × {10 h, 240 h}, 8/8.
+6. `[x]` Clasificación de los productos 1200 h como pilotos de auditoría.
+7. `[x]` Instalación de LIFEsim 0.2.32/SpectRes compatible y validación directa
+   del dataset A3--500 h.
+8. `[x]` Comparación directa frente a escalado `sqrt(t)` para el ruido clásico
+   de LIFEsim en Proxima A0/A3.
+9. `[x]` Retrievals robustos de auditoría A3 a 500 h y 1200 h con datasets
+   directos de LIFEsim, `N_live=800` y configuración `Piette20`.
+10. `[x]` Prueba diagnóstica de perfil `two-gradients` para NH3 en A3--500 h,
+    con posterior completo y salida separada.
 
-#### Capa 2 — `life_proxima_b_earthlike`
+11. `[x]` Diagnósticos rápidos de Bayes factor A3/A0 y N2O A3/N2O reiniciado,
+    calculados sobre el mismo dataset A3--240 h con plantillas fijas.
 
-1. `[x]` Fijar Proxima como extensión M prioritaria y elegir `atm_Earth_Jan_Kzz.txt`
-   como baseline PT/Kzz controlado.
-2. `[ ]` Archivar SED MUSCLES fuente con metadatos, cobertura, checksum, estado
-   quiescente y extensión MIR requerida.
-3. `[ ]` Implementar y validar conversión a flujo superficial VULCAN, con una
-   única escala geométrica y parámetros Proxima/órbita documentados.
-4. `[ ]` Crear configuración/runner VULCAN A0--A3 separados, ejecutar y aceptar
-   perfiles antes de cualquier forward LIFE.
-5. `[ ]` Exportar PT/química Proxima y repetir las puertas de emisión, ruido,
-   SNR y propuesta de retrievals sin mezclar productos con la Capa 1.
-6. `[ ]` Mantener M8V a 5 pc, Teegarden y TRAPPIST-1e real como alternativas
-   posteriores sujetas a decisión/insumos separados.
+#### Pendiente — LIFEsimMC/PHRINGE y robustez inferencial
+
+1. `[ ]` Congelar versión/commit, licencia, escena perturbada, semilla y
+   configuración instrumental del piloto MC.
+2. `[ ]` Validar el contrato de espectro custom y preservar SED/covarianza.
+3. `[ ]` Implementar whitening reproducible o likelihood correlacionada.
+4. `[ ]` Ejecutar al menos A0/A3 Proxima con varias realizaciones de ruido.
+5. `[~]` Comparar evidencia de modelos con/sin N2O y, si procede, con/sin NH3.
+   El diagnóstico de plantillas fijas A3/A0 y N2O reiniciado ya está cerrado;
+   queda pendiente la evidencia marginalizada con parámetros nuisance y ruido
+   instrumental/correlacionado.
+6. `[ ]` Si se usan los retrievals A3 de 500/1200 h para inferencia cuantitativa,
+   repetirlos con sensibilidad al prior ampliado de `a1`.
+7. `[ ]` Decidir rerun Tierra--Sol con BC N2O corregidos o mantenerlo solo como
+   benchmark histórico de interfaz.
+8. `[ ]` Mantener M8V a 5 pc, Teegarden y TRAPPIST-1e real como alternativas
+   posteriores sujetas a insumos y campañas separadas.

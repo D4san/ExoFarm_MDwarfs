@@ -4,8 +4,8 @@ Three stacked panels in the curated final-products style, adapted from
 transmission (transit depth, ppm) to LIFE thermal emission (observed planet
 flux at 10 pc):
 
-  1. Top    : Earth--Sun A0--A3 emission spectra, molecular-band annotations,
-              LIFE band bar (4--18.5 um).
+  1. Top    : A0--A3 emission spectra, molecular-band labels across the LIFE
+              band (4--18.5 um).
   2. Middle : N2O molecular signal per scenario (counterfactual fill) plus the
               net scenario difference Delta(A0 - Aj) as dark lines.
   3. Bottom : same for NH3.
@@ -58,18 +58,18 @@ SCENARIO_NAMES = {
     "A3": "A3: Extreme ExoFarm",
 }
 FILL_ORDER = ("A3", "A2", "A1")
-FILL_ALPHA = {"A3": 0.72, "A2": 0.82, "A1": 0.92}
-DARK_ALPHA = {"A3": 0.58, "A2": 0.68, "A1": 0.68}
+DARK_ALPHA = {"A3": 0.78, "A2": 0.82, "A1": 0.82}
 
 LIFE_MIN, LIFE_MAX = 4.0, 18.5
 DISPLAY_R = 200
 TOP_SCALE = 1e-20      # W m^-2 um^-1
 RES_SCALE = 1e-21      # W m^-2 um^-1
 
-BAND_ANNOTATIONS = [
-    (r"N$_2$O", 7.8), (r"NH$_3$", 10.6), (r"N$_2$O", 17.0),
-    (r"O$_3$", 9.6), (r"CO$_2$", 15.0), (r"H$_2$O", 6.3),
-]
+BAND_ANNOTATIONS = (
+    (7.8, 7.65, r"N$_2$O", 0.12),
+    (10.6, 10.6, r"NH$_3$", 0.12),
+    (17.0, 17.0, r"N$_2$O", 0.10),
+)
 
 
 def _style():
@@ -94,6 +94,55 @@ def log_rebin(wl, y, R=DISPLAY_R):
             c.append(wl[m].mean())
             v.append(y[m].mean())
     return np.asarray(c), np.asarray(v)
+
+
+def style_emission_axis(ax):
+    """Match the transmission-figure axes without changing the observable."""
+    ax.set_xlim(LIFE_MIN, LIFE_MAX)
+    ax.set_xticks([4, 5, 6, 8, 10, 12, 14, 16, 18])
+    ax.tick_params(direction="in", top=True, right=True)
+    ax.minorticks_on()
+
+
+def annotate_top_molecular_regions(ax, wavelengths, spectra):
+    """Place direct molecular labels above the local spectral envelope."""
+    envelope = np.maximum.reduce([spectra[key] for key in ["A0", "A1", "A2", "A3"]])
+    for wavelength, label_x, label, y_offset in BAND_ANNOTATIONS:
+        y_value = np.interp(wavelength, wavelengths, envelope)
+        ax.text(
+            label_x,
+            y_value + y_offset,
+            label,
+            color="black",
+            fontsize=13,
+            fontfamily="serif",
+            ha="center",
+            va="bottom",
+            zorder=20,
+        )
+
+
+def annotate_life_coverage(ax, y_position, y_step):
+    """Show the single LIFE coverage interval without molecular guide lines."""
+    ax.hlines(
+        y_position,
+        LIFE_MIN,
+        LIFE_MAX,
+        color="#5B4763",
+        linewidth=2.8,
+        zorder=18,
+    )
+    ax.text(
+        (LIFE_MIN + LIFE_MAX) / 2,
+        y_position + 0.48 * y_step,
+        "LIFE 4–18.5 µm",
+        color="black",
+        fontsize=10,
+        fontfamily="serif",
+        ha="center",
+        va="bottom",
+        zorder=19,
+    )
 
 
 def load_full(s):
@@ -154,7 +203,7 @@ def main():
     RES_SCALE = res_scale
 
     fig, (ax_top, ax_n2o, ax_nh3) = plt.subplots(
-        3, 1, figsize=(10.6, 7.6), sharex=True,
+        3, 1, figsize=(13.8, 9.6), sharex=True, constrained_layout=True,
         gridspec_kw={"height_ratios": [2.85, 1.0, 1.0]},
     )
 
@@ -162,30 +211,51 @@ def main():
     for s in FILL_ORDER:
         ax_top.fill_between(
             wl_b[band], Fb["A0"][band] / TOP_SCALE, Fb[s][band] / TOP_SCALE,
-            color=SCENARIO_COLOURS[s], alpha=FILL_ALPHA[s], lw=0,
+            color=SCENARIO_COLOURS[s], lw=0,
         )
+        line_width = {"A3": 1.7, "A2": 1.9, "A1": 2.1}[s]
         ax_top.plot(wl_b[band], Fb[s][band] / TOP_SCALE,
-                    color=SCENARIO_COLOURS[s], lw=1.1,
+                    color=SCENARIO_COLOURS[s], lw=line_width,
                     label=SCENARIO_NAMES[s])
     ax_top.plot(wl_b[band], Fb["A0"][band] / TOP_SCALE,
-                color=SCENARIO_COLOURS["A0"], lw=0.9,
+                color=SCENARIO_COLOURS["A0"], lw=1.15,
                 label=SCENARIO_NAMES["A0"])
 
-    y_max = np.nanmax(Fb["A0"][band]) / TOP_SCALE
-    for name, wl_c in BAND_ANNOTATIONS:
-        if LIFE_MIN < wl_c < LIFE_MAX:
-            ax_top.text(wl_c, y_max * 1.04, name, ha="center", va="bottom",
-                        fontsize=8.5, color="0.25")
-    ax_top.set_ylim(0, y_max * 1.22)
-    ax_top.set_ylabel(rf"$F_p$ @ {dist_label}" "\n"
-                      rf"($10^{{{top_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$)",
-                      fontsize=11)
-    # LIFE band bar (analogue of the NIRSpec/MIRI bars).
-    ax_top.plot([LIFE_MIN, LIFE_MAX], [y_max * 0.045] * 2,
-                color="#5B4763", lw=2.4, solid_capstyle="butt")
-    ax_top.text((LIFE_MIN + LIFE_MAX) / 2, y_max * 0.075, "LIFE 4–18.5 µm",
-                ha="center", fontsize=8, color="#5B4763")
-    ax_top.legend(frameon=False, fontsize=8.6, ncol=2, loc="upper left")
+    top_arrays = [Fb[key][band] / TOP_SCALE for key in ["A0", "A1", "A2", "A3"]]
+    top_min = min(np.nanmin(values) for values in top_arrays)
+    top_max = max(np.nanmax(values) for values in top_arrays)
+    top_span = top_max - top_min
+    top_pad = max(0.28, 0.18 * top_span)
+    annotate_top_molecular_regions(
+        ax_top,
+        wl_b[band],
+        {key: Fb[key][band] / TOP_SCALE for key in ["A0", "A1", "A2", "A3"]},
+    )
+    annotate_life_coverage(
+        ax_top,
+        y_position=top_min - 0.82 * top_pad,
+        y_step=0.18 * top_pad,
+    )
+    style_emission_axis(ax_top)
+    ax_top.tick_params(axis="both", labelsize=14)
+    ax_top.set_ylim(top_min - top_pad, top_max + top_pad)
+    ax_top.set_ylabel(
+        "Observed planetary flux "
+        rf"$F_p$" "\n"
+        rf"[$10^{{{top_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$]",
+        fontsize=16,
+        fontfamily="serif",
+        color="black",
+    )
+    ax_top.set_title(
+        "Proxima thermal-emission spectra\nand molecular residuals",
+        fontfamily="serif",
+        loc="center",
+        fontsize=22,
+        color="black",
+        pad=14,
+    )
+    ax_top.legend(frameon=False, fontsize=13, ncol=2, loc="upper left")
 
     # ---- residual panels ---------------------------------------------------
     for ax, sp, label in [(ax_n2o, "N2O", r"N$_2$O signal"),
@@ -193,32 +263,48 @@ def main():
         for s in FILL_ORDER:
             ax.fill_between(
                 wl_b[band], 0.0, mol_sig[(s, sp)][band] / RES_SCALE,
-                color=SCENARIO_COLOURS[s], alpha=FILL_ALPHA[s], lw=0,
+                color=SCENARIO_COLOURS[s], lw=0,
                 label=rf"A$_{s[1]}$ mol signal",
             )
         for s in FILL_ORDER:
             ax.plot(
                 wl_b[band], net_diff[s][band] / RES_SCALE,
-                color=RESIDUAL_DARK_COLOURS[s], lw=0.9, alpha=DARK_ALPHA[s],
+                color=RESIDUAL_DARK_COLOURS[s], lw=1.05, alpha=DARK_ALPHA[s],
                 label=rf"$\Delta$(A$_0$ $-$ A$_{s[1]}$)",
             )
         ax.axhline(0.0, color="0.4", lw=0.6, ls=":")
-        ax.text(0.012, 0.86, label, transform=ax.transAxes, fontsize=10)
-        ax.set_ylabel(rf"$\Delta F_p$" "\n"
-                      rf"($10^{{{res_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$)",
-                      fontsize=10)
-    ax_n2o.legend(frameon=False, fontsize=6.8, ncol=3, loc="upper right")
+        style_emission_axis(ax)
+        ax.tick_params(axis="both", labelsize=14)
+        ax.text(
+            0.015,
+            0.84,
+            label,
+            transform=ax.transAxes,
+            color="black",
+            fontsize=13,
+            fontfamily="serif",
+            ha="left",
+            va="top",
+        )
+        ax.set_ylabel(
+            rf"$\Delta F_p$" "\n"
+            rf"($10^{{{res_exp}}}$ W m$^{{-2}}$ $\mu$m$^{{-1}}$)",
+            fontsize=13,
+            fontfamily="serif",
+            color="black",
+        )
+    ax_n2o.legend(frameon=False, fontsize=9.5, ncol=3, loc="upper left",
+                  bbox_to_anchor=(0.36, 0.98))
 
-    ax_nh3.set_xlim(LIFE_MIN, LIFE_MAX)
-    ax_nh3.set_xlabel(r"Wavelength ($\mu$m)", fontsize=12)
-    fig.suptitle("ExoFarm thermal-emission spectra and molecular residuals\n"
-                 f"({target_name} @ {dist_label}; campaign {campaign_id})",
-                 fontsize=11.5)
-    fig.tight_layout(rect=(0, 0, 1, 0.965))
+    ax_nh3.set_xlabel("Wavelength [µm]", fontfamily="serif", fontsize=17,
+                      color="black")
 
     out = PLOTS / f"emission_molecular_residuals_{args.campaign}.png"
-    fig.savefig(out, bbox_inches="tight")
+    out_pdf = PLOTS / f"emission_molecular_residuals_{args.campaign}.pdf"
+    fig.savefig(out, dpi=240, bbox_inches="tight")
+    fig.savefig(out_pdf, bbox_inches="tight")
     print(f"saved {out.relative_to(ef.REPO)}")
+    print(f"saved {out_pdf.relative_to(ef.REPO)}")
 
 
 if __name__ == "__main__":

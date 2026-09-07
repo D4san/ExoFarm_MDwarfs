@@ -1,5 +1,11 @@
 # Plan operativo de dos capas para la Etapa III LIFE
 
+> **Estado del documento, 2026-08-30:** plan original ya ejecutado en su rama
+> LIFEsim clásica para Tierra--Sol y Proxima. Se conserva para reconstruir las
+> decisiones y puertas iniciales. El estado canónico actual está en
+> [`lifesim_classic_stage_iii_validation_2026-08-30.md`](lifesim_classic_stage_iii_validation_2026-08-30.md)
+> y [`project_resume.md`](project_resume.md).
+
 **Fecha de decisión:** 2026-07-20
 **Estado:** estructura y secuencia aprobadas; no se han generado espectros de
 emisión, observaciones LIFE, simulaciones de ruido ni retrievals nuevos.

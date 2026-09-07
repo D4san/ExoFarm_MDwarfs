@@ -1,0 +1,20 @@
+{
+  "recorded_date": "2026-09-01",
+  "dataset_role": "Official public standard inputs for the LPJmL 6.0.x first test",
+  "source": "Zenodo",
+  "record_id": "19064225",
+  "record_url": "https://zenodo.org/records/19064225",
+  "filename": "lpjml6-0-5_standard_input.tar.gz",
+  "download_url": "https://zenodo.org/records/19064225/files/lpjml6-0-5_standard_input.tar.gz?download=1",
+  "size_bytes": 37763601476,
+  "checksum": {
+    "algorithm": "md5",
+    "value": "682d8b894d7983301313e9d60a49483b"
+  },
+  "local_archive": "C:/Proyetos/Data/LPJmL/downloads/lpjml6-0-5_standard_input.tar.gz",
+  "local_input_root": "C:/Proyetos/Data/LPJmL/public_standard",
+  "verified_date": "2026-09-06",
+  "extracted_file_count": 76,
+  "uncompressed_size_bytes": 66338995720,
+  "verification_status": "download_size_md5_and_extraction_verified"
+}

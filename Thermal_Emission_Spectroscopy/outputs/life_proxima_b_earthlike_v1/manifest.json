@@ -4,6 +4,18 @@
   "layer": "2 - life_proxima_b_earthlike (Proxima environment, controlled)",
   "provenance_label": "proxima_muscles_v22_terrestrialPT_correctedBC",
   "provenance_note": "Earth-like analogue under the Proxima Centauri radiation field, NOT Proxima b's measured atmosphere. Chemistry from VULCAN Proxima A0-A3 with the CORRECTED active BC (current ExoFarm matrix) and terrestrial PT/Kzz (atm_Earth_Jan_Kzz.txt). Stellar SED: MUSCLES v22 GJ551 (MAST HLSP DOI 10.17909/T9DG6F), converted to VULCAN surface flux by convert_proxima_muscles_sed.py. See docs/life_proxima_b_branch_bitacora_2026-07-22.md.",
+  "classic_branch_validation": {
+    "status": "validated_classic_branch_retrieval_matrix_complete_8_of_8",
+    "noise_engine_used": "lifesim 0.2.32 classic",
+    "noise_scope": "stellar leakage + local zodi + exozodi + photon shot noise",
+    "covariance": "diagonal per-bin sigma; no instrumental covariance",
+    "noise_realizations": "one seeded realization per canonical dataset",
+    "lifesimmc_phringe": "installed but not used in this campaign",
+    "canonical_retrievals": "A0-A3 x {10 h, 240 h}",
+    "excluded_pilot": "1200 h datasets plus A3-1200 h retrieval",
+    "validation_report": "docs/lifesim_classic_stage_iii_validation_2026-08-30.md"
+  },
+  "profile_hash_note": "Profile MD5 values were computed from LF files. On a Windows CRLF checkout the raw byte hash changes; CRLF-to-LF normalization reproduces every recorded Proxima profile MD5.",
   "scene": {
     "distance_pc": 1.3,
     "distance_m": 4.011380855938778e+16,
@@ -88,6 +100,23 @@
         "path": "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_chem.txt",
         "md5": "b2234eff9da01c0aef0837035fead6fd"
       }
+    }
+  },
+  "audit_validation": {
+    "proxima_A3_500h_lifesim_direct": {
+      "classification": "audit/pilot; excluded from canonical retrieval matrix",
+      "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_500h_lifesim_direct.dat",
+      "dataset_index": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/dataset_index_500h_lifesim_direct_audit.json",
+      "python": "3.12.13",
+      "environment": "/home/wsldasan/miniconda3/envs/POSEIDON",
+      "lifesim": "0.2.32",
+      "spectres": "2.1.1",
+      "spectres_source_commit": "7a8c83025096c8907de30db633cca30c6f4b97ce",
+      "n_bins": 31,
+      "hours": 500.0,
+      "seed": 737920415,
+      "sha256": "E3CD8DE694D8875C5CD54B6B8057376C63A6847020E07D97DF3A111BD38AFF3A",
+      "matches_dataset": "LIFE_proxima_A3_500h.dat"
     }
   },
   "versions": {

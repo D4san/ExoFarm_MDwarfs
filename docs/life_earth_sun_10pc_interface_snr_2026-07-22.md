@@ -1,5 +1,10 @@
 # Capa 1 LIFE `life_earth_sun_10pc`: forward de emisión, contrafactuales y S/N clásico
 
+> **Estado consolidado 2026-08-30:** benchmark de interfaz clásica validado y
+> cerrado con su etiqueta `earth_20260615_pre_n2o_correction`. No se ejecutó una
+> matriz canónica de retrievals Tierra--Sol. LIFEsimMC/PHRINGE y la decisión de
+> rerun con N2O corregido permanecen abiertos.
+
 **Fecha:** 2026-07-22
 **Etapa:** III (emisión térmica / LIFE), Capa 1 — benchmark de interfaz
 **Campaña:** `life_earth_sun_10pc_interface_v1`
@@ -153,7 +158,9 @@ NH3.
    completa y whitening ZCA con estrella de calibración, sobre los mismos
    espectros de emisión. Es la puerta previa a cualquier retrieval LIFE.
 2. Decisión de procedencia N2O (rerun con BC corregidos vs. etiqueta histórica).
-3. Solo entonces: diseño de campaña de retrievals (Fase 4).
+3. Solo después de resolver esas dos puertas: decidir si una campaña de
+   retrievals Tierra--Sol responde una pregunta científica útil. No forma parte
+   de la matriz clásica canónica actual.
 
 ## 8. Referencias
 

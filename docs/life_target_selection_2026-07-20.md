@@ -1,5 +1,10 @@
 # Selección del objetivo de referencia para la Etapa III LIFE
 
+> **Estado del documento, 2026-08-30:** conserva la justificación de selección
+> que condujo a las dos campañas ya ejecutadas en la rama clásica. Los resultados
+> y límites vigentes están en
+> [`lifesim_classic_stage_iii_validation_2026-08-30.md`](lifesim_classic_stage_iii_validation_2026-08-30.md).
+
 **Fecha de decisión:** 2026-07-20
 **Estado:** decisión de alcance; no se han ejecutado forwards de emisión,
 simulaciones LIFE ni retrievals. Para reanudar, leer

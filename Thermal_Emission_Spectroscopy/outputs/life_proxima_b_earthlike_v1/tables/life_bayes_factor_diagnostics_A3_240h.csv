@@ -1,0 +1,3 @@
+diagnostic,preferred_model,reference_model,loglike_preferred,loglike_reference,chi2_preferred,chi2_reference,delta_chi2_reference_minus_preferred,ln_bayes_factor_preferred_over_reference,log10_bayes_factor_preferred_over_reference,bayes_factor_preferred_over_reference
+A3 vs A0,A3,A0,976.5607904009261,582.2100902743847,27.625975414949483,816.3273756680321,788.7014002530826,394.35070012654137,171.26433299964089,1.8379470675129167e+171
+A3 with N2O vs A3 N2O reset to A0,A3 with N2O,A3 N2O reset to A0,976.5607904009261,590.9280041277714,27.625975414949483,798.8915479612588,771.2655725463093,385.6327862731547,167.47819111940714,3.0073994738343073e+167

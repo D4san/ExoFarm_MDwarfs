@@ -30,8 +30,8 @@ import emission_forward as ef
 
 # Campaign is chosen at runtime (--campaign). Default = Layer-1 Earth--Sun.
 CAMPAIGNS = {
-    "earth_sun": ("life_earth_sun_10pc_interface_v1", "10 pc, LIFE baseline"),
-    "proxima": ("life_proxima_b_earthlike_v1", "1.30 pc, LIFE X scene"),
+    "earth_sun": ("life_earth_sun_10pc_interface_v1", "Earth--Sun"),
+    "proxima": ("life_proxima_b_earthlike_v1", "Proxima"),
 }
 
 # Features: (species, band window um, axis label)
@@ -80,7 +80,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
     args = ap.parse_args()
-    campaign_id, scene_note = CAMPAIGNS[args.campaign]
+    campaign_id, target_label = CAMPAIGNS[args.campaign]
     out = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
     products = out / "lifesim" / "life_classic_binned_products.npz"
     plots = out / "plots"
@@ -89,25 +89,44 @@ def main():
     plots.mkdir(parents=True, exist_ok=True)
     d = np.load(products, allow_pickle=True)
     t_ref = float(d["t_ref_hours"])
-    provenance = str(d["provenance"]) if "provenance" in d else campaign_id
-
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9.4, 10.4),
                                    gridspec_kw={"height_ratios": [1.15, 1.0]})
 
     # ---------------- panel (a): peak S/N per feature ----------------------
+    top_snr_values = []
     for fx, (species, window, _) in enumerate(FEATURES):
         for s_key, s_sty in SCENARIOS.items():
             snr10 = peak_snr_10h(d, s_key, species, window)
             for t_h, t_sty in TIME_STYLES.items():
+                snr_t = snr10 * np.sqrt(t_h / t_ref)
+                top_snr_values.append(snr_t)
                 ax1.scatter(
                     fx + s_sty["offset"],
-                    snr10 * np.sqrt(t_h / t_ref),
+                    snr_t,
                     color=t_sty["color"], marker=s_sty["marker"],
                     s=s_sty["size"], edgecolors="#222222",
                     linewidths=0.8, zorder=5,
                 )
     ax1.set_yscale("log")
-    ax1.set_ylim(1e-4, 2.0)
+    # Keep the log axis close to the actual points while leaving headroom for
+    # the highest marker and the molecular-region labels.
+    top_y_min = min(top_snr_values) / 2.0
+    top_y_max = max(top_snr_values) * 1.35
+    ax1.set_ylim(top_y_min, top_y_max)
+    # Label intermediate values on the logarithmic axis so the vertical
+    # separation between nearby S/N points is easier to read.
+    top_tick_exponents = np.arange(
+        np.floor(np.log10(top_y_min)),
+        np.ceil(np.log10(top_y_max)) + 1,
+    )
+    top_ticks = np.array([
+        multiplier * 10.0 ** exponent
+        for exponent in top_tick_exponents
+        for multiplier in (1.0, 2.0, 5.0)
+    ])
+    top_ticks = top_ticks[(top_ticks >= top_y_min) & (top_ticks <= top_y_max)]
+    ax1.set_yticks(top_ticks)
+    ax1.set_yticklabels([f"{tick:g}" for tick in top_ticks])
     ax1.set_xticks(range(len(FEATURES)))
     ax1.set_xticklabels([f[2] for f in FEATURES])
     ax1.set_xlim(-0.6, len(FEATURES) - 0.4)
@@ -146,7 +165,9 @@ def main():
     # ---------------- panel (b): hours to fixed S/N in A3 ------------------
     snr10_n2o = peak_snr_10h(d, "A3", "N2O", FEATURES[0][1])
     snr10_nh3 = peak_snr_10h(d, "A3", "NH3", FEATURES[2][1])
-    hours = np.logspace(0, 8, 500)
+    # The useful projection range ends at a few hundred hours; extending the
+    # axis to 1e8 h leaves a large empty tail after both curves leave the panel.
+    hours = np.logspace(0, 3, 400)
     for snr10, colr, lbl in [(snr10_n2o, C_N2O, r"N$_2$O 7.8 $\mu$m"),
                              (snr10_nh3, C_NH3, r"NH$_3$ 10.7 $\mu$m")]:
         snr_t = snr10 * np.sqrt(hours / t_ref)
@@ -165,7 +186,7 @@ def main():
         ax2.axhline(thr, color="#E34F95", linestyle=ls, lw=1.2, alpha=0.85)
         ax2.text(220, thr + 0.1, f"S/N = {thr:g}", color="#E34F95", fontsize=9)
     ax2.set_xscale("log")
-    ax2.set_xlim(1, 1e8)
+    ax2.set_xlim(1, 1e3)
     ax2.set_ylim(0, 6.2)
     ax2.set_xlabel("Integration time [h]")
     ax2.set_ylabel("Peak molecular-excess S/N")
@@ -176,13 +197,14 @@ def main():
     ax2.set_title("(b) Integration time required to reach fixed S/N thresholds in A3",
                   fontsize=12, pad=12, fontweight="bold")
 
-    fig.suptitle(f"LIFE classic (photon noise) — {scene_note}, "
-                 f"{provenance}; S/N is a diagnostic, not a detection",
-                 fontsize=9, y=0.995)
+    fig.suptitle(f"LIFE S/N projections — {target_label}", fontsize=11, y=0.995)
     fig.tight_layout(rect=(0, 0, 1, 0.985))
     out_png = plots / f"life_classic_snr_comparison_{args.campaign}.png"
+    out_pdf = plots / f"life_classic_snr_comparison_{args.campaign}.pdf"
     fig.savefig(out_png, bbox_inches="tight")
+    fig.savefig(out_pdf, bbox_inches="tight")
     print(f"saved {out_png.relative_to(ef.REPO)}")
+    print(f"saved {out_pdf.relative_to(ef.REPO)}")
 
 
 if __name__ == "__main__":

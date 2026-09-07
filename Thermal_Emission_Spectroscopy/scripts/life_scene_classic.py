@@ -17,7 +17,10 @@ from dataclasses import dataclass, field
 
 import numpy as np
 import astropy.units as u
-import lifesim
+try:
+    import lifesim
+except ModuleNotFoundError:  # optional when only using the unit conversion helper
+    lifesim = None
 
 H_PLANCK = 6.62607015e-34
 C_LIGHT = 2.99792458e8
@@ -63,6 +66,12 @@ class LifeSceneClassic:
     _inst: object = field(default=None, repr=False)
 
     def __post_init__(self):
+        if lifesim is None:
+            raise ImportError(
+                "LIFEsim classic is required to instantiate LifeSceneClassic; "
+                "install it in the active environment before running a direct "
+                "LIFEsim observation."
+            )
         bus = lifesim.Bus()
         bus.data.options.set_scenario("baseline")
         bus.data.options.set_manual(

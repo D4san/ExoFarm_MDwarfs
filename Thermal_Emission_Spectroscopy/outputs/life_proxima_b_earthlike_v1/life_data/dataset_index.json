@@ -3,6 +3,18 @@
   "master_seed": 20260725,
   "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
   "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "classification": "canonical retrieval matrix datasets only: A0-A3 x {10 h, 240 h}",
+  "excluded_pilot_products": {
+    "classification": "audit/pilot evidence; preserve but exclude from the canonical 8/8 matrix and scientific summary tables",
+    "datasets": [
+      "LIFE_proxima_A0_1200h.dat",
+      "LIFE_proxima_A1_1200h.dat",
+      "LIFE_proxima_A2_1200h.dat",
+      "LIFE_proxima_A3_1200h.dat"
+    ],
+    "retrieval": "../retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/*proxima_A3_1200h*",
+    "rationale": "Initial extreme-SNR pilot used to diagnose and resolve retrieval model mismatch; not part of the final matrix."
+  },
   "datasets": [
     {
       "file": "LIFE_proxima_A0_10h.dat",

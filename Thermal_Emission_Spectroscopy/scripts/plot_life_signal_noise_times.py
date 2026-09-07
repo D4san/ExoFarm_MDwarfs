@@ -27,7 +27,7 @@ CAMPAIGNS = {
 SCENARIO = "A3"
 TARGETS = {"N2O": "#1f77b4", "NH3": "#ff7f0e"}   # shared molecular colours
 NOISE_TIMES_H = [10.0, 100.0, 1000.0]
-NOISE_GREYS = ["0.75", "0.55", "0.30"]           # lighter = shorter time
+NOISE_GREYS = ["0.65", "0.45", "0.25"]           # lighter = shorter time
 
 
 def _style():
@@ -59,14 +59,14 @@ def main():
 
     for t_h, grey in zip(NOISE_TIMES_H, NOISE_GREYS):
         sigma_t = sigma_ref * np.sqrt(t_ref / t_h)
-        ax.plot(wl_um, sigma_t, color=grey, lw=1.3,
+        ax.plot(wl_um, sigma_t, color=grey, lw=1.2,
                 label=rf"LIFE 1$\sigma$ noise, {t_h:g} h")
-        ax.fill_between(wl_um, 0, sigma_t, color=grey, alpha=0.10, lw=0)
+        ax.fill_between(wl_um, 0, sigma_t, color=grey, alpha=0.035, lw=0)
 
     for sp, colr in TARGETS.items():
         dF = np.abs(d[f"dF_{SCENARIO}_{sp}"])
-        ax.plot(wl_um, dF, color=colr, lw=1.5,
-                label=rf"|$\Delta F$| {sp} (A3 $-$ reset)")
+        ax.plot(wl_um, dF, color=colr, lw=1.8, zorder=3,
+                label=rf"{sp} signal |$\Delta F$|")
 
     ax.set_yscale("log")
     ax.set_xlim(4, 18.5)
@@ -74,13 +74,15 @@ def main():
     ax.set_xlabel(r"Wavelength [$\mu$m]", fontsize=12)
     ax.set_ylabel(r"Photon flux density [ph m$^{-2}$ s$^{-1}$ m$^{-1}$]",
                   fontsize=11)
-    ax.set_title("A3 ExoFarm molecular signals vs LIFE noise floor "
-                 "(classic, photon noise)\n"
-                 f"noise bands for 10 / 100 / 1000 h; {scene_note}, "
-                 f"{provenance}", fontsize=9.5)
+    short_target = "Earth–Sun" if args.campaign == "earth_sun" else "Proxima"
+    ax.set_title(f"A3 molecular signals and LIFE noise — {short_target}",
+                 fontsize=12, pad=10)
     ax.legend(frameon=False, fontsize=8.5, loc="lower center", ncol=2)
     ax.grid(alpha=0.12, which="both", color="#02040F")
-    fig.tight_layout()
+    fig.text(0.01, 0.012,
+             f"Classic photon-noise model | {scene_note} | {provenance} | S/N diagnostic",
+             fontsize=6.5, color="0.45")
+    fig.tight_layout(rect=(0, 0.035, 1, 1))
 
     out_png = plots / f"life_classic_A3_signal_vs_noise_times_{args.campaign}.png"
     fig.savefig(out_png, bbox_inches="tight")

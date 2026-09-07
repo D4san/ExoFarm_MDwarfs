@@ -1,0 +1,22 @@
+{
+  "generated_from": "life_proxima_b_earthlike_v1",
+  "master_seed": 20260831,
+  "sigma_scaling": "none; LIFEsim called at each requested integration time",
+  "generation_method": "direct LIFEsim classic observation at requested integration time",
+  "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "datasets": [
+    {
+      "file": "LIFE_proxima_A3_500h_lifesim_direct.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A3",
+      "hours": 500.0,
+      "seed": 737920415,
+      "n_bins": 31,
+      "median_continuum_SNR": 332.02
+    }
+  ],
+  "lifesim_version": "0.2.32",
+  "spectres_version": "2.1.1",
+  "classification": "audit/pilot dataset; excluded from canonical matrix",
+  "canonical_index": "/mnt/c/Proyetos/Repos/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/dataset_index.json"
+}

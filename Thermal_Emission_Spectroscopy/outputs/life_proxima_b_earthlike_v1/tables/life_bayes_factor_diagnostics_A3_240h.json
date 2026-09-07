@@ -1,0 +1,48 @@
+{
+  "experiment": "life_bayes_factor_diagnostics_A3_240h",
+  "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_240h.dat",
+  "n_bins": 31,
+  "observable": "Fp",
+  "noise_model": "diagonal Gaussian errors from LIFEsim classic",
+  "data_scenario": "A3",
+  "data_hours": 240,
+  "evidence_definition": "fixed-template Gaussian likelihood ratio; no free nuisance parameters, common likelihood normalization",
+  "scenario_comparison": "A3 full atmosphere versus A0 full atmosphere on the same A3 data",
+  "molecular_comparison": "A3 full atmosphere versus A3 with N2O reset to its A0 profile; this removes the A3 excess rather than setting all N2O to zero",
+  "max_relative_rebin_error_A3_vs_saved_life_product": 6.766366471446554e-15,
+  "max_dataset_wavelength_rounding_um": 4.603736158514948e-06,
+  "limitations": [
+    "fixed templates do not marginalize radius, PT, abundances, or x_tol",
+    "one diagonal-noise realization",
+    "LIFEsim classic does not include instrumental covariance",
+    "this is not a final instrumental detection claim"
+  ],
+  "results": [
+    {
+      "diagnostic": "A3 vs A0",
+      "preferred_model": "A3",
+      "reference_model": "A0",
+      "loglike_preferred": 976.5607904009261,
+      "loglike_reference": 582.2100902743847,
+      "chi2_preferred": 27.625975414949483,
+      "chi2_reference": 816.3273756680321,
+      "delta_chi2_reference_minus_preferred": 788.7014002530826,
+      "ln_bayes_factor_preferred_over_reference": 394.35070012654137,
+      "log10_bayes_factor_preferred_over_reference": 171.26433299964089,
+      "bayes_factor_preferred_over_reference": 1.8379470675129167e+171
+    },
+    {
+      "diagnostic": "A3 with N2O vs A3 N2O reset to A0",
+      "preferred_model": "A3 with N2O",
+      "reference_model": "A3 N2O reset to A0",
+      "loglike_preferred": 976.5607904009261,
+      "loglike_reference": 590.9280041277714,
+      "chi2_preferred": 27.625975414949483,
+      "chi2_reference": 798.8915479612588,
+      "delta_chi2_reference_minus_preferred": 771.2655725463093,
+      "ln_bayes_factor_preferred_over_reference": 385.6327862731547,
+      "log10_bayes_factor_preferred_over_reference": 167.47819111940714,
+      "bayes_factor_preferred_over_reference": 3.0073994738343073e+167
+    }
+  ]
+}

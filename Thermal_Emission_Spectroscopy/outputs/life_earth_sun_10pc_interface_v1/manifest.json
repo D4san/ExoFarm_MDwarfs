@@ -4,6 +4,15 @@
   "layer": "1 - life_earth_sun_10pc (interface validation)",
   "provenance_label": "earth_20260615_pre_n2o_correction",
   "provenance_caveat": "A2/A3 profiles frozen 2026-06-15 (N2O=3.35e9/1.20e10) predate the active corrected BC (3.416e9/1.238e10). Interface validation only; not the current ExoFarm matrix without a documented rerun/decision.",
+  "classic_branch_validation": {
+    "status": "validated_interface_benchmark",
+    "noise_engine_used": "lifesim 0.2.32 classic",
+    "noise_scope": "stellar leakage + local zodi + exozodi + photon shot noise",
+    "covariance": "diagonal per-bin sigma; no instrumental covariance",
+    "lifesimmc_phringe": "installed but not used in this campaign",
+    "retrievals": "none canonical for Earth-Sun",
+    "validation_report": "docs/lifesim_classic_stage_iii_validation_2026-08-30.md"
+  },
   "scene": {
     "distance_pc": 10.0,
     "distance_m": 3.085677581491367e+17,

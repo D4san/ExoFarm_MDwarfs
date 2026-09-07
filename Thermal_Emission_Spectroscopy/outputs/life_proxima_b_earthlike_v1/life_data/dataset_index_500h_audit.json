@@ -1,0 +1,20 @@
+{
+  "generated_from": "life_proxima_b_earthlike_v1",
+  "master_seed": 20260831,
+  "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
+  "generation_method": "scaled sigma from validated 10 h LIFEsim-classic bins",
+  "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "datasets": [
+    {
+      "file": "LIFE_proxima_A3_500h.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A3",
+      "hours": 500.0,
+      "seed": 737920415,
+      "n_bins": 31,
+      "median_continuum_SNR": 332.02
+    }
+  ],
+  "classification": "audit/pilot dataset; excluded from canonical matrix",
+  "canonical_index": "/mnt/c/Proyetos/Repos/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/dataset_index.json"
+}

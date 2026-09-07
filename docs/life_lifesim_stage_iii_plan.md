@@ -1,5 +1,12 @@
 # Plan de la Etapa III: emisión térmica, LIFE y LIFEsimMC
 
+> **Estado del documento, 2026-08-30:** este es el plan de activación original.
+> La rama LIFEsim clásica ya fue ejecutada y validada; para el estado vigente,
+> los resultados y la frontera MC, leer
+> [`lifesim_classic_stage_iii_validation_2026-08-30.md`](lifesim_classic_stage_iii_validation_2026-08-30.md)
+> y [`project_resume.md`](project_resume.md). Las puertas de covarianza siguen
+> vigentes para LIFEsimMC/PHRINGE, no como descripción del estado clásico.
+
 **Fecha de registro:** 2026-07-20
 **Estado:** diseño registrado; sin instalación, configuración ejecutable,
 espectros, ruido ni retrievals de LIFE.

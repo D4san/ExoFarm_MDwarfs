@@ -1,5 +1,11 @@
 # Auditoría científica de la Etapa III (emisión térmica + LIFE), 2026-07-25
 
+> **Actualización de estado, 2026-08-30:** la rama LIFEsim clásica fue cerrada
+> con una matriz canónica de 8 retrievals Proxima A0--A3 × {10 h, 240 h}. Esta
+> auditoría conserva la evaluación previa a los retrievals; el cierre, las
+> limitaciones y la clasificación de los productos de 1200 h están en la
+> [validación consolidada](lifesim_classic_stage_iii_validation_2026-08-30.md).
+
 **Alcance:** rastrear de dónde salió cada dato, cómo se tomó cada decisión y
 qué parte de la configuración observacional está anclada a referencias (serie
 LIFE y fuentes primarias) frente a inferencias de proyecto. Cubre las campañas
@@ -90,9 +96,10 @@ capas, y [VAL] chequeo cuerpo-negro del forward A0 en ambas geometrías
 4. Región H2O 6.3 µm: mayor sensibilidad a la base de opacidades (+32% HT vs
    Temperate por bin a R=50); tratar con cautela.
 
-**Veredicto de auditoría:** la cadena insumos→forward→ruido→SNR está trazada a
+**Veredicto de auditoría de la rama clásica:** la cadena insumos→forward→ruido→SNR está trazada a
 fuentes primarias con cuatro validaciones numéricas independientes (bolométrica,
 cuerpo negro, anclas LIFE X, √t), las inferencias de proyecto están etiquetadas
 y ninguna decisión de configuración observacional carece de referencia o de
-registro. Apta para pasar al diseño de campañas/retrievals con las limitaciones
-de §5 en la etiqueta.
+registro. Fue apta para la matriz clásica posterior, siempre como cota optimista
+con las limitaciones de §5. La validación instrumental final sigue pendiente de
+LIFEsimMC/PHRINGE.

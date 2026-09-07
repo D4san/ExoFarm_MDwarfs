@@ -20,6 +20,15 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
 
 ## Informes
 
+- [Piloto LPJmL para Franck 2011 y flujos agrícolas de N, 2026-09-06](lpjml_franck2011_first_pilot_2026-09-06.md)
+  Registra la verificación de las entradas oficiales, la ejecución completa de
+  una celda para el benchmark A1 y la rama de rendimiento potencial, las
+  dimensiones y unidades NetCDF de `N2O`/`NH3`, y el límite entre prueba de
+  interfaz y resultado global.
+- [Runbook LPJmL global A1 con MPI en otro PC, 2026-09-06](lpjml_global_a1_mpi_other_pc_runbook.md)
+  Fija instalación de LPJmL 6.0.6/MPICH, verificación de las entradas, auditoría
+  del equipo, smoke test MPI, ejecución recuperable spin-up → A1 y criterios de
+  aceptación de los flujos globales de N2O/NH3.
 - [Auditoría Científica de Modelos, 2026-07-01](scientific_audit_2026-07-01.md)
   Auditoría histórica que detectó la inconsistencia N2O, discrepancias de
   radio planetario/estelar y advertencias sobre el 'model mismatch'. La
@@ -84,6 +93,17 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
   Tiempos de integración anclados en la literatura (10 h / 240 h / 1200 h) y la
   tabla de cuántas campañas separan cada escenario ExoFarm de A0. Incluye los
   modos de fallo documentados de los pilotos de retrieval.
+- [Metodología completa de la Etapa III clásica, 2026-08-30](life_stage_iii_classic_methodology_2026-08-30.md)
+  Reconstruye de extremo a extremo la selección de Tierra--Sol a 10 pc y del
+  análogo terrestre de Proxima b, la procedencia y transformación de los datos,
+  VULCAN, la emisión con POSEIDON, LIFEsim clásico, los diagnósticos de S/N, la
+  construcción de datos sintéticos y el modelo de retrieval. Separa resultados,
+  supuestos, pilotos de 1200 h y trabajo futuro con LIFEsimMC/PHRINGE.
+- [Etapa III LIFE: metodología integrada, resultados y atlas de figuras, 2026-08-30](life_stage_iii_integrated_methodology_results_2026-08-30.md)
+  Integra en una sola narrativa el diseño A0--A3, las dos capas Tierra--Sol y
+  Proxima, las tablas de S/N y retrievals, nueve figuras principales y el
+  inventario razonado de los quince plots existentes. Distingue S/N de banda,
+  S/N pico por bin, retrieval y productos piloto de 1200 h.
 - [Bitácora Capa 2 `life_proxima_b_earthlike`: SED MUSCLES, fotoquímica y rama LIFE, 2026-07-22](life_proxima_b_branch_bitacora_2026-07-22.md)
   Registra la descarga/preservación del SED MUSCLES v22 de Proxima (checksums),
   la conversión observador→superficie estelar validada (razón bolométrica
@@ -95,7 +115,40 @@ Los informes fechados son evidencia, no instrucciones operativas por sí solos.
   contrafactuales N2O/NH3, y S/N diagnóstico con LIFEsim clásico. Interfaz
   validada (chequeo cuerpo negro); la tecnofirma ExoFarm queda bajo el ruido en
   la config baseline de LIFE a 10 pc (mejor pico N2O 7.82 µm). Falta la rama
-  LIFEsimMC/PHRINGE (ruido instrumental + covarianza) antes de retrievals.
+  LIFEsimMC/PHRINGE (ruido instrumental + covarianza) antes de una conclusión
+  instrumental final; los retrievals clásicos posteriores son una cota
+  optimista explícitamente etiquetada.
+- [Validación científica de la rama LIFEsim clásica, 2026-08-30](lifesim_classic_stage_iii_validation_2026-08-30.md)
+  Consolida qué parte de POSEIDON+LIFEsim clásico está validada, el resultado
+  científico defendible, las limitaciones obligatorias, la clasificación de
+  los productos de 1200 h y la frontera futura LIFEsimMC/PHRINGE.
+- [Auditoría del retrieval Proxima A3 a 500 h, 2026-08-31](life_proxima_a3_500h_retrieval_audit_2026-08-31.md)
+  Registra el piloto intermedio ejecutado con POSEIDON en WSL, el dataset
+  construido mediante escalado de sigma, la configuración corregida del prior
+  de radio, los productos generados y sus límites interpretativos. El piloto
+  queda fuera de la matriz canónica A0--A3 x {10 h, 240 h}.
+- [Validación directa de LIFEsim para Proxima A3 a 500 h, 2026-08-31](life_proxima_a3_500h_lifesim_direct_validation_2026-08-31.md)
+  Documenta la instalación de LIFEsim 0.2.32 y la variante compatible de
+  SpectRes en WSL, la calibración de la escena Proxima y la identidad byte a
+  byte entre el dataset directo y el archivo usado por el retrieval piloto.
+- [Ensayo de ruido directo de LIFEsim frente a escalado temporal, 2026-08-31](life_proxima_lifesim_noise_scaling_2026-08-31.md)
+  Compara A0/A3 en 1--1200 h. La llamada directa a LIFEsim y el escalado
+  `sqrt(t)` producen la misma `sigma` dentro de la precisión numérica; el
+  ensayo no sustituye LIFEsimMC/PHRINGE ni prueba covarianza instrumental.
+- [Retrieval robusto Proxima A3 a 500 h y 1200 h, 2026-08-31](life_proxima_a3_500h_1200h_robust_retrieval_2026-08-31.md)
+  Documenta los dos retrievals de auditoría ejecutados con datasets directos
+  de LIFEsim, `N_live=800`, prior físico de radio y `Piette20`; ambos terminan
+  con evidencia finita y permanecen fuera de la matriz canónica.
+- [Prueba de perfil vertical NH3 en Proxima A3 a 500 h, 2026-09-01](life_proxima_a3_500h_nh3_two_gradients_2026-09-01.md)
+  Audita una parametrización `two-gradients` para NH3 con POSEIDON. La corrida
+  termina con posterior completo, pero no mejora el retrieval isquímico robusto
+  bajo los priors probados; queda excluida de la matriz canónica.
+
+- [Diagnósticos de Bayes factor para Proxima A3 a 240 h, 2026-09-01](life_proxima_bayes_factor_diagnostics_2026-09-01.md)
+  Compara, sobre el mismo dataset A3, las plantillas fijas A3/A0 y A3 con N2O
+  frente al contrafactual con N2O reiniciado a A0. Es un experimento rápido de
+  auditoría: no marginaliza parámetros nuisance ni incluye covarianza
+  instrumental.
 
 ## Convención documental
 

@@ -1,0 +1,14 @@
+paper_crop,lpjml_pft_name,dry_matter_fraction,kcal_per_g_moist,include_in_franck2011
+Wheat,temperate cereals,0.88,3.34,true
+Rice,rice,0.87,2.80,true
+Maize,maize,0.88,3.56,true
+Millet,tropical cereals,0.88,3.40,true
+Pulses,pulses,0.90,3.41,true
+Sugar beet,temperate roots,0.24,0.70,true
+Cassava,tropical roots,0.35,1.09,true
+Sunflower,oil crops sunflower,0.93,3.08,true
+Soybean,oil crops soybean,0.90,3.35,true
+Groundnut,oil crops groundnut,0.94,4.14,true
+Rapeseed,oil crops rapeseed,0.92,4.94,true
+Pasture,managed grassland,0.25,1.05,true
+Sugarcane,sugarcane,,,false
