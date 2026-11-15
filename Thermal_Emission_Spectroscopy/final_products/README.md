@@ -111,3 +111,5 @@ registra las entradas y etiquetas. La figura anterior se preserva en
 `outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/`.
 Las variantes V1/V3 previas al 20-oct conservan sus fuentes históricas.
 [Registro histórico de actualización parcial](../../docs/life_proxima_official_plot_and_draft_update_2026-10-20.md). El atlas vigente es la edición del 28-oct con N₂O/NH₃ primero y sin panel P–T, descrita arriba.
+
+**Análisis centrado 1/10/100 h (2026-11-14):** tablas primarias reproducidas sin 1000 h ni comparación histórica. [Informe de procedencia y verificación](../../docs/life_proxima_flujo_1_10_100h_2026-11-14.md).

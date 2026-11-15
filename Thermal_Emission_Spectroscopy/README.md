@@ -1,5 +1,7 @@
 # Etapa III: emisión térmica con LIFE
 
+**Para estudiar el flujo vigente:** [guía de lectura](GUIA_LECTURA.md) y [mapa de dependencias e inventario](../docs/life_flujo_inventario_decisiones_2026-11-14.md).
+
 [Comparación con estudios LIFE y otras técnicas](../docs/life_proxima_detectabilidad_comparacion_literatura_2026-10-29.md): contexto de detectabilidad y diagnóstico de superficie, sin corridas nuevas; el análisis integrado conserva la tabla oficial.
 
 
@@ -850,3 +852,10 @@ es un registro histórico, no una indicación de actividad actual.
 - [Plan operativo de dos capas](../docs/life_stage_iii_two_layer_workplan_2026-07-20.md)
 - [Procedencia N2O del benchmark Tierra--Sol](../docs/earth_sun_n2o_matrix_provenance_2026-07-20.md)
 - [Selección de objetivo y referencias científicas](../docs/life_target_selection_2026-07-20.md)
+
+
+**Resguardo 2026-11-14:** los 480 insumos del análisis vigente coinciden con sus hashes y se verificó una copia independiente del árbol de emisión, informes y registros. [Alcance y dependencias pendientes](../docs/life_proxima_resguardo_resultados_vigentes_2026-11-14.md).
+
+**Mapa del flujo LIFE (2026-11-14):** [insumos, campañas activas y evidencia histórica por revisar](../docs/life_proxima_mapa_flujo_y_custodia_2026-11-14.md). Las rutas de las campañas usadas por el análisis deben conservarse hasta auditar y actualizar sus dependencias.
+
+**Análisis centrado 1/10/100 h (2026-11-14):** tablas primarias reproducidas sin 1000 h ni comparación histórica. [Informe de procedencia y verificación](../docs/life_proxima_flujo_1_10_100h_2026-11-14.md).

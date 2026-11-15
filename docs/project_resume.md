@@ -1192,3 +1192,16 @@ no son controles de la matriz N2O actual sin resolver su procedencia.
 | Procedencia N2O de perfiles Tierra--Sol | [`earth_sun_n2o_matrix_provenance_2026-07-20.md`](earth_sun_n2o_matrix_provenance_2026-07-20.md) |
 | Selección Tierra--Sol/Proxima | [`life_target_selection_2026-07-20.md`](life_target_selection_2026-07-20.md) |
 | Ubicación de productos | [`repository_structure.md`](repository_structure.md) |
+
+
+**Resguardo LIFE Proxima (2026-11-14):** 480 insumos vigentes verificados y copia independiente de emisión, documentación y registros en E:, con 2941 archivos cotejados por SHA-256. Dependencias externas pendientes. [Alcance y comprobación](life_proxima_resguardo_resultados_vigentes_2026-11-14.md).
+
+**Mapa de flujo LIFE (2026-11-14):** dependencias vigentes y campañas históricas candidatas a auditoría; no mover ni borrar hasta completar referencias. [Mapa](life_proxima_mapa_flujo_y_custodia_2026-11-14.md).
+
+**Organización LIFE (2026-11-14):** guía de lectura e inventarios de campañas e imports; depuración de dependencias externas y referencias cruzadas pendiente. [Inventario y decisiones](life_flujo_inventario_decisiones_2026-11-14.md).
+
+**Alcance LIFE indicado por el usuario (2026-11-14):** priorizar flujo corregido A1/A3 1/10/100 h; 1000 h y ablaciones antiguas fuera del foco. El script integrado aún los consulta; desacoplar y verificar antes de proponer bajas exactas. [Decisión](life_flujo_inventario_decisiones_2026-11-14.md).
+
+**LIFE 1/10/100 h (2026-11-14):** análisis centrado reproducido, 42 modelos y 36 LOO, 11 tablas idénticas a la edición de 29-oct; 1000 h y comparación antigua fuera de los 446 insumos. [Procedencia y límites](life_proxima_flujo_1_10_100h_2026-11-14.md).
+
+**Auditoría 1000 h (2026-11-14):** cinco campañas históricas identificadas; flujo centrado independiente, consumidores históricos aún referencian sus rutas. [Auditoría](life_proxima_auditoria_1000h_2026-11-14.md).

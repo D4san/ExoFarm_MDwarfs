@@ -1203,3 +1203,16 @@ auditorías.
 
 
 > **Reanudación autorizada 2026-09-19 04:53 America/Bogota:** A1 global se reanudó desde el checkpoint íntegro del año 1738, cuya copia activa y archivada conserva SHA256 `08122825cc13ccf1168f652658c6cdd7721f57c16f44ab9b485de315457af3e3`. El spin-up natural se omitió por estar completado; ocho ranks del build `LPJmL-6.0.6-balance-fix-20260912` están activos. La nueva ejecución debe repetir 1739–1742 y continuar hasta 2005. Productos y comparación siguen pendientes.
+
+
+**Resguardo LIFE Proxima (2026-11-14):** 480 insumos vigentes verificados y copia independiente de emisión, documentación y registros en E:, con 2941 archivos cotejados por SHA-256. Dependencias externas pendientes. [Alcance y comprobación](life_proxima_resguardo_resultados_vigentes_2026-11-14.md).
+
+**Mapa de flujo LIFE (2026-11-14):** dependencias vigentes y campañas históricas candidatas a auditoría; no mover ni borrar hasta completar referencias. [Mapa](life_proxima_mapa_flujo_y_custodia_2026-11-14.md).
+
+**Organización LIFE (2026-11-14):** guía de lectura e inventarios de campañas e imports; depuración de dependencias externas y referencias cruzadas pendiente. [Inventario y decisiones](life_flujo_inventario_decisiones_2026-11-14.md).
+
+**Alcance LIFE indicado por el usuario (2026-11-14):** priorizar flujo corregido A1/A3 1/10/100 h; 1000 h y ablaciones antiguas fuera del foco. El script integrado aún los consulta; desacoplar y verificar antes de proponer bajas exactas. [Decisión](life_flujo_inventario_decisiones_2026-11-14.md).
+
+**LIFE 1/10/100 h (2026-11-14):** análisis centrado reproducido, 42 modelos y 36 LOO, 11 tablas idénticas a la edición de 29-oct; 1000 h y comparación antigua fuera de los 446 insumos. [Procedencia y límites](life_proxima_flujo_1_10_100h_2026-11-14.md).
+
+**Auditoría 1000 h (2026-11-14):** cinco campañas históricas identificadas; flujo centrado independiente, consumidores históricos aún referencian sus rutas. [Auditoría](life_proxima_auditoria_1000h_2026-11-14.md).
