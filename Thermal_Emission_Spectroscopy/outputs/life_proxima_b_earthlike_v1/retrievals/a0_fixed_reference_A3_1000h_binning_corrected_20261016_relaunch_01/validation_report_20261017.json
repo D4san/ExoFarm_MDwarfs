@@ -1,0 +1,883 @@
+{
+  "campaign": "a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01",
+  "audit_utc": "2026-10-17T18:24:32.507978+00:00",
+  "status": "REQUIRES_FIXED_MOMENT_REVIEW",
+  "accepted": false,
+  "primary_products_and_evidence_pass": true,
+  "strict_finiteness_pass": false,
+  "fixed_coordinate_derived_moment_issues": [
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\N2O\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_N2O_BIN1-summary.txt",
+      "line": 1,
+      "column": 28,
+      "parameter": "log_N2O",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\NH3\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_NH3_BIN1-summary.txt",
+      "line": 1,
+      "column": 29,
+      "parameter": "log_NH3",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+      "line": 1,
+      "column": 28,
+      "parameter": "log_N2O",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+      "line": 1,
+      "column": 29,
+      "parameter": "log_NH3",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+      "line": 2,
+      "column": 29,
+      "parameter": "log_NH3",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-stats.dat",
+      "line": 17,
+      "column": 3,
+      "parameter": "log_NH3",
+      "quantity": "derived_standard_deviation",
+      "token": "NaN"
+    }
+  ],
+  "fixed_coordinate_stable_moments": [
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "parameter": "log_N2O",
+      "fixed_value": -6.884325289636784,
+      "equal_weight_mean": -6.884325289636784,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -6.884325289636784,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7512,
+      "weighted_rows": 20787,
+      "equal_weight_sha256": "6a73d1047194c2eedf2653974547ae7b2a328e6dad090ec2ce4ec0a267be4b01",
+      "weighted_sha256": "c9c81f12da89a8fed45b9e8d9ee65eeae58dab680b853b2a061f4d3a43bf38a2",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7512,
+      "weighted_rows": 20787,
+      "equal_weight_sha256": "6a73d1047194c2eedf2653974547ae7b2a328e6dad090ec2ce4ec0a267be4b01",
+      "weighted_sha256": "c9c81f12da89a8fed45b9e8d9ee65eeae58dab680b853b2a061f4d3a43bf38a2",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "parameter": "log_NH3",
+      "fixed_value": -9.950526295665036,
+      "equal_weight_mean": -9.950526295665036,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -9.950526295665036,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 6809,
+      "weighted_rows": 18751,
+      "equal_weight_sha256": "a9d8fb531fb79f97a98253a629d791a7724b6af33269a7286470a42f92f06e65",
+      "weighted_sha256": "469e7763c21b1351cfc911780ad0eab2775c519828d19270950e56bd4503e177",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 6809,
+      "weighted_rows": 18751,
+      "equal_weight_sha256": "a9d8fb531fb79f97a98253a629d791a7724b6af33269a7286470a42f92f06e65",
+      "weighted_sha256": "469e7763c21b1351cfc911780ad0eab2775c519828d19270950e56bd4503e177",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_N2O",
+      "fixed_value": -6.884325289636784,
+      "equal_weight_mean": -6.884325289636784,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -6.884325289636784,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_NH3",
+      "fixed_value": -9.950526295665036,
+      "equal_weight_mean": -9.950526295665036,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -9.950526295665036,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    }
+  ],
+  "scope": {
+    "scenario": "A3",
+    "hours": 1000,
+    "new_variants": [
+      "N2O",
+      "NH3",
+      "joint"
+    ],
+    "new_retrievals": 3,
+    "existing_full": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014",
+    "campaign": "a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01",
+    "mpi_ranks_per_run": 5,
+    "max_parallel": 3,
+    "global_rank_budget": 15,
+    "monitor_interval_minutes": 90,
+    "operator": "same corrected midpoint-photon operator as full",
+    "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+    "checkpoint_reuse": false,
+    "previous_attempt": "a0_fixed_reference_A3_1000h_binning_corrected_20261015",
+    "other_exposures": "deferred; no 1/10/100h execution",
+    "authorization": "2026-10-16: user explicitly authorized relaunch after power loss; preserve the interrupted attempt and use fresh campaign and scratch roots",
+    "utc": "2026-10-16T12:04:00+00:00",
+    "host_at_launch": {
+      "logical_cpus": 16,
+      "mpi_jobs": [],
+      "rank_total": 0,
+      "available_KiB": 31929560
+    }
+  },
+  "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat",
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "a0_reference": {
+    "definition": "integral X(p) dp / (p_bottom - p_top); atlas convention",
+    "profile_rel": "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_chem.txt",
+    "profile_sha256": "ee8e93c76ff4d3bc62cb68cb29679942b7dad1f099c18a6feb3ed304d6798f7b",
+    "pressure_min_bar": 5e-08,
+    "pressure_max_bar": 1.0,
+    "vmr": {
+      "N2O": 1.305192923200922e-07,
+      "NH3": 1.1206595703796514e-10
+    },
+    "log10_vmr": {
+      "N2O": -6.884325289636784,
+      "NH3": -9.950526295665036
+    },
+    "reference_uncertainty": "fixed; not marginalized",
+    "prior_log10_vmr_nominal": [
+      -12.0,
+      -1.0
+    ]
+  },
+  "reference_sha256": "79639e6154b2d3d1bd0d613207bf16c0799026e2e95bdc099794222bf58537d7",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "source_equivalence": {
+    "status": "PASS",
+    "full_run_source_sha256": "194a1c6cc958a2f2b681bd207170f09ef7e9fab45b31fc0a03f8b7e3a6dd2c83",
+    "current_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+    "reconstructed_source_sha256": "194a1c6cc958a2f2b681bd207170f09ef7e9fab45b31fc0a03f8b7e3a6dd2c83",
+    "executable_AST_equal_except_docstrings_and_two_error_messages": true,
+    "normalised_AST_sha256": "9b5911d81956c54f67f6aa2e53d2ce9df68876fa9593ab3db612d946041a8c34",
+    "changes": "module/function documentation and two ValueError descriptions only",
+    "scientific_operator_change": false
+  },
+  "preflight_validation": {
+    "utc": "2026-10-16T12:10:34+00:00",
+    "all_pass": true,
+    "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+    "same_operator_as_corrected_full": true,
+    "same_configuration_except_selected_fixed_abundances": true,
+    "free_dimensions": [
+      13,
+      13,
+      12
+    ],
+    "resource_gate": {
+      "available_KiB": 31860504,
+      "required_KiB": 28831108,
+      "peak_MPI5_PSS_KiB": {
+        "N2O": 7948575,
+        "NH3": 5207065,
+        "joint": 7549004
+      },
+      "sampling_reserve_per_job_KiB": 1310720,
+      "os_reserve_KiB": 4194304,
+      "method": "sum of measured MPI5 PSS peaks, 0.25 GiB per rank work reserve, 4 GiB OS reserve",
+      "all_three_simultaneous_fit": true
+    }
+  },
+  "full_run": {
+    "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014",
+    "config_sha256": "6917a50070db5070d029d812dc79e585791c9715c59c31292bafee75bfb0b377",
+    "audit": {
+      "lnz": 826.6110777592237,
+      "lnz_error": 0.27287356136243,
+      "posterior_samples": 7168,
+      "posterior_rows_crosschecked": 7168,
+      "spectrum_shape": [
+        18971,
+        6
+      ],
+      "pt_shape": [
+        100,
+        6
+      ],
+      "logx_rows": 800,
+      "fixed_profile_rows": {},
+      "raw_shapes": {
+        "-.txt": [
+          18995,
+          17
+        ],
+        "-ev.dat": [
+          52200,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "resume": {
+        "replacements": 53000,
+        "evaluations": 1751866,
+        "n_live": 800
+      },
+      "derived_moment_audit": {
+        "shape": [
+          2,
+          62
+        ],
+        "issues": [],
+        "nested_summary_lnz": 826.6110777592237
+      },
+      "fixed_coordinate_spreads": {},
+      "chi2_printed": 242.88,
+      "dof_historical_poseidon": 16,
+      "chi2_red_historical_poseidon": 15.18,
+      "dof_effective": 17,
+      "chi2_red_effective_from_rounded_chi2": 14.287058823529412,
+      "product_sha256": {
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\results\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_results.txt": "4823dd6c86aa5a2b9ec1e9054ee14ecbb721f0b5fa53518701bf3889c7d6c41a",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_samples.txt": "5d31992e91a29d1268b24f74fa259fe490e755e058a605e75d6c6a27e48b3115",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_spectrum_retrieved.txt": "a0b7a0938af8f857f0eb770c57af4a78112cff0cfe7710e78a79215d9d9847e4",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_PT_retrieved.txt": "412b15fb7499bf0067ce9ad6c9e693910709c010f7e83c019bb2f479551462c3",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_log_X_retrieved.txt": "73ec5d2186fb8b7c93162ce9ac1fe704102380cc04095ab2ae6238d6a0160301",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-.txt": "f72e3b4338ec472c83a526dba7003322f622473ec1a4ac388b832e7d022d8bca",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-ev.dat": "7bef96425e272491e5a2467e7c3aac8e46325dfbba5bed46ace9cbee0c5e0999",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-live.points": "af5f344cae4a1625e1c0b851e4bd6e7d02b33b38a1bb5ac5689699b059f99271",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-phys_live.points": "9f346b81d2bd4ae4bbd43f65fb76adf16fb06cfd6930008e2c132a5f368e2a77",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-post_equal_weights.dat": "23d92c5201bf1c70ea7445be8588fe721946c4dd10fda366f46fe5d72d1dc81b",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-resume.dat": "03268cd49102b60fa720451bc85725d5a23e1d6a70766904b96434eb5723ea03",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-stats.dat": "b05edbf0e1b4d0c39a085cd2a9e9b918329ae310ffb1a62a38119fcca15afc42",
+        "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\MultiNest_raw\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-summary.txt": "efcce99f23a92a3d580507d66cfd9d66ab71ccbe09879634d9d5d0783f910357"
+      }
+    },
+    "audit_product_sha256": {
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/results/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_results.txt": "4823dd6c86aa5a2b9ec1e9054ee14ecbb721f0b5fa53518701bf3889c7d6c41a",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/samples/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_samples.txt": "5d31992e91a29d1268b24f74fa259fe490e755e058a605e75d6c6a27e48b3115",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/samples/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_spectrum_retrieved.txt": "a0b7a0938af8f857f0eb770c57af4a78112cff0cfe7710e78a79215d9d9847e4",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/samples/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_PT_retrieved.txt": "412b15fb7499bf0067ce9ad6c9e693910709c010f7e83c019bb2f479551462c3",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/samples/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_log_X_retrieved.txt": "73ec5d2186fb8b7c93162ce9ac1fe704102380cc04095ab2ae6238d6a0160301",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-.txt": "f72e3b4338ec472c83a526dba7003322f622473ec1a4ac388b832e7d022d8bca",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-ev.dat": "7bef96425e272491e5a2467e7c3aac8e46325dfbba5bed46ace9cbee0c5e0999",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-live.points": "af5f344cae4a1625e1c0b851e4bd6e7d02b33b38a1bb5ac5689699b059f99271",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-phys_live.points": "9f346b81d2bd4ae4bbd43f65fb76adf16fb06cfd6930008e2c132a5f368e2a77",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-post_equal_weights.dat": "23d92c5201bf1c70ea7445be8588fe721946c4dd10fda366f46fe5d72d1dc81b",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-resume.dat": "03268cd49102b60fa720451bc85725d5a23e1d6a70766904b96434eb5723ea03",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-stats.dat": "b05edbf0e1b4d0c39a085cd2a9e9b918329ae310ffb1a62a38119fcca15afc42",
+      "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1-summary.txt": "efcce99f23a92a3d580507d66cfd9d66ab71ccbe09879634d9d5d0783f910357"
+    },
+    "corrected_comparison_metadata_sha256": "fd2efeb84e3a62b1f63bc1d60928ab54fb23b7eaa471df06feec86d26d30a75c",
+    "operator_preflight_sha256": "792b9eede8e32084536354da313a4fa6f49e0dad2d788c17a22eea73ec707ee1",
+    "chi2_red_nominal": 14.287058823529412
+  },
+  "run_audits": {
+    "A3_1000h_A0_N2O_BIN1": {
+      "lnz": 200.1049967913127,
+      "lnz_error": 0.27086889559846294,
+      "posterior_samples": 7512,
+      "posterior_rows_crosschecked": 7512,
+      "spectrum_shape": [
+        18971,
+        6
+      ],
+      "pt_shape": [
+        100,
+        6
+      ],
+      "logx_rows": 800,
+      "fixed_profile_rows": {
+        "N2O": 100
+      },
+      "raw_shapes": {
+        "-.txt": [
+          20787,
+          17
+        ],
+        "-ev.dat": [
+          51855,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "resume": {
+        "replacements": 52655,
+        "evaluations": 1440334,
+        "n_live": 800
+      },
+      "derived_moment_audit": {
+        "shape": [
+          2,
+          62
+        ],
+        "issues": [
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\N2O\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_N2O_BIN1-summary.txt",
+            "line": 1,
+            "column": 28,
+            "parameter": "log_N2O",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          }
+        ],
+        "nested_summary_lnz": 200.1049967913127
+      },
+      "fixed_coordinate_spreads": {
+        "N2O": {
+          "minimum": -6.884325289636784,
+          "maximum": -6.884325289636784,
+          "centered_second_moment_about_reference": 0.0
+        }
+      },
+      "chi2_printed": 1496.72,
+      "dof_historical_poseidon": 16,
+      "chi2_red_historical_poseidon": 93.54,
+      "dof_effective": 18,
+      "chi2_red_effective_from_rounded_chi2": 83.1511111111111,
+      "product_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_1000h_A0ref_N2O_BIN1_results.txt": "e60cbb41f6778005275b889b4185a40d9e1115572e3b39001b6ddee58684240b",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_N2O_BIN1_samples.txt": "4d1d2f3600879a5adc7d2f50ed3646f2a4a309267acc00be942eacebc23be4bc",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_N2O_BIN1_spectrum_retrieved.txt": "424cc402c7e209776e858e6ad68f3bb3c5a870e03750979ced084f823f972138",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_N2O_BIN1_PT_retrieved.txt": "50c9225899aa95a1c29dadb956504cf26b13458bec140b3c5c93fdc47497fc7d",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_N2O_BIN1_log_X_retrieved.txt": "30008c49e6f2cc96fac10e51769c53b93bcef5d89a7e6d67f946cd0225d74aed",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-.txt": "c9c81f12da89a8fed45b9e8d9ee65eeae58dab680b853b2a061f4d3a43bf38a2",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-ev.dat": "b1251a39221c27108f7ed32aab0986ba12776b9b762f23e02351f46b7e0bc6e3",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-live.points": "1dca7365f07c559192ac5d2228832549dc22ce73bd7b7c0034e877454ceb63f2",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-phys_live.points": "c713c42f3207baa3f465beb472e55fd11e4559f74f83ead668b0e132096694f2",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-post_equal_weights.dat": "6a73d1047194c2eedf2653974547ae7b2a328e6dad090ec2ce4ec0a267be4b01",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-resume.dat": "6153f6ee34b9c6120a860602d7acda99970084cf53baed21e9cad8300aa60c1f",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-stats.dat": "0e814e798fa4d82fb89563cfa9a7a5cfb77a5070d6e5ab30266f6eb6732e6385",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_N2O_BIN1-summary.txt": "cb1b93987b50d604a82881ce1465cddd3b14d2d5210641a72faae5032247f491"
+      },
+      "config_sha256": "c67ea2e536030f4047777d78af4a6eb88b02ec6e8feacc2dde26d925c2a11ca0",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "operator_record_sha256": "3e0af0fe1e9a62cdb455c82eeac489be10e1089937e742787922126ecd3b2c89",
+      "log_sha256": "c44fe6655ddcfdd4a636b9bac66972fda4b018f1d42d91a8a64ca500daf8849d",
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784
+      },
+      "return_code": 0
+    },
+    "A3_1000h_A0_NH3_BIN1": {
+      "lnz": 827.6038047121173,
+      "lnz_error": 0.2680107102230281,
+      "posterior_samples": 6809,
+      "posterior_rows_crosschecked": 6809,
+      "spectrum_shape": [
+        18971,
+        6
+      ],
+      "pt_shape": [
+        100,
+        6
+      ],
+      "logx_rows": 800,
+      "fixed_profile_rows": {
+        "NH3": 100
+      },
+      "raw_shapes": {
+        "-.txt": [
+          18751,
+          17
+        ],
+        "-ev.dat": [
+          50311,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "resume": {
+        "replacements": 51111,
+        "evaluations": 2249963,
+        "n_live": 800
+      },
+      "derived_moment_audit": {
+        "shape": [
+          2,
+          62
+        ],
+        "issues": [
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\NH3\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_NH3_BIN1-summary.txt",
+            "line": 1,
+            "column": 29,
+            "parameter": "log_NH3",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          }
+        ],
+        "nested_summary_lnz": 827.6038047121173
+      },
+      "fixed_coordinate_spreads": {
+        "NH3": {
+          "minimum": -9.950526295665036,
+          "maximum": -9.950526295665036,
+          "centered_second_moment_about_reference": 0.0
+        }
+      },
+      "chi2_printed": 245.61,
+      "dof_historical_poseidon": 16,
+      "chi2_red_historical_poseidon": 15.35,
+      "dof_effective": 18,
+      "chi2_red_effective_from_rounded_chi2": 13.645000000000001,
+      "product_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_1000h_A0ref_NH3_BIN1_results.txt": "e992f984f835258520750c65d02a7f836cb09ee9324025d998bb209d781e082e",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_NH3_BIN1_samples.txt": "ae777a716a0687508577cf911cf04ba6e593c6994bd4c076ed796a44858273e1",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_NH3_BIN1_spectrum_retrieved.txt": "cca650e611f0ed9523222cb5839c6e41cf146126c4d10b5238eb2851c594f110",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_NH3_BIN1_PT_retrieved.txt": "a24ecc8eb50f690236540f17728d5dba324d68f1488c1fcec14b83b309daaff8",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_NH3_BIN1_log_X_retrieved.txt": "47b1e4c0d5fcdeac017b8caad672e8703e7ccfabd2c6ec51ddfe7ca7e17a5f2b",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-.txt": "469e7763c21b1351cfc911780ad0eab2775c519828d19270950e56bd4503e177",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-ev.dat": "1cf8d4338623f60aa53b951f7c4da944f55622d708d7a3b49ce74b621ed46891",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-live.points": "3e124b04cb1f4959349ef980279e941f945424e6aa3b640f38d7d5166bf83e65",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-phys_live.points": "83c20de9294d72d720261c4f18ef6ca4ad94cf8e2466f3c24b9264aa23124ab7",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-post_equal_weights.dat": "a9d8fb531fb79f97a98253a629d791a7724b6af33269a7286470a42f92f06e65",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-resume.dat": "8518953a66e7b075eb34816df27709a9ad5a6dfdb49254cbead14de45bf34e3f",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-stats.dat": "cc28a3780852ac96ddd19b8ef6a48c6900f004be2ed5c1db625b7f39151a9e48",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_NH3_BIN1-summary.txt": "0070818f0f6116919498cd84414551fb2c2827cb8c0ff0abca8976ca73e60a51"
+      },
+      "config_sha256": "6856f3b06e1824207e2955b2ad0fab1a13d12a532522e78b5d26ca896c5b1c3a",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "operator_record_sha256": "8a97b26554f6d2d1182b59123853dc30b0d5d338018f910649d037b8dbebd2ab",
+      "log_sha256": "29dccc33f19999a502f472604f6cc88df966e279cf5da5c2b5335afcd9e4761b",
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": {
+        "NH3": -9.950526295665036
+      },
+      "return_code": 0
+    },
+    "A3_1000h_A0_joint_BIN1": {
+      "lnz": 200.54754524064325,
+      "lnz_error": 0.2675626276109096,
+      "posterior_samples": 7178,
+      "posterior_rows_crosschecked": 7178,
+      "spectrum_shape": [
+        18971,
+        6
+      ],
+      "pt_shape": [
+        100,
+        6
+      ],
+      "logx_rows": 800,
+      "fixed_profile_rows": {
+        "N2O": 100,
+        "NH3": 100
+      },
+      "raw_shapes": {
+        "-.txt": [
+          20132,
+          17
+        ],
+        "-ev.dat": [
+          50469,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "resume": {
+        "replacements": 51269,
+        "evaluations": 1145545,
+        "n_live": 800
+      },
+      "derived_moment_audit": {
+        "shape": [
+          2,
+          62
+        ],
+        "issues": [
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+            "line": 1,
+            "column": 28,
+            "parameter": "log_N2O",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          },
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+            "line": 1,
+            "column": 29,
+            "parameter": "log_NH3",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          },
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-summary.txt",
+            "line": 2,
+            "column": 29,
+            "parameter": "log_NH3",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          },
+          {
+            "file": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01\\runs\\joint\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_1000h_A0ref_joint_BIN1-stats.dat",
+            "line": 17,
+            "column": 3,
+            "parameter": "log_NH3",
+            "quantity": "derived_standard_deviation",
+            "token": "NaN"
+          }
+        ],
+        "nested_summary_lnz": 200.54754524064325
+      },
+      "fixed_coordinate_spreads": {
+        "N2O": {
+          "minimum": -6.884325289636784,
+          "maximum": -6.884325289636784,
+          "centered_second_moment_about_reference": 0.0
+        },
+        "NH3": {
+          "minimum": -9.950526295665036,
+          "maximum": -9.950526295665036,
+          "centered_second_moment_about_reference": 0.0
+        }
+      },
+      "chi2_printed": 1499.3,
+      "dof_historical_poseidon": 16,
+      "chi2_red_historical_poseidon": 93.71,
+      "dof_effective": 19,
+      "chi2_red_effective_from_rounded_chi2": 78.91052631578947,
+      "product_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_1000h_A0ref_joint_BIN1_results.txt": "287cad526773bfac1003e467ecb0337129842dbee648a0f53c9d6ee2d60bda8b",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_joint_BIN1_samples.txt": "62171768543d035cc544875eed603cca9e8b9202355ca5d535a8ff48849a0268",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_joint_BIN1_spectrum_retrieved.txt": "35155e4623b3ff36ccc8960ef7455a228c5df23295ac20be52a5f1d50941847a",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_joint_BIN1_PT_retrieved.txt": "fb486c08f10f78088ca0e1e5327a548daa702d581eeaa3f518d6eaedad4def9f",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1000h_A0ref_joint_BIN1_log_X_retrieved.txt": "a600af014ed40c97fe444584da64eb05973bfa92fb7a2f62ed840e3a1ff049c2",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-.txt": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-ev.dat": "a9d5ce9fa0249298deb1fd769b562c72fb3573089ddadaf1e583f3c59b1b7b91",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-live.points": "1e8a3a920ace45fc650ac55f6f054cf95415e3cfd0b5ba95a10d8e039bf53bdb",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-phys_live.points": "b6098b71abae8775ca71252723da0dfa1cbdd18ba8c8974f8ff3803b4b7b79e6",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-post_equal_weights.dat": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-resume.dat": "6ea78e48f8e9e361a73232bf9d3fd5eb45674f724a4c5ee5acee945ebddff8cd",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-stats.dat": "fa633e5ebc8a226c1fa2317d2bdc8873ea8962168a7bb94aaf04304a800c4db7",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_1000h_A0ref_joint_BIN1-summary.txt": "737f3dcbd65c614cc0b5368c868323320c95b20ced859bc5694d9b8a06a2c7dd"
+      },
+      "config_sha256": "2914949c9bc356b7e3e53d8de3ac1225e86f2f62d5af3eb609d64c548afc9e10",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "operator_record_sha256": "1d09bd0eda9e34718d7d80e1bf68338d3a8d5b4234997de5c1eecd69210a639f",
+      "log_sha256": "6de9a811c42147dae1c4afbc4351cb422ed67d137dbd7f523ea07b6eb614ac3f",
+      "declared_dimension": 15,
+      "effective_free_dimension": 12,
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784,
+        "NH3": -9.950526295665036
+      },
+      "return_code": 0
+    }
+  },
+  "operator_records": {
+    "A3_1000h_A0_N2O_BIN1": {
+      "status": "PASS",
+      "variant": "N2O",
+      "mpi_ranks": 5,
+      "actual_forward_model_callback_bound": true,
+      "native_grid_identical": true,
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784
+      },
+      "retained_opacities": [
+        "N2O"
+      ],
+      "max_relative_truth_closure": 2.2648549702353193e-14,
+      "truth_chi2": 32.97837233512558,
+      "temperature_opacity_grid_K": [
+        180,
+        310,
+        10
+      ],
+      "binding_scope": "sampling and posterior postprocessing",
+      "operator": "midpoint photon overlap; exact channel-centre energy"
+    },
+    "A3_1000h_A0_NH3_BIN1": {
+      "status": "PASS",
+      "variant": "NH3",
+      "mpi_ranks": 5,
+      "actual_forward_model_callback_bound": true,
+      "native_grid_identical": true,
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "fixed_log10_vmr": {
+        "NH3": -9.950526295665036
+      },
+      "retained_opacities": [
+        "NH3"
+      ],
+      "max_relative_truth_closure": 2.2648549702353193e-14,
+      "truth_chi2": 32.97837233512558,
+      "temperature_opacity_grid_K": [
+        180,
+        310,
+        10
+      ],
+      "binding_scope": "sampling and posterior postprocessing",
+      "operator": "midpoint photon overlap; exact channel-centre energy"
+    },
+    "A3_1000h_A0_joint_BIN1": {
+      "status": "PASS",
+      "variant": "joint",
+      "mpi_ranks": 5,
+      "actual_forward_model_callback_bound": true,
+      "native_grid_identical": true,
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784,
+        "NH3": -9.950526295665036
+      },
+      "retained_opacities": [
+        "N2O",
+        "NH3"
+      ],
+      "max_relative_truth_closure": 2.2648549702353193e-14,
+      "truth_chi2": 32.97837233512558,
+      "temperature_opacity_grid_K": [
+        180,
+        310,
+        10
+      ],
+      "binding_scope": "sampling and posterior postprocessing",
+      "operator": "midpoint photon overlap; exact channel-centre energy"
+    }
+  },
+  "posterior_enrichment_from_corrected_free_full": {
+    "rows": 7168,
+    "source": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_samples.txt",
+    "N2O": {
+      "delta_log10_median_q025_q975_dex": [
+        0.7977305219876647,
+        0.8264660081536555,
+        0.8539583265694566
+      ],
+      "enrichment_factor_median_q025_q975": [
+        6.276687719609862,
+        6.70603797079968,
+        7.1442776871242035
+      ],
+      "posterior_probability_above_A0": 1.0,
+      "posterior_count_above_A0": 7168,
+      "posterior_count_at_or_below_A0": 0,
+      "nominal_log_uniform_prior_probability_above_A0": 0.5349386626942532
+    },
+    "NH3": {
+      "delta_log10_median_q025_q975_dex": [
+        -1.6669166935023148,
+        0.8205408408473573,
+        1.2838497724869036
+      ],
+      "enrichment_factor_median_q025_q975": [
+        0.021531947215703225,
+        6.61516743280297,
+        19.224266241516833
+      ],
+      "posterior_probability_above_A0": 0.787109375,
+      "posterior_count_above_A0": 5642,
+      "posterior_count_at_or_below_A0": 1526,
+      "nominal_log_uniform_prior_probability_above_A0": 0.8136842086968215
+    },
+    "joint_events_same_posterior_rows": {
+      "both_above_A0_probability": 0.787109375,
+      "at_least_one_above_A0_probability": 1.0,
+      "rows_used": 7168,
+      "method": "equal-weight complete-posterior rows; preserve molecular dependence"
+    }
+  },
+  "calibration_controls": null,
+  "rows": [
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "variant": "N2O",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "N2O",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 200.1049967913127,
+      "lnz_a0_fixed_numeric_error": 0.27086889559846294,
+      "ln_B_full_minus_A0": 626.506080967911,
+      "ln_B_numeric_error_quadrature": 0.3844865915650985,
+      "sigma_calibrated_bilateral": 35.50103994399889,
+      "sigma_status": "calibrated",
+      "log_p_calibration": -633.9580637746947,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 7512,
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": "{\"N2O\": -6.884325289636784}",
+      "result_sha256": "e60cbb41f6778005275b889b4185a40d9e1115572e3b39001b6ddee58684240b",
+      "stats_sha256": "0e814e798fa4d82fb89563cfa9a7a5cfb77a5070d6e5ab30266f6eb6732e6385",
+      "fixed_moment_issue_count": 1
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "variant": "NH3",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "NH3",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 827.6038047121173,
+      "lnz_a0_fixed_numeric_error": 0.2680107102230281,
+      "ln_B_full_minus_A0": -0.9927269528935767,
+      "ln_B_numeric_error_quadrature": 0.38247839322616356,
+      "sigma_calibrated_bilateral": null,
+      "sigma_status": "N/A_lnB_not_positive",
+      "log_p_calibration": null,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 6809,
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": "{\"NH3\": -9.950526295665036}",
+      "result_sha256": "e992f984f835258520750c65d02a7f836cb09ee9324025d998bb209d781e082e",
+      "stats_sha256": "cc28a3780852ac96ddd19b8ef6a48c6900f004be2ed5c1db625b7f39151a9e48",
+      "fixed_moment_issue_count": 1
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "variant": "joint",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "N2O+NH3",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 200.54754524064325,
+      "lnz_a0_fixed_numeric_error": 0.2675626276109096,
+      "ln_B_full_minus_A0": 626.0635325185805,
+      "ln_B_numeric_error_quadrature": 0.3821645459545798,
+      "sigma_calibrated_bilateral": 35.48856214800213,
+      "sigma_status": "calibrated",
+      "log_p_calibration": -633.5148159054486,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 7178,
+      "declared_dimension": 15,
+      "effective_free_dimension": 12,
+      "fixed_log10_vmr": "{\"N2O\": -6.884325289636784, \"NH3\": -9.950526295665036}",
+      "result_sha256": "287cad526773bfac1003e467ecb0337129842dbee648a0f53c9d6ee2d60bda8b",
+      "stats_sha256": "fa633e5ebc8a226c1fa2317d2bdc8873ea8962168a7bb94aaf04304a800c4db7",
+      "fixed_moment_issue_count": 4
+    }
+  ],
+  "methodological_limits": [
+    "ln B compares the corrected complete A3-1000 h run only with each fixed-A0 run using the same observed dataset and operator.",
+    "A positive ln B favours the free-abundance model; enrichment direction comes separately from the free-model posterior relative to the scalar A0 reference.",
+    "The fixed-A0 reference is a pressure-weighted scalar atlas value, not the complete vertical pre-agricultural atmosphere.",
+    "Sigma is the project's bilateral equality calibration cited by Lin et al.; it is descriptive and not a measured frequentist significance.",
+    "Numerical evidence errors are combined in quadrature assuming independent run estimates; all pair rows share the same full-model estimate.",
+    "The corrected full model has elevated reduced chi-square; conclusions remain conditional on model adequacy, isochemical profiles, priors, and one diagonal-noise realization.",
+    "The joint constraint tests the pair jointly; its sigma is not assigned to either molecule individually."
+  ],
+  "scientific_products_modified": false,
+  "auditor_sha256": "b4709ec4bae758bcb11fd45f8de7f6a9460aba44c959ea62b48292003a09fe4d"
+}

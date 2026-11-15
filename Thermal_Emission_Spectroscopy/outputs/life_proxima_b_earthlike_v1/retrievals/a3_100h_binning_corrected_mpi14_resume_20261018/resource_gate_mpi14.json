@@ -1,0 +1,14 @@
+{
+  "execution": "MPI14; one thread per rank",
+  "logical_cpus_visible": 16,
+  "peak_tree_pss_kib": 10545,
+  "minimum_mem_available_kib": 31776488,
+  "required_mem_available_kib": 4729137,
+  "reserve_kib": 4718592,
+  "swap_after_preflight": {
+    "total_kib": 8388608,
+    "free_kib": 8388608
+  },
+  "status": "PASS",
+  "sample_count": 2
+}

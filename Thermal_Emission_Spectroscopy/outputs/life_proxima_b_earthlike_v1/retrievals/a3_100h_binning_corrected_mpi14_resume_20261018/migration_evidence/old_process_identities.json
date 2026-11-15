@@ -1,0 +1,16 @@
+[
+  {
+    "pid": 722,
+    "ppid": 313,
+    "state": "S",
+    "start_ticks": "2347",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/launch_proxima_a3_100h_binning_corrected.py --worker"
+  },
+  {
+    "pid": 890,
+    "ppid": 722,
+    "state": "R",
+    "start_ticks": "31845",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval_a3_100h_binning_corrected.py --operator-record /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_20261017/operator_preflight.json --campaign proxima --scenario A3 --hours 100 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _O2_fixedBlack1bar_noxtol_BIN1_20261017 --R 10000 --wl-min 3.0 --wl-max 20.0 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat --run-dir /home/dasan/exofarm_a3_100h_binning_corrected_20261017/run --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_20261017/resolved_configuration.json"
+  }
+]

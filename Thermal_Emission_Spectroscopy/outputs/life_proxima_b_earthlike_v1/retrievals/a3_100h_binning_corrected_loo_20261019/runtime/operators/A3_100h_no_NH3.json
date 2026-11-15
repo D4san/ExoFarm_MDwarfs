@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scenario": "A3",
+  "hours": 100,
+  "excluded_species": "NH3",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "channels": 31,
+  "native_grid_um": [
+    3.0,
+    20.0
+  ],
+  "operator": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+  "max_relative_truth_closure": 2.2648549702353193e-14,
+  "mpi_rank_pids": [
+    1048,
+    1049,
+    1050,
+    1051,
+    1052,
+    1053,
+    1054,
+    1055
+  ],
+  "mpi_size": 8,
+  "binding_scope": "sampling and posterior postprocessing",
+  "actual_poseidon_callback_bound": true,
+  "callback_truth_closure_max_relative": 2.2648549702353193e-14,
+  "stage": "sampling"
+}

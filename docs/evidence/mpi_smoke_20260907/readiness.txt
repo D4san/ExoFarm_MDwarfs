@@ -1,0 +1,12 @@
+kernel=Linux 5.15.167.4-microsoft-standard-WSL2 x86_64 GNU/Linux
+logical_cpus=16
+memory_gib=31.3
+runtime_filesystem=/dev/sdc       ext4  1055762868 174458192 827601204      18% /
+input_filesystem=/dev/sdc       ext4  1055762868 174458192 827601204      18% /
+mpicc=/usr/bin/mpicc
+mpirun=/usr/bin/mpirun
+python3=/usr/bin/python3
+lpjml_mpi=YES
+lpjml_commit=5af44a1ed023279a23c28d6dfe76945b97aaac57
+runtime_free_gib=789
+readiness=PASS

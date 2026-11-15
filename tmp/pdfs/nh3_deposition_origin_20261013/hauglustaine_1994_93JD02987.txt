@@ -1,0 +1,1449 @@
+@@PDF_PAGE=1
+JOURNAL OF GEOPHYSICAL RESEARCH, VOL. 99, NO. D1, PAGES 1173-1186, JANUARY 20, 1994 
+The importance of atmospheric chemistry in the calculation of 
+radiative forcing on the climate system 
+D. A. Hauglustaine 
+Service d' Arronomie du Centre National de la Recherehe Seientifique 
+C. Granier and G. P. Brasseur 
+National Center for Atmospheric Research, Boulder, Colorado 
+G. Mgie 
+Service d'Arronomie du Centre National de la Recherehe Seientifique 
+Abstract. An interactive two-dimensional model of the troposphere, stratosphere, and 
+mesosphere, in which dynamics, radiation, and chemistry are treated interactively, is used 
+to investigate the anthropogenic changes in the steady state chemical composition of the 
+atmosphere since preindustrial times and to assess the associated changes in radiative 
+forcing on climate. The perturbations in the atmospheric oxidation capacity due to 
+anthropogenic emissions of source gases are found to be significant. In the troposphere, 
+an ozone increase of 80-120% at northern midlatitudes and a global decrease of 10- 
+20% in the OH concentration since the preindustrial period are calculated. In the polar 
+lower stratosphere of the southern hemisphere, an ozone depletion since preindustrial 
+times reaching more than 60% during spring is calculated as a result of rapid catalytical 
+destruction of ozone by chlorine radicals in the presence of polar stratospheric clouds. 
+Particular attention is given to the induced changes in radiative forcing. These results 
+stress the potentially important role of chemical feedbacks on climate and indicate that the 
+direct forcing associated with increasing concentrations of greenhouse gases is enhanced 
+by about 30% when these feedbacks are taken into account. On a global average basis, 
+the greenhouse effect of tropospheric ozone represents approximately 17% of the total 
+radiative perturbation. This forcing is characterized by a strong latitudinal dependence, 
+peaking at midlatitudes in the northern hemisphere. The importance of indirect climate 
+forcings by stratospheric ozone (including local cooling of the stratosphere) is confirmed. 
+It is found that the net (solar + infrared) indirect effect of stratospheric ozone changes is to 
+increase the chlorofluorocarbon direct radiative forcing. On the other hand, the change in 
+the longwave forcing associated with water vapor increase in the stratosphere appears to 
+play a minor role. 
+1. Introduction 
+It is increasingly obvious on the basis of various records 
+that human activities over the last decades have changed 
+the chemical composition of the global atmosphere [World 
+Meteorological Organization (WMO), 1988; 1991]. Indus- 
+trial emissions, intensification of agriculture practises and 
+the development of transportation have directly enhanced 
+the atmospheric level of several gases such as carbon dioxide 
+(CO2), nitrous oxide (N20), methane (CH4), carbon monox- 
+ide (CO), nonmethane hydrocarbons (NMHCs), nitrogen ox- 
+ides (NO), sulfur dioxide (SO2), and chlorofluorocarbons 
+Copyright 1994 by the American Geophysical Union. 
+Paper number 93JD02987. 
+0148-0227/94/93JD-02987505.00 
+(CFCs). Increases in the concentrations of these source gases 
+may have climate implications both directly through pertur- 
+bations of the radiative budget or indirectly through several 
+chemical feedbacks [Ramanathan et al., 1987; Intergovern- 
+mental Panel on Climate Change (IPCC), 1990, 1992]. 
+Several one-dimensional (l-D) [Thompson and Cicerone, 
+1986; Crutzen and Bra'hl, 1993], two-dimensional (2-D) 
+[lsaksen and Hov, 1987; lsaksen et al., 1989; Valentin, 
+1990; Hough and Derwent, 1990; Law and Pyle, 1991] and 
+three-dimensional (3-D) [Crutzen and Zimmermann, 1991 ] 
+chemical modeling studies have focused on the changing tro- 
+pospheric composition since the preindustrial period. These 
+studies stress the complicated interactions between a large 
+number of chemical species as well as the strong depen- 
+dence of the tropospheric ozone net photochemical produc- 
+tion on background nitrogen oxide levels. The simulated 
+composition changes indicate a gradual shift of the oxidation 
+1173 
+
+@@PDF_PAGE=2
+1174 HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+processes from unpolluted to more polluted regions with in- 
+creasing ozone concentrations in the latter. The consensus 
+of most previous studies is that enhanced carbon monoxide 
+and methane mixing ratios have induced an OH concentra- 
+tion decrease since preindustrial times of about 10-30% on 
+a global average, with a consequent increase of chemical 
+lifetimes of CO, CH4, and several other species. 
+The direct radiative forcing associated with increase of 
+greenhouse gas concentrations in the atmosphere since prein- 
+dustrial times has been estimated to be in the range 2- 
+2.5 W m -2 with a 10-20% uncertainty owing to impreci- 
+sions in the radiative parameters [Hansen and Lacis, 1990]. 
+The direct radiative forcing is defined as the perturbation in 
+the net radiative flux at the tropopause due to changes in 
+concentrations of trace species, with water vapor changes 
+and chemical interactions being excluded [Ramanathan et 
+al., 1987; IPCC, 1990]. Limited work has been devoted to 
+the indirect climatic perturbations. However, as illustrated 
+by Lelieveld and Crutzen [ 1992] in the case of methane, by 
+Ramaswamy et al. [ 1992] and Schwarzkopf and Ramaswamy 
+[1993] in the case of stratospheric ozone and by Wang et al. 
+[ 1993] in the case of tropospheric ozone, the chemistry feed- 
+backs on climate may represent an important part of the total 
+radiative forcing. 
+As far as the global atmospheric composition evolution 
+is concerned, it seems necessary to take into account both 
+the dynamical and photochemical interactions between the 
+troposphere and the stratosphere. Concerning photochemi- 
+cal interactions, a deeper penetration of ultraviolet radiation 
+when stratospheric ozone is depleted may play an important 
+role on tropospheric ozone by increasing its photodissoci- 
+ation [Thompson et al., 1990) and thereby enhancing OH 
+concentrations [Madronich and Granier, 1992]. 
+The purpose of this paper is to calculate both direct and 
+chemically induced radiative forcings on climate resulting 
+from atmospheric composition changes since preindustrial 
+times (pristine Holocene). A 2-D model of the atmosphere 
+extending from the surface to 85 km in which chemical, ra- 
+diative, and dynamical processes are treated interactively is 
+used in this work. This model includes a detailed radia- 
+tive code which derives the diabatic heating rates consis- 
+tently with calculated distributions of temperature and trace 
+species. The tropospheric chemistry takes into account the 
+methane oxidation scheme and includes a realistic latitudinal 
+representation of both natural and anthropogenic emissions 
+of the major source gases. The scheme for stratospheric 
+chemistry includes a simplified treatment of heterogeneous 
+processes in polar stratospheric clouds (PSCs). This model is 
+described in more detail in section 2. The simulated changes 
+in the steady state atmospheric composition since the prein- 
+dustrial era are discussed in section 3 and the corresponding 
+radiative perturbations are described in section 4. Attention 
+is mainly focused on the tropospheric chemistry processes 
+and on the chemically induced radiative forcing. The role 
+played by stratospheric ozone depletion on the radiative bud- 
+get is also examined. 
+2. Model description 
+The model used in this study is a coupled chemical dy- 
+namical radiative 2-D model extending from 85øS to 85øN 
+with a latitudinal resolution of 5 ø, and rom 0 to 85 km with 
+a vertical resolution of 1 km. The original model has been 
+developed by Brasseur et al. [1990a] to study the middle 
+atmosphere. Its current version has been extended down to 
+the surface and is described in more detail by Hauglustaine 
+[1992]. 
+2.1 Chemistry 
+The model includes about 60 chemical species and 130 
+chemical/photochemical reactions. The concentrations of 
+CO, CO2, CH4, CH302H, N20, HNO3, N205, H, HF, 
+H20, H2, H202, HCN, CH3CN, CC14, CFC13 (CFC 11), 
+CF2C12 (CFC 12), CH3CC13, CH3C1, CHC1F2 (HCFC 22), 
+CC12FCC1F2 (CFC 113), CC1F2CC1F2 (CFC 114), CC1F2CF3 
+(CFC 115), CF2BrC1 (Ha 1211), CF3Br (Ha 1301), CC120, 
+CC1FO, CF20 and CH3Br are calculated by solving a con- 
+tinuity-transport equation for each species. Short-lived 
+species are grouped into photochemical families: O = O(3p) 
++ 03 + O(1D), NOy = N + NO + NO2 + NO3 + HO2NO2 + 
+CIONO2 + HNO3 + 2 N205, CI = CI + C10 + HOC1 + HC1 + 
+C1ONO2 + OC10 + 2 C1202 and Br = Br + BrO + BrONO2 
++ HBr + HOBr for which a continuity-transport equation is 
+solved. Concentrations of OH, HO2, CH20 and CH302 are 
+calculated assuming photochemical equilibrium conditions. 
+The representation of the tropospheric chemistry adopted in 
+the original model has been improved by the addition of a 
+methane oxidation scheme with an explicit calculation of 
+CH20, CH3, CH30, CH302 or CH302H. On the other hand, 
+the chemistry of NMHCs and peroxyacetyl nitrate (PAN) 
+is not considered in the present version of the model. The 
+reaction rate constants included in the model are based on 
+the JPL 19913 compilation [DeMore et al., 1990] except for 
+the reactions of CH4 and CH3CC13 with hydroxyl radical 
+where the values from Vaghjiani and Ravishankara [1991] 
+and DeMore [ 1992] are respectively adopted. The photodis- 
+sociation rates are calculated from the solar irradiances given 
+by Brasseur and Simon [ 1981 ] and from the absorption cross 
+sections compiled by DeMore et al. [ 1990]. Photolysis rates 
+are modified in the troposphere in the presence of clouds 
+following the formalism proposed by Chang et al. [1987]. 
+The cloud cover is specified according to the monthly-mean 
+ISCCP climatology [Schiffer and Rossow, 1983] and corre- 
+sponds to a latitudinal-seasonal dependent three-layer cover. 
+A constant liquid water path of 40 gm-2 consistent with cur- 
+rent estimates [Slingo and Slingo, 1991] has been adopted as 
+a working value, providing a cloud optical depth of about 6. 
+Eddy diffusivities (Kyu and K**) are parameterized rela- 
+tive to the mean dynamical state within the stratosphere and 
+mesosphere. The effect of planetary wave absorption is for- 
+mulated according to Hitchman and Brasseur [1988], while 
+that of gravity wave breaking is parameterized according to 
+Lindzen [ 1981 ]. In the troposphere, the coefficients given by 
+Plumb andMahlman [ 1987] are adopted. Note that ChatfieM 
+and Crutzen [ 1984] have stressed the importance of vertical 
+convective transport in the troposphere and, hence, the inad- 
+equacy of eddy diffusion parameterizations to fully simulate 
+vertical exchanges below the tropopause. The fact that this 
+kind of process is not included in this simplified 2-D model 
+is an important limitation to bear in mind. 
+The H20 mixing ratio is calculated in the lowest model 
+level as a function of the local temperature and pressure 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=3
+HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1175 
+assuming a constant relative humidity. Water vapor is 
+then transported through the model domain by solving a 
+continuity-transport equation which takes into account con- 
+densation and rainfall following the parameterization de- 
+scribed by Hough [ 1989]. The rate of wet removal of soluble 
+species (i.e., HNO3, H202, CH302H, HO2NO2, C1ONO2, 
+HC1) is parameterized using the formalism described by 
+Hough [ 1991, see his Appendix B]. This formulation is based 
+on the local volume of liquid water and its rate of vertical 
+transport, using the Henry's law coefficients for each gas, as 
+listed by Hough [1991]. 
+A simplified parameterization of heterogeneous reactions 
+in polar stratospheric clouds is also included in the model 
+and is described by Brasseur et al. [ 1990b] and Granier and 
+Brasseur [ 1992]. 
+2.2 Climate 
+The dynamical fields (, *, *, O) are calculated in- 
+teractively in the whole atmosphere. However, the stream 
+function is calculated with a lower boundary condition spec- 
+ified at 3 km in order to avoid the problems associated 
+with the parameterization of complex exchange processes 
+in the planetary boundary layer. The energy, mass and zonal 
+momentum conservation equations are expressed, using the 
+transformed Eulerian mean meridional circulation formalism 
+in log-pressure coordinates [Andrews and Mcintyre, 1976]. 
+Energy and momentum deposition by gravity and Rossby 
+wave dissipation are calculated interactively from the para- 
+meterizations described by Brasseur and Hitchman [1987] 
+and Hitchman and Brasseur [1988]. The contribution of 
+tropospheric synoptic waves is taken into account through a 
+prescribed Eliassen-Palm flux divergence derived from An- 
+drews et al. [1983]. In the lowest model level, a friction 
+term is added following the classical Ekman layer formu- 
+lation with a drag coefficient of 100 m2/s [Holton, 1979]. 
+As in Garcia et al. [1992], an idealized latent heat release 
+associated with deep convection in the troposphere is intro- 
+duced in tropical regions. This heating reaches a maximum 
+of 1.3 K/day in equatorial upper troposphere and decreases 
+exponentially towards the pole. 
+The radiative net heating rate is computed from the band 
+model described by Kiehl et al. [ 1987], Kiehl and Briegleb 
+[1991] and Briegleb [1992] and includes the radiative con- 
+tributions of water vapor, carbon dioxide, ozone, methane, 
+nitrous oxide, CFC 11 and CFC 12. 
+The atmospheric model is coupled to a simplified ver- 
+sion of the surface energy balance model (EBM) described 
+by Hauglustaine and Gdrard [1991]. This surface model 
+includes a land-ocean partitioning. In each latitudinal bin, 
+the temperature of both land and oceanic mixed layer are 
+computed using thermodynamic equation. The meridional 
+oceanic heat flux is proportional to the meridional tempera- 
+tui'e gradient with coefficients derived from observations and 
+depending on ocean and sea-ice fractional covers. The sur- 
+face albedo is calculated taking into account the land-snow 
+and sea-ice covers. These fractional covers are obtained from 
+empirical temperature dependent parameterizations [Robock, 
+1983] (see Hauglustaine and Gtrard for more details). The 
+value of the surface albedo affects the radiative code while 
+that of sea-ice and snow covers are used to determine the 
+surface dry deposition velocities. The surface temperature is 
+used as a boundary condition for the resolution of the atmo- 
+spheric thermodynamic equation. The temperature profile 
+is adjusted in the troposphere using the classical convective 
+adjustment scheme of Manabe and Wetherald [ 1967]. 
+2.3 Boundary Conditions 
+The lower boundary conditions for species are expressed 
+in terms of fluxes and deposition velocities. The surface 
+emissions of the major source gases are considered on an 
+annual basis with a relative contribution and latitudinal dis- 
+tribution of each emission category based on Fung et al. 
+[ 1991 ] for CH4 and on Hough [ 1991 ] for other species (i.e., 
+N20, NO, CO, H2). 
+The emission inventories for both present-day and prein- 
+dustrial conditions are listed in Table I for each species. 
+The total emission of methane for present-day conditions 
+is assumed to be 400 Tg/yr. This value is consistent with 
+the most recent estimates (IP½½ [1990]: 290-960 Tg/yr; 
+½rutzen [1991]: 370-720 Tg/yr; WMO [1991]: 360-805 
+Tg/yr). The uptake of methane by soils is assumed to be 
+30 Tg/yr with a latitudinal distribution adopted from Fung 
+et al. [1991]. The current total source strength for carbon 
+monoxide is 1700 Tg/yr. This value is in the range given 
+by several estimates (Khalil and Rasmussen [1990]: 1105- 
+4080 Tg/yr; $eiler and Conrad [1987]: 1300-4130 Tg/yr). 
+The present-day total emission for nitrous oxide is estimated 
+to be 15.3 Tg-N/yr. This value is consistent with the 5.4- 
+Table 1. Present-Day and Preindustrial Emissions Inventory 
+Adopted in the Model 
+Species Categories Present-Day Pre-industrial 
+CH4 
+(Tg/yr) 
+CO 
+(Tgr) 
+N20 
+(Tg-N/yr) 
+NO 
+(Tg-N/yr) 
+H2 
+(Tg/yr) 
+Ruminants 64 30 
+Termites 16 16 
+Swamps 64 64 
+Bogs 28 28 
+Oceans 8 8 
+Hydrates 4 4 
+Rice paddies 80 44 
+Biomass burning 44 9 
+Landfills 32 0 
+Coal mining 28 0 
+Gas leaks 24 0 
+Gas vents 8 0 
+Vegetation 690 720 
+Oceans 80 80 
+Biomass burning 465 0 
+Fossil fuel 405 0 
+Soils 7.8 7.8 
+Oceans 2 2 
+Biomass burning 0.7 0 
+Human activities 4.8 0 
+Soils 5 5 
+Lighting 8 8 
+Biomass burning 8 0 
+Fossil fuel 21 0 
+Soils 5 5 
+Oceans 5 5 
+Biomass burning 20 0 
+Fossil fuel 20 0 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=4
+1176 HAUGLUSTAINE ET AL.' ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+16.1 Tg-N/yr estimate given by the IPCC [1992] and close 
+to the 12.7 Tg-N/yr total emission derived by Prinn et al. 
+[1992]. The global NO surface emission is 34 Tg-N/yr. 
+This value is in the range of 23-79 Tg-N/yr given by Logan 
+[ 1983]. The NO annual emission from lightning is fixed to 
+an annual mean production of 8 Tg-N and uniformately dis- 
+tributed below 13 km between 60øS and 60øN. The adopted 
+source strength of molecular hydrogen is 50 Tg/yr. 
+The surface emissions of source gases for preindustrial 
+condition are obtained by reducing the current emissions by 
+their anthropogenic contributions. For methane, the biomass 
+burning source strength is reduced by 80% simulating lower 
+tropical population and the ruminant contribution is reduced 
+by 50%. We take into consideration the possibility that some 
+of the area of current rice cultivation could have been natural 
+wetland areas and the corresponding emission is reduced by 
+55% in comparison to its present-day value. The estimated 
+preindustrial methane emission at the surface is 200 Tg/yr. 
+Based on the work of Valentin [1990], the carbon monoxide 
+emission from vegetation is modified in order to take into 
+account the extensive human deforestation. This specific 
+emission is increased by 5% for preindustrial times. The 
+total preindustrial emission of CO corresponds to 800 Tg/yr. 
+For the other source gases, only natural emissions by soils 
+and oceans are considered and fixed to their contemporary 
+estimates. The annual source strengths for this time period 
+is 10 Tg/yr, 5 Tg/yr, and 10 Tg/yr for N20, NO and H2, 
+respectively. 
+The various species for which dry deposition at the surface 
+is considered are listed in Table 2. This table also shows the 
+deposition velocities adopted for each surface type. The 
+only seasonal variations considered are those induced by 
+the interactively calculated sea-ice and land-snow fractional 
+covers. 
+The carbon dioxide mixing ratio is fixed to 350 ppmv at 
+the surface level for present-day conditions and to 279 ppmv 
+for the preindustrial simulation. This last value has been 
+estimated from ice core data [IPCC, 1990; Wuebbles and 
+Edmonds, 1991 ]. The chlorofluorocarbon mixing ratios at 
+the surface are fixed to the observed values listed by Granier 
+and Brasseur [ 1992] for the current simulation and set to 0 
+for the preindustrial run. 
+3. Present-day and Preindustrial Atmospheric 
+Compositions 
+This section describes and compares the steady state 
+present-day and preindustrial distributions of several atmo- 
+spheric species playing an important chemical and/or ra- 
+diative role. Since the model results obtained in the mid- 
+dle atmosphere were illustrated previously [Brasseur et al., 
+1990a], our attention is mainly focused on the tropospheric 
+chemical composition and its anthropogenic perturbations. 
+The simulated current and preindustrial methane mixing 
+ratios are shown in Figure 1 for July conditions. The present 
+distribution is characterized by a lower tropospheric maxi- 
+mum at northern middle and high latitudes, reaching a mix- 
+ing ratio of 1900 ppbv. This maximum is associated with 
+the important anthropogenic emissions in these regions. The 
+CH4 mixing ratio decreases with altitude and reaches val- 
+ues lower than 1200 ppbv in the middle stratosphere. The 
+distribution is characterized by an interhemispheric differ- 
+ence of about 175 ppbv, a value close although somewhat 
+higher than the 160 ppbv reported by Steele et al. [1987]. 
+The calculated tropospheric mixing ratio overestimates the 
+observed values reported by WMO [1991] by about 50-100 
+PRESENT-DAY CH4 (ppbv) 
+, ,i 
+0 '-5' 0 25 50 75 -75 -5O 
+PRE-INDUSTRIAL CH4 (ppbv) 
+Table 2. Dry Deposition Velocities Adopted in 
+the Model for Various Surface Types (10 -2 m/s) 
+Species Ocean Continent Snow/Sea-Ice 
+CH4 0 0 0 
+CO 0 0.03 0 
+N20 0 0 0 
+NO 0.003 0.016 0.002 
+NO2 0.02 0.1 0.01 
+NO3 0.02 0.1 0.01 
+HNO3 1 4 0.5 
+N:O5 1 4 0.5 
+HO2NO2 1 4 0.5 
+03 0.07 0.4 0.07 
+H:O: 1 0.5 0.32 
+CH3OOH 0.25 0.1 0.01 
+Data based on Hough [ 1991 ] and Kanakidou et al. [1991 ]. 
+30/, i , , , , t/, , , ,/i , , , , , ' ' ' I , ! ,, i ! % i ! i [ i 
+25 
+20 
+F-- 
+< o 
+-75 -50 -25 0 25 50 75 
+TITUDE 
+Figu 1. esent-day and preindustri methane mixing 
+ratio distributions simulated for July conditions (ppbv). 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=5
+HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1177 
+ppbv (5%). Similarly, the globally annually averaged CH4 
+mixing ratio calculated at the surface is 1.8 ppmv, whereas 
+observations indicate a somewhat lower value of 1.72 ppmv 
+in 1990 [WMO, 1991]. Table 3 shows that the calculated 
+atmospheric residence time is 10.1 years, in good agreement 
+with recent estimates summarized in IPCC [ 1990]. The cal- 
+culated preindustrial maximum mixing ratio is close to 750 
+ppbv and is located during all seasons in northern hemisphere 
+high latitudes where wetland emissions are important. The 
+low OH concentration at these latitudes and the weak verti- 
+cal transport also contribute to this maximum. In contrast, in 
+tropical regions, the strong upward transport is responsible 
+for a rapid dispersion of CH4 produced by tropical swamps, 
+so that the surface mixing ratio in these regions is about 675 
+ppbv. The calculated globally averaged preindustrial mixing 
+ratio is 689 ppbv, in good agreement with the ice core data re- 
+ported by Wuebbles and Edmonds [ 1991], and the integrated 
+preindustrial atmospheric methane content is 1950 Tg, i.e., 
+60% lower than that obtained in the present-day simulation. 
+The preindustrial CH4 residence time in the atmosphere is 
+7.4 years, which corresponds to a 2.7 years reduction of the 
+present-day estimate (cf. Table 3). This feature is associated 
+with the calculated higher preindustrial OH concentrations 
+(see below). 
+Figure 2 presents current and preindustrial carbon monox- 
+ide mixing ratios calculated for July conditions. The present- 
+day distribution exhibits a maximum of 180 ppbv in northern 
+hemisphere middle and high latitudes due to the important 
+anthropogenic emissions in these regions. The calculated 
+values are in agreement with the observed mixing ratios re- 
+ported by WMO [ 1991] and Marenco [ 1988]. The calculated 
+globally averaged mixing ratio of 95 ppbv is in the range 
+of 75-105 ppbv, reported by WMO [1991]. The computed 
+residence time of CO in the atmosphere is 1.5 months (cf. 
+Table 3). The preindustrial CO distribution is characterized 
+by a significantly different pattern. The mixing ratio, which 
+reaches a maximum of only 45 ppbv in the tropical lower tro- 
+posphere, is associated with the emissions from vegetation. 
+The globally averaged surface mixing ratio for this period is 
+31 ppbv, and the integrated CO atmospheric content is 129 
+Tg. This value is 67% lower than the model estimate for 
+present-day conditions. As in the case of methane, increased 
+preindustrial OH concentrations reduce the CO preindustrial 
+atmospheric residence time (cf. Table 3). 
+Table 3. Calculated Present-Day and Preindustrial 
+Atmospheric Residence Times of Various Species (years) 
+Species Present-Day Preindustrial 
+N20 178.5 182.8 
+CH4 10.1 7.4 
+CO 0.12 0.08 
+CH3CC13 6.03 (4.7) 
+CC14 54.1 - 
+CFC 11 74.3 - 
+CFC 12 168.7 - 
+HCFC 22 14.1 - 
+CFC 113 137.6 - 
+CFC 114 269.8 - 
+CFC 115 497.8 - 
+Ha 1211 37.8 - 
+Ha 1301 85.3 - 
+PRESENT-DAY co (ppbv) 
+PRE-INDUSTRIAL CO (ppbv) 
+20 5  15 
+ch - o  16  lo. 
+_  5 .._ <  lO 
+o 
+-75 -50 -25 o 25 5o 75 
+LATITUDE 
+Figure 2, Present-day and preindustri cbon monox- 
+ide mixing ratio distributions calculated for July conditions 
+(ppbv). 
+Nitrogen oxides play a key role in tropospheric chem- 
+istry by controlling the net photochemical ozone production 
+[Crutzen, 1988]. Figure 3 illustrates the calculated tropo- 
+spheric NO v mixing ratios in July for current and preindus- 
+trial experiments. Since the major contemporary source of 
+NO v is that from fossil fuel consumption in industrialized 
+countries, the current distribution is characterized by val- 
+ues above 500-1000 pptv northward of 50øN. For example, 
+during summer, a maximum value of 2000 pptv is obtained 
+in northern mid to high latitudes. During winter, however, 
+this maximum does not exceed 1000 pptv and is centered at 
+60-65øN (not shown). It is important to note that this model 
+treats atmospheric variables with zonally averaged parame- 
+ters, which is not adequate in the case of short-lived species 
+with highly localized surface emissions such as NO. How- 
+ever, the simulated values are generally consistent with the 
+observed mixing ratios [e.g. Ndddlec, 1991; Prospero and 
+Savoie, 1989; Ridley et al., 1990]. We obtain a globally 
+averaged surface NO v mixing ratio of 340 pptv and an inte- 
+grated atmospheric NO v content of 2.4 Tg-N. The annual dry 
+deposition at the surface is 30 Tg-N. Since industrial sources 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=6
+1178 HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+PRESENT-DAY NOy (pptv) 
+o 
+-75 -5o -25 o 25 50 75 
+PRE-INDUSTRIAL NOy (pptv) 
+20 
+15 
+I- lO 
+ /'-'-aOo. ooo.. 
+ 5 t0 i f i I i i I i i i i ! I i i i I I i 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 3. Present-day and preindustrial nitrogen oxides 
+(NOy) tropospheric mixing ratio distribution computed for 
+July conditions (pptv). 
+out decreases from 14.5 Tg-N/yr for present-day conditions 
+to 8 Tg-N/yr for preindustrial times. 
+The simulated present-day tropospheric ozone mixing ra- 
+tio is shown in Figure 4 for July and December conditions. 
+The present-day mixing ratio exhibits an important latitudi- 
+nal gradient with maximum values located in northern mid- 
+dle to high latitudes, reaching 60-80 ppbv during summer at 
+the surface. These high ozone mixing ratios are associated 
+with the important photochemical production from methane 
+and carbone monoxide oxidation in the presence of large ni- 
+trogen oxides concentrations. As illustrated previously, high 
+CH4, CO and NOy mixing ratios at these latitudes result from 
+anthropogenic emissions in industrialized regions. The max- 
+imum ozone production appears during summer when OH, 
+HO. and RO. radical concentrations are the largest. During 
+winter, the ozone mixing ratio in these regions is lower and 
+never exceed 50-60 ppbv. The calculated mixing ratios are in 
+general agreement with the various observed values reported 
+for the northern [e.g. Winklet, 1989; Beekmann, 1992; Ray 
+et al., 1992] and southern hemispheres [e.g. Sandtoni et al., 
+1992; Marenco, 1988]. Note however, that the calculated 
+J U LY 03 (ppbv) 
+30 
+25 
+2O 
+10 
+5 
+ß 
+-75 -50 -25 0 25 50 75 
+DECEMBER 03 (ppbv) 
+contribute more than 60% to the total NOs emissions, the 
+simulated preindustrial mixing ratios are significantly lower 
+than present-day values. Figure 3 shows that the preindus- 
+trial NO mixing ratio is generally lower than 100 pptv in 
+the troposphere with maximum values located in tropical re- 
+gions and associated with the nitrogen oxide production by 
+lightning. The globally averaged mixing ratio for this period 
+is 55 pptv at the surface and is thus 80-90% lower than under 
+current conditions. The integrated atmospheric content in the 
+preindustrial atmosphere is 1.8 Tg-N and the dry deposition 
+at the surface is 5.4 Tg-N/yr. As a consequence of reduced 
+preindustrial NOs concentrations, lower preindustrial nitric 
+acid mixing ratios are calculated. Whereas the HNO3 mix- 
+ing ratio in northern midlatitudes reaches locally about 200 
+pptv during summer for present-day conditions, it does not 
+exceed 10-20 pptv in the preindustrial lower troposphere. 
+Consequently, the globally averaged simulated HNO3 rain- 
+t . 300 500 uo0 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 4. Present-day tropospheric ozone mixing ratio distri- 
+butions computed for July and December conditions (ppbv). 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=7
+HAUGLUSTAINE ET AL.' ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1179 
+mixing ratios at high northern latitudes are higher than the 
+measurements made at Resolute (75øN) (approximately 30 
+ppbv; see Andrews et al. [1987]). The discrepancy is be- 
+lieved to be due to a too strong downward transport from the 
+stratosphere at high latitudes and to an underestimated dry 
+deposition on sea-ice or snow covered surface. 
+Figure 5 illustrates the change in the computed ozone mix- 
+ing ratio since the preindustrial period, calculated in the lower 
+atmosphere for July and December conditions. As a result 
+of anthropogenic emissions of CH4, CO and NOx, a sig- 
+nificant ozone increase is obtained at northern midlatitudes. 
+The tropospheric ozone increase in the lower troposphere is 
+greater than 120% during northern hemisphere summer at 
+40øN and 80% during winter. The absolute perturbation (not 
+shown) reaches a maximum of 35 ppbv at 50øN in the upper 
+troposphere during summer. In the southern hemisphere, the 
+ozone increase is less pronounced and is generally in the 
+range 10-60%. These results are consistent with the avail- 
+able observations made at the end of the nineteenth century 
+showing an ozone mixing ratio of approximately 10-15 ppbv 
+20 
+15 
+Ill 
+JULY OZONE CHANGE (%) 
+i I i i i I i i 
+-75 -50 -25 0 25 50 75 
+DECEMBER OZONE CHANGE (%) 
+ ,oh,. ' //111/ 
+5 
+0 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 5, Simulated tropospheric ozone mixing ratio change 
+from preindustrial times for July and December conditions 
+(%). 
+at the surface [Volz and Kley, 1988; NJdlec, 1991;Lisac and 
+Grubisich, 1991; $androni et al., 1992] and with the pertur- 
+bation calculated in the 2-D tropospheric chemical model of 
+Hough and Derwent [1990], showing an increase reaching 
+40 ppbv at 40øN for 1980s conditions. Figure 5 also shows 
+an important ozone decrease since the preindustrial period 
+in the polar lower stratosphere. This ozone decrease, due to 
+catalytical destruction by chlorine radicals converted from 
+chlorine reservoir species by PSCs, reaches more than 60% 
+in December at the south pole. 
+The calculated ozone mixing ratio change in the middle at- 
+mosphere since preindustrial conditions is illustrated in more 
+detail in Figure 6 for July, October and December conditions. 
+A general decrease due to gas phase chemical destruction by 
+chlorine radicals released by chlorofluorocarbon degradation 
+is obtained in upper stratosphere. This ozone destruction 
+is as large as 50-60% at 50 km in the winter hemisphere. 
+As previously noted from Figure 5, an important ozone de- 
+crease associated with heterogenous chemical reactions on 
+PSCs is predicted in the polar lower stratosphere. This de- 
+crease reaches more than 60% during October in southern 
+polar regions. As a consequence, solar ultraviolet radiation 
+penetrates deeper into the atmosphere and the tropospheric 
+03 photodissociation rate coefficient is somewhat enhanced. 
+This leads to enhanced production of O( 1 D) atoms and hence 
+to increased destruction of ozone in the lower troposphere 
+through the reaction of metastable atomic oxygen with wa- 
+ter vapor. Furthermore, as a result of reduced downward 
+transport of ozone from the stratosphere to the troposphere, 
+the concentration of ozone near the surface is reduced by 5- 
+10%. This result is consistent with the-(0.38 4- 0.27)%/yr 
+trend obtained at the south pole site during 1974-1989 period 
+[Thompson, 1992]. 
+Table 4 compares the tropospheric ozone budgets calcu- 
+lated for both present-day and preindustrial conditions. The 
+burden of ozone in the troposphere is 250 Tg for a contem- 
+porary atmosphere (in this model, the tropopause is arbitrar- 
+ily fixed to an annual mean height ranging from 9 km at 
+high latitudes to 17 km in equatorial regions). This repre- 
+sents only 8% of the total model domain integrated ozone 
+content of 3190 Tg. For the present-day atmosphere, the 
+vertical influx from the stratosphere is 408 Tg/yr. This cor- 
+responds to a globally-annually averaged flux of 3.2 x 10 lø 
+molecules (molec.) cm -2 s -. The fluxes estimated from 
+tropopause folding events are about 8 x 10 ø molec. cm -2 
+s- [Danielsen and Mohnen, 1977], while fluxes calculated 
+by GCMs are in the range 3.4-5.1 x 10 ø molec. cm -2 s -1 
+[Valentin, 1990]. With her 2-D tropospheric model, Valentin 
+[ 1990] has calculated a global flux of 6.6 x 10 ø molec. cm -2 
+s -. Thus, the value calculated with our model is a lower 
+estimate of the cross tropopause ozone flux. Note, however, 
+that the contribution of horizontal transport across the sloping 
+tropopause level is not included in our estimate. The cur- 
+rent dry deposition at the surface totals 612 Tg/yr and the net 
+photochemical production in the troposphere is 216 Tg/yr. In 
+the stratosphere and mesosphere, about 95 x 103 Tg/yr are 
+destroyed by catalytic reactions with C1 or Br radicals. For 
+the preindustrial period, both photochemical destruction and 
+production terms are reduced. The photochemical budget of 
+ozone in the troposphere corresponds to a net destruction of 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=8
+1180 HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+JULY OZONE CHANGE (%) 
+60 -10 
+55 
+t'h 5O 
+ 45 
+ o 25 O- - 
+20 '''  ....  ' ' '' '' -75 - -25 0 25 50 75 
+Table 4. Present-Day and Preindustrial Calculated Ozone 
+Budgets in the Troposphere (Tg/yr) 
+Processes Present-Day Preindustrial 
+Sources 
+HO2 and CH302 + NO- NO2 2319 1128 
+Flux from stratosphere 408 458 
+Sinks 
+O(1D) + H20 1015 593 
+03 + OH and HO2 1088 610 
+Dry deposition 612 424 
+Others a - 12 41 
+Tropospheric photochemistry 216 -75 
+Stratosphere 
+03 + C1 and Br 94.7 x 103 14.7 x 103 
+a Imbalance in the global budget due to production and loss terms not explic- 
+itly calculated (e.g., meridional transport across tropopause). 
+OCTOBER 
+70 
+65- 
+60- 
+55 
+---.40 
+25 O 20%% ,%,,   ,, ,,,   [,,,  .... 
+-75 -50 -25 0 25 50 75 
+DECEMBER 
+70 , i , , , , i , , ] , i , , , , , , i , , i , , , , i , , , , i , 
+6õ- 60 -  55 - 10.______.__--1.0 
+--.20 .... 
+- 'o--- _.._____.--------so _o'--''\"n, \"1 
+ -'*' _ _,,,, -aø---ao'------:--. -_-_--%'ao_ I 
+__-- o  --' 
+o o 
+ ....... ,, ,\"--.., .... , .... ,, I 
+LM 
+r' 50 
+I-- 45 
+-J 4O 
+35 
+30 
+25 
+2O 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 6. Simulated ozone mixing ratio change in the middle 
+atmosphere from preindustrial period for July, October, and 
+December conditions (%). 
+75 Tg/yr. The ozone destruction by chlorine and bromine 
+species in the middle atmosphere is reduced by 85% in com- 
+parison to the present-day atmosphere and consequently an 
+enhanced cross tropopause influx of 458 Tg/yr is predicted 
+(3.6 x 10 ø molec. cm -2 s-). 
+The change in the 03 column is illustrated in Figure 7 as 
+a function of latitude and season. This figure shows three 
+distinct regions. An 03 density increase is obtained between 
+15øS and 45øN. This increase, reaching approximately 3% 
+at 25øN-45øN is due to enhanced tropospheric ozone levels. 
+An ozone column decrease in the range 0-5 % is computed at 
+midlatitudes and is associated with stratospheric depletion. 
+At higher latitudes where heterogeneous reactions on PSCs 
+are effective, a strong ozone decrease reaching more than 
+30% at the south pole and corresponding to the \"ozone hole\" 
+is calculated. It is important to note that heterogeneous 
+chemical reactions on sulfate aerosols are not considered in 
+this study. As illustrated by Granier and Brasseur [1992] 
+this limitation probably leads to an underestimate of the lower 
+stratospheric depletion by active chlorine radicals. 
+Figure 8 shows the present-day hydroxyl radical concen- 
+tration simulated in the troposphere for July conditions as 
+well as the OH concentration perturbation since preindustrial 
+period. The diurnal cycle is not included in this model ver- 
+sion and the results refer to 24-hour averages. The present- 
+day distribution exhibits a maximum concentration of about 
+3 x 106 molec. cm -3 in the tropics where solar irradiance 
+and water vapor mixing ratio are largest. The concentra- 
+tion decreases rapidly with altitude above 7 km and latitude. 
+Since OH is a highly reactive radical, only a few measure- 
+ments are now available. Observations made during summer 
+in western Europe show daytime concentrations in the range 
+1-6x 106 molec. cm -3 [Dorn et al., 1988]. As far as the 
+latitude-altitude OH distribution is concerned, the results ob- 
+tained with other tropospheric chemical models are similar to 
+present calculations [Logan et al., 1981; Crutzen and Gidel, 
+1983; Isaksen and Hov, 1987; Hough, 1991; Valentin, 1990; 
+Kanakidou et al., 1991; Crutzen and Zimmermann, 1991]. 
+Since oxidation by OH is the only known chemical sink 
+of CH3CC13 in the troposphere, the concentration and resi- 
+dence time of this constituent are often used to validate the 
+calculated hydroxyl radical concentration. On the basis of 
+observations, Prinn et al. [ 1987] have estimated a CH3CC13 
+residence time in the atmosphere of 6 a+'2 yr. They have \"'-0.9 
+recently refined this estimate to a value of 5 ,7+0.7 yr [Prinn \"-0.6 
+et al., 1992]. With this model, the calculated methylchlo- 
+roform lifetime is 6.03 yr (cf. Table 3), in good agreement 
+with these empirical estimates. 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=9
+HAUGLUSTAINE ET AL.' ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1181 
+85 
+75 
+65 
+55 
+45 
+35 
+Ld 25 12 15 
+:::) 5 
+_ -5 
+<1:: -15 
+-J -2.,5 
+-35 
+-45 
+-55 
+-65 
+-75 
+-85 
+OZONE COLUMN CHANGE (%) 
+MONTH 
+Figure 7. Total ozone column change since preindustrial 
+times as a function of latitude and season (%). 
+radiative forcing. Figure 10 shows the perturbation in the 
+annually averaged net radiative budget at the tropopause due 
+to increase in the chlorofluorocarbon (CFC 11 and CFC 12) 
+abundance since the preindustrial era. The direct longwave 
+CFC positive climate forcing is characterized by a maximum 
+of about 0.4 W m -2 (warming) in the tropics. This forcing 
+decreases with latitude to reach approximately 0.2 W m -2 in 
+the polar regions. The globally averaged direct infrared per- 
+turbation is 0.35 W m -2, as indicated in Table 5. Several in- 
+direct radiative effects resulting from the CFC increase need 
+also to be considered. The stratospheric ozone depletion 
+resulting from increasing chlorine concentrations induces at 
+the same time visible-ultraviolet and infrared radiative per- 
+turbations. In the upper stratosphere (z _> 35 km), the ozone 
+destruction affects mainly the absorption of solar radiation 
+and increases the amount of solar energy received by the 
+troposphere-surface system. As shown in Figure 10, this 
+forcing is characterized by a small latitudinal dependence 
+and its global average is equal to only 0.09 W m -2 (cf. Table 
+5). On the contrary, the perturbation associated with solar 
+As a consequence of the lower CH4 and CO mixing ratios 
+during the preindustrial period, the calculated OH concentra- 
+tion change indicates a tropospheric decrease of 10-20% to 
+present in tropical regions. This value is in general agreement 
+with the global OH decrease calculated with most previous 
+models [Thompson, 1992]. At high northern latitudes where 
+the anthropogenic emissions of methane and carbon monox- 
+ide are substantial and OH concentrations are low, a more 
+pronounced relative decrease is predicted. Note that this 
+model does not indicate a local OH increase in northern mid- 
+latitudes as calculated by Crutzen and Zimmermann [ 1991 ] 
+or Valentin [ 1990] and attributed to increased hydroxyl rad- 
+ical production in highly polluted regions. As mentioned 
+by Thompson [ 1992], the important non-linear tropospheric 
+OH response to changes in hydrocarbons and NOx emissions 
+and background levels leads in difficulties in predicting hy- 
+droxyl radical concentration perturbations in 2-D models. 
+Therefore, differences among the model results from the 
+differences in the treatment of NOx chemistry. At higher 
+altitudes (10-20 km), a large percentage buildup of OH is 
+obtained, particularly toward the poles. This feature seems to 
+be mainly associated with the calculated stratospheric ozone 
+depletion presented in Figure 5 and has little effect on the 
+global chemistry since OH concentrations at these altitudes 
+are low. As a result of the higher preindustrial OH tropo- 
+spheric concentrations, the CH3CC13 residence time for this 
+period would be only 4.7 yr (cf. Table 3). 
+As noted by the IPCC [ 1990] and the WMO [ 1991 ] reports, 
+the oxidation of methane in the stratosphere may result in an 
+increase in the water vapor content in this atmospheric re- 
+gion. The calculated stratospheric H20 increase since the 
+preindustrial period is illustrated in Figure 9. The mixing ra- 
+tio increase is about 2% in the lower stratosphere and reaches 
+25% in the upper stratosphere and in the mesosphere. 
+4. Calculated Radiative Forcings 
+The changes in the atmospheric composition discussed 
+above are expected to produce substantial changes in the 
+2O 
+15 
+E 10 
+5 -3 
+OH CONCENTRATION (10 mol. cm ) 
+0 ! i i i i i I I i I I i , , , i i i i i i i I i i i I I i , , i ! 
+-75 -50 -25 0 25 50 75 
+OH CHANGE (%) 
+i i ii i i ! | , , , i I i i ! , | i , ! , I ' i ! , I i i i ! I ' 
+20 i'1 
+15, 
+ o 
+5 
+ p / \"x / 
+_/ I  ! I 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 8. Calculated present-day 24 hour-averaged hydroxyl 
+radical (OH) concentration (10  molec. cm -3) and depture 
+from preindustrial times (%). July conditions. 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=10
+1182 HAUGLUSTAINE ET AL.' ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+JULY H20 CHANGE (%) 
+60 , I '  ' ' I .... I  , t , I .... I .... I ' ' ' I ' 
+20 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+FiRure . Simulated stratosphoric wator vapor mixin ratio 
+chano from proindustrial poriod (G). 
+radiation in response to ozone depletion in the lower strato- 
+sphere (z _ 35 km) is characterized by a much stronger lati- 
+tudinal dependence. Maximum values are due to polar ozone 
+depletion and reach 0.2 W m -2 and 0.4 W m -2 in the north- 
+ern and southern hemisphere, respectively. This meridional 
+variation is in good agreement with the results reported by 
+Rarnaswarny et al. [ 1992]. The globally averaged solar forc- 
+ing of the troposphere-surface system, resulting from lower 
+stratospheric ozone depletion is 0.06 W m -2. As shown in 
+Table 5, when ignoring changes in stratospheric tempera- 
+tures, the longwave forcing associated with the stratospheric 
+ozone depletion is about an order of magnitude smaller than 
+the shortwave forcing. However, as pointed out by Ra- 
+maswamy et al. [ 1992], the depletion of ozone in the lower 
+stratosphere reduces the local solar heating and, hence, the 
+temperature of the lower stratosphere decreases. Conse- 
+quently, less longwave radiation is emitted into the tropo- 
+sphere. Figure 10 shows that this negative forcing reaches 
+-0.2 
+-0.4 
+..\"TEMPERATURE .- . 
+ß 
+ß 
+_ 
+-0.6 , I I I , I , I , I , I , I , -80 -60 -40 -20 0 20 40 60 80 
+LATITUDE 
+Figure 10. Latitudinal dependence of the calculated surface- 
+troposphere annually averaged radiative forcings due to CFC 
+increase since preindustrial times (W m-2). Direct and indi- 
+rect forcings are displayed (see the text for a further descrip- 
+tion of the various contributions). 
+Table 5. Calculated Globally and Annually Averaged Net 
+Longwave (ALW) and Shortwave (ASW) Radiative 
+Perturbations at the Tropopause (W m -2) 
+Contribution ALW ASW 
+CO2 1.47 0 
+CH4 0.66 0 
+N20 0.16 0 
+CFC O.35 0 
+03 lower stratosphere -0.005 0.06 
+03 upper stratosphere -0.006 0.09 
+Temperature stratosphere -0.08 0 
+03 troposphere 0.50 0.05 
+H20 stratosphere 0.009 0 
+Total 3.26 
+-0.2 W m -2 and -0.35 W m -2 (cooling)in the northern 
+and southern polar regions, respectively, with a globally av- 
+eraged perturbation of-0.08 W m -2. Our model indicates 
+that the net effect of ozone changes is to amplify the pri- 
+mary CFC forcing. In the tropical regions, the indirect effect 
+is mainly due to upper stratospheric ozone depletion, while 
+in southern polar regions, the solar forcing resulting from 
+ozone depletion in the lower stratosphere is larger than the 
+forcing associated with the temperature adjustment. Hence, 
+the direct radiative forcing by CFCs is enhanced by chemi- 
+cal feedbacks. Our results, although qualitatively consistent 
+with those presented by the WMO [ 1991 ] and by Ramaswamy 
+et al. [1992] for the 1979-1990 period, do not produce a net 
+cooling at high latitudes when the temperature adjustment is 
+taken into account. Although we cannot definitively deter- 
+mine the reasons for these different responses, several possi- 
+ble causes can be suggested. First of all, the ozone decrease 
+in the upper stratosphere is not included in the Ramaswamy 
+et al. [1992] study but is considered in this work. Con- 
+cerning the lower stratosphere, in our calculations, the local 
+heating below about 20 km due to CFC increase is implic- 
+itly included in the radiative perturbation associated with the 
+stratospheric temperature change. This heating could partly 
+offset the local cooling by ozone. Furthermore, as noted by 
+Ramaswamy et al. [ 1992] and Schwarzkopf and Ramaswamy 
+[1993], the radiative effects of stratospheric ozone are sen- 
+sitive to the altitude profile of the ozone depletion. These 
+authors based their calculation on a uniform (in percentage) 
+ozone depletion extending from the tropopause to about 7 km 
+above it. As shown in Figures 5 and 6, the ozone depletion 
+derived in the model is characterized by an important ver- 
+tical variation with a stratospheric maximum located at 19 
+km during spring. Furthermore, Ramaswamy et al. [1992] 
+calculated the new equilibrium stratospheric temperatures in 
+response to the specified radiative perturbation using fixed 
+dynamical conditions. In this study, the dynamical response 
+is implicitly included in the stratospheric temperature calcu- 
+lations. Note also that Ramaswamy et al. [ 1992] considered 
+the 1979-1990 period on the basis of observed total ozone 
+changes from Stolarski et al. [ 1991 ]. In this work, the atten- 
+tion is focused on the preindustrial/actual period on the basis 
+of modeled ozone changes. The differences between the two 
+ozone change distributions may be in part responsible for 
+the diverging conclusions concerning the ozone forcing. It 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=11
+HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1183 
+should also be noted that Wang et al. [1993] recently cal- 
+culated positive contribution of stratospheric ozone indirect 
+forcing at middle and high latitudes of the northern hemi- 
+sphere, with observed ozone trends between 30-35 km. 
+Figure 11 compares the annually averaged net radiative 
+forcing at the tropopause calculated for different greenhouse 
+gases. The CO2 radiative forcing has the largest contribu- 
+tion, i.e., 1.5 W m -2 in global average (cf. Table 5). This 
+forcing exhibits a strong meridional variation and increases 
+from 0.8 W m-2 in polar regions to 1.6 W m-2 in the tropics. 
+The radiative perturbations associated with CH4 and N20 are 
+respectively 0.7 W m-2 and 0.2 W m-2 (global average) with 
+a less pronounced latitudinal dependence. The CFC contri- 
+bution corresponds to the total perturbation represented in 
+Figure 10. Figure 11 also shows the radiative forcing due 
+to stratospheric water vapor and tropospheric ozone changes 
+since preindustrial times. While the increase in H20 abun- 
+dance reaches 25% in the middle atmosphere, its radiative 
+perturbation as calculated in our model is insignificant. On 
+the other hand, the radiative perturbation due to increas- 
+ing tropospheric ozone is quite significant and contributes to 
+0.55 W m -2 in global average (cf. Table 5). This perturba- 
+tion is mainly associated with the increased longwave radia- 
+tion trapping. The corresponding forcing is characterized by 
+an important meridional variation and reaches 0.8 W m-2 at 
+20øN-40øN where the ozone increase is largest. At these lat- 
+itudes, the forcing caused by changes in tropospheric ozone 
+is larger than the forcing produced by the methane increase. 
+The relative contributions of the various gases to the global 
+radiative perturbation are illustrated in Figure 12. The to- 
+tal perturbation between preindustrial and present times is 
+3.26 W m -2 (cf. Table 5). Carbon dioxide plays the dom- 
+inant role and represents 45% of the total forcing. Tropo- 
+spheric ozone also plays a significant role and contributes 
+about 17%. Note that, based on the ozone trend derived by 
+Wang et al. [ 1993] and using observational data, the contri- 
+bution of tropospheric ozone in changes in radiative forcing 
+at middle and high latitudes of the northern hemisphere dur- 
+ing recent decades could be as large as 45% during summer. 
+As far as the greenhouse effect is concerned, stratospheric 
+Strat. H20 
+0.3% 
+167% 
+Figure 12. Relative contributions of the various gases to 
+the global net radiative forcing at the tropopause. Note that 
+the CFC contribution includes the indirect forcings by strato- 
+spheric ozone and temperature adjustment. 
+water vapor increase is negligible and contributes only a 
+few tenths of a percent. These results stress the important 
+role played by chemical feedbacks, in particular the ozone 
+chemistry in the troposphere, on the climate forcing. Table 
+5 shows that the direct forcing associated with radiatively 
+active gases is 2.6 W m -2 but increases by as much as 30% 
+when chemical feedbacks are included in the model calcu- 
+lations. Note that the direct perturbation is slightly higher 
+than the total greenhouse forcing of 2-2.5 W m -2 estimated 
+by Hansen and Lacis [ 1990] with an uncertainty of 10-20%. 
+Furthermore, Hansen et al. [ 1989] and the IPCC [ 1990] have 
+estimated a CO2 contribution to the direct forcing of 61% and 
+62% respectively. As shown by Figure 12, this contribution 
+is reduced to 45% when indirect chemical forcings are taken 
+into account. 
+The change since preindustrial times in the atmospheric 
+temperature calculated at steady state is illustrated in Figure 
+13 for July conditions. As a consequence of the enhanced 
+greenhouse effect, the temperature increases in the entire tro- 
+2-0 t ' I ' I ' I ' I ' I ' I ' I ' 
+ ................... '/':' .......... ::: : :: .t ,., ...... - o.4[--,., .cc, ,-.'..-\"\"' '\"--. \"-.. -'t 
+< !:: '\"'/-'\"\"\" 4 
+o.o :.:.:.:.:.: ...................................... -:c 2-6 -ii/ ....... / , I , I , I , ! , I , ! , I , / 
+-80 -60 -40 -20 0 20 40 60 80 
+LATITUDE 
+Figure 11. Latitudinal dependence of the calculated surface- 
+troposphere annually averaged radiative forcings due to 
+greenhouse gas increase since preindustrial period (W m-2). 
+JULY AT (K) 
+60 
+55 
+50 
+45 
+40 
+I.,d 
+ 3o 
+.__1 25 
+ oo c -/ 
+-75 -50 -25 0 25 50 75 
+LATITUDE 
+Figure 13. Simulated distribution of the atmospheric temper- 
+ature change since preindustrial times for July conditions (K) 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=12
+1184 HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+posphere. The maximum temperature changes are found at 
+high latitudes where surface albedo feedbacks are effective. 
+Since convection is not explicitely simulated in this simpli- 
+fied climate model, the maximum temperature increase in the 
+tropical upper troposphere obtained in GCM climate warm- 
+ing experiments is not reproduced. The globally and annually 
+averaged increase in surface temperature since preindustrial 
+times is 1 K for these equilibrium conditions. The temper- 
+ature decreases above approximately 10 km. The strongest 
+cooling, found near the stratopause (15 K at the equator and 
+18 K at the summer pole), is due to the combined effects of 
+an enhanced longwave cooling by greenhouse gases (CO2, 
+CH4, N20, CFCs, H20) and reduced heating by ozone. When 
+only the CFCs are increased from preindustrial to present- 
+day conditions, the middle atmosphere cooling is lower by 
+only 4-5 K than the cooling presented in Figure 13. These 
+results indicate that the reduced solar heating by ozone plays 
+the dominant role on the temperature response in the middle 
+atmosphere during this time period. 
+5. Conclusions 
+The purpose of this paper was to investigate the changes 
+in the steady state chemical composition of the atmosphere 
+since preindustrial times and to assess the associated radia- 
+tive forcing on climate. The model adopted for this work 
+is an interactive chemical-dynamical-radiative 2-D dimen- 
+sional model of the troposphere, stratosphere and mesosphere 
+including a realistic latitudinal representation of both natu- 
+ral and anthropogenic emissions of the major source gases, 
+a simplified treatment of heterogeneous processes on PSC 
+particules. The model is coupled to a surface energy balance 
+model. 
+The validity of the model results remains limited by sim- 
+plifications and omissions in the formulation of several pro- 
+cesses. For exemple, a realistic simulation of short-lived 
+species with highly localized surface emissions such as ni- 
+trogen oxides should be performed by 3-D model including 
+an adequate representation of convective vertical transport. 
+Furthermore, the chemical scheme used in this study does 
+not include NMHC species which are believed to contribute 
+up to 15% to the production of tropospheric ozone [Hough 
+and Johnson, 1991; Law and Pyle, 1991 ]. It should also be 
+noted that the role of clouds in tropospheric chemistry is ne- 
+glected in this model. However, as shown by Lelieveld and 
+Crutzen [1991], photochemical processes in the lower half 
+of the troposphere could be strongly affected by the presence 
+of liquid water clouds. This kind of climate-chemistry in- 
+teraction study should be refined in the near future with the 
+emergence of coupled 3-D climate-chemistry models. 
+Despite these uncertainties and limitations, interesting 
+characteristics of chemically induced radiative forcings on 
+climate have been illustrated and the important role played 
+by chemical feedbacks has been pointed out. Our results 
+indicate that the direct radiative forcing associated with in- 
+creases in greenhouse gas concentration since the preindus- 
+trial period is enhanced by about 30% when these feedbacks 
+are taken into account. The increased tropospheric ozone 
+longwave radiation trapping represents about 17% of the to- 
+tal radiative perturbation on a global average. This infrared 
+forcing varies strongly with latitude and peaks in the northern 
+hemisphere midlatitudes where anthropogenic emissions of 
+ozone precursors reach their maximum. The important role 
+played by the indirect forcing of ozone through local temper- 
+ature adjustment in the lower polar stratosphere is confirmed. 
+The net effect of indirect forcings is to increase the the direct 
+CFC forcing. Furthermore, our results suggest that the con- 
+tribution to climate forcing of enhanced stratospheric water 
+vapor (resulting from methane oxidation) to climate forcing 
+is minor. 
+Acknowledgments. We thank J. Kiehl, who provided the new 
+version of the radiative code. Helpful comments by J.-C1. G6rard, 
+D. Erickson, and J. Orlando are gratefully acknowledged. D.A.H. 
+was supported by a Sectoral Grant in Sciences and Technology 
+from the Commission of the European Communities [CEC] (con- 
+tract B/87000569). C.G. is supported by the Gas Research Institute 
+(contract 5090-254-1993). G.B. is supported in part at the Uni- 
+versity of Brussels by the Global Change Program of the Belgian 
+government. This work has been supported in part by CEC contract 
+STEP-002-C (TT). The National Center for Atmospheric Research 
+is sponsored by the National Science Foundation. Numerical sim- 
+ulations were performed on the CCVR (Centre de Calcul Vectoriel 
+pour la Recherche) Cray-2. 
+References 
+Andrews, D.G., and M.E. Mcintyre, Generalized Eliassen-Palm 
+and Charney-Drazin theorems for waves on axisymmetric mean 
+flows in compressible atmospheres, J. Atmos. Sci., 35, 175-185, 
+1976. 
+Andrews, D.G., J.D. Mahlman, and R.W. Sinclair, Eliassen-Palm 
+diagnostics of wave-mean flow interaction in the GFDL SKYHI 
+general circulation model, J. Atmos. Sci., 40, 2768-2784, 1983. 
+Andrews, D.G., J.R. Holton, and C.B. Leovy, Middle Atmosphere 
+Dynamics, Academic, San Diego, Calif., 1987. 
+Beekmann, M., Bilan de l'ozone troposphdrique aux moyennes 
+latitudes: analyse climatologique etvariabilitd spatio-temporelle 
+de la distribution verticale, Ph.D. thesis (in French), Univ. of 
+Paris VI, Paris, France, 1992. 
+Brasseur, G., and P.C. Simon, Stratospheric chemical and thermal 
+response to long-term variability in solar UV irradiance, J. Geo- 
+phys. Res., 86, 7343-7362, 1981. 
+Brasseur, G., and M.H. Hitchman, The effect of breaking gravity 
+waves on the distribution of trace species in the middle atmo- 
+sphere, in Transport Processes in the Middle Atmosphere edited 
+by G. Visconti and R. Garcia, pp. 215-227, D. Reidel, Norwell, 
+Mass., 1987. 
+Brasseur, G., M.H. Hitchman, S. Walters, M. Dymek, E. Falise, 
+and M. Pirre, An interactive chemical dynamical radiative two- 
+dimensional model of the middle atmosphere, J. Geophys. Res., 
+95, 5639-5655, 1990a. 
+Brasseur, G.P., C. Granier, and S. Walters, Future changes in strato- 
+spheric ozone and the role of heterogeneous chemistry, Nature, 
+348, 626-628, 1990b. 
+Briegleb, B.P., Longwave band model for thermal radiation in cli- 
+mate studies, J. Geophys. Res., 97, 11,475-11,485, 1992. 
+Chang, J.S., R.A. Brost, I.S.A. Isaksen, S. Madronich, P. Middleton, 
+W.R. Stockwell, and C.J. Walcek, A three-dimensional eulerian 
+acid deposition model: Physical concepts and formulation, J. 
+Geophys. Res., 92, 14681-14700, 1987. 
+Chatfield, R.B., and P.J. Crutzen, Sulfur dioxide in remote oceanic 
+air: Cloud transport of reactive precursors, J. Geophys. Res., 89, 
+7111-7132, 1984. 
+Crutzen, P.J., Tropospheric ozone: an overview, in Tropospheric 
+Ozone, Regional and Global Scale Interactions edited by I.S.A. 
+Isaksen, pp. 73-81, D. Reidel, Norwell, Mass., 1988. 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=13
+HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 1185 
+Crutzen, P.J., Methane's sinks and sources, Nature, 350, 380-381, 
+1991. 
+Crutzen, P.J., and C. Brtihl, A model study of atmospheric tempera- 
+tures and the concentrations of ozone, hydroxyl, and some other 
+photochemically active gases during the glacial, the preindustrial 
+Holocene and the present, Geophys. Res. Lett., 20, 1047-1050, 
+1993. 
+Crutzen, P.J., and L.T. Gidel, A two-dimensional photochemical 
+model of the atmosphere 2: The tropospheric budgets of the 
+anthropogenic chlorocarbons CO2, CH4, CH3C1 and the effect of 
+various NOx sources on tropospheric ozone, J. Geophys. Res., 
+88, 6641-6661, 1983. 
+Crutzen, P.J., and P.H. Zimmermann, The changing photochemistry 
+of the troposphere, Tellus, 43, 136-151, 1991. 
+Danielsen, E.F., and V.A. Mohnen, Project Dustorm report: ozone 
+transport, in situ measurements and meteorological analyses of 
+tropopause folding, J. Geophys. Res., 82, 5867-5877, 1977. 
+DeMore, W.B., Relative rate constants for the reactions of OH 
+with methane and methyl chloroform, Geophys. Res. Lett., 19, 
+1367-1370, 1992. 
+DeMore, W.B., S.P. Sander, D.M. Golden, M.J. Molina, R.F. Hamp- 
+son, M.J. Kyrulo, C.J. Howard, and A.R. Ravishankara, Chem- 
+ical kinetics and photochemical data for use in stratospheric 
+modeling, evaluation number 9, JPL Publ., 90-1, 1990. 
+Dom, H.-P., J. Callies, U. Platt, and D.H. Ehhalt, Measurements 
+of tropospheric OH concentrations by laser long-path absorption 
+spectroscopy, Tellus, 40B, 437-445, 1988. 
+Fung, I., J. John, J. Lerner, E. Matthews, M. Prather, L.P. Steele, 
+and P.J. Fraser, Three-dimensional model synthesis of the global 
+methane cycle, J. Geophys. Res., 96, 13,033-13,065, 1991. 
+Garcia, R.R., F. Stordal, S. Solomon, and J.T. Kiehl, A new numeri- 
+cal model of the middle atmosphere, 1, Dynamics and transport of 
+tropospheric source gases, J. Geophys. Res., 97, 12,967-12,991, 
+1992. 
+Granier, C., and G.P. Brasseur, Impact of heterogeneous chemistry 
+on model predictions of ozone changes, J. Geophys. Res., 97, 
+18,015-18,033, 1992. 
+Hansen, J.E., and A.A. Lacis, Sun and dust versus greenhouse gases: 
+An assessment of their relative roles in global climate change, 
+Nature, 346, 713-719, 1990. 
+Hansen, J.E., A.A. Lacis, and M. Prather, Greenhouse effect of 
+chlorofluorocarbons and other trace gases, J. Geophys. Res., 94, 
+16417-16421, 1989. 
+Hauglustaine, D.A., Moddlisation de l'dvolution de la composi- 
+tion chimique atmosphdrique et du climat: approches uni et bi- 
+dimensionnelle, Ph.D. thesis (in French), Univ. of Libge, Libge, 
+Belgium, 1992. 
+Hauglustaine, D.A., and J.-C. Gtrard, Present and future CFC and 
+other trace gas warming: Results from a seasonal climate model, 
+Ann. Geophys., 9, 571-587, 1991. 
+Hitchman, M.H., and G. Brasseur, Rossby wave activity in a two- 
+dimensional model: closure for wave driving and meridional 
+eddy diffusivity, J. Geophys. Res., 93, 9405-9417, 1988. 
+Holton, J.R., An Introduction to Dynamic Meteorology, Academic, 
+San Diego, Calif., 1979. 
+Hough, A.M., The development of a two-dimensional global tro- 
+pospheric model, 1, The model transport, Atmos. Environ., 23, 
+1235-1261, 1989. 
+Hough, A.M., Development of a two-dimensional global tropo- 
+spheric model' Model chemistry, J. Geophys. Res., 96, 7325- 
+7362, 1991. 
+Hough, A.M., and R.G. Derwent, Changes in the global concentra- 
+tion of tropospheric ozone due to human activities, Nature, 344, 
+645-648, 1990. 
+Hough, A.M., and C.E. Johnson, Modelling the role of nitrogen ox- 
+ides, hydrocarbons and carbon monoxide in the global formation 
+of tropospheric oxidants, Atmos. Environ., 25, 1819-1835,1991. 
+Intergovernmental Panel on Climate Change, Climate Change: The 
+IPCC Scientific Assessment edited by J.T. Houghton, G.J. Jenk- 
+ins, and J.J. Ephraums, Cambridge University Press, Cambridge, 
+1990. 
+Intergovernmental Panel on Climate Change, Climate Change 
+1992: The Supplementary Report to the IPCC Scientific Assess- 
+ment edited by J.T. Houghton, B.A. Callandar, and S.K. Varney, 
+Cambridge University Press, New York, 1992. 
+Isaksen, I.S.A., and O. Hov, Calculation of trends in the tropospheric 
+concentration of 03, OH, CO, CH4 and NO, Tellus, 39, 271-285, 
+1987. 
+Isaksen, I.S.A., T. Bemtsen, and S. Solberg, Estimates of past and 
+future tropospheric ozone changes from changes in human re- 
+leased source gases, in Proceedings of the Quadriennial Ozone 
+Symposium \"Ozone in the Atmosphere\" edited by R.D. Bojkov 
+and P. Fabian, pp. 575-579, A. Deepak, Hampton, Va., 1989. 
+Kanakidou, M., H.B. Singh, K.M. Valentin, and P.J. Cmtzen, A 
+two-dimensional study of ethane and propane oxidation in the 
+troposphere, J. Geophys. Res., 96, 15,395-15,413, 1991. 
+Khalil, M., and R. Rasmussen, The global cycle of carbon monox- 
+ide: Trends and mass balance, Chemosphere, 20, 227-242, 1990. 
+Kiehl, J.T, and B.P. Briegleb, A new parameterization of the ab- 
+sorptance due to the 15-tm band system of carbon dioxide, J. 
+Geophys. Res., 96, 9013-9019, 1991. 
+Kiehl, J.T, R.J. Wolski, B.P. Briegleb, and V. Ramanathan, Docu- 
+mentation of radiation and cloud routines in the NCAR commu- 
+nity climate model, NCAR Tech. Note TN-288+IA, Natl. Cent. 
+for Atmos. Res., Boulder, Colo., 1987. 
+Law, K.S., and J.A. Pyle, Modelling the response of tropospheric 
+trace species to changing source gas concentrations,Atmos. En- 
+viron., 25, 1863-1871, 1991. 
+Lelieveld, J., and P.J. Crutzen, The role of clouds in tropospheric 
+photochemistry, J. Atmos. Chem., 12,229-267, 1991. 
+Lelieveld, J., and P.J. Crutzen, Indirect chemical effects of methane 
+on climate warming, Nature, 355, 339-342, 1992. 
+Lindzen, R.S., Turbulence and stress owing to gravity wave and 
+tidal breakdown, J. Geophys. Res., 86, 9707-9714, 1981. 
+Lisac, I., and V. Grubisich, An analysis of surface ozone data mea- 
+sured at the end of the 19th century in Zagreb, Yugoslavia,Atmos. 
+Environ., 25, 481-486, 1991. 
+Logan, J.A., Nitrogen oxides in the troposphere: Global and re- 
+gional budgets, J. Geophys. Res., 88, 10,785-10,807, 1983. 
+Logan, J.A., M.J. Prather, S.C. Wofsy, and M.B. McElroy, Tropo- 
+spheric chemistry: A global perspective, J. Geophys. Res., 86, 
+7210-7254, 1981. 
+Madronich, S., and C. Granier, Impact of recent total ozone changes 
+on tropospheric ozone photodissociation, hydroxyl radicals, and 
+methane trends, Geophys. Res. Lett., 19, 465-467, 1992. 
+Manabe, S., and R.T. Wetheraid, Thermal equilibrium of the atmo- 
+sphere with a given distribution of relative humidity, J. Atmos. 
+Sci., 24, 241-259, 1967. 
+Marenco, A., Large scale distributions of 03, CO and CH4 in the 
+troposphere from scientific aircraft measurements (Stratoz III), 
+in Tropospheric Ozone, Regional and Global Scale Interactions 
+edited by I.S.A. Isaksen, pp. 73-81, D. Reidel, Norwell, Mass., 
+1988. 
+N6d61ec, P., Mise au point d'un analyseur d'oxydes d'azote d 
+haute sensibilitg: application  l'gtude de l'ozone et de ses 
+prgcurseurs dans la troposphere, Ph.D. thesis (in French), Univ. 
+Paul Sabatier, Toulouse, France, 1991. 
+Plumb, R.A., and J.D. Mahlman, The zonally averaged transport 
+characteristics of the GFDL general circulation-transport model, 
+J. Atmos. Sci., 44, 298-327, 1987. 
+Prinn, R., et al., Atmospheric trends in methylchloroform and the 
+global average for the hydroxyl radical, Science, 238, 945-950, 
+1987. 
+Prinn, R., et al., Global averaged concentration and trend for 
+hydroxyl radicals deduced from ALE-GAGE tfichloroethane 
+(methyl chloroform) data for 1878-1990, J. Geophys. Res., 97, 
+2445-2461, 1992. 
+Prospero, J.M., and D.L. Savoie, Effect of continental sources on 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+
+@@PDF_PAGE=14
+1186 HAUGLUSTAINE ET AL.: ATMOSPHERIC CHEMISTRY AND RADIATIVE FORCINGS 
+nitrate concentrations over the Pacific ocean, Nature, 339, 687- 
+689, 1989. 
+Ramanathan, V., et al., Climate-chemical interactions and effects 
+of changing atmospheric trace gases, Rev. Geophys., 25, 1441- 
+1482, 1987. 
+Ramaswamy, V., M.D. Schwarzkopf, and K.P. Shine, Radiative 
+forcing of climate from halocarbon-induced global stratosphefic 
+ozone loss, Nature, 355, 810-812, 1992. 
+Ray, J.D., C.C. Van Valin, and J.E Boatman, The vertical distribu- 
+tion of atmospheric H202: A case study, J. Geophys. Res., 97, 
+2507-2517, 1992. 
+Ridley, B.A., et al., Ratios of peroxyacetyl nitrate to active nitrogen 
+observed during aircraft flights over the eastern Pacific Oceans 
+and continental United States, J. Geophys. Res., 95, 10,179- 
+10,192, 1990. 
+Robock, A., Ice and snow feedbacks and the latitudinal and seasonal 
+distribution of climate sensitivity, J. Atmos. Sci., 40, 986-997, 
+1983. 
+Sandroni, S., D. Anfossi, and S. Viarengo, Surface ozone levels at 
+the end of the nineteenth century in South America, J. Geophys. 
+Res., 97, 2535-2539, 1992. 
+Schiffer, R. A., and W.B. Rossow, The international satellite cloud 
+climatology project (ISCCP): The first project of the world cli- 
+mate research programme, Bull. Am. Meteorol. Soc., 76, 779- 
+784, 1983. 
+Schwarzkopf, M.D., and V. Ramaswamy, Radiative forcing due to 
+ozone in the 1980s: Dependence on altitude of ozone change, 
+Geophys. Res. Lett., 20, 205-208, 1993. 
+Seiler, W., and R. Conrad, Contribution of tropical ecosystems to 
+the global budget of trace gases, especially CH4, H2, CO and 
+N20, in The Geophysiology of Amazonia edited by R. Dickinson, 
+pp. 133-160, John Wiley, New York, 1987. 
+Slingo, A., and J.M. Slingo, Response of the National Center for 
+Atmospheric Research community climate model to improve- 
+ments in the representation of clouds, J. Geophys. Res., 96, 
+15341-15357, 1991. 
+Steele, L.P., P.J. Fraser, R.A. Rasmussen, M.A. Khalil, T.J. Conway, 
+A.J. Crawford, R.H. Gammon, K.A. Masarie, and K.W. Thoning, 
+The global distribution of methane in the troposphere, J. Atmos. 
+Chem., 5, 125-171, 1987. 
+Stolarski, R.S., P. Bloomfield, R. McPeters, and J.R. Herman, Total 
+ozone trends deduced fron Nimbus 7 TOMS data, Geophys. Res. 
+Lett., 18, 1015-1018, 1991. 
+Thompson, A.M., The oxidizing capacity of the Earth's atmosphere: 
+Probable past and futurechanges,Science, 256, 1157-1165,1992. 
+Thompson, A.M., and R.J. Cicerone, Atmospheric CH4, CO and 
+OH from 1860 to 1985, Nature, 321,148-150, 1986. 
+Thompson, A.M., M.A. Huntley, and R.W. Stewart, Perturbations 
+to tropospheric oxidants, 1985-2035, 1, Calculations of ozone 
+and OH in chemically coherent regions, J. Geophys. Res., 95, 
+9829-9844, 1990. 
+Vaghjiani, G.L., and A.R. Ravishankara, New measurement of the 
+rate coefficient for the reaction of OH with methane, Nature, 350, 
+406-408, 1991. 
+Valenfin, K.M., Numerical modeling of the climatological and an- 
+thropogenic influences on the chemical composition of the tropo- 
+sphere since the Last Glacial Maximum, Ph.D. thesis, Univ. of 
+Mainz, Mainz, Germany, 1990. 
+Volz, A., and D. Kley, Evaluation of the Montsouris series of ozone 
+measurements made in the nineteenth century, Nature, 332, 240- 
+242, 1988. 
+Wang, W.-C., Y.-C. Zhuang, and R.D. Bojkov, Climate implications 
+of observed changes in ozone vertical distributions at middle and 
+high latitudes of the northern hemisphere, Geophys. Res. Lett., 
+20, 1567-1570, 1993. 
+Winkler, P., Meridional distribution of surface ozone over the At- 
+lantic (83øN - 76øS), in Proceedings of the Quadriennial Ozone 
+Symposium \"Ozone in the Atmosphere\" edited by R.D. Bojkov 
+and P. Fabian, pp. 423-425, A. Deepak, Hampton, VA., 1989. 
+World Meteorological Organization, Report of the international 
+ozone trends panel 1988, Global ozone research and monitoring 
+project, Rep. 18, Geneva, Switzerland, 1988. 
+World Meteorological Organization, Scientific assessment of ozone 
+depletion: 1991, Global ozone research and monitoring project, 
+Rep. 25, Geneva, Switzerland, 1991. 
+Wuebbles, D.J., and J. Edmonds, Primer on Greenhouse Gases, 
+Lewis Publishers, Chelsea, England, 1991. 
+G.P. Brasseur and C. Granier, National Center for Atmospheric 
+Research, Boulder, CO 80307. 
+D.A. Hauglustaine and G. M6gie, Service d'A6ronomie du 
+CNRS, Universit6 de Paris VI, 4, place Jussieu, Boite 102, F-75252 
+Paris Cedex 05, France. 
+(Received May 25, 1993; revised October 14, 1993; 
+accepted October 21, 1993.) 
+ 21562202d, 1994, D1, Downloaded from https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JD02987 by MPI 348 Meteorology, Wiley Online Library on [07/03/2024]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

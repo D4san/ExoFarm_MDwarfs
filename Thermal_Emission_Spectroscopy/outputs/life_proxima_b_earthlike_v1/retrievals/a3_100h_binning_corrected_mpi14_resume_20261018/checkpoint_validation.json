@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "raw_directory": "/home/dasan/exofarm_a3_100h_binning_corrected_20261017/run/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+  "replacements": 31300,
+  "evaluations": 663011,
+  "n_live": 800,
+  "live_shape": [
+    800,
+    16
+  ],
+  "physical_live_shape": [
+    800,
+    17
+  ],
+  "event_shape": [
+    30500,
+    18
+  ],
+  "finite": true,
+  "unit_cube_bounds": "PASS",
+  "prior_bounds_and_fixed_values": "PASS",
+  "hashes": {
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-stats.dat": "6b0c5db101c7618826454189291cfd9823a46feccc6790dc667747358ab6823c",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-live.points": "d94896fa286ccbbaa66440fc641415bb8cfce6807f45e627b860330ca2ffb4b1",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-summary.txt": "5b89c2551d60576e39319bed3dcdf244ae08aef5981476d34e8df79d2018b929",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-resume.dat": "ea3055fe6ccae33d1f2357ab364d30c8ed57373badf480254a14a7c5d3cb8601",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-.txt": "7e348f9d38d811c417ea19d78be318db217b7b2ff08a2542cda6b507a69061cd",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-ev.dat": "1e30939f519bdb4efd63bdfbcdbe71203e016bd5c9e202af3e095da8cab93056",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-post_equal_weights.dat": "c84a64dc39fd28e1ffe6e4c4c733a5fd29e6f70711e231f062d40f9d74f6ba2a",
+    "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-phys_live.points": "79442c746ff04750c1db26efebd74d7607b559f070e39c54b61cc3acc70179d7"
+  },
+  "validated_utc": "2026-10-18T19:46:23Z",
+  "source_campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_20261017",
+  "source_scratch": "/home/dasan/exofarm_a3_100h_binning_corrected_20261017",
+  "staged_run_directory": "/home/dasan/exofarm_a3_100h_binning_corrected_mpi14_resume_20261018/run",
+  "rank_change": {
+    "from": 1,
+    "to": 14
+  },
+  "resume_safe_basis": "same corrected operator, dataset, resolved priors/model and MultiNest basename; only MPI rank count changes"
+}

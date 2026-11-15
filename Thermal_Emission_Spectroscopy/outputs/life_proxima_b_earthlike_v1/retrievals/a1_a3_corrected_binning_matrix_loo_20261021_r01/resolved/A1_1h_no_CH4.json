@@ -1,0 +1,117 @@
+{
+  "model_name": "proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_noCH4",
+  "parameters": [
+    "R_p_ref",
+    "a1",
+    "a2",
+    "log_P1",
+    "log_P2",
+    "log_P3",
+    "T_ref",
+    "log_H2O",
+    "log_CO2",
+    "log_O2",
+    "log_O3",
+    "log_N2O",
+    "log_NH3",
+    "log_P_surf"
+  ],
+  "declared_dimension": 14,
+  "effective_free_dimension": 13,
+  "fixed_parameters": [
+    "log_P_surf"
+  ],
+  "fixed_log10_abundances": {},
+  "param_species": [
+    "H2O",
+    "CO2",
+    "O2",
+    "O3",
+    "N2O",
+    "NH3"
+  ],
+  "prior_types": {
+    "a1": "uniform",
+    "a2": "uniform",
+    "log_P1": "uniform",
+    "log_P2": "uniform",
+    "log_P3": "uniform",
+    "T_ref": "uniform",
+    "R_p_ref": "uniform",
+    "log_P_surf": "uniform",
+    "log_O2": "uniform",
+    "log_H2O": "uniform",
+    "log_CO2": "uniform",
+    "log_O3": "uniform",
+    "log_N2O": "uniform",
+    "log_NH3": "uniform"
+  },
+  "prior_ranges": {
+    "a1": [
+      0.02,
+      2.0
+    ],
+    "a2": [
+      0.02,
+      2.0
+    ],
+    "log_P1": [
+      -6,
+      1
+    ],
+    "log_P2": [
+      -6,
+      1
+    ],
+    "log_P3": [
+      -2,
+      1
+    ],
+    "T_ref": [
+      150,
+      400
+    ],
+    "R_p_ref": [
+      0.9840000000000001,
+      1.599
+    ],
+    "log_P_surf": [
+      0.0,
+      0.0
+    ],
+    "log_O2": [
+      -6.0,
+      -0.3010299956639812
+    ],
+    "log_H2O": [
+      -12,
+      -1
+    ],
+    "log_CO2": [
+      -12,
+      -1
+    ],
+    "log_O3": [
+      -12,
+      -1
+    ],
+    "log_N2O": [
+      -12,
+      -1
+    ],
+    "log_NH3": [
+      -12,
+      -1
+    ]
+  },
+  "dataset_sha256": "93fb65765101950063d5aa9a3dafae4df38273292cb0e3349e94b8a34516cfcc",
+  "R": 10000,
+  "wl_min": 3.0,
+  "wl_max": 20.0,
+  "n_live": 800,
+  "ev_tol": 0.5,
+  "surface_pressure_mode": "fixed-black",
+  "error_inflation": "none",
+  "x_profile": "isochem",
+  "likelihood": "direct_emission; diagonal Gaussian; same observed Fp"
+}

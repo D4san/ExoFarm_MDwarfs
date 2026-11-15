@@ -1,0 +1,35 @@
+{
+  "actual_poseidon_callback_bound": true,
+  "binding_scope": "sampling and posterior spectral/PT postprocessing",
+  "binned_reference_sha256": "4788633212963bf9df3fa806db285e8ca47a760d52b8e6b58d19794b18874c14",
+  "channel_centres_um": [
+    4.102564102564102,
+    18.216180685249164
+  ],
+  "channels": 31,
+  "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_100h_O2_fixedBlack1bar_noxtol_audit.dat",
+  "dataset_sha256": "d66c886238a2916312c645589be8601828fbf0a7cd2f02a383ef1d6a3454b5e3",
+  "excluded_species": "CH4",
+  "hours": 100,
+  "max_relative_callback_truth_closure": 2.2648549702353193e-14,
+  "max_relative_operator_truth_closure": 2.2648549702353193e-14,
+  "mpi_rank_pids": [
+    1561,
+    1562,
+    1563,
+    1564
+  ],
+  "mpi_size": 4,
+  "native_emission_sha256": "5a4423ecc2762fb11ca5b4d8770f760b58ea0a6a1f12f7ab897c5cca23bdbdae",
+  "native_grid_um": [
+    3.0,
+    20.0
+  ],
+  "operator": "midpoint-edge photon overlap; energy-to-photon conversion at exact channel centre",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "run_id": "A1_100h_no_CH4",
+  "scenario": "A1",
+  "stage": "setup_only",
+  "status": "PASS",
+  "truth_chi2": 21.230192857720155
+}

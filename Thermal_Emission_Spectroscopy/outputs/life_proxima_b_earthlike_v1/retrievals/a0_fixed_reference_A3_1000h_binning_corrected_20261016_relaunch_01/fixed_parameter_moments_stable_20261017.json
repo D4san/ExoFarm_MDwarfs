@@ -1,0 +1,103 @@
+{
+  "originals_preserved": true,
+  "rows": [
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "parameter": "log_N2O",
+      "fixed_value": -6.884325289636784,
+      "equal_weight_mean": -6.884325289636784,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -6.884325289636784,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7512,
+      "weighted_rows": 20787,
+      "equal_weight_sha256": "6a73d1047194c2eedf2653974547ae7b2a328e6dad090ec2ce4ec0a267be4b01",
+      "weighted_sha256": "c9c81f12da89a8fed45b9e8d9ee65eeae58dab680b853b2a061f4d3a43bf38a2",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7512,
+      "weighted_rows": 20787,
+      "equal_weight_sha256": "6a73d1047194c2eedf2653974547ae7b2a328e6dad090ec2ce4ec0a267be4b01",
+      "weighted_sha256": "c9c81f12da89a8fed45b9e8d9ee65eeae58dab680b853b2a061f4d3a43bf38a2",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "parameter": "log_NH3",
+      "fixed_value": -9.950526295665036,
+      "equal_weight_mean": -9.950526295665036,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -9.950526295665036,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 6809,
+      "weighted_rows": 18751,
+      "equal_weight_sha256": "a9d8fb531fb79f97a98253a629d791a7724b6af33269a7286470a42f92f06e65",
+      "weighted_sha256": "469e7763c21b1351cfc911780ad0eab2775c519828d19270950e56bd4503e177",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 6809,
+      "weighted_rows": 18751,
+      "equal_weight_sha256": "a9d8fb531fb79f97a98253a629d791a7724b6af33269a7286470a42f92f06e65",
+      "weighted_sha256": "469e7763c21b1351cfc911780ad0eab2775c519828d19270950e56bd4503e177",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_N2O",
+      "fixed_value": -6.884325289636784,
+      "equal_weight_mean": -6.884325289636784,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -6.884325289636784,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_NH3",
+      "fixed_value": -9.950526295665036,
+      "equal_weight_mean": -9.950526295665036,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": -9.950526295665036,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "parameter": "log_P_surf",
+      "fixed_value": 0.0,
+      "equal_weight_mean": 0.0,
+      "equal_weight_sd": 0.0,
+      "weighted_mean": 0.0,
+      "weighted_sd": 0.0,
+      "equal_weight_rows": 7178,
+      "weighted_rows": 20132,
+      "equal_weight_sha256": "dea4698ce39646785c4e55a251551bc695b5fc855e0087b7c40c53d842c4c1e1",
+      "weighted_sha256": "589c2db4380910d7c559c38c83ae8ad6c9b2f28c227b5faeec84062acd22eca5",
+      "method": "centered second moment about exact fixed value; math.fsum"
+    }
+  ]
+}

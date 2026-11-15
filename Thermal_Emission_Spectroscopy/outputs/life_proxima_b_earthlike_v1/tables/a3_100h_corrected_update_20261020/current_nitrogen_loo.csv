@@ -1,0 +1,13 @@
+scenario,hours,species,operator,ln_B,ln_B_numeric_error,sigma_calibrated_auxiliary,source
+A1,1,N2O,historical,-1.7968572649070893,0.24025101902277712,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A1,1,NH3,historical,-1.3800696869520834,0.2415233884278707,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,1,N2O,historical,0.04692980765764787,0.2335779014953727,1.1210652139634396,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,1,NH3,historical,-0.629107581844778,0.23147045035323185,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A1,10,N2O,historical,0.447130907794417,0.29646477152197126,1.6263050725254047,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A1,10,NH3,historical,-0.5008653596180466,0.29438575943053585,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,10,N2O,historical,7.3883913890672375,0.2905284361641627,4.252567873691998,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,10,NH3,historical,-0.7340731254055299,0.2920205816542948,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A1,100,N2O,historical,1.6079518007773004,0.3396553479208599,2.356325474775865,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A1,100,NH3,historical,-1.526463340921623,0.34092851698357074,,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,100,N2O,corrected,84.66050804740883,0.3465324555358581,13.21734854924016,Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_loo_20261019/validation_report_20261020.json
+A3,100,NH3,corrected,2.748990629929949,0.34462963584621376,2.8534463298412263,Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_loo_20261019/validation_report_20261020.json

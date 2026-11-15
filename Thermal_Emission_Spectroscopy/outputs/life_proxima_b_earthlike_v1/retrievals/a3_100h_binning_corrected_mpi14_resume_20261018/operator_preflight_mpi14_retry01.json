@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scenario": "A3",
+  "hours": 100,
+  "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "channels": 31,
+  "channel_centres_match": true,
+  "native_grid_matches_saved_forward": true,
+  "actual_forward_model_callback_bound": true,
+  "sampling_and_postprocessing_binding": true,
+  "maximum_relative_truth_closure": 2.2648549702353193e-14,
+  "truth_chi2_against_this_100h_realization": 42.3604584023654,
+  "native_wavelength_range_um": [
+    3.0,
+    20.0
+  ],
+  "operator": "midpoint-edge photon overlap; convert to energy at exact channel centre",
+  "operator_edges_um": [
+    3.997370151216305,
+    18.57677767641114
+  ]
+}

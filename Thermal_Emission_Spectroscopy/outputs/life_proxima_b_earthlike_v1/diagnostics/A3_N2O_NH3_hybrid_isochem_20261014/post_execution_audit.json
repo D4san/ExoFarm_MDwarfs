@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-14",
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "command_exit_code": 0,
+  "seven_preserved_input_hashes_match": true,
+  "all_npz_arrays_finite": true,
+  "saved_vertical_array_unchanged": true,
+  "figure_visually_inspected": true,
+  "n_bins": 31,
+  "bin_range_um": [4.102564102564102, 18.216180685249164],
+  "noise_1000h": {
+    "scope": "declared photon-only uncertainties, not an instrumental validation",
+    "median_flux_snr": 469.5533938126376,
+    "minimum_sigma_over_planet_flux_percent": 0.06844167213713649,
+    "median_sigma_over_planet_flux_percent": 0.21296832547205966,
+    "nh3_window_bin_um": [9.600251719136551, 10.092572320117913, 10.610140131406013, 11.154249881734525],
+    "nh3_window_sigma_over_planet_flux_percent": [0.11957022328950087, 0.09680184911052357, 0.08414095823875904, 0.07421572519189623],
+    "noise_model_changed": false
+  },
+  "sqrt_sum_squared_template_difference_over_sigma": {
+    "N2O": 0.5287134907275841,
+    "NH3": 1.05939663240816,
+    "joint": 1.1830409822102332,
+    "meaning": "diagnostic norm under diagonal errors, not detection sigma"
+  },
+  "new_retrievals": 0,
+  "existing_retrieval_acceptance_changed": false,
+  "universal_noise_floor_adopted": false
+}

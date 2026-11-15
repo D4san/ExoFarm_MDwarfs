@@ -1,0 +1,229 @@
+--- ExoFarms_Photochemistry_v2.tex (before)
++++ ExoFarms_Photochemistry_v2.tex (after)
+@@ -1024,7 +1024,7 @@
+ \label{eq:zdesc}
+ \end{equation}
+ 
+-The quantity $z^{\mathrm{desc}}$ expresses the displacement of the posterior median from the effective A0 abundance in units of the central posterior half-width. For approximately Gaussian and symmetric posteriors, it can be interpreted as an approximate sigma-equivalent separation from the A0 reference. We use it here as a descriptive measure of how strongly an inferred ExoFarm abundance departs from the pre-agricultural atmospheric state.
++The quantity $z^{\mathrm{desc}}$ expresses how far the posterior median lies from the effective A0 abundance relative to the central posterior half-width. It describes the recovered shift conditional on this retrieval model. The full posterior and evidence comparisons below assess the lower-abundance tails and the support for alternative atmospheric descriptions.
+ 
+ \begin{figure}
+     \centering
+@@ -1042,29 +1042,177 @@
+     descriptive displacement $z^{\mathrm{desc}}_{s|A0}$ defined in
+     \autoref{eq:zdesc}. Posterior densities are normalized independently
+     within each panel. $\mathrm{O_2}$ is included in the retrieval but
+-    omitted from the atlas for compactness.
++    omitted from the figure for compactness.
+     }
+     \label{fig:life_retrievals}
+ \end{figure}
+ 
+-At 1 h, neither nitrogen-bearing species is strongly constrained. The A3 molecular templates remain below the nominal S/N = 3 level, with integrated S/N values of $1.89$ for $\mathrm{N_2O}$ and $0.49$ for $\mathrm{NH_3}$, and their retrieved abundances remain close to the effective A0 reference, with $z^{\mathrm{desc}}=-0.88$ and $+0.14$, respectively. The remaining retrieved species likewise show no comparably strong scenario-dependent displacement from their A0 references and primarily provide atmospheric context for the nitrogen-bearing species.
+-
+-At 10 h, the behavior of $\mathrm{N_2O}$ changes markedly in the extreme A3 case. Its molecular template reaches an integrated S/N of $5.97$, while the retrieved abundance concentrates around $\log_{10}(\mathrm{VMR})=-6.06$ and is displaced from the effective A0 abundance by $z^{\mathrm{desc}}=5.59$. The A3 $\mathrm{N_2O}$ enhancement is therefore clearly separated from the pre-agricultural reference within the adopted retrieval model. The corresponding $\mathrm{NH_3}$ posterior remains much less informative, with $z^{\mathrm{desc}}=0.85$, indicating that 10 h is insufficient to separate its A3 abundance from A0.
+-
+-The distinction becomes stronger at 100 h. For A3, $\mathrm{N_2O}$ reaches $z^{\mathrm{desc}}=13.24$, while $\mathrm{NH_3}$ reaches $z^{\mathrm{desc}}=5.63$ and an integrated molecular S/N of $4.86$. The longer exposure therefore provides the first case in this sequence where the extreme ExoFarm enhancement is clearly separated from A0 for both nitrogen-bearing species. In contrast, the A1 cases remain close to the A0 reference even at 100 h, with $z^{\mathrm{desc}}=-0.99$ for $\mathrm{N_2O}$ and $-0.77$ for $\mathrm{NH_3}$. The A1 $\mathrm{NH_3}$ template also remains extremely weak, with an integrated S/N of only $0.37$. Consequently, the present-day-like agricultural perturbation is not distinguishable from A0 in these observations, while the extreme A3 scenario produces a characteristic joint displacement in $\mathrm{N_2O}$ and, at sufficiently long exposure, $\mathrm{NH_3}$.
+-
+-\textbf{[PENDIENTE: añadir un párrafo específico sobre detección molecular. Aquí se debe distinguir entre la detectabilidad de la presencia de una molécula y la capacidad de diferenciar su abundancia de la referencia A0. Por ahora se mantiene $z^{\mathrm{desc}}$ como medida de separación respecto de A0. Más adelante se evaluará si conviene complementar esta métrica usando directamente la probabilidad posterior en la cola respecto de A0, $p_{\mathrm{tail}}$, y su correspondiente separación gaussiana equivalente.]}
+-
+-This distinction is particularly important for the interpretation of $\mathrm{N_2O}$. Large biological $\mathrm{N_2O}$ fluxes can arise when denitrification terminates inefficiently at $\mathrm{N_2O}$ and the final reduction to $\mathrm{N_2}$ becomes limited \citep{schwietermanEvaluatingPlausibleRange2022}. Such pathways can sustain $\mathrm{N_2O}$ fluxes far above the modern terrestrial value independently of an agricultural technosphere. Atmospheric $\mathrm{NH_3}$ responds to a different source--sink balance. Dissolution, conversion to $\mathrm{NH_4^+}$, deposition, and uptake by aqueous and surface reservoirs can remove $\mathrm{NH_3}$ efficiently, while atmospheric accumulation becomes much more favorable as these sinks approach saturation \citep{huangAssessmentAmmoniaBiosignature2022a}.
+-
+-The joint recovery of enhanced $\mathrm{N_2O}$ and $\mathrm{NH_3}$ consequently provides greater attribution power than $\mathrm{N_2O}$ alone. Within the ExoFarm framework, $\mathrm{N_2O}$ provides the most accessible initial tracer of the nitrogen perturbation. The recovery of $\mathrm{NH_3}$ at longer integration times adds an independent constraint on the sustained input of reduced nitrogen and its competition with efficient surface sinks. Simultaneous recovery of the surrounding atmospheric composition further constrains the chemical environment in which both species coexist. Together, these measurements provide a stronger atmospheric indication of sustained agricultural forcing.
+-
+-At 100 h, the increased precision also exposes limitations of the retrieval parameterization, particularly the use of vertically constant abundances to represent the pressure-dependent VULCAN chemistry; the corresponding posterior separations should therefore be interpreted within this model assumption.
+-
+-\bigskip
+-
+-Overall, the thermal-emission analysis places the extreme ExoFarm scenario in a substantially more favorable observational regime than the JWST transmission case in \autoref{sec:transmission}. In A3, $\mathrm{N_2O}$ reaches informative LIFE sensitivities on timescales of hours and becomes clearly separated from the A0 atmospheric state in the retrieval by 10 h. Longer integrations allow the $\mathrm{NH_3}$ enhancement to become similarly distinguishable while also constraining the broader atmospheric context, substantially increasing the diagnostic power of the inferred nitrogen perturbation. For the nearest temperate systems, the observational challenge therefore progresses from molecular sensitivity toward the separation of agricultural atmospheric states from plausible natural references and the control of retrieval degeneracies.
+-
++At 1 h, neither nitrogen-bearing species is tightly constrained. The A3 molecular templates have integrated S/N values of $1.89$ for $\mathrm{N_2O}$ and $0.49$ for $\mathrm{NH_3}$, while their posterior medians lie at descriptive displacements $z^{\mathrm{desc}}=-0.88$ and $+0.14$ from A0. At 10 h, A3 $\mathrm{N_2O}$ reaches S/N $=5.97$ and concentrates around $\log_{10}(\mathrm{VMR})=-6.06$, with $z^{\mathrm{desc}}=5.59$. The corresponding $\mathrm{NH_3}$ posterior remains broad, with $z^{\mathrm{desc}}=0.85$.
++
++At 100 h, the A3 posterior medians move farther above A0, with $z^{\mathrm{desc}}=13.24$ for $\mathrm{N_2O}$ and $5.63$ for $\mathrm{NH_3}$. These values describe the inferred displacement within the adopted atmospheric model. Establishing whether the spectrum requires each molecule, and whether its abundance is elevated, calls for the complementary comparisons below. The A1 displacements remain negative at this exposure ($-0.99$ and $-0.77$, respectively), while the A1 $\mathrm{NH_3}$ template reaches only S/N $=0.37$.
++
++\subsubsection{Evidence for molecular absorption}
++\label{sec:life_molecular_evidence}
++
++Does allowing a molecule in the atmospheric model improve the explanation of the observed spectrum? We addressed this question by comparing each complete retrieval with six additional retrievals, each omitting one of $\mathrm{H_2O}$, $\mathrm{CO_2}$, $\mathrm{CH_4}$, $\mathrm{O_3}$, $\mathrm{N_2O}$, or $\mathrm{NH_3}$. Each omitted species was removed from both the abundance parameterization and its opacity contribution; the remaining free parameters were refitted. The six datasets therefore required six complete and 36 molecular-omission retrievals. Within each comparison, the dataset, noise realization, and common parameter priors were held fixed, following the model-comparison approach used by \citet{linDifferentiatingModernPrebiotic2021}.
++
++For data $D$ and an atmospheric model $M$, the Bayesian evidence is
++\begin{equation}
++Z_M=p(D\mid M)=\int p(D\mid\boldsymbol{\theta},M)\,
++\pi(\boldsymbol{\theta}\mid M)\,d\boldsymbol{\theta}.
++\label{eq:life_evidence}
++\end{equation}
++Here $\pi$ is the parameter prior and $p(D\mid\boldsymbol{\theta},M)$ is the likelihood. The evidence averages how well the model explains the spectrum over the parameter configurations allowed by its prior. Consequently, comparing evidences tests whether including the molecule earns support after allowing the other atmospheric properties to adjust. We report the Bayes factor and its natural logarithm as
++\begin{equation}
++B_i=\frac{Z_{\mathrm{full}}}{Z_{\mathrm{without}\ i}},
++\qquad
++\ln B_i=\ln Z_{\mathrm{full}}-\ln Z_{\mathrm{without}\ i}.
++\label{eq:life_molecular_bayes}
++\end{equation}
++Negative $\ln B_i$ favors the model omitting the molecule, zero gives equal evidences, and positive values favor including it. We use the conventional reference levels $\ln B\simeq1$, $2.5$, and $5$ for weak, moderate, and strong support, corresponding approximately to $B=3$, $12$, and $150$ \citep{bennekeSeager2013Cloudy}. These levels guide interpretation rather than defining universal detection boundaries.
++
++For comparison with previous retrieval studies, we also report an auxiliary calibrated significance $\sigma_{\mathrm{cal}}$. Following \citet{bennekeSeager2013Cloudy}, we equate their Bayes-factor bound and solve
++\begin{equation}
++B=\frac{-1}{e\,p_{\mathrm{cal}}\ln p_{\mathrm{cal}}},
++\qquad
++p_{\mathrm{cal}}=\operatorname{erfc}\!\left(\frac{\sigma_{\mathrm{cal}}}{\sqrt{2}}\right),
++\qquad 0<p_{\mathrm{cal}}<e^{-1}.
++\label{eq:life_sigma_cal}
++\end{equation}
++This places the evidence ratio on a familiar two-sided Gaussian scale: for example, $B\simeq21$ maps to $3\sigma_{\mathrm{cal}}$. The calculation is a reporting convention obtained by treating a bound as an equality. Its $p_{\mathrm{cal}}$ is not a measured frequentist false-alarm probability. We retain $\ln B$ as the primary metric and report no calibrated significance when $\ln B\leq0$.
++
++\begin{table*}[t!]
++\centering
++\caption{Molecular-omission comparisons for the six LIFE datasets. Each scenario has separate rows for $\ln B\pm\delta_{\mathrm{num}}$ and $\sigma_{\mathrm{cal}}$. Errors are numerical evidence uncertainties combined in quadrature; they do not represent uncertainty from atmospheric assumptions or noise realizations. A dash in the significance row indicates that the central evidence ratio does not favor including the molecule.}
++\label{tab:life_molecular_evidence}
++\begingroup
++\scriptsize
++\setlength{\tabcolsep}{3pt}
++\begin{tabular}{llcrrrrrr}
++\hline
++$t$ (h) & Scenario & Metric & $\mathrm{H_2O}$ & $\mathrm{CO_2}$ & $\mathrm{CH_4}$ & $\mathrm{O_3}$ & $\mathrm{N_2O}$ & $\mathrm{NH_3}$ \\
++\hline
++1 & A1 & $\ln B$ & $11.13\pm0.24$ & $469.13\pm0.29$ & $9.28\pm0.24$ & $-1.55\pm0.24$ & $-1.80\pm0.24$ & $-1.38\pm0.24$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 5.09 & 30.75 & 4.69 & --- & --- & --- \\
++1 & A3 & $\ln B$ & $19.52\pm0.23$ & $462.85\pm0.29$ & $6.00\pm0.23$ & $-0.36\pm0.23$ & $0.05\pm0.23$ & $-0.63\pm0.23$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 6.57 & 30.54 & 3.89 & --- & 1.12 & --- \\
++10 & A1 & $\ln B$ & $229.56\pm0.30$ & $4644.26\pm0.35$ & $54.68\pm0.29$ & $0.29\pm0.29$ & $0.45\pm0.30$ & $-0.50\pm0.29$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 21.57 & 96.43 & 10.69 & 1.47 & 1.63 & --- \\
++10 & A3 & $\ln B$ & $241.51\pm0.31$ & $3970.54\pm0.38$ & $26.80\pm0.29$ & $-0.38\pm0.29$ & $7.39\pm0.29$ & $-0.73\pm0.29$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 22.12 & 89.16 & 7.61 & --- & 4.25 & --- \\
++100 & A1 & $\ln B$ & $2289.86\pm0.35$ & $41729.86\pm0.45$ & $314.09\pm0.34$ & $38.40\pm0.34$ & $1.61\pm0.34$ & $-1.53\pm0.34$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 67.74 & 288.91 & 25.20 & 9.03 & 2.36 & --- \\
++100 & A3 & $\ln B$ & $1964.19\pm0.36$ & $46592.00\pm0.43$ & $272.92\pm0.33$ & $19.65\pm0.34$ & $65.55\pm0.34$ & $1.51\pm0.34$ \\
++ &  & $\sigma_{\mathrm{cal}}$ & 62.74 & 305.28 & 23.50 & 6.59 & 11.67 & 2.31 \\
++\hline
++\end{tabular}
++\endgroup
++\end{table*}
++
++The atmospheric context is accessible before both nitrogen-bearing molecules are recovered. Even at 1 h, $\mathrm{H_2O}$, $\mathrm{CO_2}$, and $\mathrm{CH_4}$ favor inclusion in both scenarios, while $\mathrm{O_3}$ reaches strong support at 100 h. These species provide information relevant to the atmospheric environment and to the interpretation of possible biosignatures. Their recovery motivates a contextual assessment of habitability and biological cycling; that assessment requires the source and environmental considerations discussed in \autoref{sec:life_interpretation}.
++
++For $\mathrm{N_2O}$, the two agricultural scenarios enter different observational regimes. A3 reaches $\ln B=7.39\pm0.29$ at 10 h and $65.55\pm0.34$ at 100 h, corresponding to $4.25$ and $11.67\sigma_{\mathrm{cal}}$. A1 reaches only $\ln B=1.61\pm0.34$ at 100 h ($2.36\sigma_{\mathrm{cal}}$). Thus, the current-Earth benchmark does not yield strong evidence for $\mathrm{N_2O}$ within 100 h in this configuration, whereas the intensified A3 case does so by 10 h.
++
++$\mathrm{NH_3}$ remains more demanding. Its omission is favored in every dataset except A3--100 h, where including it gives $\ln B=1.51\pm0.34$, or $B\simeq4.51$, with $2.31\sigma_{\mathrm{cal}}$. The longest exposure therefore provides a positive, weak molecular indication of $\mathrm{NH_3}$ alongside the strong $\mathrm{N_2O}$ result. Its contribution is promising, although appreciably less secure than that of $\mathrm{N_2O}$.
++
++\subsubsection{Posterior support for elevated nitrogen abundances}
++\label{sec:life_abundance_regions}
++
++Having established the support for molecular absorption, we ask whether the inferred nitrogen abundances reach levels associated with the agricultural scenarios. We use the effective A1 abundance as a descriptive threshold for the current-Earth benchmark, applying the same effective-abundance definition as in \autoref{eq:a0_effective}. For the Proxima profiles, $\log_{10}X^{\mathrm{eff}}_{A1}$ is $-6.73383$ for $\mathrm{N_2O}$ and $-9.30487$ for $\mathrm{NH_3}$. The individual and joint regions are
++\begin{equation}
++\begin{split}
++R_{\mathrm{N_2O}}&=\{X_{\mathrm{N_2O}}\geq X^{\mathrm{eff}}_{A1,\mathrm{N_2O}}\},\\
++R_{\mathrm{NH_3}}&=\{X_{\mathrm{NH_3}}\geq X^{\mathrm{eff}}_{A1,\mathrm{NH_3}}\},\\
++R_{\mathrm{joint}}&=R_{\mathrm{N_2O}}\cap R_{\mathrm{NH_3}}.
++\end{split}
++\label{eq:life_regions}
++\end{equation}
++These criteria identify abundances reaching or exceeding the modeled current benchmark, as expected along the current or intensified agricultural sequence. A lower threshold also admits values above the simulated A3 case. It therefore measures an abundance level; assigning its physical cause requires an additional comparison of possible sources.
++
++Inspired by the region-based analysis of \citet{woganSurfaceFluxes2026}, we estimate $q_R=P(R\mid D,M_{\mathrm{full}})$ as the fraction of equal-weight posterior samples within each region. Individual probabilities are obtained by marginalizing over the other atmospheric parameters. The joint probability uses both conditions on each common sample, retaining the posterior dependence between the two molecules.
++
++To determine how much support is supplied by the spectrum, we compare posterior and prior odds:
++\begin{equation}
++K_R=\frac{q_R/(1-q_R)}{q_{0,R}/(1-q_{0,R})},
++\qquad q_{0,R}=P(R\mid M_{\mathrm{full}}).
++\label{eq:life_region_bayes}
++\end{equation}
++Whereas $q_R$ states the posterior support for the region, $K_R$ quantifies how the data change that support relative to the prior. Values $K_R>1$ ($\ln K_R>0$) favor the region relative to its complement; values below unity favor the complement. Under priors restricted and renormalized within the two regions, $K_R$ is their evidence ratio. The probability and odds update summarize the same inference and are not independent pieces of evidence.
++
++For this diagnostic, the nominal independent priors uniform in $\log_{10}X\in[-12,-1]$ assign $q_{0,R}=52.13\%$ for $\mathrm{N_2O}$, $75.50\%$ for $\mathrm{NH_3}$, and $39.35\%$ for the joint region. Uniformity here means equal prior weight per decade in abundance. Much of that broad range already lies above A1, especially for $\mathrm{NH_3}$. We label the resulting $K_R$ values nominal pending verification of any restrictions induced by the complete prior implementation.
++
++\begin{table*}[t!]
++\centering
++\caption{Posterior probabilities of abundances $\geq$ A1 and nominal region odds updates. Probabilities are percentages. A1 and A3 are interleaved at each exposure. The three groups refer to the two individual regions and their intersection. For empirical probabilities $\simeq0\%$ or $\simeq100\%$, dashes replace odds updates that would depend on an unsampled tail; finite zero or infinite factors are not inferred from these samples.}
++\label{tab:life_a1_regions}
++\begingroup
++\scriptsize
++\setlength{\tabcolsep}{3pt}
++\begin{tabular}{llrrrrrrrrr}
++\hline
++ & & \multicolumn{3}{c}{$\mathrm{N_2O}\geq A1$} & \multicolumn{3}{c}{$\mathrm{NH_3}\geq A1$} & \multicolumn{3}{c}{Both $\geq A1$} \\
++$t$ (h) & Scenario & $q_R$ (\%) & $K_R$ & $\ln K_R$ & $q_R$ (\%) & $K_R$ & $\ln K_R$ & $q_R$ (\%) & $K_R$ & $\ln K_R$ \\
++\hline
++1 & A1 & 6.57 & 0.0646 & -2.739 & 40.81 & 0.224 & -1.497 & 2.82 & 0.0448 & -3.106 \\
++1 & A3 & 17.27 & 0.192 & -1.652 & 38.51 & 0.203 & -1.593 & 6.48 & 0.107 & -2.237 \\
++10 & A1 & 1.11 & 0.0103 & -4.573 & 28.23 & 0.128 & -2.058 & 0.38 & 0.00589 & -5.135 \\
++10 & A3 & 99.90 & 914 & 6.818 & 61.33 & 0.515 & -0.664 & 61.27 & 2.44 & 0.891 \\
++100 & A1 & 0.47 & 0.00436 & -5.435 & 6.13 & 0.0212 & -3.855 & $\simeq0$ & --- & --- \\
++100 & A3 & $\simeq100$ & --- & --- & 92.19 & 3.83 & 1.343 & 92.19 & 18.2 & 2.901 \\
++\hline
++\end{tabular}
++\endgroup
++\end{table*}
++
++The distinction between posterior probability and learning from the data is visible in A3 $\mathrm{NH_3}$. At 10 h, $61.33\%$ of its posterior lies above A1, but this is below the $75.50\%$ nominal prior mass, giving $K_R=0.515$. At 100 h, the probability rises to $92.19\%$ and $K_R=3.83$ ($\ln K_R=1.34$): the spectrum increases the odds of elevated $\mathrm{NH_3}$ by a factor of approximately four. The joint region reaches $92.19\%$ with $K_R=18.19$ ($\ln K_R=2.90$). Because essentially all sampled $\mathrm{N_2O}$ abundances exceed A1 at this exposure, the joint posterior probability is limited by $\mathrm{NH_3}$. Its larger joint odds update also reflects the different prior mass of the joint region.
++
++How elevated are the abundances, and how precisely are those levels inferred? We summarize the posterior distribution of $\Delta_i=\log_{10}[X_i/X^{\mathrm{eff}}_{A1,i}]$ together with its corresponding abundance ratio in \autoref{tab:life_a3_enrichment}. The central 95\% interval spans the 2.5th to 97.5th posterior percentiles, leaving 2.5\% of the mass in each tail.
++
++\begin{table}[t!]
++\centering
++\caption{Magnitude of the A3--100 h enrichment relative to the effective A1 benchmark. Intervals contain the central 95\% of the posterior mass. The dex width is the difference between the upper and lower percentiles in $\log_{10}X$.}
++\label{tab:life_a3_enrichment}
++\begin{tabular}{lrrrr}
++\hline
++Species & Median $X/X_{A1}^{\mathrm{eff}}$ & 95\% interval & Median $\Delta$ & Width (dex) \\
++\hline
++$\mathrm{N_2O}$ & 3.86 & 2.94--4.93 & 0.586 & 0.225 \\
++$\mathrm{NH_3}$ & 11.14 & 0.027--23.84 & 1.047 & 2.946 \\
++\hline
++\end{tabular}
++\end{table}
++
++For $\mathrm{N_2O}$, the central 95\% interval lies entirely above A1 and places its abundance at approximately three to five times the current benchmark. Relative to A0, the same posterior has a median enrichment of $5.45$, with a central 95\% interval of $4.15$--$6.97$. This is a well-localized elevation within the adopted model. The A1 control cases, however, place most posterior mass below their own effective A1 reference, including at 100 h. These controls show that the threshold has not been established as a calibrated classifier of agricultural scenarios; their recovery behavior and the limitations of the model are addressed in \autoref{sec:life_interpretation}.
++
++$\mathrm{NH_3}$ has a higher median ratio but a much broader distribution. Although $92.19\%$ of its posterior exceeds A1, approximately $7.81\%$ remains below it, and its central 95\% interval crosses the threshold. The central 68\% interval lies at $4.43$--$17.70$ times A1, showing that the main concentration of posterior mass favors enrichment while a smaller, extended tail permits low abundances. Relative to A0, $94.87\%$ lies above the reference, but the central 95\% ratio interval still spans $0.12$--$105.42$. This asymmetry explains why $z^{\mathrm{desc}}=5.63$ should not be read as a Gaussian confidence level excluding A0: the median and central half-width do not describe the extended lower tail. The positive posterior tendency and the weak molecular evidence together provide an initial indication of elevated $\mathrm{NH_3}$, with a precision substantially poorer than that of $\mathrm{N_2O}$.
++
++\subsubsection{Retrievals constrained to the A0 reference}
++\label{sec:life_a0_constraints}
++
++Can the spectrum still be explained when one or both nitrogen-bearing abundances are held at their pre-agricultural values? Since A3--100 h is the only dataset with weak evidence favoring molecular $\mathrm{NH_3}$, we selected this case for three additional retrievals: $\mathrm{N_2O}$ fixed to A0, $\mathrm{NH_3}$ fixed to A0, and both fixed to A0. All molecular opacities remained present. When one abundance was fixed, the other remained free. Together with the six complete and 36 omission retrievals, these comparisons comprise 45 retrievals in the analysis reported here.
++
++Fixing both molecules provides a common reference from which to assess the gain from releasing either abundance. Comparisons with the complete model allow both nitrogen-bearing species to vary, which is particularly important because the strong $\mathrm{N_2O}$ signal could otherwise impose a mismatch that other parameters attempt to compensate. For each restricted model $M_{A0}$, we use $B_{A0}=Z_{\mathrm{full}}/Z_{M_{A0}}$ on the same A3--100 h dataset.
++
++\begin{table}[t!]
++\centering
++\caption{Evidence for the complete A3--100 h model relative to models fixing nitrogen-bearing abundances to A0. These contrasts test departures from nonzero reference abundances; the omitted-molecule contrasts are reported separately in \autoref{tab:life_molecular_evidence}.}
++\label{tab:life_a0_constraints}
++\begin{tabular}{lrr}
++\hline
++Restricted model & $\ln B_{A0}\pm\delta_{\mathrm{num}}$ & $\sigma_{\mathrm{cal}}$ \\
++\hline
++$\mathrm{N_2O}$ fixed; $\mathrm{NH_3}$ free & $29.440\pm0.340$ & 7.96 \\
++$\mathrm{NH_3}$ fixed; $\mathrm{N_2O}$ free & $1.170\pm0.342$ & 2.12 \\
++Both fixed & $31.103\pm0.336$ & 8.17 \\
++\hline
++\end{tabular}
++\end{table}
++
++Allowing both abundances to vary is strongly favored over fixing both at A0. To identify the contribution of each molecule, the restricted models can also be compared with one another. Starting from both fixed at A0, releasing $\mathrm{N_2O}$ alone gives $\ln B=29.932\pm0.332$, while releasing $\mathrm{NH_3}$ alone gives $1.663\pm0.330$ ($B\simeq5.27$). Once $\mathrm{N_2O}$ is free, releasing $\mathrm{NH_3}$ adds $\ln B=1.170\pm0.342$ ($B\simeq3.22$). Thus, $\mathrm{N_2O}$ accounts for the principal evidence that the nitrogen composition departs from A0, and $\mathrm{NH_3}$ supplies an additional positive but modest contribution. The comparisons share models and data and should not be combined as independent tests.
++
++The alternative posteriors also test the sensitivity of the abundance-region result to restrictions on the other molecule. With $\mathrm{N_2O}$ fixed to A0, $94.43\%$ of the $\mathrm{NH_3}$ posterior remains above A1, with nominal $K_R=5.50$ ($\ln K_R=1.70$), compared with $92.19\%$ and $K_R=3.83$ when both are free. With $\mathrm{NH_3}$ fixed to A0, the sampled $\mathrm{N_2O}$ probability remains $\simeq100\%$ above A1. The tendency toward elevated abundances therefore persists under these particular restrictions. However, fixing $\mathrm{N_2O}$ is strongly disfavored by the spectrum, so its conditional $\mathrm{NH_3}$ posterior may partly reflect compensation for that imposed mismatch. When both species are fixed to A0, failing the A1 threshold is imposed by construction and provides no additional posterior test.
++
++Overall, LIFE accesses a strong $\mathrm{N_2O}$ signature in A3 by 10 h, while 100 h supplies weak positive evidence for molecular $\mathrm{NH_3}$ together with posterior support for its enrichment. These complementary results motivate longer integrations to determine how well both abundances can be constrained jointly. \textbf{[PENDING: incorporate the A3--1000 h comparisons after their dedicated analysis and acceptance.]}
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@ -1192,6 +1340,20 @@
+ \end{figure}
+ 
+ \section{Discussion}\label{sec:disc}
++
++\subsection{Interpreting LIFE nitrogen signatures and abundance-region probabilities}
++\label{sec:life_interpretation}
++
++The recovered $\mathrm{H_2O}$, $\mathrm{CO_2}$, $\mathrm{CH_4}$, and, at longer exposure, $\mathrm{O_3}$ provide atmospheric context for evaluating habitability and biologically relevant chemical cycles. Their detection alone does not establish habitable surface conditions or a biological origin. \citet{woganSurfaceFluxes2026} emphasize the role of photochemistry and climate in connecting atmospheric abundances to the sources sustaining them. Our retrievals constrain effective abundances and leave that source attribution conditional on the adopted atmospheric and photochemical models.
++
++Large biological $\mathrm{N_2O}$ fluxes can occur when denitrification produces $\mathrm{N_2O}$ efficiently while its final reduction to $\mathrm{N_2}$ is limited \citep{schwietermanEvaluatingPlausibleRange2022}. Enhanced $\mathrm{N_2O}$ can therefore arise in natural biospheres as well as under agricultural forcing. Atmospheric $\mathrm{NH_3}$ responds to a different balance: dissolution, conversion to $\mathrm{NH_4^+}$, deposition, and uptake by surface reservoirs can remove it efficiently, while accumulation becomes more favorable as these sinks approach saturation \citep{huangAssessmentAmmoniaBiosignature2022a}. Joint constraints on the two molecules could help test these source--sink balances, provided that plausible natural and agricultural mechanisms are compared explicitly.
++
++The region probabilities in \autoref{sec:life_abundance_regions} quantify support for composition thresholds. Their $K_R$ values compare complementary abundance regions using the adopted prior within each region. A probability of ExoFarm would additionally require predictive distributions for agricultural and natural atmospheres and contextual prior probabilities for those hypotheses. The A0--A3 scenarios provide controlled reference calculations, but they do not define these distributions by themselves. The larger joint $K_R$ also incorporates the strong $\mathrm{N_2O}$ constraint and should not be read as equally strong, independent support from $\mathrm{NH_3}$. The A1 threshold was selected retrospectively after examining this series; it should be fixed before assessing future realizations.
++
++Several limitations affect the numerical interpretation. The synthetic spectra contain vertical chemical structure, while the retrieval represents each molecule by a constant abundance; a pressure-weighted reference need not equal the abundance favored by the spectral contribution functions. Each dataset uses one noise realization with diagonal uncertainties, and A1--1 h uses the second realization selected after inspecting both results. The series therefore does not establish detection completeness or the coverage of the reported intervals. Verification of the complete effective prior remains necessary before treating the nominal region factors as final evidence ratios.
++
++A subsequent interface diagnosis also identified different spectral-bin integration conventions in the generator and likelihood used for this 1--100 h series. This discrepancy can bias recovered abundances and evidence comparisons; the reported values describe the original series and require reassessment with a common integration operator before drawing final instrumental forecasts. The low recovery of the A1 effective reference reinforces the need for these controls. The A3--1000 h analysis is being treated separately, and its accepted products should be incorporated with their corresponding matched comparisons.
++
+ 
+ \iffalse
+ [ACORDARSE EN EL PLANETA GRANJA]

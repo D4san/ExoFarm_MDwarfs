@@ -85,6 +85,14 @@ def main():
         help="write the dataset index to this path instead of the canonical index",
     )
     ap.add_argument(
+        "--index-classification",
+        default="audit/pilot dataset; excluded from canonical matrix",
+        help=(
+            "classification recorded in a non-canonical dataset index; use "
+            "only with --index-output"
+        ),
+    )
+    ap.add_argument(
         "--direct-lifesim",
         action="store_true",
         help="call LIFEsim classic at each requested integration time instead of scaling sigma",
@@ -191,7 +199,7 @@ def main():
         index_payload["lifesim_version"] = version("lifesim")
         index_payload["spectres_version"] = version("spectres")
     if index_output is not None:
-        index_payload["classification"] = "audit/pilot dataset; excluded from canonical matrix"
+        index_payload["classification"] = args.index_classification
         index_payload["canonical_index"] = str(data_dir / "dataset_index.json")
     with open(index_path, "w") as fh:
         json.dump(index_payload, fh, indent=2)

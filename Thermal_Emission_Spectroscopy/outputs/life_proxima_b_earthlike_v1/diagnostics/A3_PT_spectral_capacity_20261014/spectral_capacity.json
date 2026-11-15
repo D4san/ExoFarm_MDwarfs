@@ -1,0 +1,68 @@
+{
+  "scope": "deterministic PT-only spectral capacity; no retrieval",
+  "objective": "sum[(Fp_PT - Fp_noiseless_A3)/sigma_1000h]^2",
+  "noisy_observation_used_in_objective": false,
+  "number_of_starts": 2,
+  "attempts": [
+    {
+      "start": "temperature_approximation",
+      "success": true,
+      "status": 3,
+      "message": "`xtol` termination condition is satisfied.",
+      "nfev": 14,
+      "njev": 9,
+      "optimality": 347208.9921732588,
+      "initial_weighted_norm": 81507.45749571406,
+      "final_weighted_norm": 2385.871684077218,
+      "final_parameters": [
+        0.585851856703884,
+        0.12480773563986271,
+        -2.3799872820189427,
+        -1.3327473370030996,
+        0.8449565580242249,
+        225.8630760165541
+      ]
+    },
+    {
+      "start": "archived_PT",
+      "success": true,
+      "status": 3,
+      "message": "`xtol` termination condition is satisfied.",
+      "nfev": 17,
+      "njev": 12,
+      "optimality": 76037.68801778751,
+      "initial_weighted_norm": 1783.855033852429,
+      "final_weighted_norm": 41.170355785693864,
+      "final_parameters": [
+        1.9974678752034425,
+        0.11886289267389319,
+        -2.5962979515752607,
+        -1.338191135268409,
+        0.11433986185193001,
+        217.22439155789476
+      ]
+    }
+  ],
+  "actual_forward_evaluations": 161,
+  "invalid_order_or_temperature_candidates": 0,
+  "finite_search_global_minimum_proven": false,
+  "chemical_profiles_geometry_and_operator_fixed": true,
+  "chosen_candidate": "lowest valid objective encountered, including finite-difference probes",
+  "parameters": {
+    "a1": 1.997467838506008,
+    "a2": 0.11886294841659167,
+    "log_P1": -2.5962717246260008,
+    "log_P2": -1.338167930807023,
+    "log_P3": 0.11433986185193001,
+    "T_ref": 217.22764293441685
+  },
+  "weighted_template_squared_norm": 41.01988826494211,
+  "rms_template_difference_over_sigma": 1.150313958054455,
+  "max_template_difference_over_sigma": 4.164437543589019,
+  "rms_relative_flux": 0.11523156755464993,
+  "max_relative_flux": 0.6365270234065621,
+  "rms_temperature_error_K": 65.09970316740433,
+  "surface_temperature_error_K": -0.06950600583746791,
+  "noise_changed": false,
+  "new_retrievals": 0
+}

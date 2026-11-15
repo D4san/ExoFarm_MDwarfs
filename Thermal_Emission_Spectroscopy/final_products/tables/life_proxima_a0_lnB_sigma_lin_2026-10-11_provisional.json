@@ -1,0 +1,62 @@
+{
+  "status": "REQUIRES_REVIEW",
+  "accepted": false,
+  "audit": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a0_fixed_reference_20261010\\validation_report_20261011.json",
+  "method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+  "rows": [
+    {
+      "run_id": "A3_100h_A0_N2O",
+      "scenario": "A3",
+      "hours": 100,
+      "fixed_species": "N2O",
+      "lnz_full": 884.3333041378268,
+      "lnz_full_error": 0.24446554153470446,
+      "lnz_a0_fixed": 854.8931804139012,
+      "lnz_a0_fixed_error": 0.23584664829376045,
+      "ln_B": 29.44012372392558,
+      "ln_B_numerical_error": 0.33968668285532927,
+      "sigma_calibrated_bilateral": 7.956193637056888,
+      "log_p_calibrated": -33.96546808795344,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "posterior_samples": 6692,
+      "effective_free_dimension": 13
+    },
+    {
+      "run_id": "A3_100h_A0_NH3",
+      "scenario": "A3",
+      "hours": 100,
+      "fixed_species": "NH3",
+      "lnz_full": 884.3333041378268,
+      "lnz_full_error": 0.24446554153470446,
+      "lnz_a0_fixed": 883.1629039835424,
+      "lnz_a0_fixed_error": 0.23919838654023615,
+      "ln_B": 1.1704001542843798,
+      "ln_B_numerical_error": 0.3420223225482637,
+      "sigma_calibrated_bilateral": 2.1242419000559645,
+      "log_p_calibrated": -3.391744563934642,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "posterior_samples": 6152,
+      "effective_free_dimension": 13
+    },
+    {
+      "run_id": "A3_100h_A0_joint",
+      "scenario": "A3",
+      "hours": 100,
+      "fixed_species": "N2O+NH3",
+      "lnz_full": 884.3333041378268,
+      "lnz_full_error": 0.24446554153470446,
+      "lnz_a0_fixed": 853.2306013393314,
+      "lnz_a0_fixed_error": 0.2306635666712087,
+      "ln_B": 31.10270279849533,
+      "ln_B_numerical_error": 0.3361087353630361,
+      "sigma_calibrated_bilateral": 8.165420001319351,
+      "log_p_calibrated": -35.677215049618724,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "posterior_samples": 6021,
+      "effective_free_dimension": 12
+    }
+  ]
+}

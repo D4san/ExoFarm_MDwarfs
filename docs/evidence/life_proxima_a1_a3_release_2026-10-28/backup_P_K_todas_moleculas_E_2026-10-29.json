@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "created_utc": "2026-10-29T07:24:33.749734+00:00",
+  "source_repository": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs",
+  "destination": "E:\\Respaldos\\ExoFarm_MDwarfs\\LIFE_Proxima_A1_A3_20261028\\suplemento_P_K_todas_moleculas_20261029",
+  "new_manifest_rel": "docs/evidence/life_proxima_a1_a3_release_2026-10-28/SHA256_P_K_TODAS_MOLECULAS_2026-10-29.txt",
+  "new_manifest_sha256": "aa53639cd204fb1f0c9c1fc38384c86c2c3e77b5c3fcc60676aef4d68bbccc20",
+  "new_files_verified": 28,
+  "new_bytes": 1297037,
+  "analysis_inputs_checked": 480,
+  "inputs_verified_in_prior_backups": 477,
+  "previous_supplement_manifest_sha256": "9ba9030db60f3761f4cf3e09f8f60695d80d9ae1fd844138c49b87d56983d50d",
+  "scope": "informe vigente, tablas y codigo P/K para siete gases, indices y fuentes de comparacion historica; los otros insumos se verificaron en las copias anteriores",
+  "excluded": [
+    "entorno Conda completo",
+    "opacidades externas POSEIDON",
+    "scratch externo",
+    "resto del repositorio"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "validated_utc": "2026-10-12T22:25:13.237988+00:00",
+  "result": "PASS",
+  "replacements": 51200,
+  "evaluations": 2646212,
+  "live_shape": [
+    800,
+    16
+  ],
+  "physical_shape": [
+    800,
+    17
+  ],
+  "event_shape": [
+    50400,
+    18
+  ],
+  "finite": true,
+  "live_likelihoods_identical": true,
+  "priors_and_fixed_surface": "PASS",
+  "preserved_inputs": 29,
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "configuration_sha256": "2976d13f5669a2558c17dca2f30972dc16b907fba378b66dd3e065da476d5e7f",
+  "runner_sha256": "3fcd08939e385ac9934b6fe297591480244fa753bf0122184aee2697e6e73fa1",
+  "raw_hashes": {
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-.txt": "aba0ffb7cad19198b6432120c6a23a14832959f4c75b6301f8f3bcbab142f0b9",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-ev.dat": "43c78d70667c2fb182afdd9e8d19f638a8e19b2b11593a6a14cf42d8f54ae59d",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-live.points": "d781d9407ca30879c3a1f839d470bc21a3ea0a02564e7e88746409953cb26c29",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-phys_live.points": "d66ea54ba8d4dec086db113e68cda5bdfaf1437800554ffd3ab8f6321c1b2779",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-post_equal_weights.dat": "6cb6f33f92b325fc46b8cab8b5a390028ae55984425d9cfa1ab2b2379914cbf1",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-resume.dat": "9be6eda0f4c7f4ebdd0f60ff79b5424c59dcc154828284ba446c470663fa5104",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-stats.dat": "c95e99cce1ff93eb46e577cd8bb56827c45b59b0a7aa2c973da515ecc9bbdd46",
+    "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-summary.txt": "9a8b2c11b09ec43a774cfb2131c1ed33cc67ec4fb6c9a8798838793f5e0b897f"
+  },
+  "checkpoint_directory": "/home/dasan/exofarm_a3_1000h_20261011_nativegrid/run/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw"
+}

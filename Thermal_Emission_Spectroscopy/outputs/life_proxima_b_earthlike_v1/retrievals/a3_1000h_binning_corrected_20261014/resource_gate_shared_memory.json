@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "mpi_ranks": 15,
+  "logical_cpus": 16,
+  "aggregate_peak_PSS_KiB": 9727318,
+  "minimum_MemAvailable_KiB": 22052308,
+  "MemAvailable_after_probe_KiB": 31930876,
+  "reserve_KiB": 12058624,
+  "method": "sum of proportional set sizes, shared pages counted once",
+  "shared_source": "POSEIDON absorption.py:735-740, node_rank==0 loader; utility.py:315-344",
+  "initial_RSS_gate": "preserved; overcounted shared/loader memory"
+}

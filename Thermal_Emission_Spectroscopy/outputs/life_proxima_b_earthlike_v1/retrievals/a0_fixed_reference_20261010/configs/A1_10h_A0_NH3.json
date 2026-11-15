@@ -1,0 +1,22 @@
+{
+  "run_id": "A1_10h_A0_NH3",
+  "scenario": "A1",
+  "hours": 10,
+  "variant": "NH3",
+  "fixed_species": [
+    "NH3"
+  ],
+  "fixed_log10_vmr": {
+    "NH3": -9.950526295665036
+  },
+  "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_10h.dat",
+  "dataset_sha256": "ed39ae6dc5b8ff0d5c8aca3d126a2945343a289be30f3b8d9e8e72c434ee9b8f",
+  "dataset_seed": 1099171982,
+  "full_results": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A1_10h_O2_fixedBlack1bar_noxtol_MPI6R1_results.txt",
+  "full_results_sha256": "8c40f17e4407cbd8e4d88446148ff43d3b57a522d6beeb14d093805731022efc",
+  "declared_dimension": 15,
+  "effective_free_dimension": 13,
+  "run_dir": "/home/dasan/exofarm_a0ref_20261010/runs/A1_10h_A0_NH3",
+  "archive_dir": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A1_10h_A0_NH3",
+  "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 6 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A1 --hours 10 --n-live 800 --R 10000 --wl-min 3.8 --wl-max 19.0 --include-o2 --x-profile isochem --error-inflation none --surface-pressure-mode fixed-black --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_10h.dat --output-tag _A0ref_NH3_v1 --run-dir /home/dasan/exofarm_a0ref_20261010/runs/A1_10h_A0_NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/resolved/A1_10h_A0_NH3.json --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/a0_reference.json --fix-a0-species NH3"
+}

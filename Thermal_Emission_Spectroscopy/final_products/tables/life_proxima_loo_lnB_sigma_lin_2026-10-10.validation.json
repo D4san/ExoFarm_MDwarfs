@@ -1,0 +1,17 @@
+{
+  "campaign_id": "proxima_a1_a3_molecule_ablation_loo_20261004",
+  "input_sha256": "55f46c4e3a2257160e1748e4710c95a9169b360e667e328cdacc8225450c4750",
+  "rows": 36,
+  "calibrated_sigma_rows": 27,
+  "not_favoured_na_rows": 9,
+  "calibration_controls": "PASS",
+  "paired_evidence_and_dataset_checks": "PASS",
+  "csv_roundtrip": "PASS",
+  "method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+  "retrievals_launched": 0,
+  "sources": [
+    "https://arxiv.org/pdf/2105.09319#page=10",
+    "https://arxiv.org/pdf/2105.09319#page=11",
+    "https://arxiv.org/pdf/1306.6325#page=5"
+  ]
+}

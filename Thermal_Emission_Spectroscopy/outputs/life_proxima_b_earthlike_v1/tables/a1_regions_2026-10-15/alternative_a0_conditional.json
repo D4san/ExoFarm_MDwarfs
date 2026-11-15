@@ -1,0 +1,52 @@
+{
+  "date_local": "2026-10-15",
+  "rows": [
+    {
+      "run": "A3_100h_A0_N2O",
+      "free_species": "NH3",
+      "fixed_species_at_a0": "N2O",
+      "p_free_species_ge_a1": 0.9442618051404662,
+      "p_nominal_prior": 0.7549877378716058,
+      "ratio_to_a1_q025_median_q975": [
+        0.07170897157043522,
+        11.649126554958821,
+        23.232739064887834
+      ],
+      "K_nominal": 5.497781119603237,
+      "ln_K_nominal": 1.7043445780381081,
+      "tail_status": "both_sides_sampled",
+      "ln_B_free_vs_both_a0": 1.6625790745697486,
+      "B_free_vs_both_a0": 5.272892505830617,
+      "ln_B_numerical_error": 0.32989289549925727,
+      "samples_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A3_100h_A0_N2O/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_100h_A0ref_N2O_v1_samples.txt",
+      "samples_sha256": "61d7f25f443031f69c10fefd6495d2e7fa9c9604053b5ae595e9b8fb6200ba3c",
+      "n_samples": 6692
+    },
+    {
+      "run": "A3_100h_A0_NH3",
+      "free_species": "N2O",
+      "fixed_species_at_a0": "NH3",
+      "p_free_species_ge_a1": 1.0,
+      "p_nominal_prior": 0.5212573153127594,
+      "ratio_to_a1_q025_median_q975": [
+        2.891992261383362,
+        3.7857293620694636,
+        4.799181552108442
+      ],
+      "K_nominal": null,
+      "ln_K_nominal": null,
+      "tail_status": "complement_unsampled",
+      "ln_B_free_vs_both_a0": 29.93230264421095,
+      "B_free_vs_both_a0": 9986972845597.674,
+      "ln_B_numerical_error": 0.3322973805387809,
+      "samples_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A3_100h_A0_NH3/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_100h_A0ref_NH3_v1_samples.txt",
+      "samples_sha256": "3e56266097fa7ed2acbd0d10c831c7e36d53959f669fd7265fc65f05a77b7954",
+      "n_samples": 6152
+    }
+  ],
+  "source_audit_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/validation_report_20261011.json",
+  "source_audit_sha256": "0a3afe99abe0f9d685251ec06d8209eb263cc5bc436162ffb9fd3fa2ef951eeb",
+  "source_manifest_sha256": "c658e3067cbad31f8426de58300fe35f8bd292aed8456c858dc998cca71dfb51",
+  "script_sha256": "d979a31b5410269f3e7a98849a1e0f3e77e2b3d49710db909364d9a4f3ac659c",
+  "limits": "historical binning discrepancy; nominal prior; conditional sensitivity, no causal attribution"
+}

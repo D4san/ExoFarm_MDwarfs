@@ -1,0 +1,18 @@
+{
+  "status": "FAILED",
+  "authorized_runs": 1,
+  "scenario": "A3",
+  "hours": 1000,
+  "mpi_ranks": 15,
+  "n_live": 800,
+  "acceptance": "PENDING",
+  "scratch": "/home/dasan/exofarm_a3_1000h_binning_20261014",
+  "model_name": "proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1",
+  "scientific_change": "binning only",
+  "checkpoint_reuse": false,
+  "baseline": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/native_grid_retry",
+  "updated_utc": "2026-10-14T17:57:01.671093+00:00",
+  "supervisor_pid": 813,
+  "error": "RuntimeError: MPI15 resource gate failed: {'logical_cpus': 16, 'preflight_peak_RSS_KiB': 7080708, 'MemAvailable_KiB': 31939648, 'required_KiB': 110404924, 'mpi_ranks': 15, 'threads_per_rank': 1}",
+  "scratch_preserved": true
+}

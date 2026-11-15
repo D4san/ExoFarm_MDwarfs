@@ -1,0 +1,38 @@
+{
+  "actual_poseidon_callback_bound": true,
+  "binding_scope": "sampling and posterior spectral/PT postprocessing",
+  "binned_reference_sha256": "4788633212963bf9df3fa806db285e8ca47a760d52b8e6b58d19794b18874c14",
+  "channel_centres_um": [
+    4.102564102564102,
+    18.216180685249164
+  ],
+  "channels": 31,
+  "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "excluded_species": "CH4",
+  "hours": 100,
+  "max_relative_callback_truth_closure": 2.2648549702353193e-14,
+  "max_relative_operator_truth_closure": 2.2648549702353193e-14,
+  "mpi_rank_pids": [
+    992,
+    993,
+    994,
+    995
+  ],
+  "mpi_size": 4,
+  "native_emission_sha256": "cd9a06a75085820fd54d13bd8b145b929459ce779fadbb5fa152be6e3e263381",
+  "native_grid_um": [
+    3.0,
+    20.0
+  ],
+  "operator": "midpoint-edge photon overlap; energy-to-photon conversion at exact channel centre",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "recovery_attempt": 2,
+  "recovery_source_campaign": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01",
+  "resume_checkpoint": true,
+  "run_id": "A3_100h_no_CH4",
+  "scenario": "A3",
+  "stage": "sampling_resume",
+  "status": "PASS",
+  "truth_chi2": 42.3604584023654
+}

@@ -1,0 +1,125 @@
+{
+  "status": "REQUIRES_FIXED_MOMENT_REVIEW",
+  "accepted": false,
+  "audit": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01/validation_report_20261017.json",
+  "method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+  "rows": [
+    {
+      "run_id": "A3_1000h_A0_N2O_BIN1",
+      "variant": "N2O",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "N2O",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 200.1049967913127,
+      "lnz_a0_fixed_numeric_error": 0.27086889559846294,
+      "ln_B_full_minus_A0": 626.506080967911,
+      "ln_B_numeric_error_quadrature": 0.3844865915650985,
+      "sigma_calibrated_bilateral": 35.50103994399889,
+      "sigma_status": "calibrated",
+      "log_p_calibration": -633.9580637746947,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 7512,
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": "{\"N2O\": -6.884325289636784}",
+      "result_sha256": "e60cbb41f6778005275b889b4185a40d9e1115572e3b39001b6ddee58684240b",
+      "stats_sha256": "0e814e798fa4d82fb89563cfa9a7a5cfb77a5070d6e5ab30266f6eb6732e6385",
+      "fixed_moment_issue_count": 1
+    },
+    {
+      "run_id": "A3_1000h_A0_NH3_BIN1",
+      "variant": "NH3",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "NH3",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 827.6038047121173,
+      "lnz_a0_fixed_numeric_error": 0.2680107102230281,
+      "ln_B_full_minus_A0": -0.9927269528935767,
+      "ln_B_numeric_error_quadrature": 0.38247839322616356,
+      "sigma_calibrated_bilateral": null,
+      "sigma_status": "N/A_lnB_not_positive",
+      "log_p_calibration": null,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 6809,
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "fixed_log10_vmr": "{\"NH3\": -9.950526295665036}",
+      "result_sha256": "e992f984f835258520750c65d02a7f836cb09ee9324025d998bb209d781e082e",
+      "stats_sha256": "cc28a3780852ac96ddd19b8ef6a48c6900f004be2ed5c1db625b7f39151a9e48",
+      "fixed_moment_issue_count": 1
+    },
+    {
+      "run_id": "A3_1000h_A0_joint_BIN1",
+      "variant": "joint",
+      "scenario": "A3",
+      "hours": 1000,
+      "fixed_species": "N2O+NH3",
+      "lnz_full_corrected": 826.6110777592237,
+      "lnz_full_numeric_error": 0.27287356136243,
+      "lnz_a0_fixed": 200.54754524064325,
+      "lnz_a0_fixed_numeric_error": 0.2675626276109096,
+      "ln_B_full_minus_A0": 626.0635325185805,
+      "ln_B_numeric_error_quadrature": 0.3821645459545798,
+      "sigma_calibrated_bilateral": 35.48856214800213,
+      "sigma_status": "calibrated",
+      "log_p_calibration": -633.5148159054486,
+      "sigma_method": "Benneke-Seager-2013-eq8-eq9-equality-bilateral; Lin-2021-Table2-NA",
+      "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+      "posterior_samples": 7178,
+      "declared_dimension": 15,
+      "effective_free_dimension": 12,
+      "fixed_log10_vmr": "{\"N2O\": -6.884325289636784, \"NH3\": -9.950526295665036}",
+      "result_sha256": "287cad526773bfac1003e467ecb0337129842dbee648a0f53c9d6ee2d60bda8b",
+      "stats_sha256": "fa633e5ebc8a226c1fa2317d2bdc8873ea8962168a7bb94aaf04304a800c4db7",
+      "fixed_moment_issue_count": 4
+    }
+  ],
+  "posterior_enrichment": {
+    "rows": 7168,
+    "source": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_binning_corrected_20261014\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI15_BIN1_samples.txt",
+    "N2O": {
+      "delta_log10_median_q025_q975_dex": [
+        0.7977305219876647,
+        0.8264660081536555,
+        0.8539583265694566
+      ],
+      "enrichment_factor_median_q025_q975": [
+        6.276687719609862,
+        6.70603797079968,
+        7.1442776871242035
+      ],
+      "posterior_probability_above_A0": 1.0,
+      "posterior_count_above_A0": 7168,
+      "posterior_count_at_or_below_A0": 0,
+      "nominal_log_uniform_prior_probability_above_A0": 0.5349386626942532
+    },
+    "NH3": {
+      "delta_log10_median_q025_q975_dex": [
+        -1.6669166935023148,
+        0.8205408408473573,
+        1.2838497724869036
+      ],
+      "enrichment_factor_median_q025_q975": [
+        0.021531947215703225,
+        6.61516743280297,
+        19.224266241516833
+      ],
+      "posterior_probability_above_A0": 0.787109375,
+      "posterior_count_above_A0": 5642,
+      "posterior_count_at_or_below_A0": 1526,
+      "nominal_log_uniform_prior_probability_above_A0": 0.8136842086968215
+    },
+    "joint_events_same_posterior_rows": {
+      "both_above_A0_probability": 0.787109375,
+      "at_least_one_above_A0_probability": 1.0,
+      "rows_used": 7168,
+      "method": "equal-weight complete-posterior rows; preserve molecular dependence"
+    }
+  }
+}

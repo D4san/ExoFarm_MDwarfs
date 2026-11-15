@@ -1,0 +1,8 @@
+{
+  "execution": "serial, one Python process / one BLAS thread",
+  "peak_preflight_PSS_KiB": 6933415,
+  "minimum_MemAvailable_KiB": 25119396,
+  "required_MemAvailable_KiB": 11652007,
+  "reserve_KiB": 4718592,
+  "status": "PASS"
+}

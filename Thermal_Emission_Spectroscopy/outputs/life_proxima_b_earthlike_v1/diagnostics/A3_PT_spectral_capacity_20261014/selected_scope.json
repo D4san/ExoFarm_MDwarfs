@@ -1,0 +1,25 @@
+{
+  "authorization": "User continues binning/PT diagnostics; noise excluded",
+  "free_coordinates": [
+    "a1",
+    "a2",
+    "log_P1",
+    "log_P2",
+    "log_P3",
+    "T_ref"
+  ],
+  "target": "saved noiseless A3 LIFE Fp, not the noisy observation",
+  "weights": "unchanged declared 1000h sigma",
+  "chemistry": "all original VULCAN vertical species, exactly fixed",
+  "geometry_surface_grid": "true and fixed",
+  "new_retrievals": 0,
+  "new_evidence_or_posterior": false,
+  "new_noise": false,
+  "new_PT_family": false,
+  "max_nfev_per_start": 50,
+  "number_of_starts": 2,
+  "numerical_temperature_domain_K": [
+    100,
+    400
+  ]
+}

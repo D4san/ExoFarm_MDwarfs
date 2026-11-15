@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "date_local": "2026-10-20",
+  "case_count": 6,
+  "replaced_case": [
+    "A3",
+    100
+  ],
+  "source_files_verified": 30,
+  "posterior_labels_match_analysis": true,
+  "canonical_and_final_figures_byte_identical": true,
+  "previous_figures_preserved": 6,
+  "visual_review": "complete PNG inspected; labels, intervals, margins and PT panels reviewed",
+  "pdf_pages": 1,
+  "pdf_width_in": 7.287186458333333,
+  "pdf_height_in": 5.231911111111112,
+  "draft_sha256": "1d839f75374bda6bb02254ed96ead857ccf1d14efa07d810d7da670f18d37fce",
+  "report_sha256": "762596ab08f087b3328494dea2f8bbded33c59b5a699fac998c94bcf72d351ab",
+  "source_attachment_sha256": "ccf2d437747164beeefd8c57d0b987e3c4de175580450b70ab245e23d1695617",
+  "manuscript_tex_edited": false,
+  "new_retrievals_launched": false
+}

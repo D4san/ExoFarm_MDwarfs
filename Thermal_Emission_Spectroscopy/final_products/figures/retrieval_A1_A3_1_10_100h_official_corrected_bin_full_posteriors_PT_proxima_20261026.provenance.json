@@ -1,0 +1,589 @@
+{
+  "revision": "2026-10-26_corrected_bin_full_model_matrix_snapshot",
+  "figure_stem": "retrieval_A1_A3_1_10_100h_official_corrected_bin_full_posteriors_PT_proxima_20261026",
+  "audit_status": "official_visualization_of_corrected_bin_full_baselines; independent_audit_PASS_2026-10-28",
+  "figure_export_status": "PNG and SVG are present and match recorded hashes; PDF listed in legacy figure_sha256 is absent from canonical folder on 2026-10-28",
+  "cases": [
+    {
+      "scenario": "A1",
+      "hours": 1,
+      "stem": "proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_full",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01",
+        "run_id": "A1_1h_full",
+        "validation_status": "independent_final_audit_PASS_2026-10-28",
+        "dataset_sha256_expected": "93fb65765101950063d5aa9a3dafae4df38273292cb0e3349e94b8a34516cfcc"
+      },
+      "source_sha256": {
+        "dataset": "93fb65765101950063d5aa9a3dafae4df38273292cb0e3349e94b8a34516cfcc",
+        "configuration": "455d9159f4aa605a86fd551a8503f36ccf32d126fdacd218e1f2d8613edbf4fb",
+        "runtime_operator": "1d324338f2251fd395cdee07e5926bab78ef4e6ea9192ddafdb22f8d3b1376d5"
+      },
+      "n_posterior_samples": 7695,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_full_samples.txt": "0c5518902ae79f27daa3bc0598d431caa004022e71dcf859eb116d06ab192775",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_full_PT_retrieved.txt": "3e84d28b5cdd91b3484772e85b3ff72fcfdc59815e89cb5be22fa5bdaca472d3",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_full_log_X_retrieved.txt": "58cf9f5971168eb295f1f9097346497c0abb9c92a73ecaee9bd91f8fa7a69ffc",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A1_1h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_full_results.txt": "0d41e46c64b3a79e48694a49220e45b87f1cb7d84ed25d268a15c8be518393d2"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -3.153979430429647,
+          "q16": -3.470679395436804,
+          "q84": -2.766297956234139,
+          "err_low": 0.3166999650071567,
+          "err_high": 0.3876814741955079,
+          "sigma68": 0.3521907196013323,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": -1.7550188764745567
+        },
+        "CO2": {
+          "median": -3.0158584806874345,
+          "q16": -3.1609403356705625,
+          "q84": -2.7487392720744395,
+          "err_low": 0.1450818549831281,
+          "err_high": 0.267119208612995,
+          "sigma68": 0.20610053179806154,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": 1.8431918787631552
+        },
+        "CH4": {
+          "median": -4.053650335205745,
+          "q16": -4.277383941190071,
+          "q84": -3.732961462437176,
+          "err_low": 0.223733605984326,
+          "err_high": 0.32068887276856906,
+          "sigma68": 0.27221123937644753,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 2.7646852323552444
+        },
+        "O3": {
+          "median": -9.075432036889376,
+          "q16": -10.92687747134613,
+          "q84": -7.810520213655807,
+          "err_low": 1.8514454344567532,
+          "err_high": 1.264911823233569,
+          "sigma68": 1.5581786288451611,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": -0.5236327846810311
+        },
+        "N2O": {
+          "median": -9.178662644177887,
+          "q16": -10.923643996452748,
+          "q84": -7.370071662126747,
+          "err_low": 1.744981352274861,
+          "err_high": 1.8085909820511405,
+          "sigma68": 1.7767861671630008,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": -1.2912850161392682
+        },
+        "NH3": {
+          "median": -9.74759190169697,
+          "q16": -11.188961152298186,
+          "q84": -8.252030267395426,
+          "err_low": 1.4413692506012161,
+          "err_high": 1.4955616343015432,
+          "sigma68": 1.4684654424513797,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": 0.13819487207632072
+        }
+      },
+      "fit_native": {
+        "ln_z": 868.82,
+        "ln_z_error": 0.17,
+        "chi2_red": 0.95,
+        "dof": 16.0
+      }
+    },
+    {
+      "scenario": "A3",
+      "hours": 1,
+      "stem": "proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03",
+        "run_id": "A3_1h_full",
+        "validation_status": "previously_validated_corrected_bin_baseline",
+        "dataset_sha256_expected": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2"
+      },
+      "source_sha256": {
+        "dataset": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+        "configuration": "3d95a8d74aee9caef8bb62085b05ecdf0c338aabc62951726976f7ce1af3a9c2",
+        "runtime_operator": "6bcf62fc6911dd0ac53d61c786f026d641ab7c0acae4e6ea6df39fe2d7cdee81"
+      },
+      "n_posterior_samples": 6026,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full_samples.txt": "ca150f785bef10db0b5f924565efbd88dfd43ae9ef8da67138817744666fd405",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full_PT_retrieved.txt": "f8a41c9d0cc1777a17730c485a62943150c5eb87f3fad07824015e2c0e5ad399",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full_log_X_retrieved.txt": "286c67c14cadcfe1c8e0df6d5e7102c67c32f4bb9f385cb75470843c35dce4f5",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full_results.txt": "c334443a791db167ce7fc03025021162d7c9416b96a36e1a54a96fc0785f4819"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -2.5238855414228896,
+          "q16": -2.752977128899655,
+          "q84": -2.2886744347169667,
+          "err_low": 0.2290915874767654,
+          "err_high": 0.23521110670592282,
+          "sigma68": 0.2321513470913441,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": 0.051658231311244626
+        },
+        "CO2": {
+          "median": -2.892067381872587,
+          "q16": -3.0453251647277693,
+          "q84": -2.729023578146686,
+          "err_low": 0.15325778285518243,
+          "err_high": 0.163043803725901,
+          "sigma68": 0.1581507932905417,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": 3.184770147238487
+        },
+        "CH4": {
+          "median": -4.123138732502419,
+          "q16": -4.393394507787977,
+          "q84": -3.8690518983377977,
+          "err_low": 0.2702557752855581,
+          "err_high": 0.25408683416462097,
+          "sigma68": 0.26217130472508954,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 2.6055101530077494
+        },
+        "O3": {
+          "median": -9.874059143814382,
+          "q16": -11.211870675112339,
+          "q84": -8.550820360085865,
+          "err_low": 1.337811531297957,
+          "err_high": 1.3232387837285167,
+          "sigma68": 1.3305251575132369,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": -1.2134611001232463
+        },
+        "N2O": {
+          "median": -8.784134874978779,
+          "q16": -10.827371574387849,
+          "q84": -6.654922771491548,
+          "err_low": 2.0432366994090696,
+          "err_high": 2.129212103487231,
+          "sigma68": 2.0862244014481504,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": -0.9106448874930448
+        },
+        "NH3": {
+          "median": -9.787107954399099,
+          "q16": -11.18573318113142,
+          "q84": -8.324791428263012,
+          "err_low": 1.398625226732321,
+          "err_high": 1.462316526136087,
+          "sigma68": 1.430470876434204,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": 0.11424094258618978
+        }
+      },
+      "fit_native": {
+        "ln_z": 866.28,
+        "ln_z_error": 0.17,
+        "chi2_red": 1.63,
+        "dof": 16.0
+      }
+    },
+    {
+      "scenario": "A1",
+      "hours": 10,
+      "stem": "proxima_A1_10h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_10h_full",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01",
+        "run_id": "A1_10h_full",
+        "validation_status": "independent_final_audit_PASS_2026-10-28",
+        "dataset_sha256_expected": "ed39ae6dc5b8ff0d5c8aca3d126a2945343a289be30f3b8d9e8e72c434ee9b8f"
+      },
+      "source_sha256": {
+        "dataset": "ed39ae6dc5b8ff0d5c8aca3d126a2945343a289be30f3b8d9e8e72c434ee9b8f",
+        "configuration": "523e6d22a81975a18b2426e74c5e738f47bed08634529830a19f11aa35b78451",
+        "runtime_operator": "50e9aa1a61bf9277bfed46772a7bf412b873b6879438e69ec2d50fa191f415f8"
+      },
+      "n_posterior_samples": 6601,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_10h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_10h_full_samples.txt": "18974595b2176e17e14a4f36595ac48ea43841edef989dcdd0a8df1e9c208bb6",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_10h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_10h_full_PT_retrieved.txt": "3efb527b8b38c3ef7739a47b5df406c6281829b97556f8f4822dd6206c56dee9",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_10h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_10h_full_log_X_retrieved.txt": "cd923a4711dce10828afd21b8eab5ca97445471092d5347ac6c23bb25834bbb1",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A1_10h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_10h_full_results.txt": "e0cf5a1cb60bd94467f51910c7575d81c73a2cabe46c058c2c08ff7a6fa7cc65"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -2.962111152584347,
+          "q16": -3.035182666803953,
+          "q84": -2.855292632820804,
+          "err_low": 0.07307151421960612,
+          "err_high": 0.10681851976354295,
+          "sigma68": 0.08994501699157453,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": -4.738818196166694
+        },
+        "CO2": {
+          "median": -3.3598412759516787,
+          "q16": -3.396148016041831,
+          "q84": -3.304289969869105,
+          "err_low": 0.036306740090152445,
+          "err_high": 0.05555130608257386,
+          "sigma68": 0.04592902308636315,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": 0.7816415142818336
+        },
+        "CH4": {
+          "median": -4.404002518062533,
+          "q16": -4.49645258701364,
+          "q84": -4.292356819245825,
+          "err_low": 0.09245006895110741,
+          "err_high": 0.11164569881670783,
+          "sigma68": 0.10204788388390762,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 3.9415438656815125
+        },
+        "O3": {
+          "median": -8.293934624911229,
+          "q16": -9.608724695315255,
+          "q84": -8.01998777620995,
+          "err_low": 1.314790070404026,
+          "err_high": 0.2739468487012786,
+          "sigma68": 0.7943684595526523,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": -0.04332498610770167
+        },
+        "N2O": {
+          "median": -9.26748674713557,
+          "q16": -11.036215246682483,
+          "q84": -7.560643656089037,
+          "err_low": 1.7687284995469135,
+          "err_high": 1.7068430910465322,
+          "sigma68": 1.7377857952967228,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": -1.3713781433527408
+        },
+        "NH3": {
+          "median": -10.158004352129005,
+          "q16": -11.356019702200555,
+          "q84": -8.896554594727998,
+          "err_low": 1.1980153500715502,
+          "err_high": 1.2614497574010066,
+          "sigma68": 1.2297325537362784,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": -0.16871803209046715
+        }
+      },
+      "fit_native": {
+        "ln_z": 889.99,
+        "ln_z_error": 0.21,
+        "chi2_red": 1.4,
+        "dof": 16.0
+      }
+    },
+    {
+      "scenario": "A3",
+      "hours": 10,
+      "stem": "proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03",
+        "run_id": "A3_10h_full",
+        "validation_status": "previously_validated_corrected_bin_baseline",
+        "dataset_sha256_expected": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b"
+      },
+      "source_sha256": {
+        "dataset": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+        "configuration": "18a5bc1a9f79541bc42048270ef3589e92d7fd5ef7988c31dcb92ca9732f5401",
+        "runtime_operator": "3d609a2239b577eb86c198ac6be267efcd572d65cc4968e660998e68ecf99e90"
+      },
+      "n_posterior_samples": 7036,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full_samples.txt": "13101314d3b0449cb8cde10f241bf71919412b9bc484e467668323ad0a9a8616",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full_PT_retrieved.txt": "ad78da439af5adde31a7e6848372677e5f1e91650eda6dba90b3a8299e17fc87",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full_log_X_retrieved.txt": "98a30f06197c167590f2cdc73f4ea643a3e992e1eedbc5be900f17d9787a12e7",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full_results.txt": "556b9170617ad92d2a970c112206dc931a0016f43c5bed355364517a28d3d035"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -2.7867501159568846,
+          "q16": -2.868584523850516,
+          "q84": -2.7037091462002025,
+          "err_low": 0.0818344078936315,
+          "err_high": 0.08304096975668207,
+          "sigma68": 0.08243768882515679,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": -3.0431717594462317
+        },
+        "CO2": {
+          "median": -3.3297033746407,
+          "q16": -3.3704876358951728,
+          "q84": -3.2866403302356106,
+          "err_low": 0.040784261254472653,
+          "err_high": 0.04306304440508946,
+          "sigma68": 0.041923652829781055,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": 1.575195098905547
+        },
+        "CH4": {
+          "median": -4.606792381940034,
+          "q16": -4.737036130730063,
+          "q84": -4.489471359461573,
+          "err_low": 0.1302437487900292,
+          "err_high": 0.11732102247846043,
+          "sigma68": 0.12378238563424482,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 1.6111851926993352
+        },
+        "O3": {
+          "median": -8.72569244241663,
+          "q16": -10.679642783921947,
+          "q84": -8.16928861375944,
+          "err_low": 1.9539503415053172,
+          "err_high": 0.5564038286571904,
+          "sigma68": 1.2551770850812538,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": -0.37140083699802295
+        },
+        "N2O": {
+          "median": -6.01531066883497,
+          "q16": -6.175377385048057,
+          "q84": -5.885802865768063,
+          "err_low": 0.16006671621308666,
+          "err_high": 0.12950780306690657,
+          "sigma68": 0.1447872596399966,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": 6.002010280203918
+        },
+        "NH3": {
+          "median": -8.229241861342574,
+          "q16": -10.29820225015388,
+          "q84": -7.689529946248284,
+          "err_low": 2.0689603888113055,
+          "err_high": 0.5397119150942906,
+          "sigma68": 1.304336151952798,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": 1.3196632108566688
+        }
+      },
+      "fit_native": {
+        "ln_z": 891.39,
+        "ln_z_error": 0.21,
+        "chi2_red": 1.22,
+        "dof": 16.0
+      }
+    },
+    {
+      "scenario": "A1",
+      "hours": 100,
+      "stem": "proxima_A1_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_100h_full",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01",
+        "run_id": "A1_100h_full",
+        "validation_status": "independent_final_audit_PASS_2026-10-28",
+        "dataset_sha256_expected": "d66c886238a2916312c645589be8601828fbf0a7cd2f02a383ef1d6a3454b5e3"
+      },
+      "source_sha256": {
+        "dataset": "d66c886238a2916312c645589be8601828fbf0a7cd2f02a383ef1d6a3454b5e3",
+        "configuration": "6f1ac90591d2cd8ffd7c7092285c22b7a3d451dc46dcff9ae55b70ca1f4f1729",
+        "runtime_operator": "a37f3147140f1574da4eb12b99843feb10c9ced4babdf10009e54645d1f3c2c8"
+      },
+      "n_posterior_samples": 6461,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_100h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_100h_full_samples.txt": "256e3d77bb39b935c356979d3aac0fd800c8df4fa24da1daa54fd1aa315fc672",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_100h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_100h_full_PT_retrieved.txt": "ad1473a056a55f5952d7e013d98bf8aac28e9a49ca5614431768aef0dfcbf021",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_100h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A1_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_100h_full_log_X_retrieved.txt": "ab06bc305854f60b0ea1f9556a1d0ea2d7f811a02c6d6acd29650bd59b859508",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A1_100h_full/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A1_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_100h_full_results.txt": "cfb35ed0c01c9abae928cc46ff8050fbbddd97708725b98be3345f0c7e78809b"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -2.929817351831783,
+          "q16": -2.9585971034698986,
+          "q84": -2.903159750300353,
+          "err_low": 0.028779751638115414,
+          "err_high": 0.026657601531430153,
+          "sigma68": 0.027718676584772783,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": -14.212052340119365
+        },
+        "CO2": {
+          "median": -3.4113599952901676,
+          "q16": -3.431093811194031,
+          "q84": -3.3931057933744904,
+          "err_low": 0.01973381590386314,
+          "err_high": 0.01825420191567728,
+          "sigma68": 0.01899400890977021,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": -0.8222955068608376
+        },
+        "CH4": {
+          "median": -4.699098887257345,
+          "q16": -4.740555432420345,
+          "q84": -4.660141625930976,
+          "err_low": 0.041456545163000236,
+          "err_high": 0.03895726132636934,
+          "sigma68": 0.04020690324468479,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 2.6644638827722957
+        },
+        "O3": {
+          "median": -8.02915811747155,
+          "q16": -8.081072396868631,
+          "q84": -7.981125638958698,
+          "err_low": 0.051914279397081486,
+          "err_high": 0.04803247851285164,
+          "sigma68": 0.04997337895496656,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": 4.609664380964775
+        },
+        "N2O": {
+          "median": -6.802241726240361,
+          "q16": -6.928010234045416,
+          "q84": -6.698010742092974,
+          "err_low": 0.12576850780505566,
+          "err_high": 0.10423098414738696,
+          "sigma68": 0.11499974597622131,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": 0.7137716931426553
+        },
+        "NH3": {
+          "median": -10.621595867818886,
+          "q16": -11.546472268575702,
+          "q84": -9.670167755274694,
+          "err_low": 0.9248764007568155,
+          "err_high": 0.9514281125441926,
+          "sigma68": 0.9381522566505041,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": -0.7153098736337087
+        }
+      },
+      "fit_native": {
+        "ln_z": 910.92,
+        "ln_z_error": 0.24,
+        "chi2_red": 1.73,
+        "dof": 16.0
+      }
+    },
+    {
+      "scenario": "A3",
+      "hours": 100,
+      "stem": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017",
+      "operator": "corrected",
+      "source": {
+        "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018",
+        "run_id": "A3_100h_full_BIN1_20261018_MPI14_resume01",
+        "validation_status": "previously_validated_corrected_bin_baseline",
+        "dataset_sha256_expected": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705"
+      },
+      "source_sha256": {
+        "dataset": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+        "configuration": "2ef6fb87c0dff24ae93eb7d1b84f62b4284bfcc306758bbf0036dcb1f8d9710b",
+        "operator_record": "424756d290c4536133a9d68a5bc2fa7b15f9c157c5b95a2b8007d73e42f2bed1"
+      },
+      "n_posterior_samples": 7268,
+      "input_sha256": {
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/samples/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_samples.txt": "d56084124109efc11c478e7389b4bcf7b6e488b1bd9f86a3a215376d1c748baf",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/samples/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_PT_retrieved.txt": "19ec1ea8cfcc91d8cfacacd0c22439dd947f624a72d87d6ed75f2f9e4a2a3e4e",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/samples/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_log_X_retrieved.txt": "c2328ae9ef85dc7daab3ff83eb7cff564421de85097f0c4f91db030ef1c4d3b0",
+        "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_results.txt": "8925cc8803813cdc6a33df895790437fc6ff15f9882f6c8d23f1e86555afdbe9"
+      },
+      "posterior_summaries": {
+        "H2O": {
+          "median": -2.8894754830297034,
+          "q16": -2.9218727610350084,
+          "q84": -2.858382384477461,
+          "err_low": 0.03239727800530501,
+          "err_high": 0.031093098552242182,
+          "sigma68": 0.031745188278773595,
+          "a0_effective": -2.5358780694101513,
+          "z_descriptive_a0": -11.138614473299087
+        },
+        "CO2": {
+          "median": -3.379597625745003,
+          "q16": -3.3962132924301995,
+          "q84": -3.363990222257863,
+          "err_low": 0.01661566668519665,
+          "err_high": 0.015607403487139848,
+          "sigma68": 0.01611153508616825,
+          "a0_effective": -3.395741307106389,
+          "z_descriptive_a0": 1.0019952335420443
+        },
+        "CH4": {
+          "median": -4.621924408792453,
+          "q16": -4.66775424401958,
+          "q84": -4.577811369365436,
+          "err_low": 0.045829835227126914,
+          "err_high": 0.0441130394270175,
+          "sigma68": 0.044971437327072206,
+          "a0_effective": -4.806228728790928,
+          "z_descriptive_a0": 4.098252823409896
+        },
+        "O3": {
+          "median": -8.140587259414316,
+          "q16": -8.213204135898266,
+          "q84": -8.076819610549803,
+          "err_low": 0.07261687648395032,
+          "err_high": 0.0637676488645127,
+          "sigma68": 0.06819226267423151,
+          "a0_effective": -8.259518622436714,
+          "z_descriptive_a0": 1.7440594923585018
+        },
+        "N2O": {
+          "median": -6.116277538104692,
+          "q16": -6.169192057740827,
+          "q84": -6.064926209404957,
+          "err_low": 0.05291451963613536,
+          "err_high": 0.051351328699734466,
+          "sigma68": 0.05213292416793491,
+          "a0_effective": -6.8843252896367835,
+          "z_descriptive_a0": 14.732489377691389
+        },
+        "NH3": {
+          "median": -8.170365220435915,
+          "q16": -8.393807668656573,
+          "q84": -8.015291569004034,
+          "err_low": 0.2234424482206574,
+          "err_high": 0.15507365143188068,
+          "sigma68": 0.18925804982626904,
+          "a0_effective": -9.950526295665036,
+          "z_descriptive_a0": 9.405999252677674
+        }
+      },
+      "fit_native": {
+        "ln_z": 894.33,
+        "ln_z_error": 0.25,
+        "chi2_red": 3.57,
+        "dof": 16.0
+      }
+    }
+  ],
+  "profile_sha256": {
+    "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_chem.txt": "ee8e93c76ff4d3bc62cb68cb29679942b7dad1f099c18a6feb3ed304d6798f7b",
+    "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_PT.txt": "97f06e0e523aff6adcf926102784039848c939b53ceb25048a1aaf5b9dec0148",
+    "Transmission_Spectroscopy/profiles/Proxima_b_A1_Current_chem.txt": "4541609661988fd0e9349ac8460c33f1b30b62a9eec8ced697bbdea8bdd1eba1",
+    "Transmission_Spectroscopy/profiles/Proxima_b_A1_Current_PT.txt": "bb88224e72a015f560459feb76203b859998eaf829f65c5b5b50598048ac9928",
+    "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_chem.txt": "fed71b978a04e032466a295221a67d56dd453f318d7af18c03ac61bd889afd7c",
+    "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_PT.txt": "79e25b6cd3114235c31bb7a7f12c69398a18d13c1fb1e88b068eb7cbd9a15dd3"
+  },
+  "script_sha256": "f9232d5a4c1b67bd7cddbd04ed2f3c1a98ea73d4f0b5c59ab1d9ab71126f3204",
+  "shared_inputs_sha256": {
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/selected_scope.json": "103b59b7c7a420d96c7aac2e5e952711ecf86e9c2e8cb2288ca93cd23fb149af",
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/manifest.csv": "590fe71274482ba49d9981549724f124d797b5df010296ce44162e07bbd3a1d4",
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/selected_scope.json": "ec34ac41619d111762b325383de80657e85daf3928187a9b38074340c2b6b641",
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/manifest.csv": "adc5de542d62cdff1e8007bc0ad466e2f449377cd59babd64d95711266a5537f",
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/selected_scope.json": "3cd5f7dee9495d05f7b8473e5165322bf1da1cc050387972aab0b6e96467a871",
+    "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/operator_preflight_mpi14_retry01.json": "424756d290c4536133a9d68a5bc2fa7b15f9c157c5b95a2b8007d73e42f2bed1"
+  },
+  "figure_sha256": {
+    "png": "ca2105ba1fe350cf902b9bdb51d208791596276cd62b07bbfc6decf49436d63d",
+    "pdf": "08e2414212dc70e29b737e494fa4fd78847c7a0071bf448265d5ba2ee786f075",
+    "svg": "1d0c34947e2ad7202da6f4d63788f2303ebbaf4c815060cf049adacf8f2ba344"
+  },
+  "limits": [
+    "A1 full retrieval products passed the independent final audit on 2026-10-28; the figure artwork remains unchanged.",
+    "A3 full retrieval products are previously validated corrected-bin baselines; the current LOO campaign does not rerun A3 full models.",
+    "The figure compares one noise realization per scenario/exposure; each ln Z is dataset-specific, not an A1-versus-A3 Bayes factor.",
+    "Descriptive offsets from the effective A0 reference are not individual detection significances or evidence for an ExoFarm scenario.",
+    "This figure displays six molecular species; O2 is an active retrieval parameter but intentionally omitted to preserve the established atlas layout."
+  ]
+}

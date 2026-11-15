@@ -1,0 +1,14 @@
+{
+  "authorization": "User approves isolated binning and PT diagnostics; excludes noise",
+  "binning": "generator-compatible overlap operator, process-local diagnostic binding",
+  "PT_controls": [
+    "true vertical",
+    "Madhu approximation to true T(P)",
+    "archived best-point 1000h Madhu with chemistry fixed"
+  ],
+  "new_retrievals": 0,
+  "change_existing_datasets": false,
+  "change_installed_POSEIDON": false,
+  "change_noise": false,
+  "other_species_controls": "not launched in this diagnostic"
+}

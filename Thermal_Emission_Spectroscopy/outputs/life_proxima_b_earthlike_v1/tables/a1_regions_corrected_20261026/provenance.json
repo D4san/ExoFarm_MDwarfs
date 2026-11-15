@@ -1,0 +1,163 @@
+{
+  "analysis_date": "2026-10-26",
+  "thresholds_log10_A1": {
+    "N2O": -6.733830468440354,
+    "NH3": -9.304865116587663
+  },
+  "prior_model": {
+    "reference_summary": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/tables/a3_100h_corrected_update_20261020/summary.json",
+    "reference_summary_sha256": "318fc75123cbb91317cbbf89d47bed66282cb756ff527cae10b1e71f6fbd874a",
+    "log10_bounds": [
+      -12,
+      -1
+    ],
+    "independent_coordinates": [
+      "log_N2O",
+      "log_NH3"
+    ],
+    "marginal_masses": {
+      "N2O_ge_A1": 0.5212573153127594,
+      "NH3_ge_A1": 0.7549877378716058
+    },
+    "joint_cells": {
+      "R11": 0.3935428813370066,
+      "R10": 0.12771443397575286,
+      "R01": 0.3614448565345992,
+      "R00": 0.11729782815264136
+    }
+  },
+  "posterior_inputs": {
+    "1": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_1h_O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_full_samples.txt",
+      "sha256": "ca150f785bef10db0b5f924565efbd88dfd43ae9ef8da67138817744666fd405",
+      "n_samples": 6026,
+      "config_path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/resolved/A3_1h_full.json",
+      "config_sha256": "3d95a8d74aee9caef8bb62085b05ecdf0c338aabc62951726976f7ce1af3a9c2",
+      "prior_types": {
+        "N2O": "uniform",
+        "NH3": "uniform"
+      },
+      "prior_ranges": {
+        "N2O": [
+          -12,
+          -1
+        ],
+        "NH3": [
+          -12,
+          -1
+        ]
+      }
+    },
+    "10": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_10h_full/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_10h_O2_fixedBlack1bar_noxtol_BIN1_20261020_10h_full_samples.txt",
+      "sha256": "13101314d3b0449cb8cde10f241bf71919412b9bc484e467668323ad0a9a8616",
+      "n_samples": 7036,
+      "config_path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/resolved/A3_10h_full.json",
+      "config_sha256": "18a5bc1a9f79541bc42048270ef3589e92d7fd5ef7988c31dcb92ca9732f5401",
+      "prior_types": {
+        "N2O": "uniform",
+        "NH3": "uniform"
+      },
+      "prior_ranges": {
+        "N2O": [
+          -12,
+          -1
+        ],
+        "NH3": [
+          -12,
+          -1
+        ]
+      }
+    },
+    "100": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/samples/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_samples.txt",
+      "sha256": "d56084124109efc11c478e7389b4bcf7b6e488b1bd9f86a3a215376d1c748baf",
+      "n_samples": 7268,
+      "config_path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/resolved_configuration.json",
+      "config_sha256": "2ef6fb87c0dff24ae93eb7d1b84f62b4284bfcc306758bbf0036dcb1f8d9710b",
+      "prior_types": {
+        "N2O": "uniform",
+        "NH3": "uniform"
+      },
+      "prior_ranges": {
+        "N2O": [
+          -12,
+          -1
+        ],
+        "NH3": [
+          -12,
+          -1
+        ]
+      }
+    }
+  },
+  "results": {
+    "1": {
+      "posterior_counts": {
+        "R11": 387,
+        "R10": 646,
+        "R01": 1854,
+        "R00": 3139
+      },
+      "posterior_masses": {
+        "R11": 0.06422170594092266,
+        "R10": 0.1072021241287753,
+        "R01": 0.3076667772983737,
+        "R00": 0.5209093926319283
+      },
+      "prior_masses": {
+        "R11": 0.3935428813370066,
+        "R10": 0.12771443397575286,
+        "R01": 0.3614448565345992,
+        "R00": 0.11729782815264136
+      },
+      "K_R11_vs_complement": 0.10575889575994028,
+      "K_R11_vs_R10": 0.19441347765764344
+    },
+    "10": {
+      "posterior_counts": {
+        "R11": 5141,
+        "R10": 1892,
+        "R01": 1,
+        "R00": 2
+      },
+      "posterior_masses": {
+        "R11": 0.7306708357021034,
+        "R10": 0.2689027856736782,
+        "R01": 0.0001421262080727686,
+        "R00": 0.0002842524161455372
+      },
+      "prior_masses": {
+        "R11": 0.3935428813370066,
+        "R10": 0.12771443397575286,
+        "R01": 0.3614448565345992,
+        "R00": 0.11729782815264136
+      },
+      "K_R11_vs_complement": 4.180675186586964,
+      "K_R11_vs_R10": 0.8818087293433423
+    },
+    "100": {
+      "posterior_counts": {
+        "R11": 7171,
+        "R10": 97,
+        "R01": 0,
+        "R00": 0
+      },
+      "posterior_masses": {
+        "R11": 0.9866538249862411,
+        "R10": 0.013346175013758944,
+        "R01": 0.0,
+        "R00": 0.0
+      },
+      "prior_masses": {
+        "R11": 0.3935428813370066,
+        "R10": 0.12771443397575286,
+        "R01": 0.3614448565345992,
+        "R00": 0.11729782815264136
+      },
+      "K_R11_vs_complement": 113.92420994133246,
+      "K_R11_vs_R10": 23.991417597453133
+    }
+  },
+  "uncertainty": "Equal-weight sample fractions; no independent Monte Carlo error estimate is applied."
+}

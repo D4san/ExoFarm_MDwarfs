@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "created_utc": "2026-10-29T03:56:39.364805+00:00",
+  "source_repository": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs",
+  "destination": "E:\\Respaldos\\ExoFarm_MDwarfs\\LIFE_Proxima_A1_A3_20261028\\suplemento_analisis_integrado_20261028",
+  "original_manifest_sha256": "39af0fa0982008b15b3b854a25bbcc6a163093eb810329df12b10afce9126e87",
+  "original_local_and_backup_files_verified": 979,
+  "supplement_manifest_repo": "docs/evidence/life_proxima_a1_a3_release_2026-10-28/SHA256_ANALISIS_INTEGRADO_2026-10-28.txt",
+  "supplement_manifest_sha256": "9ba9030db60f3761f4cf3e09f8f60695d80d9ae1fd844138c49b87d56983d50d",
+  "supplement_files_verified": 125,
+  "supplement_bytes": 172545532,
+  "analysis_inputs_rechecked": 474,
+  "scope": "analisis integrado y sus tablas; dos campanas corregidas A3 1000h, dataset, configuracion, productos y logs; indices actualizados",
+  "excluded": [
+    "entorno Conda completo",
+    "opacidades externas POSEIDON",
+    "scratch externo",
+    "resto del repositorio"
+  ],
+  "fixed_1000h_acceptance": "PENDING_FIXED_MOMENT_REVIEW"
+}

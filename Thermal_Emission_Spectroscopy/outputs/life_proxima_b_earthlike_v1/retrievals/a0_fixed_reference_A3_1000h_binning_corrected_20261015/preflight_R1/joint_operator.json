@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "variant": "joint",
+  "mpi_ranks": 5,
+  "actual_forward_model_callback_bound": true,
+  "native_grid_identical": true,
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "fixed_log10_vmr": {
+    "N2O": -6.884325289636784,
+    "NH3": -9.950526295665036
+  },
+  "retained_opacities": [
+    "N2O",
+    "NH3"
+  ],
+  "max_relative_truth_closure": 2.2648549702353193e-14,
+  "truth_chi2": 32.97837233512558,
+  "temperature_opacity_grid_K": [
+    180,
+    310,
+    10
+  ],
+  "binding_scope": "sampling and posterior postprocessing",
+  "operator": "midpoint photon overlap; exact channel-centre energy"
+}

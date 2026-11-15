@@ -118,6 +118,23 @@ run_scenario() {
   local config="$CONFIG_DIR/$scenario.json"
   local scenario_dir="$CAMPAIGN_DIR/$scenario"
   mkdir -p "$scenario_dir/output" "$scenario_dir/restart"
+  if [[ -f "$scenario_dir/run_status.txt" ]] && grep -q 'exit_code=0' "$scenario_dir/run_status.txt"; then
+    echo "Completed phase retained: $scenario"
+    return
+  fi
+  # Preserve the frozen scientific config; add only the operational checkpoint path.
+  local checkpoint_config="$scenario_dir/checkpoint_config.json"
+  if [[ ! -f "$checkpoint_config" ]]; then
+    python3 - "$config" "$checkpoint_config" "$scenario_dir/restart/checkpoint.lpj" <<'PY'
+import json
+from pathlib import Path
+import sys
+config = json.loads(Path(sys.argv[1]).read_text())
+config['checkpoint_filename'] = sys.argv[3]
+Path(sys.argv[2]).write_text(json.dumps(config, indent=2))
+PY
+  fi
+  config="$checkpoint_config"
 
   local command=(mpirun -np "$MPI_RANKS" "$LPJML_ROOT/bin/lpjml"
     -inpath "$INPUT_ROOT"
@@ -134,7 +151,9 @@ run_scenario() {
       -restartpath "$scenario_dir/restart" \
       "$config"
     printf 'started_utc=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >"$scenario_dir/run_status.txt"
-    "${command[@]}" >"$scenario_dir/stdout.log" 2>"$scenario_dir/stderr.log"
+    python3 "$SCRIPT_DIR/checkpoint_runner.py" --config "$config" \
+      --phase-dir "$scenario_dir" --interval-seconds 3600 -- "${command[@]}" \
+      >>"$scenario_dir/controller.log" 2>>"$scenario_dir/controller.stderr.log"
     printf 'completed_utc=%s\nexit_code=0\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >>"$scenario_dir/run_status.txt"
   fi
 }

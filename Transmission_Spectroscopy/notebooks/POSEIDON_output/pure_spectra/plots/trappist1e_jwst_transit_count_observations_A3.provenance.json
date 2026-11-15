@@ -1,0 +1,203 @@
+{
+  "generated_on": "2026-10-27",
+  "script": "Transmission_Spectroscopy\\notebooks\\plot_trappist_synthetic_spectra_with_transit_counts.py",
+  "target": "TRAPPIST-1e",
+  "scenario": "A3 synthetic JWST noise over A0-A3 molecular signal panels",
+  "observable": "transit depth uncertainty for (Rp/Rs)^2",
+  "display_units": "ppm",
+  "sigma_conversion": "sigma in .dat is dimensionless; multiply by 1e6",
+  "transit_counts": [
+    10,
+    20,
+    100
+  ],
+  "instruments": [
+    "NIRSpec_PRISM",
+    "MIRI_LRS"
+  ],
+  "line_alpha": 0.56,
+  "line_width_pt": 0.9,
+  "curve_definition": "Symmetric +1 sigma and -1 sigma curves for each wavelength channel; NIRSpec is solid, MIRI is dashed, and colour encodes transit count.",
+  "signal_panel_limits_ppm": {
+    "N2O": [
+      -4.104938271604979,
+      20.40123456790124
+    ],
+    "NH3": [
+      -4.104938271604965,
+      20.46296296296289
+    ]
+  },
+  "fixed_limits_method": "Calibrated from the source PNG's 0, 5, 10, 15 and 20 ppm tick centres and panel-frame pixel coordinates; autoscaling is disabled.",
+  "out_of_range_display": "Noise curves are clipped to the original molecular-signal panel limits. A curve on a panel edge means the corresponding ±1 sigma exceeds that fixed range; no values are inferred from the clipped segment.",
+  "clipping_fractions_by_species": {
+    "N2O": {
+      "NIRSpec_PRISM:10": {
+        "fraction_plus_sigma_above_panel": 0.8018433179723502,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "NIRSpec_PRISM:20": {
+        "fraction_plus_sigma_above_panel": 0.4608294930875576,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "NIRSpec_PRISM:100": {
+        "fraction_plus_sigma_above_panel": 0.14285714285714285,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:10": {
+        "fraction_plus_sigma_above_panel": 1.0,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:20": {
+        "fraction_plus_sigma_above_panel": 1.0,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:100": {
+        "fraction_plus_sigma_above_panel": 0.7931034482758621,
+        "fraction_minus_sigma_below_panel": 1.0
+      }
+    },
+    "NH3": {
+      "NIRSpec_PRISM:10": {
+        "fraction_plus_sigma_above_panel": 0.7972350230414746,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "NIRSpec_PRISM:20": {
+        "fraction_plus_sigma_above_panel": 0.45622119815668205,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "NIRSpec_PRISM:100": {
+        "fraction_plus_sigma_above_panel": 0.14285714285714285,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:10": {
+        "fraction_plus_sigma_above_panel": 1.0,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:20": {
+        "fraction_plus_sigma_above_panel": 1.0,
+        "fraction_minus_sigma_below_panel": 1.0
+      },
+      "MIRI_LRS:100": {
+        "fraction_plus_sigma_above_panel": 0.7931034482758621,
+        "fraction_minus_sigma_below_panel": 1.0
+      }
+    }
+  },
+  "observations": [
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_NIRSpec_PRISM_Trappist_A3_Extreme_N_trans_10.dat",
+      "sha256": "c5210536484da2b1263a0c248e034e9f43651756afb3dbf50c4fbd33f05f0f20",
+      "instrument": "NIRSpec_PRISM",
+      "n_transits": 10,
+      "n_channels": 217,
+      "wavelength_range_um": [
+        0.602495,
+        5.297569
+      ],
+      "sigma_range_ppm": [
+        13.43329,
+        1955.4630000000002
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    },
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_NIRSpec_PRISM_Trappist_A3_Extreme_N_trans_20.dat",
+      "sha256": "bf630e7187b3e2059ab798b9146d3b946112b4d2a9a35ccd6ade9a30d6382e3f",
+      "instrument": "NIRSpec_PRISM",
+      "n_transits": 20,
+      "n_channels": 217,
+      "wavelength_range_um": [
+        0.602495,
+        5.297569
+      ],
+      "sigma_range_ppm": [
+        9.498769999999999,
+        1382.721
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    },
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_NIRSpec_PRISM_Trappist_A3_Extreme_N_trans_100.dat",
+      "sha256": "1eedb69a3eafc35d3122048263f618f0e3166f90d0f003673b73b770c8341c10",
+      "instrument": "NIRSpec_PRISM",
+      "n_transits": 100,
+      "n_channels": 217,
+      "wavelength_range_um": [
+        0.602495,
+        5.297569
+      ],
+      "sigma_range_ppm": [
+        4.247979,
+        618.3716000000001
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    },
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_MIRI_LRS_Trappist_A3_Extreme_N_trans_10.dat",
+      "sha256": "2f775ca43798e8aedbc5c2281e71ead18b1497e43b42c84c9c48058ab916280c",
+      "instrument": "MIRI_LRS",
+      "n_transits": 10,
+      "n_channels": 87,
+      "wavelength_range_um": [
+        5.021303,
+        11.999813
+      ],
+      "sigma_range_ppm": [
+        50.6885,
+        630.0962
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    },
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_MIRI_LRS_Trappist_A3_Extreme_N_trans_20.dat",
+      "sha256": "defc70bb97f7db2a40f3c98ee49b9e6f5cb006b373f96d7a00c4c4123400ec8a",
+      "instrument": "MIRI_LRS",
+      "n_transits": 20,
+      "n_channels": 87,
+      "wavelength_range_um": [
+        5.021303,
+        11.999813
+      ],
+      "sigma_range_ppm": [
+        35.84218,
+        445.5453
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    },
+    {
+      "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\TRAPPIST-1e\\synthetic_data\\base_1transit\\TRAPPIST-1e_SYNTHETIC_JWST_MIRI_LRS_Trappist_A3_Extreme_N_trans_100.dat",
+      "sha256": "e1667766c2d78d7378a577ae1fa8fc46f98772c34e216462a64d8c79364c6893",
+      "instrument": "MIRI_LRS",
+      "n_transits": 100,
+      "n_channels": 87,
+      "wavelength_range_um": [
+        5.021303,
+        11.999813
+      ],
+      "sigma_range_ppm": [
+        16.02911,
+        199.2539
+      ],
+      "uncertainty": "per-channel diagonal 1-sigma in synthetic data"
+    }
+  ],
+  "source_figure": {
+    "file": "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\pure_spectra\\plots\\trappist1e_pure_a0_molecular_residuals_v2.png",
+    "sha256": "6409661ea9340099f93b82678af8b16f729949d5531cd547bb954cd0917affe0",
+    "image_dimensions": [
+      3312,
+      2304
+    ],
+    "top_spectrum_panel": "retained unchanged from the canonical PNG",
+    "lower_signal_panels": [
+      "original N2O signal panel with noise curves overlaid",
+      "original NH3 signal panel with noise curves overlaid"
+    ]
+  },
+  "interpretation_limit": "These are synthetic JWST noise estimates, not observed JWST data. The source signal figure is retained as a raster background.",
+  "outputs": [
+    "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\pure_spectra\\plots\\trappist1e_jwst_transit_count_observations_A3.png",
+    "Transmission_Spectroscopy\\notebooks\\POSEIDON_output\\pure_spectra\\plots\\trappist1e_jwst_transit_count_observations_A3.pdf"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "PT_profile": "Madhu",
+  "R": 10000,
+  "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1; export OPENBLAS_NUM_THREADS=1; export MKL_NUM_THREADS=1; export NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 4 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval_a1_a3_corrected_matrix.py --operator-record Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runtime/operators/A1_1h_no_CH4.json --campaign proxima --scenario A1 --hours 1 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A1_1h_noCH4 --R 10000 --wl-min 3.0 --wl-max 20.0 --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_1h_O2_fixedBlack1bar_noiseRepeat2.dat --run-dir /home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A1_1h_no_CH4 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/resolved/A1_1h_no_CH4.json --exclude-species CH4",
+  "created_utc": "2026-10-22T23:07:11+00:00",
+  "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_1h_O2_fixedBlack1bar_noiseRepeat2.dat",
+  "dataset_seed": 2125532119,
+  "dataset_sha256": "93fb65765101950063d5aa9a3dafae4df38273292cb0e3349e94b8a34516cfcc",
+  "declared_parameters": 14,
+  "effective_free_parameters": 13,
+  "error_inflation": "none",
+  "ev_tol": 0.5,
+  "excluded_species": "CH4",
+  "hours": 1,
+  "matched_full_campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01",
+  "matched_full_run": "A1_1h_full",
+  "model": "no_CH4",
+  "mpi_ranks": 4,
+  "n_live": 800,
+  "operator": "midpoint-edge photon overlap; energy-to-photon conversion at exact channel centre",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "resume_checkpoint": false,
+  "run_id": "A1_1h_no_CH4",
+  "scenario": "A1",
+  "surface": "opaque black fixed at 1 bar",
+  "wavelength_range_um": [
+    3.0,
+    20.0
+  ],
+  "x_profile": "isochem"
+}

@@ -1414,6 +1414,14 @@ def main():
             args.n_bins,
         )
 
+    # The integrated molecular-template S/N is the current diagnostic.  Keep
+    # the peak summary above for legacy/audit comparisons, but compute the new
+    # table and figure from the same forward and counterfactual products so the
+    # two metrics cannot silently use different spectra.
+    from plot_molecular_snr_instrument import generate_from_products
+
+    generate_from_products(trappist_products, counterfactual_spectra)
+
 
 if __name__ == "__main__":
     main()

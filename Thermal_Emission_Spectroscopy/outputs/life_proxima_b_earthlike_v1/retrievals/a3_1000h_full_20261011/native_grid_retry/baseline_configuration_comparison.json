@@ -1,0 +1,16 @@
+{
+  "physical_model_and_priors": "IDENTICAL",
+  "changed_numerical_keys": {
+    "wl_min": {
+      "official_100h": 3.8,
+      "new_1000h": 3.0
+    },
+    "wl_max": {
+      "official_100h": 19.0,
+      "new_1000h": 20.0
+    }
+  },
+  "reason": "Exact native generator grid; diagnostic RMS=max=0 sigma",
+  "observed_bins": "UNCHANGED",
+  "R": 10000
+}

@@ -1,0 +1,36 @@
+{
+  "generated_from": "life_proxima_b_earthlike_v1",
+  "revision_date": "2026-10-02",
+  "classification": "official_focused_A1_A3_1h_revision_outside_canonical_8of8",
+  "revision_reason": "The project designates the independently generated A1 1 h noise realization as the current official focused-series input. The previous A1 1 h realization is retained as a sensitivity comparison.",
+  "selection_caveat": "This designation followed inspection of both retrieval posteriors; it is a post hoc project choice, not a pre-registered seed selection.",
+  "canonical_8of8_modified": false,
+  "units": "Fp in W m^-2 m^-1; sigma_Fp in W m^-2 m^-1",
+  "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
+  "generation_method": "Noise-free forward flux with validated scaled LIFEsim-classic diagonal sigma and one independent standard-normal draw per bin.",
+  "datasets": [
+    {
+      "file": "LIFE_proxima_A1_1h_O2_fixedBlack1bar_noiseRepeat2.dat",
+      "scenario": "A1",
+      "hours": 1.0,
+      "seed": 2125532119,
+      "master_seed": 20261002,
+      "source_index": "dataset_index_A1_1h_noiseRepeat2.json",
+      "n_bins": 31,
+      "median_continuum_SNR": 14.85,
+      "role": "current_official_focused_A1_1h"
+    },
+    {
+      "file": "LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "scenario": "A3",
+      "hours": 1.0,
+      "seed": 1376328125,
+      "master_seed": 20261001,
+      "source_index": "dataset_index_A1_A3_1h_official.json",
+      "n_bins": 31,
+      "median_continuum_SNR": 14.85,
+      "role": "current_official_focused_A3_1h"
+    }
+  ],
+  "canonical_index": "dataset_index.json"
+}

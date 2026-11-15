@@ -1,0 +1,9 @@
+{
+  "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/forward_emission/A3_emission.npz": "cd9a06a75085820fd54d13bd8b145b929459ce779fadbb5fa152be6e3e263381",
+  "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/lifesim/life_classic_binned_products.npz": "4788633212963bf9df3fa806db285e8ca47a760d52b8e6b58d19794b18874c14",
+  "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_PT.txt": "79e25b6cd3114235c31bb7a7f12c69398a18d13c1fb1e88b068eb7cbd9a15dd3",
+  "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_chem.txt": "fed71b978a04e032466a295221a67d56dd453f318d7af18c03ac61bd889afd7c",
+  "Thermal_Emission_Spectroscopy/scripts/emission_forward.py": "a9d383115f6bbd63ebc559dcd9751502011691a5f06390a15651f875e8a89b8d",
+  "Thermal_Emission_Spectroscopy/scripts/compare_proxima_a3_target_isochem.py": "76b86ac34ae44bcdd99a2d405cbd5a53eaca8c0f491fee4e3f874078e4a0916a"
+}

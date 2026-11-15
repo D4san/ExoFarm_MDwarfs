@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-09-29T20:46:23.912451+00:00",
+  "scenario": "Proxima LIFE A1",
+  "hours": 100,
+  "old_tag": "_O2_fixedBlack1bar_noxtol_MPI6",
+  "new_tag": "_O2_fixedBlack1bar_noxtol_MPI6R1",
+  "n_live": 800,
+  "resume_replacements": 21900,
+  "expected_ev_rows_from_checkpoint": 21100,
+  "source_ev_rows": 21200,
+  "surplus_ev_rows_excluded_from_staged_copy": 100,
+  "live_points_rows": 800,
+  "phys_live_points_rows": 800,
+  "column_counts": {
+    "ev": 18,
+    "live": 16,
+    "phys_live": 17
+  },
+  "source_sha256": {
+    "-resume.dat": "70da92ac31fa587b4baacb2ceb25799328416e362d4ed9557748e48e54946e20",
+    "-ev.dat": "5c446d68cdc9974c7cb6b6a5153ccd60e2fdda9fe0b76d49f42d70557d2ab063",
+    "-live.points": "b967ab81da316fe458fc5beee0431a0a4287e05955eb26f56b434655f5affcfa",
+    "-phys_live.points": "bfb5e02945113a5b01d4505fa444088d5aeff5f880febd144c362cea2e26e5e3"
+  },
+  "staged_sha256": {
+    "-resume.dat": "70da92ac31fa587b4baacb2ceb25799328416e362d4ed9557748e48e54946e20",
+    "-ev.dat": "2637d2e813e419c61d14835888db7f3dfbc09423793bc97715d349c4750a622d",
+    "-live.points": "b967ab81da316fe458fc5beee0431a0a4287e05955eb26f56b434655f5affcfa",
+    "-phys_live.points": "bfb5e02945113a5b01d4505fa444088d5aeff5f880febd144c362cea2e26e5e3"
+  },
+  "source_directory": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+  "staged_directory": "/home/dasan/exofarm_life_a1_resume_20260929/100h/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+  "source_files_modified": false
+}

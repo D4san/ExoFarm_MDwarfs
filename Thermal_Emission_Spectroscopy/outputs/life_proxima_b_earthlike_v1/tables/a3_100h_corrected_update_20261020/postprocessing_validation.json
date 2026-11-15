@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "date_local": "2026-10-20",
+  "checks": [
+    "all recorded scientific input hashes unchanged",
+    "analysis script hash matches summary",
+    "six table counts and final copies match",
+    "marginal probabilities and five quantiles recomputed independently",
+    "nominal odds invert to posterior probabilities",
+    "joint events recomputed in the same posterior rows",
+    "only A3-100h rows replaced in labelled current tables",
+    "report links and eight documentation pointers exist",
+    "PNG and PDF figure products present"
+  ],
+  "input_count": 26,
+  "row_counts": {
+    "molecular_evidence.csv": 4,
+    "posterior_regions.csv": 18,
+    "joint_regions.csv": 6,
+    "parameter_comparison.csv": 15,
+    "current_nitrogen_loo.csv": 12,
+    "current_a1_regions.csv": 18
+  },
+  "summary_sha256": "318fc75123cbb91317cbbf89d47bed66282cb756ff527cae10b1e71f6fbd874a",
+  "report_sha256": "8bffdc6295f1565441bce87d14f9ada350bd8d6e1300bea985b7a6334882ed96",
+  "figure_sha256": {
+    "png": "087d87e8ff3e948a98b5c2cc85c3bebc6fd0874ba5c811cd394a45240f1bea47",
+    "pdf": "ba4e8b5cd910294a21772c04c6018928b78edf92ddab61697045250b6d1cf28e"
+  }
+}

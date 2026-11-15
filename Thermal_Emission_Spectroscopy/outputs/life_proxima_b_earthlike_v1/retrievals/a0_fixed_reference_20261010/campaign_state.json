@@ -1,0 +1,137 @@
+{
+  "campaign": "a0_fixed_reference_20261010",
+  "mode": "both",
+  "status": "VALIDATED_COMPLETE_WITH_SALVEDAD",
+  "start_utc": "2026-10-11T00:05:21+00:00",
+  "supervisor_pid": 758,
+  "max_parallel": 2,
+  "mpi_ranks": 6,
+  "cases": [
+    {
+      "run_id": "A3_100h_A0_N2O",
+      "scenario": "A3",
+      "hours": 100,
+      "variant": "N2O",
+      "fixed_species": [
+        "N2O"
+      ],
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784
+      },
+      "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "dataset_seed": 129315834,
+      "full_results": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_results.txt",
+      "full_results_sha256": "37aca3cd91fdc115323706aa746865e014b6656e6eb77eabd247592f311b54c2",
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "run_dir": "/home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_N2O",
+      "archive_dir": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A3_100h_A0_N2O",
+      "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 6 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 100 --n-live 800 --R 10000 --wl-min 3.8 --wl-max 19.0 --include-o2 --x-profile isochem --error-inflation none --surface-pressure-mode fixed-black --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat --output-tag _A0ref_N2O_v1 --run-dir /home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_N2O --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/resolved/A3_100h_A0_N2O.json --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/a0_reference.json --fix-a0-species N2O",
+      "status": "complete",
+      "pid": 779,
+      "start_utc": "2026-10-11T00:05:21+00:00",
+      "launch_log": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/logs/A3_100h_A0_N2O.log",
+      "return_code": 0,
+      "end_utc": "2026-10-11T11:30:57+00:00",
+      "validation_status": "ACCEPTED_WITH_FIXED_MOMENT_SALVEDAD"
+    },
+    {
+      "run_id": "A3_100h_A0_NH3",
+      "scenario": "A3",
+      "hours": 100,
+      "variant": "NH3",
+      "fixed_species": [
+        "NH3"
+      ],
+      "fixed_log10_vmr": {
+        "NH3": -9.950526295665036
+      },
+      "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "dataset_seed": 129315834,
+      "full_results": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_results.txt",
+      "full_results_sha256": "37aca3cd91fdc115323706aa746865e014b6656e6eb77eabd247592f311b54c2",
+      "declared_dimension": 15,
+      "effective_free_dimension": 13,
+      "run_dir": "/home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_NH3",
+      "archive_dir": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A3_100h_A0_NH3",
+      "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 6 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 100 --n-live 800 --R 10000 --wl-min 3.8 --wl-max 19.0 --include-o2 --x-profile isochem --error-inflation none --surface-pressure-mode fixed-black --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat --output-tag _A0ref_NH3_v1 --run-dir /home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/resolved/A3_100h_A0_NH3.json --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/a0_reference.json --fix-a0-species NH3",
+      "status": "complete",
+      "pid": 783,
+      "start_utc": "2026-10-11T00:05:21+00:00",
+      "launch_log": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/logs/A3_100h_A0_NH3.log",
+      "return_code": 0,
+      "end_utc": "2026-10-11T11:47:30+00:00",
+      "validation_status": "ACCEPTED"
+    },
+    {
+      "run_id": "A3_100h_A0_joint",
+      "scenario": "A3",
+      "hours": 100,
+      "variant": "joint",
+      "fixed_species": [
+        "N2O",
+        "NH3"
+      ],
+      "fixed_log10_vmr": {
+        "N2O": -6.884325289636784,
+        "NH3": -9.950526295665036
+      },
+      "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "dataset_seed": 129315834,
+      "full_results": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_results.txt",
+      "full_results_sha256": "37aca3cd91fdc115323706aa746865e014b6656e6eb77eabd247592f311b54c2",
+      "declared_dimension": 15,
+      "effective_free_dimension": 12,
+      "run_dir": "/home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_joint",
+      "archive_dir": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/runs/A3_100h_A0_joint",
+      "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 6 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 100 --n-live 800 --R 10000 --wl-min 3.8 --wl-max 19.0 --include-o2 --x-profile isochem --error-inflation none --surface-pressure-mode fixed-black --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat --output-tag _A0ref_joint_v1 --run-dir /home/dasan/exofarm_a0ref_20261010/runs/A3_100h_A0_joint --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/resolved/A3_100h_A0_joint.json --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/a0_reference.json --fix-a0-species N2O NH3",
+      "status": "complete",
+      "pid": 3743,
+      "start_utc": "2026-10-11T11:30:58+00:00",
+      "launch_log": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_20261010/logs/A3_100h_A0_joint.log",
+      "return_code": 0,
+      "end_utc": "2026-10-11T16:35:01+00:00",
+      "validation_status": "ACCEPTED_WITH_FIXED_MOMENT_SALVEDAD"
+    }
+  ],
+  "reference_sha256": "79639e6154b2d3d1bd0d613207bf16c0799026e2e95bdc099794222bf58537d7",
+  "selection": {
+    "mode": "both",
+    "scenarios": [
+      "A3"
+    ],
+    "hours": [
+      100
+    ],
+    "selected_cells": 3,
+    "selected_run_ids": [
+      "A3_100h_A0_N2O",
+      "A3_100h_A0_NH3",
+      "A3_100h_A0_joint"
+    ],
+    "candidate_plan_preserved": true,
+    "selection_utc": "2026-10-11T00:05:21+00:00"
+  },
+  "supervisor_code_sha256": "4112df8d4f577fdb79359d4e2c6fc136409fd5abc790c1c2845a2fad0b23ff45",
+  "updated_utc": "2026-10-11T16:35:16+00:00",
+  "counts": {
+    "pending": 0,
+    "running": 0,
+    "complete": 3,
+    "failed": 0
+  },
+  "validation_status": "ACCEPTED_WITH_FIXED_MOMENT_SALVEDAD",
+  "audit_utc": "2026-10-11T18:41:28.539175+00:00",
+  "validation_report": "validation_report_20261011.json",
+  "validation_issue_count": 8,
+  "sampling_status": "SAMPLING_COMPLETE",
+  "strict_finiteness_pass": false,
+  "acceptance_decision": "acceptance_decision_20261011.json",
+  "closure_record": "closure_record_20261011.json",
+  "closed_utc": "2026-10-11T18:42:07+00:00",
+  "monitor_status": "DELETED",
+  "monitor_id": "seguimiento-life-a0-a3-100h-3"
+}

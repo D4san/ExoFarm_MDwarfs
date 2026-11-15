@@ -1,0 +1,11 @@
+{
+  "native_points": 18971,
+  "wl_min": 3.0,
+  "wl_max": 20.0,
+  "rms_sigma": 0.0,
+  "max_sigma": 0.0,
+  "max_relative_native": 0.0,
+  "finite": true,
+  "previous_preflight_rms_sigma": 0.7963,
+  "interpretation": "Truth-forward grid consistency only; no sampling"
+}

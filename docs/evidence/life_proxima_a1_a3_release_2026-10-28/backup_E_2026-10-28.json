@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED",
+  "created_utc": "2026-10-29T03:15:31.567550+00:00",
+  "source_repository": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs",
+  "destination": "E:\\Respaldos\\ExoFarm_MDwarfs\\LIFE_Proxima_A1_A3_20261028",
+  "manifest": "docs/evidence/life_proxima_a1_a3_release_2026-10-28/SHA256SUMS.txt",
+  "manifest_sha256": "39af0fa0982008b15b3b854a25bbcc6a163093eb810329df12b10afce9126e87",
+  "verified_files": 979,
+  "verified_bytes": 1465319506,
+  "scope": "LIFE Proxima A1/A3 1/10/100 h, referencias, evidencia y figura oficial",
+  "excluded": [
+    "entorno Conda",
+    "opacidades externas POSEIDON",
+    "scratch externo",
+    "resto del repositorio"
+  ]
+}

@@ -1,0 +1,2257 @@
+    Assessment of Ammonia as a Biosignature Gas in Exoplanet Atmospheres
+      Jingcheng Huang1,2, Sara Seager2,3,4, Janusz J. Petkowski2, Sukrit Ranjan2, Zhuchang Zhan2
+
+1
+  Department of Chemistry, Massachusetts Institute of Technology
+2
+  Department of Earth, Planetary and Atmospheric Sciences, Massachusetts Institute of
+Technology
+3
+  Department of Physics, Massachusetts Institute of Technology
+4
+  Department of Aeronautics and Astronautics, Massachusetts Institute of Technology
+
+
+Abstract
+
+Ammonia (NH3) in a terrestrial planet atmosphere is generally a good biosignature gas, primarily
+because terrestrial planets have no significant known abiotic NH3 source. The conditions
+required for NH3 to accumulate in the atmosphere are, however, stringent. NH3's high water
+solubility and high bio-useability likely prevent NH3 from accumulating in the atmosphere to
+detectable levels unless life is a net source of NH3 and produces enough NH3 to saturate the
+surface sinks. Only then can NH3 accumulate in the atmosphere with a reasonable surface
+production flux.
+
+For the highly favorable planetary scenario of terrestrial planets with H2-dominated atmospheres
+orbiting M dwarf stars (M5V), we find a minimum of about 5 ppm column-averaged mixing
+ratio is needed for NH3 to be detectable with JWST, considering a 10 ppm JWST systematic
+noise floor. When the surface is saturated with NH3 (i.e., there are no NH3-removal reactions on
+the surface), the required biological surface flux to reach 5 ppm is on the order of 1010 molecules
+cm-2 s-1, comparable to the terrestrial biological production of CH4. However, when the surface is
+unsaturated with NH3, due to additional sinks present on the surface, life would have to produce
+NH3 at surface flux levels on the order of 1015 molecules cm-2 s-1 (~4.5×106 Tg year-1). This
+value is roughly 20,000 times greater than the biological production of NH3 on Earth and about
+10,000 times greater than Earth’s CH4 biological production.
+
+Volatile amines have similar solubilities and reactivities to NH3 and hence share NH3's
+weaknesses and strengths as a biosignature. Finally, to establish NH3 as a biosignature gas, we
+must rule out mini-Neptunes with deep atmospheres, where temperatures and pressures are high
+enough for NH3’s atmospheric production.
+
+
+1. Introduction
+
+A growing part of exoplanet research focuses on the search for biosignature gases with future
+telescopes. Biosignature gases are gases produced by living organisms either as final products or
+by-products from biochemical pathways. A viable biosignature gas must have spectral features
+that are both detectable and distinguishable from other molecular species (e.g., Zhan et al.,
+2021). A growing number of gases have been proposed as biosignatures. The most well-known
+example is O2 (e.g., Jeans, 1930; Meadows et al., 2018). Other biosignature gas candidates
+include DMS ((CH3)2S) (Domagal-Goldman et al., 2011; Seager et al., 2012; Arney et al., 2018),
+methane (CH4) (Leger et al., 1996; Des Marais et al., 2002; Kaltenegger et al., 2007;
+Dlugokencky et al., 2011), nitrous oxide (N2O) (Des Marais et al., 2002; Tian et al., 2015),
+ammonia (NH3) (Seager et al., 2013), methyl chloride (CH3Cl) (Segura et al., 2005), phosphine
+(PH3) (Sousa-Silva et al., 2019), and isoprene (C5H8) (Zhan et al., 2021).
+
+We are motivated to study the biosignature potential of NH3 since NH3 plays a significant role in
+biochemistry. Due to its high bio-usability, plants and various microorganisms can easily absorb
+NH3. NH3 is an ideal nitrogen source for life on Earth since it can be integrated into various
+amino acids and other organic molecules without life having to break the strong N2 triple bond.
+Additionally, some life can use NH3 as an energy source by oxidizing NH3. Furthermore, NH3
+stands out from all the previously studied biosignature gases because NH3 has a very high
+solubility in water. NH3’s high water solubility means the atmospheric accumulation of NH3 is
+highly dependent on planetary conditions such as whether life produces a substantial amount of
+NH3 and whether there are active NH3-removal sinks on the surface (including land and ocean).
+If life does not produce enough NH3 to saturate the surface sinks, rain can much more efficiently
+remove NH3 from the atmosphere than other atmospheric gases.
+
+NH3 has been studied before. Early studies suggest NH3 is unlikely to be present in an early
+Earth atmosphere because it is easily destroyed photochemically (Kasting et al., 1982; Sagan and
+Chyba, 1997). In a separate paper, we studied NH3 as a biosignature gas for a specific, optimistic
+planetary scenario of a planet with an H2 - N2 atmosphere termed the ‘cold Haber World' (Seager
+et al., 2013). On such a planet, life may have evolved catalytic machinery to break the N2 triple
+bond and extract energy by fixing atmospheric H2 and N2 into NH3 (Seager et al., 2013). A
+somewhat similar catalytic process occurs in the industry (the Haber process) at specific
+temperatures and pressures.
+
+In this work, we reassess NH3 as a biosignature gas by considering different planetary scenarios
+and surface conditions. We first summarize NH3’s sources and sinks on Earth in Section 2. We
+then describe our models in Section 3. We present our results in Section 4. Finally, we conclude
+our paper with a discussion of our results and a description of limitations in Section 5.
+
+
+2. Ammonia Sources and Sinks
+
+To assess the biosignature potential of NH3, we first need to review how NH3 is produced
+(Section 2.1) and destroyed (Section 2.2) on Earth. NH3 sources on Earth are few and either
+anthropogenic (Section 2.1.1) or biological (Section 2.1.2), with limited abiotic sources (Section
+2.1.3). In contrast, NH3 has many destruction pathways. We discuss NH3 atmospheric sinks in
+Section 2.2.1 and NH3 biological sinks in Section 2.2.2.
+
+2.1 Ammonia Sources on Earth
+
+Ammonia is a trace gas (< 1 ppbv) in modern Earth’s atmosphere, with a residence time of less
+than a day (Zhu et al., 2015). Current data on NH3 emissions at a global level have significant
+uncertainties due to the lack of measurements in most parts of Earth’s atmosphere (Olivier et al.,
+1998; Bouwman et al., 2002; Zhu et al., 2015; Van Damme et al., 2018). It is worth noting that
+anthropogenic NH3 production is a significant NH3 source on Earth (Söderlund et al., 1976;
+Dentener and Crutzen, 1994; Olivier et al., 1998).
+
+2.1.1 Anthropogenic NH3 Production
+
+On Earth, most global NH3 emissions are due to anthropogenic activities, especially agriculture
+(Behera et al., 2013). Large quantities of ammonia are directly applied on farm fields as fertilizer
+(anhydrous NH3) or are used to produce secondary nitrogen fertilizers. Besides anhydrous NH3,
+synthetic N fertilizers such as urea ((NH2)2CO) and ammonium bicarbonate (NH4HCO3) are also
+popular N fertilizers (Behera et al., 2013). Both applications result in very high localized NH3
+emissions from farmlands (e.g., Dong et al., 2009; Hou and Yu, 2020). NH3 emissions from N
+fertilizers depend on many factors, including the type of fertilizers, local meteorological
+conditions, and soil properties (Behera et al., 2013). It has been estimated that up to 10% of N
+content is lost through NH3 emission when anhydrous NH3 fertilizer is used. This number rises to
+18.7% for urea fertilizer (Behera et al., 2013). Animal husbandry also significantly contributes to
+global NH3 emissions (through the microbial decomposition of animal waste, see section 2.1.2
+below). Coal-burning also produces NH3, even though the quantity is relatively small (Soderlund
+et al., 1976, Behera et al., 2013).
+
+Industrial NH3 sources come from the production of nitric acid, fuel, explosives, and refrigerants.
+Other minor global NH3 emissions include agriculture-related biomass decomposition and motor
+vehicles (Zhu et al., 2015). We summarize the major NH3 sources and their flux in Table 2-1.
+
+Table 2-1. Major anthropogenic NH3 sources and their estimated flux (Soderlund et al., 1976).
+               Ammonia sources                                     Rate [Tg/year]
+ Domestic animals and human                                            20 - 35
+ Burning of coal                                                        4 - 12
+ Wild animals                                                            2-6
+ Total                                                                 26 - 53
+
+Global NH3 emission flux is extremely hard to estimate because most NH3 measurements are
+local, and NH3 abundance varies widely (Olivier et al., 1998; Zhu et al., 2015; Van Damme et
+al., 2018). It has been reported that global NH3 emissions may have quadrupled in the past few
+years due to the increasing demand for food and other agricultural products (Lamarque et al.,
+2011 and Zhu et al., 2015). Global NH3 emissions will likely keep growing in the near future
+(Moss et al., 2010, Behera et al., 2013). The fact that the NH3 emission rate has a strong
+dependency on climate (Sutton et al., 2013) makes an accurate NH3 emission estimate even more
+difficult. We summarize some estimates of global anthropogenic NH3 emission from the past few
+decades in Table 2-2.
+
+Table 2-2. A summary of global anthropogenic NH3 emission estimates (Zhu et al., 2015).
+      Global NH3 emission rate [Tg/year]                               Source
+                      38.5                                       Moss et al., 2010
+                       53                                      Soderlund et al., 1976
+                       54                                      Bouwman et al., 1997
+                       75                                      Schlesinger et al., 1992
+
+As an aside, anthropogenic NH3 is produced by the Haber-Bosch process. The Haber-Bosch
+process reduces unreactive atmospheric nitrogen (N2) to ammonia with molecular hydrogen (H2).
+This reaction requires a metal catalyst (e.g., iron and other catalysts), high temperatures (450 ~
+550 °C), and high pressures (250 ~ 350 bar).
+
+                         3H2 + N2 → 2NH3       ∆Gfo = -32.8 kJ/mol                            (2-1)
+
+The Haber-Bosch reaction has a standard Gibbs free energy change (∆Gfo) of -32.8 kJ/mol and
+standard enthalpy change (∆Hfo) of -91.8 kJ/mol. Even though this reaction is
+thermodynamically favorable at room temperatures (~300 K), it is kinetically disfavored. The
+use of catalysts significantly lowers the activation energy required for breaking the triple bond in
+the N2 gas. It is worth noting that the reaction becomes thermodynamically unfavorable at high
+temperatures (~550°C). Nevertheless, with high pressures, the forward reaction proceeds fast
+enough to give an industrially acceptable NH3 yield.
+
+2.1.2 Biological NH3 Production
+
+Three known biological processes generate ammonia (Figure 1). We briefly summarize them
+below.
+
+Nitrogen fixation: Biological nitrogen fixation by diazotrophic bacteria and Archaea converts
+atmospheric N2 to NH3. The chemical reaction is catalyzed by a nitrogenase enzyme's metal
+cluster iron-molybdenum cofactor (FeMoco) (Burgess et al., 1996). The biosynthesis of NH3 is
+highly energetically costly and is coupled to the hydrolysis of 16 ATP molecules.
+
+            N2 + 8H+ + 8e- + 16Mg-ATP → 2NH3 + H2 + 16Mg-ADP + 16Pi                           (2-2)
+
+Note that because the nitrogenase enzyme is susceptible to O2, many nitrogen-fixing organisms
+inhabit strictly anaerobic conditions. Despite its complex catalytic mechanism, biological
+nitrogen fixation likely originated very early in the evolution of life on Earth. Nitrogen isotopic
+studies suggest that molybdenum-based nitrogenase arose earlier than 3.2 Gya (Stüeken et al.,
+2015).
+
+Ammonification: Many microorganisms convert organic nitrogen within organic matter (e.g.,
+animal and plant waste, etc.) into NH3. Bacterial and fungal ammonification of animal waste is
+one of the main processes contributing to the agricultural flux of atmospheric NH3 (see section
+2.1.1).
+
+Dissimilatory nitrate reduction to ammonium (DNRA): Dissimilatory nitrate reduction to
+ammonium (DNRA; nitrate/nitrite ammonification) is a process of anaerobic
+chemoorganoheterotrophic respiration that uses nitrate (NO3-), instead of O2, as a final electron
+acceptor (Lam et al., 2011 and Kraft et al., 2011). As a result of DNRA, organic matter is
+oxidized anaerobically with a simultaneous reduction of nitrate to nitrite and subsequently to
+ammonia (or ammonium ion) (NO3- → NO2- → NH4+) (Lam et al., 2011). Dissimilatory nitrate
+reduction to ammonium is typically found in prokaryotes. However, eukaryotic microorganisms
+can also carry out DNRA (Kuypers et al., 2018; Preisler et al., 2007; and Stief et al., 2014). Note
+that in contrast to denitrification (the production of N2 gas), the DNRA process conserves
+nitrogen, as soluble NH4+ can be efficiently utilized in biochemical processes (Marchant et al.,
+2014).
+
+
+
+
+                       Figure 1. Interconversions between the main nitrogen species.
+
+
+Of the three processes above (excluding ammonification that results from human industrialized
+agricultural activity (see section 2.1.1)), biological nitrogen fixation at 200 Tg/year dominates
+the biological production of NH3 (Rascio and Rocca 2013). We compare the annual biological
+production of ammonia (NH3) to that of nitrogen gas (N2), methane (CH4), isoprene (C5H8),
+nitrous oxide (N2O), and methyl chloride (CH3Cl) in Figure 2.
+    Figure 2. Biological production of six different gases in Tg year-1. The biological production of ammonia is
+    significantly smaller than that of methane or isoprene. Specifically, the bioproduction of ammonia is only about
+    half of that of biologically produced nitrogen gas. References: Isoprene (Zhan et al., 2021); methane (Guenther et
+    al., 2006); nitrogen gas (Yeung et al., 2019); ammonia (Rascio and Rocca, 2013); nitrous oxide and methyl
+    chloride: (Tian et al., 2015), (Yokouchi et al., 2015) and (Korhonen et al., 2008).
+
+
+2.1.3 Minor NH3 Abiotic Sources
+
+There are very few minor abiotic NH3 sources on Earth1. We briefly summarize them below.
+
+NH3 is a trace component of volcanic gases erupted by some, but not all, volcanoes on Earth (see
+(Möller 2014) and their Table 2.38). For example, (Uematsu et al., 2004) reported an emission of
+volcanic NH3 from the Miyake-jima volcano that reached 5 ppb locally. The volcanic NH3 is
+likely emitted due to the thermal breakdown of organic matter of biological origin (Sigurdsson et
+al., 2015), rather than the reduction of more oxidized N species, like N2. Due to Earth’s oxidizing
+conditions, volcanic outgassing includes some oxidized nitrogen species such as NO and HNO3
+(Mather et al., 2004, Martin et al., 2007, Gaillard & Scaillet, 2014). In contrast to Earth, on a
+planet with a reducing upper mantle condition, nitrogen would be predominately in the form of
+NH4+ in the fluids and could be degassed as NH3 (Mikhail et al., 2014 and Mikhail et al., 2017).
+Detailed modeling is required to explore the plausibility of this scenario further.
+
+NH3 can be photochemically produced on iron-doped TiO2 containing sands without
+microorganisms’ aid (Kasting et al., 1982; Schrauzer et al., 1983). When exposed to sunlight or
+UV, TiO2 containing sands can reduce N2 to NH3 and trace N2H4. However, only up to 107 tons
+(or 10 Tg) of NH3 can be photochemically produced on desert sands every year (Schrauzer et al.
+1983). Furthermore, this abiotic N2 photo-fixation is only significant in arid and semiarid regions
+but not in areas with abundant rainfall and covered by vegetation, where biological N2 fixation
+dominates (Schrauzer et al. 1983).
+
+
+
+1
+    See Supplementary Information SI.8 for our NH3 abiotic false-positive analysis.
+In the presence of dissolved Ni3Fe, NiFe, Ni0, and Fe0 in the ocean, N2, NO2- and NO3- can be
+converted to NH3/NH4+ (Smirnov et al. 2008). This potential abiotic NH3/NH4+ synthesis can
+happen in anaerobic (oxygen-depleted) conditions or reducing (H2-rich) environments. Such
+conditions can potentially be present around the Hadean submarine hydrothermal vents (Smirnov
+et al. 2008). However, this reduction process is strongly temperature-dependent and only
+becomes efficient at high temperatures (~200°C and above).
+
+NH3 is very unlikely to be produced in hydrothermal vents on modern Earth, and even if it were,
+NH3 would dissolve in Earth’s ocean. The hydrothermal vents are not known to reach conditions
+for net NH3 synthesis. There may be one extreme exception: the Piccard hydrothermal field. The
+Piccard hydrothermal system is the deepest known seafloor hot-spring (4957 ~ 4987 m) with
+pressures (~500 bar), temperatures (~500 °C), and H2 gas abundances (from serpentinization) to
+enable some limited N2 reduction (McDermott et al., 2018) if a suitable catalyst is present.
+
+Lightning might produce NH3 in the Earth’s atmosphere, but only in tiny amounts if at all (see
+Section 5.3 for further discussion). In Earth's atmosphere, most of NH3 is generated (or
+'recycled') from NH2 radicals, which likely originate from the photolysis of NH3 itself (see Table
+2-3). Hence, we do not consider Earth's atmospheric chemistry as a net source of NH3. For
+completeness, we include the high-temperature reactions in Table 2-3 even though the rates are
+extremely low at Earth temperatures.
+
+Table 2-3. NH3-producing reactions. The reaction rates are in units of cm3·molecule-1·s-1.
+      Chemical Reaction          Rate at 298K                    Rate law                     Source
+                                 High temp
+ H2 + NH2 → NH3 + H                              6.75 ∙ 10−14 ∙ (𝑇⁄298)2.6 ∙ exp[−3006.8⁄𝑇]    NIST
+                                   reaction
+                                 High temp
+ NH2 + C2H2 → C2H + NH3                          8.2 ∙ 10−13 ∙ exp[−2780⁄𝑇]                    NIST
+                                   reaction
+ NH2 + C2H4 → C2H3 + NH3         4.07 × 10-16    3.42 ∙ 10−14 ∙ exp[−1320.6/𝑇]                 NIST
+ NH2 + C2H4O → C2H3O +
+                                 5.28 × 10-15    3.50 ∙ 10−13 ∙ exp[−1250/𝑇]                   NIST
+ NH3
+ NH2 + C2H6 → C2H5 + NH3         2.13 × 10-18    2.74 ∙ 10−14 ∙ (𝑇⁄298)3.46 ∙ exp[−2820/𝑇]     NIST
+ NH2 + CH4 → CH3 + NH3           6.90 × 10-18    8.77 ∙ 10−15 ∙ (𝑇⁄298)3 ∙ exp[−2130/𝑇]        NIST
+ NH2 + H2O → OH + NH3            9.52 × 10-22    2.1 ∙ 10−13 ∙ (𝑇⁄298)1.9 ∙ exp[−5725/𝑇]       NIST
+ NH2 + HO2 → NH3 + O2            3.40 × 10-11    3.4 ∙ 10−11                                    JPL
+                                 High temp
+ N2H3 + N2H3 → 2NH3 + N2                         5.0 ∙ 10−12                                   NIST
+                                   reaction
+ NH2 + OH → NH3 + O              1.43 × 10-13    3.32 ∙ 10−13 ∙ (𝑇⁄298)0.4 ∙ exp[−250.2/𝑇]     NIST
+ H + NH2 → NH3                   3.00 × 10-30    3.00 ∙ 10−30                                  NIST
+
+
+2.2 Ammonia Sinks on Earth
+
+Compared to NH3’s few formation pathways on Earth, there are numerous routes through which
+NH3 can be removed. This section focuses on NH3 atmospheric sinks (Section 2.2.1) and
+biological sinks (Section 2.2.2).
+2.2.1 NH3 Atmospheric Sinks
+
+NH3 is highly reactive in Earth’s atmosphere and is destroyed by direct photolysis and reactions
+with UV-generated radicals. In Earth’s oxic atmosphere, OH is the dominant radical. In
+exoplanet atmospheres with different bulk compositions, other radicals may become dominant.
+In particular, for an H2-dominated (highly reducing) atmosphere, the most abundant reactive
+species are H radicals, produced by photolysis of atmospheric water vapor (Hu et al., 2012). In
+N2 or CO2-dominated atmospheres, O may also be important, though this needs to be further
+explored (Hu et al., 2012; Ranjan et al., 2020). We list the reactions between NH3 and O, H, and
+OH radicals in Table 2-4.
+
+Table 2-4. Reactions between NH3 and H, O and OH radicals in the atmosphere. The reaction
+rates have units of cm3·molecule-1·s-1. (Reference: NIST)
+          Reactions               Rate at 298K                        Rate law
+ NH3 + H· → H2 + NH2               8.27 × 10-20      4.27 ∙ 10−14 ∙ (𝑇⁄298)3.87 ∙ exp[−32.59⁄𝑅𝑇]
+ NH3 + O· → ·OH + NH2              4.37 × 10-17      2.87 ∙ 10−13 ∙ (𝑇⁄298)2.10 ∙ exp[−21.78⁄𝑅𝑇]
+ NH3 + ·OH → H2O + NH2             1.57 × 10-13      3.50 ∙ 10−12 ∙ exp[−7.69 ± 1.66⁄𝑅𝑇]
+
+NH3 can also photodissociate under UV conditions. The photolysis rate coefficient JA can be
+quantified by (e.g., Brasseur et al., 2017):
+
+                               𝐽𝐴 = ∫ 𝑞𝜆 ∙ 𝐼𝜆 ∙ 𝜎𝜆 ∙ 𝑒 −𝜏𝜆 𝑑𝜆                                (2-3)
+
+Here qλ is the quantum yield of NH3 photolysis. Iλ is the solar intensity at the top of the
+atmosphere, τλ is the optical depth, and σλ is the absorption cross-section of NH3. Ammonia
+photolysis has two pathways, which we summarize in Table 2-5. Reaction rates are computed in
+(Hu et al., 2012).
+
+Table 2-5. Photolysis reactions of NH3 (Hu et al., 2012)
+           Reaction                       Quantum yields              Reaction rate at 295 K [s-1]
+                                <106nm: 0.3
+    NH3 + hv → NH2 + H          106-165 nm: linear interpolation              6.89 × 10-5
+                                >165nm: 1.0
+                                <106nm: 0.7
+    NH3 + hv → NH + H2          106-165 nm: linear interpolation              1.55 × 10-6
+                                >165nm: 0
+
+Atmospheric NH3 will react with nonradical molecules in the atmosphere. In total, we identified
+five other reactions that can remove NH3 (Table 2-6), and this list is complete for reactions that
+remove NH3, according to the NIST database (Manion et al., 2008). As in Table 2-3, we include
+the high-temperature reactions for completeness.
+
+Table 2-6. NH3-removing reactions. The reaction rates are in units of cm3·molecule-1·s-1.
+      Chemical Reaction           Rate at 298K                   Rate law                    Source
+                                  High temp
+ NH + NH3 → NH2 + NH2                             5.25 ∙ 10−10 ∙ exp[−13470⁄𝑇]                NIST
+                                    reaction
+ NH3 + CH → HCN + H2 + H          2.50 × 10-11    7.24 ∙ 10−11 ∙ exp[−317⁄𝑇]                  NIST
+                                  High temp
+ NH3 + CH3 → CH4 + NH2                            9.55 ∙ 10−14 ∙ exp[−4895⁄𝑇]                 NIST
+                                    reaction
+ NH3 + CN → HCN + NH2             1.66 × 10-11    1.66 ∙ 10−11                                NIST
+ NH3 + CNO → CO + N2H3            1.20 × 10-14    6.29 ∙ 10−14 ∙ (𝑇⁄298)2.48 ∙ exp[−493⁄𝑇]    NIST
+
+2.2.2 NH3 Biological Sinks
+
+On Earth, life is a significant sink for NH3. Three biological processes are critical for NH3
+depletion by life: nitrification, anammox, and direct assimilation of NH3 into nitrogen-containing
+organic building blocks of life (i.e., amino acids) (Figure 1). We discuss nitrification and
+anammox briefly below.
+
+Nitrification is a process of oxidation of ammonia (NH3) to nitrate (NO3-) (Wendeborn 2020).
+NH3 oxidizing bacteria and archaea harvest energy by aerobic oxidation of NH3 to NO3- via a
+two-step process (Schimel et al., 2004). In the first step NH3 is oxidized to NO2- by
+chemoautotrophs according to the following formula: NH3 + O2 + 2e- + 2H+→ NO2- + 4e- + 5H+
+(ΔG° = −275 kJ mol−1) (Daims et al., 2015, Caranto et al., 2017). In the second step NO2- is
+further oxidized to nitrate: NO2- + H2O → NO3- + 2H+ + 2e- (ΔG° = −74 kJ mol−1) (Schimel et
+al., 2004; Daims et al., 2015). Nitrification is performed primarily by soil bacteria (e.g.,
+Nitrosomonas sp., Nitrospira sp.).
+
+The second major biological sink of NH3 is called anammox. Anammox is a process of anaerobic
+oxidation of NH3. Obligately anaerobic chemolithoautotrophs can perform anammox. (Kartal et
+al., 2011; Van Niftrik et al., 2012). According to the following formula, anammox-capable
+bacteria convert nitrite and ammonia directly to N2 gas: NH4+ + NO2- → N2 + 2H2O (ΔG° =
+−357 kJ·mol−1). Anammox is especially prominent in the oceans, even around hydrothermal
+vents along the Mid-Atlantic Ridge (Byrne 2009). Anammox is responsible for 50% of marine
+N2 production (Strous et al., 2006; Devol, 2004).
+
+
+3. Methods
+
+We now describe our methods for assessing NH3 as a biosignature gas. To study the biosignature
+potential of NH3, we have to determine under which conditions can NH3 accumulate in the
+atmosphere, considering NH3's high water solubility and high bio-usability. We first review
+solubility and Henry’s law (Section 3.1). We then introduce our simplified ocean-NH3
+interaction model (Section 3.2), followed by a description of our one-dimensional
+photochemistry model (Section 3.3) and our transmission spectra model (Section 3.4).
+
+3.1 Solubility and Henry's law
+We use Henry’s law to study the solubility of NH3. There are multiple ways to define Henry’s
+law constant (R. Sander 2015). We choose the following form.
+
+                                        𝐶𝑃
+                                                𝐶(𝑋)
+                                       𝐻(𝑋) =                                                (3-1)
+                                                 𝑃
+
+Here HCP(X) is Henry’s law constant for a species X in mol·Pa-1·m-3. C(X) is the dissolved
+concentration in the solution with units of mol·m-3. P is the partial pressure in Pascal (1 atm ≅
+101325 Pa). Henry's law constant is also a function of temperature, which can be approximated
+by the van't Hoff equation.
+
+                                  𝑑𝑙𝑛(𝐻 𝐶𝑃 )     ∆𝐻𝑑𝑖𝑠𝑠
+                                             = −                                             (3-2)
+                                   𝑑(1/𝑇)          𝑅
+
+Here T is the temperature in Kelvin, R is the universal gas constant in J·K·mol-1, and ∆Hdiss is the
+enthalpy change in dissolution. Since there is an inverse relationship between Henry’s law
+constant and temperature, NH3 will be more soluble as temperature decreases.
+
+
+3.2 Ocean-NH3 Interaction Model
+
+To show that NH3 can accumulate in the atmosphere when life is a net source of NH3 and
+produces enough NH3 to saturate the surface sinks, we use a simplified ocean-NH3 interaction
+model. Specifically, we study the partitioning between the atmosphere and the ocean, assuming
+equilibrium chemistry.
+
+Our model has two variables: the ocean pH and the planet’s total NH3 reserve maintained
+through biological production. We assume the exoplanet has an Earth-sized ocean, roughly
+1.335×1021 L (Amante et al., 2009). Additionally, we assume there are no biological or
+geochemical sinks on the surface. In this case, the ocean is a reservoir. Once NH3 dissolves in the
+ocean, it will react with water to form NH4+ and OH- ions. We calculate the dissolved ammonia
+concentration ([NH3]) and the ammonium ion concentration ([NH4+]) by using the Henderson–
+Hasselbalch equation.
+
+                                                       [𝑁𝐻3 ]
+                              𝑝𝐻 = 𝑝𝐾𝑎 + log10 (               )                             (3-9)
+                                                       [𝑁𝐻4+ ]
+
+Ammonia has a pKa (acid dissociation constant at log scale) of about 9.25 (David R. Lide et al.,
+2005). We can derive [NH3] by solving the system of equations,
+
+                                 [𝑁𝐻3 ]
+                                         = 10 ( 𝑝𝐻−9.25)                                    (3-10)
+                                 [𝑁𝐻4+ ]
+                                                       𝑇𝑁𝐻3
+                                 [𝑁𝐻3 ] + [𝑁𝐻4+ ] =                                         (3-11)
+                                                    𝑉𝑂𝑐𝑒𝑎𝑛−𝐸
+Here pH is the ocean's overall pH, TNH3 is the planet’s total NH3 reserve in mol, and VOcean-E is
+the volume of the Earth’s ocean in liters. We solve [NH3] and express it as a function of pH and
+the planet’s total NH3 reserve.
+
+                                         𝑇𝑁𝐻3 ∙ 10 𝑝𝐻
+                  [𝑁𝐻3 ] =                                                                 (3-12)
+                             (1.77828 × 109 + 1 × 10𝑝𝐻 ) ∙ 𝑉𝑂𝑐𝑒𝑎𝑛−𝐸
+
+Using Henry's law (Eq. 3-1), we calculate NH3 partial pressure from [NH3] and plot NH3 volume
+mixing ratio as a function of pH and TNH3.
+
+
+3.3 Photochemistry Model
+
+We use our photochemistry code (Hu et al., 2012) to calculate the NH3 mixing ratio as a function
+of vertical altitude in exoplanet atmospheres. In this section, we briefly describe how we use this
+computational approach to explore atmospheric NH3 accumulation.
+
+Our photochemistry code (Hu et al., 2012) can simulate a wide variety of planetary atmosphere
+scenarios by calculating the atmosphere's steady-state chemical composition. Our full
+photochemistry model encodes more than 800 chemical reactions and UV photolysis of
+atmospheric molecules. Our model also includes both wet and dry depositions, thermal escape of
+O, C, H, N, and S containing molecules, surface emission, and formation and deposition of
+sulfur-bearing (both elemental sulfur and sulfuric acid) aerosols. The one-dimensional chemical
+transport model has been validated by simulating modern Earth’s and Mars' atmospheric
+composition, matching observations of major trace gases in both scenarios. We can flexibly
+implement this model to simulate oxidized, oxic, and reduced atmospheres. Both ultraviolet and
+visible radiation in the atmosphere is computed by the delta-Eddington two-stream method. This
+model also includes molecular absorption, Rayleigh scattering, and aerosol Mie scattering to
+compute the optical depth. For applications of our photochemistry code, see (Hu et al., 2012,
+Seager et al., 2013(a)(b), Hu et al., 2013, Sousa-Silva et al., 2020, Zhan et al., 2021).
+
+In this work, we consider an exoplanet orbiting an M dwarf star (M5V). We use the stellar
+radiation model of GJ 876 (Loyd et al., 2016; France et al., 2016). We study three different
+atmospheric scenarios: N2-dominated weakly oxidizing atmospheres, CO2-dominated highly
+oxidizing atmospheres, and H2-dominated reducing atmospheres. For exoplanets with N2-
+dominated, CO2-dominated, and H2-dominated atmospheres, the semi-major axes are 0.026 AU,
+0.034 AU, and 0.042 AU, respectively. We choose the semi-major axes to ensure the surface
+temperature is maintained at 290 K across all scenarios. We model massive super-Earths with 10
+MEarth and 1.75 REarth because these large planets are more likely to retain an H2-dominated
+atmosphere than Earth-mass planets due to a higher escape velocity.
+
+In each atmosphere scenario, we consider two cases: one with NH3 deposition (both dry
+deposition and rainout included) and one without NH3 deposition (dry deposition and rainout are
+both set to 0). In both cases, we assume the atmospheric NH3 is maintained through biological
+production (i.e., life is a net source of NH3). The case with NH3 deposition corresponds to active
+NH3-removal sinks on the surface, where the surface is not saturated with NH3. The case without
+NH3 deposition corresponds to conditions in which life produces enough NH3 to saturate the
+surface sinks. In this case, the ocean is a reservoir of NH3, and NH3 is only removed by
+photochemistry.
+
+For each of the scenarios we study, we set the planet's surface pressure to 1 bar and temperature
+to 288 K. We divide the atmosphere into two layers: a lower convective layer and a higher
+radiative layer (Hu et al., 2012). We set the temperature of the convective layer to follow the dry
+adiabatic lapse rate. We set the stratospheric temperature in our model according to (Hu et al.
+2012). We set the temperature above tropopause to 160K, 200K, and 175K for the H2-dominated,
+N2-dominated, and CO2-dominated atmosphere. For an H2-dominated atmosphere, we assume
+the stratosphere is very cold due to efficient radiative cooling from abundant H2 (Birnbaum et al.
+1996). Since we do not have a climate model coupled with our photochemistry code, we do not
+consider heating in the upper atmosphere. Hence, we assume the temperature to be constant
+(isothermal) in the radiative layer (Hu et al., 2012). The temperature profiles we set are
+consistent with significant greenhouse effects in the convective layer (Hu et al., 2012).
+
+To study NH3 as a biosignature gas, we only use 735 reactions in our simulations. Specifically,
+we include all the reactions mentioned in (Hu et al., 2012), except for reactions that involve more
+than 2 carbon atoms (C>2-chem), high-temperature reactions (Hu et al., 2012), and HSO2 thermal
+decay. Furthermore, we do not consider rainout and biological sinks for H2, CO, CH4, N2, C2H2,
+C2H4, C2H6, and O2. We make the assumptions mentioned above to facilitate robust comparison
+to our reference benchmark scenarios from (Hu et al., 2012). We present our simulation
+parameters (including the stellar spectrum input, atmospheric temperature-pressure profiles, the
+eddy diffusion profiles, and the planetary surface boundary information) in Supplementary
+Information SI.1.
+
+
+3.4 Transmission Spectra Model and Simulated Observation
+
+To assess future possibilities for the detection of NH3 in each of the exoplanet atmospheric
+scenarios, we simulate transmission spectra for each scenario using our “Simulated Exoplanet
+Atmosphere Spectra'' (SEAS) code (Zhan et al., 2021). We simulate atmospheric detection using
+the community JWST exposure time calculator and noise simulator Pandexo (Batalha et al.,
+2017) and assess the confidence in detecting NH3 for each given scenario via a reduced chi-
+squared test.
+
+3.4.1 Simulated Exoplanet Atmosphere Spectra Model (SEAS)
+
+The SEAS transmission code takes in the output of the photochemistry code (temperature-
+pressure profiles and mixing ratio profiles) and calculates the optical depth along the limb path
+(Seager et al., 2013(a)(b); Zhan et al., 2021). The SEAS transmission code has been validated by
+reproducing Earth’s atmosphere spectra by comparing the SEAS simulated results with data from
+the Atmospheric Chemistry Experiment database (Bernath et al., 2005). Currently, our SEAS
+code does not have refraction. Hence our transmission spectra model works best for M dwarf
+planets, where refraction has a minimum impact on observations (Misra et al., 2014, Bétrémieux
+et al., 2014). Details of the code are described in (Zhan et al., 2021). Here we provide a very
+brief description of the transmission code.
+
+We divide the entire atmosphere (from the surface to the top of the atmosphere) into layers, and
+the width of each layer is one atmospheric scale height. Within each layer, we assume the
+atmosphere is in local thermodynamic equilibrium (LTE). The stellar radiation will penetrate
+along each layer's limb path, which we approximate as stellar radiation passing through multiple
+LTE chunks. We calculate the absorption along each beam path by using the following equation.
+
+                                    𝐴 = 𝑛𝑖,𝑗 × 𝜎𝑖,𝑗 × 𝑙𝑖                                     (3-13)
+
+Here A is absorption, n is number density, σ is absorption cross-section, and l is the path length.
+The subscript i denotes each chunk, and subscript j denotes each molecule. We then compute the
+transmittance (T) of each beam by using the Beer-Lambert law. The amount of flux attenuated
+along each beam's path is determined by multiplying the absorbance (1-T) by each base chunk's
+scale height. Finally, we calculate the transit depth of the atmosphere by summing all the
+attenuated fluxes.
+
+3.4.2 Simulated Exoplanet Observation
+
+We assess an exoplanet atmospheres' detectability by using the metrics described in (Seager et
+al., 2013(a)(b)), (Batalha et al., 2017), and (Zhan et al., 2021). We calculate the signal-to-noise
+ratio (SNR) of an atmosphere using the following equation.
+
+                                            |𝐹𝑜𝑢𝑡 − 𝐹𝑖𝑛 |
+                                 𝑆𝑁𝑅 =
+                                                                                             (3-14)
+                                          √𝜎𝐹2𝑜𝑢𝑡 + 𝜎𝐹2𝑖𝑛
+
+Fin is the flux density within the absorption feature, Fout is the flux density of the surrounding
+continuum of the feature, and σFout and σFin is the respective uncertainty. More specifically, we
+calculate the uncertainty using the Pandexo JWST instrumental noise calculator using the
+NIRSpec (G140M, G235M, G395M) and MIRI (LRS) observation modes. The two instruments
+combined provided a spectral coverage from 1 to about 13 μm.
+
+To analyze the transmission detectability of weakly oxidizing (N2-dominated), highly oxidizing
+(CO2-dominated), and reducing (H2-dominated) atmospheres (Section 3.3), we consider a 10
+MEarth, 1.75 REarth Super-Earth orbiting a host star with a visual magnitude of 10. The central star
+can be either a Sun-like (G) star or a 0.2 RSun M dwarf star. To observe a terrestrial exoplanet’s
+atmosphere, we explore a total integration time between 10 transits and 100 transits (which may
+be impractical for G stars, but we include it for comparison).
+
+3.4.3 Detection Assessment Metrics
+
+We compare the difference in SNR to assess whether it is possible to distinguish between an H2-
+dominated atmosphere with and without a significant NH3 surface flux (Section 4.4). We assess
+whether the models are good fits for the simulated observational data. We use the following
+equation to compute the reduced chi-square statistics between the data with several different
+models.
+
+                                     𝑥2  1     (𝑂𝑖 − 𝐶𝑖 )2
+                             𝑥𝑣2 =      = ∙ [∑             ]                                  (3-15)
+                                     𝑣   𝑣         𝜎𝑖2
+                                                𝑖
+
+
+Here χν2 is the reduced chi-square, ν is the degree of freedom (or the number of wavelength
+bins), χ2 is the chi-square, Oi is simulated observational data, Ci is the simulated model, σi is the
+variance (or error as calculated from Pandexo noise simulator for a specific instrument), and
+finally i denotes each wavelength bin. We note that binning the spectra reduces the variance at
+the expense of reducing the degree of freedom. Due to NH3 containing multiple broadband
+spectral features (peaks around 1.5 μm, 2 μm, 2.3 μm, 3 μm, 6 μm, and 10 μm), in practice, we
+find bin the spectra to a resolution of R = 10 ~ 20 is a good balance between maximizing SNR
+and preserving spectral information.
+
+More specifically, we first apply a null-hypothesis test to see if the data can be explained by a
+straight line (i.e., no atmosphere can be detected). If the null hypothesis can be ruled out, we then
+compare the data for models with a variety of NH3 (column-averaged mixing ratio from 0.1 ppm
+to 100 ppm) and assess which model best fits the data.
+
+
+4. Results
+
+In this section, we assess the possibility of NH3 accumulation to detectable levels in various
+planetary scenarios. In brief, we find that NH3 can theoretically accumulate the JWST detectable
+level in the atmosphere with a reasonable surface production flux (i.e., comparable to the
+terrestrial biological production of CH4) only when life is a net source of NH3 and produces
+enough NH3 to saturate the surface sinks.
+
+We first illustrate NH3's high water solubility by comparing NH3's Henry's law constant with
+other representative gases (Section 4.1). Using our simplified ocean-NH3 interaction model and
+considering the atmosphere-ocean partitioning of NH3, we demonstrate that NH3 can
+theoretically accumulate if there are no NH3-removal sinks on the surface (Section 4.2). Utilizing
+our transmission spectra model, we learn that detection of NH3 is possible for exoplanets with
+H2-dominated atmospheres using JWST if the NH3 column-averaged mixing ratio reaches 5 ppm
+(Section 4.3). Finally, we run our photochemistry code to quantify the NH3 flux needed to reach
+the 5 ppm detection limit under various planetary atmosphere conditions (Section 4.4).
+
+4.1 NH3’s High Water Solubility Limits its Ability to Accumulate in the Atmosphere
+
+NH3 is highly water-soluble, at least two orders of magnitude more soluble than other planetary
+atmospheric gases. NH3's high water solubility means that atmospheric accumulation of NH3 is
+highly dependent on whether there are active NH3-removal sinks on the surface (i.e., whether the
+surface is saturated with NH3). When life does not produce enough NH3 to saturate the surface
+sinks, rain (wet deposition) can much more efficiently remove NH3 from the atmosphere than
+other gases, limiting NH3's ability to accumulate in the atmosphere.
+
+We can quantitatively compare the solubility of different gases to each other based on Henry’s
+law constants. Since Henry’s law constant is a measure of solubility in water, the larger Henry’s
+law constant, the more water-soluble the gas is. We summarize Henry's law constants for some
+representative gases at standard temperature and pressure (T = 298.15K and P ≅ 1atm) in Table
+4.1-1 (R. Sander, 2015).
+
+Table 4-1. Henry’s law constant for some representative gases in water (R. Sander et al., 2015).
+                                                                           mol
+               Chemical species                                    HCP [           ]
+                                                                           Pa∙m3
+                                                                                 -1
+ Ammonia NH3                                                        5.90 × 10
+ Dimethyl Sulfide CH3SCH3                                           5.34 × 10-3
+ Methyl Chloride CH3Cl                                              1.15 × 10-3
+ Carbon dioxide CO2                                                 3.36 × 10-4
+ Isoprene C5H8                                                      1.53 × 10-4
+ Nitrogen dioxide NO2                                               1.20 × 10-4
+ Phosphine PH3                                                      7.00 × 10-5
+ Methane CH4                                                        1.41 × 10-5
+ Oxygen O2                                                          1.30 × 10-5
+ Hydrogen H2                                                        7.75 × 10-6
+ Nitrogen N2                                                        6.43 × 10-6
+ Helium He                                                          3.83 × 10-6
+
+The high solubility of NH3 and other amines (especially aliphatic amines) in water is due to their
+ability to form hydrogen bonds with water molecules and themselves. Even tertiary amines (three
+substituents are connected to N) can form hydrogen bonds between the lone pair of electrons
+carried by the central nitrogen atom and the H in a water molecule that carries a partial positive
+charge. As a result, NH3 and other volatile amines are much more soluble than any previously
+studied biosignature gas candidates (Figure 8).
+
+
+4.2 NH3 Can Accumulate if Life Produces Enough NH3 to Saturate the Surface
+
+Using our simplified ocean-NH3 interaction model, we find that NH3 can theoretically
+accumulate to a detectable level in the atmosphere when life is a net source of NH3 and produces
+enough NH3 to saturate the surface sinks. By detectable level, we mean a volume mixing ratio of
+5 ppm (see Section 4.3 for a detailed assessment of detectability of NH3).
+
+To reach this conclusion, we assess how ocean-atmosphere equilibrium NH3 partial pressure
+changes with the planet's total NH3 reserve and ocean pH. As a reminder, we assume the
+atmospheric NH3 is maintained through biological production (as postulated by Seager et al.,
+2013). We also assume no NH3-removal sinks on the land and in the ocean (see Section 3.2).
+
+We find that life must produce enough NH3 to maintain an NH3 inventory of 6×1018 mol to reach
+a detectable level (5 ppm) in the atmosphere. This inventory is 10,000 times that of Earth’s
+(1×1014 mol). One might ask if there is enough N to support such a sizeable NH3 inventory. The
+answer is yes, compared with Earth’s total N reservoir estimated at 4×1020 mol (Ranjan et al.,
+2019, Johnson et al., 2015). About ~1.5% of such a total N reservoir would be needed. Life on
+such planets2 can theoretically maintain this NH3 inventory by breaking down N2 and H2 gas to
+form NH3, analogous to the Haber–Bosch process (Seager et al., 2013(b)).
+
+In our model, the planet's total NH3 reserve is limited by the planet's total N reservoir.
+Unfortunately, the upper bound of the total N reservoir cannot be known for an exoplanet. Here,
+we assume the planet has an Earth-sized total N reservoir of 4×1020 mol. In an extreme situation
+where life manages to convert almost all of the planetary N reservoir into NH3, the NH3 volume
+mixing ratio can reach 0.5% (Figure 3b). In this case, NH3 becomes one of the major chemical
+species in the atmosphere, and the ocean becomes basic. However, if life cannot produce a
+substantial amount of NH3 and only maintain an Earth-like NH3 inventory (~1014 mol), NH3 will
+not be detectable regardless of the ocean’s pH levels (Figure 3a).
+
+
+
+
+    Figure 3. Equilibrium volume mixing ratio of NH3 as a function of the planet's total NH3 reserve and ocean pH.
+    The x-axis is the ocean pH, and the y-axis is the planet's total NH3 reserve in mol. The contours are NH3 volume
+    mixing ratios. We assume the planet has an Earth-sized total N reservoir (4×1020 mol) and an Earth-sized ocean
+    (1.335×1021 L). (a): If life cannot produce a substantial amount of NH3 and only maintain an Earth-like NH3
+    inventory (~1014 mol), the NH3 volume mixing ratio is extremely low regardless of the ocean pH level (4 ≤ pH ≤
+    11). (b): If life manages to convert almost all of the planetary N reservoir into NH3 (~1020 mol), NH3 will become
+    one of the major chemical species in the atmosphere.
+
+
+
+4.3 Detectability of NH3 in Transmission Spectra
+
+We study the detectability of NH3 in transmission spectra using our ‘Simulated Exoplanet
+Atmosphere Spectra’ (SEAS) code. For exoplanets with H2-dominated atmospheres orbiting M
+dwarf stars (M5V), we find that a minimum of about 5 ppm column-averaged mixing ratio is
+needed to detect NH3 with JWST, considering NH3's 1.5 μm feature and a 10 ppm JWST
+systematic noise floor (Figure 4). Furthermore, we find that exoplanets with high molecular-
+
+2
+ We note that H2-dominated atmospheres are not detrimental for life and that life can survive and thrive in an H2-
+dominated environment (Seager et al., 2020).
+weight atmospheres (i.e., CO2-dominated and N2-dominated atmospheres) and those orbiting
+Sun-like stars have atmosphere signals too weak to be detected by JWST.
+
+
+
+
+    Figure 4. Simulated spectra of an exoplanet with an H2-dominated atmosphere transiting an M5V star for a range
+    of NH3 column-averaged mixing ratios. The y-axis shows transit depth (ppm), and the x-axis shows wavelength
+    (μm). The spectra are simulated from 0.3 - 23 μm, covering the wavelength span of most of JWST’s observation
+    modes. The yellow, green and blue region shows the spectral coverage of NIRSpec, and the red region shows that
+    of MIRI LRS. We simulate the spectra with varying NH3 column-averaged mixing ratios from 0 (no NH3) to 10
+    ppm. We calculate the NH3 mixing ratio as a function of vertical altitude using our photochemistry code (Section
+    3.3). At lower surface mixing ratios, the NH3 spectral features are not prominent as NH3 is mostly concentrated
+    near the surface and rapidly decays as a function of altitude. Increasing the abundance of NH3 amplifies the
+    spectral feature of NH3, as more NH3 can accumulate in the upper part of the atmosphere.
+
+
+For exoplanets with high molecular-weight atmospheres (i.e., CO2-dominated and N2-dominated
+atmospheres), the transit depth resulting from the small atmosphere scale height is too small
+compared to the assumed 10 ppm JWST observational noise floor. Similarly, for exoplanets
+orbiting Sun-like stars, the transit depth (around 2 ~ 3 ppm for H2-dominated atmospheres) is too
+small given the size of the host star. To support this argument, we conduct a null hypothesis test.
+We check whether our model is a better fit than a flat line. We find that only exoplanets with H2-
+dominated atmospheres orbiting M5V stars pass this test3.
+
+To demonstrate that a minimum of about 5 ppm is needed for NH3 to be detected, we simulate
+JWST observations using the Pandexo JWST noise simulator with a detection noise floor of 10
+
+3
+    Except for TRAPPIST-1 planets (details see Supplementary Information SI.9)
+ppm and a realistic noise model for JWST instrumentation (Batalha et al., 2017). We compare a
+simulated spectrum with 5 ppm of NH3 and a spectrum with no NH3 (Figure 5). We find that the
+spectrum with 5 ppm of NH3 has spectral features 10 ~ 40 ppm larger than the spectrum with no
+NH3. The inclusion of detection noise is the main reason why our 5 ppm detection limit is higher
+than the 0.1 ppm value stated in (Seager et al., 2013).
+
+
+
+
+ Figure 5. Upper Panel: Simulated JWST exoplanet atmosphere observation for a 10 MEarth, 1.75 REarth super-
+ Earth with an H2-dominated atmosphere transiting an M5V star given 20 transit per instrument (80 transits in
+ total), and comparing a model with no surface NH3 (blue line) and a model with a column average mixing ratio of
+ 5 ppm (orange line), which we also show in Figure 4. The y-axis shows transit depth (ppm), and the x-axis shows
+ wavelength (μm). The simulated observation spans the wavelength range of the NIRSpec and MIRI instruments.
+ The error bars are 95% confidence interval for each model with 5 ppm NH3 (red) and green for no NH3 (green)
+ uniformly binned to a spectral resolution of R=10. We show that the difference between the two models achieves
+ statistical significance within each instrument, indicating a confident simulated detection of NH3. Lower Panel:
+ Model difference in ppm between the two simulated spectra showing the spectral feature of NH3 peaks around 1.5
+ μm, 2 μm, 3 μm, 6 μm, and 10 μm. Negative values denote that the increase of NH3 caused a decrease of CH4 in
+ the atmosphere.
+
+
+Even though we find that a minimum of about 5 ppm is needed for NH3 to be detected, with one
+JWST instrument (e.g., NIRSpec) and one mode (i.e., G395M, which encompasses the NH3's 3
+μm feature), constraining the amount of NH3 will be challenging. A better quantification is
+possible with more modes covered. We have analyzed an ideal case with observations of all NH3
+spectral features in the wavelength range of 1.6 to 10 μm (three modes of NIRSPEC and MIRI
+LRS, i.e., 80 transits). In this case, we can further constraint the NH3 mixing ratio to 1 ~ 10 ppm.
+
+For illustration purposes, we also show an instance of a simulated observation of an exoplanet
+with H2-dominated atmospheres transiting an M5V star, with both a reasonable number of
+transits (20 transits; Figure 6a) and the maximum theoretical observation time possible (200
+transits; Figure 6b). The maximum observation time means considering nearly every visible
+transit for an orbital period corresponding to the habitable zone of an M5V star (i.e., one transit
+every 10 days for five years based on Kepler’s 3rd law). While such a 200 transit-observation is
+unrealistic (due to the competitive nature of JWST), Figure 6 illustrates what quality of data 200
+transits would provide.
+
+
+
+
+ Figure 6. Comparison between 20 and 200 transits for simulated JWST exoplanet atmosphere observations for a
+ 10 MEarth, 1.75 REarth super-Earth with H2-dominated atmosphere transiting an M5V star. Similar to Figure 5, the
+ model shows a planet with a 5 ppm column-averaged mixing ratio of NH3. Upper panel: simulation for 20 transit
+ observations (5 transits per instrument modes) and R = 20. The y-axis shows transit depth (ppm), and the x-axis
+ shows wavelength (μm). The simulated observation focuses on the wavelength span of NIRSpec G140M
+ (yellow), G235M (green), G395M (blue), and MIRI LRS (red), respectively. The blue line is the simulated
+ transmission spectra, and the black dots are the average of all transits. The orange error bars represent the 95%
+ confidence interval of the observation. Lower panel: same as the upper panel but for 200 transits (50 per mode).
+ This simulation assumes the maximum observation time possible with JWST (200 transits, spanning across 5
+ years), and spectral features of various molecules can be characterized to high confidence.
+
+
+
+4.4 Variability of NH3 Atmospheric Accumulation in Various Planetary Scenarios
+
+We use our photochemistry model to simulate the NH3 mixing ratio as a function of vertical
+altitude in various planetary atmosphere scenarios. We first demonstrate that NH3 can
+accumulate in the atmosphere with a reasonable surface production flux only when life produces
+enough NH3 to saturate the surface sinks (Section 4.4.1). We also show the effect of the NH3
+surface deposition on atmospheric NH3 mixing ratio given a fixed NH3 surface production flux
+(Section 4.4.2).
+4.4.1 Conditions Required for NH3 to Accumulate with a Reasonable Surface Production Flux
+
+We find that NH3 can accumulate to the 5 ppm JWST-detectable level in the atmosphere with a
+reasonable surface production flux only if life is a net source of NH3 and produces enough NH3
+to saturate the surface sinks. In this case, there are no NH3-removal sinks on the surface, and
+NH3 is only removed by photochemistry (i.e., no dry deposition or rainout).
+
+Specifically, for an exoplanet with H2-dominated atmospheres orbiting an M dwarf star, when
+the surface is saturated with NH3 (i.e., there are no NH3-removal sinks on the surface), the
+required biological surface flux to reach 5 ppm is on the order of 1010 molecules cm-2 s-1,
+comparable to the terrestrial biological production of CH4. However, when the surface is
+unsaturated with NH3, due to additional sinks present on the surface, life would have to produce
+NH3 at surface flux levels on the order of 1015 molecules cm-2 s-1 (~4.5×106 Tg year-1). This
+value is roughly 20,000 times greater than the biological production of NH3 on Earth and about
+10,000 times greater than Earth’s CH4 biological production.
+
+Table 4-1. Simulated mixing ratios and surface fluxes for exoplanets with H2-dominated, CO2-
+dominated, and N2-dominated atmospheres orbiting M dwarf stars (M5V).
+                          NH3 column-
+    Atmospheric                                  NH3 surface flux needed [molecules cm-2 s-1]
+                         averaged mixing
+     scenarios
+                               ratio           With NH3 deposition       Without NH3 deposition
+ H2-dominated           5.0 × 10-6 (5 ppm)         6.40 × 1015                1.44 × 1010
+ CO2-dominated          5.0 × 10-6 (5 ppm)         3.60 × 1014                 8.49 × 108
+ N2-dominated           5.0 × 10-6 (5 ppm)         7.10 × 1014                6.77 × 1010
+
+As a reminder, we assume the atmospheric NH3 is maintained through biological production in
+our simulations. The case with NH3 deposition corresponds to active NH3-removal sinks on the
+surface, where the surface is not saturated with NH3. The case without NH3 deposition
+corresponds to conditions in which life produces enough NH3 to saturate the surface sinks (see
+Section 3.3). We include the N2- and CO2-dominated scenario for completeness even though we
+show exoplanets with high molecular-weight atmospheres (i.e., CO2-dominated and N2-
+dominated atmospheres) have atmosphere signals too weak to be detected by JWST (see Section
+4.3 for more details).
+
+Additionally, we find that the dominant photochemical removal pathway for NH3 is direct
+photolysis, followed by reactions with OH radicals. Except in CO2-dominated atmospheres, the
+second dominant removal pathway is reactions with excited O radicals. We compile the top three
+loss rates for NH3 in Table S5-1 (see Supplementary Information SI.5).
+
+To test our photochemistry results' robustness, we perform various sensitivity tests (including the
+presence of a cold trap, the choice of eddy diffusion coefficient, and Henry’s law constant for
+NH3). We find that our results are not sensitive to any of these variables (see Supplementary
+Information SI.6). Furthermore, we find that NH3 is insufficiently abundant to condense in our
+simulated atmospheres (see Supplementary Information SI.7).
+
+4.4.2 Effects of NH3 Surface Deposition on Atmospheric NH3 Mixing Ratio
+Given a fixed NH3 surface production flux, the presence of NH3 surface deposition has a
+significant effect on the atmospheric NH3 mixing ratio. Specifically, the atmospheric mixing
+ratio of NH3 is several orders of magnitude lower with deposition than without (Figure 7).
+
+
+
+
+ Figure 7. The volume mixing ratio of various atmospheric species on planets with H2-dominated, CO2-
+ dominated, and N2-dominated atmospheres orbiting active M dwarfs. The NH3 surface production flux is 1.0×1010
+ molecule·cm-2·s-1 for the H2- and N2-dominated atmospheres. For the CO2-dominated case, the flux is 1.0×109
+ molecule·cm-2·s-1. The y-axis shows altitude in km, and the x-axis shows the mixing ratio. Note that each row of
+ figures has a different x-axis scale. Each color denotes one particular species. The dotted lines for NH3 deposition
+ absent, and solid lines for NH3 deposition present. The figures in the left panel show molecular concentrations,
+ and the figures in the right panel show radical concentrations under different atmospheric scenarios. In each of the
+ three atmospheric scenarios we simulate, the solid black curve (NH3 mixing ratio with deposition) is shifted
+ further to the left (smaller mixing ratio) compared to the dotted black curve (NH3 without deposition) since NH3
+ deposition suppresses atmospheric NH3 concentration. Note that the solid curves for species other than NH3 show
+ the effects of NH3 deposition on the atmospheric concentration of other species.
+When life cannot produce a substantial amount of NH3, the surface remains unsaturated with
+NH3. Hence, surface deposition (both rainout and dry deposition) effectively removes NH3 from
+the atmosphere. If life produces enough NH3 to saturate the surface, surface deposition no longer
+plays a role, and NH3 is only removed by photochemistry.
+
+The effect of surface deposition on NH3 mixing ratio differs between the H2-, N2- and CO2-
+dominated atmospheres. Specifically, we find that rainout (i.e., wet deposition) is most effective
+in H2-dominated atmospheres compared to N2- or CO2-dominated atmospheres. The difference in
+atmospheric NH3 mixing ratio with and without surface deposition4 can reach six orders of
+magnitude. The effect of rainout is most significant in H2-dominated atmospheres due to the
+thermodynamics of H2. The tropospheric lapse rate is lower in H2-dominated atmospheres than
+either CO2- or N2-dominated atmospheres, driving higher temperatures, higher water content,
+and higher rainout rates.
+
+Even though surface deposition (particularly rainout) is not as effective in CO2-dominated
+atmospheres as H2-dominated atmospheres, surface deposition can make a massive difference in
+the NH3 mixing ratio in CO2-dominated atmospheres. In the absence of surface deposition, NH3
+concentrations are the lowest in the relatively oxidizing CO2-dominated atmospheres (compared
+to the N2- and H2-dominated atmospheres), as one might naively expect on the grounds of simple
+thermodynamics. With the presence of surface deposition, NH3 concentrations are the highest in
+the CO2-dominated atmospheres. The reason is that the wet deposition rate decreases as
+temperature and atmospheric water content decreases (Giorgi & Chameides 1985; Hu et al.,
+2012, Equation 21). The relatively high lapse rate of CO2-dominated atmospheres suppresses
+both temperature and atmospheric water content, reducing rainout and enhancing NH3
+concentrations relative to the N2- and H2-dominated atmospheric scenarios.
+
+
+5. Discussion
+
+We first compare NH3’s solubility in water with other atmospheric gases, particularly several
+previously studied biosignature gases (Section 5.1). We next discuss how horizontal atmospheric
+transport might limit NH3 accumulation above land (Section 5.2). We also discuss other minor
+sources and sinks of ammonia, including NH3 production by lightning (Section 5.3) and
+additional ocean-related sinks for dissolved NH3 and NH4+ ions (Section 5.4). We discuss amines
+viability as biosignature gases by proxy with NH3 (Section 5.5 and Section 5.6). Additionally, we
+briefly discuss NH3 induced hazes (Section 5.7), NH3's greenhouse effect (Section 5.8), and NH3
+detectability with future telescopes (Section 5.9). We end our discussion with a brief comparison
+of the significance of atmospheric NH3 in mini-Neptunes vs. super-Earths (Section 5.10).
+
+5.1 Ammonia’s High Water Solubility Compared to Other Atmospheric Gases
+
+We compare ammonia’s solubility to that of 27 other gases, a list that includes common
+atmosphere gases, biosignature gases, and a group of volatile amines (Figure 8).
+
+
+
+4
+    NH3 dry deposition velocity is the same for all the scenarios.
+ Figure 8. The solubility of common molecules on a log scale. The x-axis shows the chemical species' name, and
+ the y-axis shows Henry’s law constant on a log scale. Ammonia and other amines are at least two orders of
+ magnitude more soluble than other chemicals in the list, including several biosignature gas candidates that have
+ already been studied.
+
+
+In contrast to ammonia and volatile amines, previously studied biosignature gases such as
+isoprene (Zhan et al., 2021), DMS (Domagal-Goldman et al., 2011, Seager et al., 2012, and
+Arney et al., 2018), CH4 (Dlugokencky et al., 2011), N2O (Tian et al., 2015), CH3Cl (Segura et
+al., 2005) and phosphine (Sousa-Silva et al., 2019) have very low solubilities in water. Therefore,
+molecule water solubility has not needed to be emphasized as a reservoir in exoplanet
+atmosphere characterization studies.
+
+Sulfur dioxide (SO2) has a much higher solubility in water than other common atmospheric gases
+(but not as high as NH3). Many studies show that both SO2 molecules and their associated
+aerosols (H2SO4-H2O) can potentially be detected in exoplanets' atmospheres (Hu et al., 2013,
+Lincowski et al., 2018, Loftus et al., 2019). However, Earth does not sustain a detectable level of
+sulfur aerosols in the atmosphere, possibly due to the presence of a global ocean (McCormick et
+al., 1995 and Loftus et al., 2019). Furthermore, it has been shown that SO2 accumulation in an
+Earth-like environment requires an unreasonably high source flux (Hu et al., 2013). Therefore,
+(Loftus et al., 2019) propose that detection of atmospheric SO2 (or sulfate haze) can infer the
+lack of surface water oceans on a rocky exoplanet.
+
+
+5.2 Horizontal Atmospheric Transport Limits NH3 Accumulation above Land
+
+Horizontal wind transport might limit NH3 accumulation above land when the planet's surface is
+unsaturated with NH3 (i.e., there are NH3 biological or geochemical sinks on the surface). In this
+case, if land-based life produces NH3, it can be transported over the ocean, where NH3 can rain
+out and dissolve in the ocean, thereby removing NH3 from the atmosphere. Since Earth’s NH3 is
+produced by land-based life (soil bacteria (Section 2.1), horizontal wind transport is important.
+
+So far, our models have neglected wind transport because they are limited to one dimension (the
+vertical dimension). Horizontal wind transport is a sink through which NH3 is removed from the
+atmosphere above land. An improved model would consider an NH3 land-ocean transport cycle
+(Figure 9) that includes horizontal winds. After NH3 is produced from land surfaces, it will either
+be transported horizontally by wind or move up to the upper atmosphere, where NH3 will be
+photochemically destroyed. Once entering the atmosphere above the ocean, ammonia can rain
+out, followed by quick diffusion into the ocean due to its high solubility. As a result, wind
+transport limits NH3’s ability to accumulate to a detectable level in the atmosphere. A numerical
+model for such atmospheric wind transport of NH3 is very challenging since it’s extremely
+sensitive to the geophysical conditions we assume for the exoplanets.
+
+
+
+
+ Figure 9. A simplified NH3 land-ocean transport cycle. We assume that the planet's surface (land and ocean) is
+ unsaturated with NH3, meaning there are NH3 biological or geochemical sinks on the surface. Right panel:
+ Ammonia is biologically produced from land surfaces and enters the atmosphere. Ammonia leaves the land area
+ by traveling to the upper atmosphere, where it is photochemically destroyed. NH3 can also be carried away by
+ horizontal wind transport. Left panel: Once entering the atmosphere above the ocean, ammonia is removed
+ through direct diffusion into the ocean, where NH3 readily dissolves due to its high solubility. NH3 can also fall
+ back to the ground with rain, which is not shown in this figure.
+
+
+
+5.3 Implausibility of NH3 Formation by Lightning
+
+In principle, the formation of NH3 from N2 is possible during lightning strikes. However, the
+reduction of N2 to NH3 by lightning is unlikely in oxidized atmospheres due to the very low
+concentration of H-containing reductants (e.g., H2). N species' well-studied formation by
+lightning strikes on Earth (N2-O2 atmosphere) favors the formation of nitrates and nitrites, not
+the thermally less stable reduced forms of N like ammonia (Ardaseva et al., 2017; Mancinelli
+and McKay 1988; Rakov and Uman 2003). Similarly, in oxidized N2-CO2 atmospheres,
+lightning-induced N2 transformation primarily leads to HNO but not NH3 (Navarro-González et
+al., 2001; Holloway et al., 2002; Hawtof et al., 2019).
+
+In an H2-dominated atmosphere, NH3 may form through lightning by breaking apart the N2 bond
+and subsequent recombination of N atoms with H. Unfortunately, there are no laboratory studies
+on the formation of ammonia in N2-H2 atmospheres. Several studies focusing on the lightning-
+induced formation of PH3 conclude it is possible, though extremely low efficiency. Specifically,
+simulated lightning discharges in laboratory conditions produce traces of PH3, at very low
+efficiency, from discharges onto phosphate salt solutions (Glindemann et al., 1999; Glindemann
+et al., 2004). By analogy with PH3, we infer that lightning is not likely an efficient source of NH3
+in exoplanet atmospheres.
+
+
+5.4 Plausible Ocean-related Sinks of NH3 and NH4+
+
+There are active NH3-removal sinks on the surface (including land and ocean) that can maintain
+a surface unsaturated with NH3. We summarize three chemical processes that can remove
+dissolved NH3 or NH4+ ions from the ocean: abiotic and biotic ammanox, marine
+photochemistry, and the formation of NH4-containing sediments and minerals in the ocean.
+
+The first process, called anammox (anaerobic ammonium oxidation), is a process that combines
+NH4+ and NO2- to form N2 and water. Such a process can occur biotically with marine anammox
+bacteria such as species belonging to the genus Scalindua (Jetten et al., 2009). Abiotic anammox
+is also possible. The rate of abiotic reaction of NH3 with nitrite is sensitive to pH and
+temperature, with the reaction proceeding substantially faster at low pH and high temperature
+(Nguyen et al., 2003). NH3 may also react with NO3-, but this reaction is slower than reaction
+with NO2-, by analogy with similar reduction reactions (Ranjan et al., 2019).
+
+The second process is marine photochemistry. UV radiation in the wavelength range of 300-400
+nm can effectively penetrate the first few centimeters of the surface ocean water5 before it is
+attenuated (Fleischmann 1989). Therefore, dissolved NH3 and NH4+ ions might be
+photochemically destroyed by the incident UV light close to the ocean surface. The bond
+dissociation energy for an N-H single bond is about 314 kJ·mol-1 (T. L. Cottrell, 1966). Photons
+with wavelengths between 300 and 400 nm have 299 ~ 399 kJ·mol-1 of energy. Therefore, it is
+not implausible for UV to break the N-H bond, effectively removing NH3 or NH4+ ions from the
+ocean surface.
+
+The third process is the formation of NH4-containing sediments and minerals in the ocean,
+whereby dissolved NH4+ ions are deposited into the lithosphere. There are a wide variety of NH4-
+containing minerals in nature (Table 5-1). NH4-containing minerals like Lecontite, Ammonian
+fluorapophyllite, and Tobelite can form by substitution of ammonium for potassium. High
+concentrations of NH4+ ions have been detected in the mineralizing fluids at the bottom of the
+ocean, specifically around the southwest pacific regions (Ridgway et al., 1990). Organic matter
+embedded in the sediments and rocks can break down to yield NH4+. Since NH4 can easily
+replace K, Na, and other alkali metals in crystal lattices, K-containing rocks and sediments are
+particularly susceptible to the formation of NH4 haloes and incursions (Ridgway et al., 1990).
+Both surface and subsurface rocks can have high NH4 content (Ridgway et al., 1990). As a result,
+dissolved NH3 and NH4+ ions can, in principle, be removed from the ocean environment through
+this mineralogical process.
+
+5
+  The UV irradiance at the surface of an anoxic planet can be substantially greater than that of present-day Earth, due
+to the much more efficient penetration of the shorter UV wavelengths (Cockell, 1999).
+Table 5-1. Naturally occurring NH4-containing minerals (Reference: Holloway et al., 2002).
+                   Name of the mineral                                   Chemical formula
+    Ammoniojarosite                                           (NH4)Fe3+(SO4)2(OH)6
+    Boussingaultite                                           (NH4)2Mg(SO4)2·6H2O
+    Letovicite                                                (NH4)3H(SO4)2
+    Mascagnite                                                (NH4)2SO4
+    Sal-ammoniac                                              (NH4)Cl
+    Mundrabillaite                                            (NH4)2Ca(HPO4)2·H2O
+    Ammonioleucite                                            (NH4)AlSi2O6
+    Lecontite                                                 (NH4,K)Na(SO4)·2H2O
+    Ammonian fluorapophyllite                                 (NH4,K)Ca4Si8O20(F,OH)·8H2O
+    Tobelite                                                  (NH4,K)Al2(Si3Al)O10(OH)2
+
+
+5.5 Volatile Amines are Good Biosignature Gases by Proxy with NH3
+
+Volatile amines have similar solubilities and reactivities to NH3 and hence are also suitable
+biosignature gases. Only when life produces enough volatile amines that can saturate the surface
+sinks can volatile amines accumulate in the atmosphere. Otherwise, volatile amines, just like
+NH3, can be removed from the atmosphere due to their high water solubility and high bio-
+useability.
+
+Amines can be considered NH3 derivatives, where an organic functional group replaces at least
+one H atom. There is some difference in solubility amongst volatile amines. In general, amine
+solubility decreases with an increasing length or number of hydrocarbon chains. Furthermore,
+like NH3, volatile amines will form basic solutions in water (see SI.2).
+
+The reactivity of volatile amines is also similar to NH3 (see SI.3), further allowing us to use NH3
+as a proxy for volatile amines. Here, we compare radical reaction rates6 for volatile amines to
+NH3 in NIST (Manion et al., 2008). The few volatile amines with radical reaction rates at room
+temperature have reaction rates two to three orders of magnitude higher than that of NH3 (see
+SI.3). As a result, if NH3 cannot accumulate in the atmosphere unless life produces a substantial
+amount of NH3 that can saturate the surface sinks, neither can other volatile amines under similar
+planetary conditions.
+
+
+5.6 IR Absorbance Spectra of Amines
+
+We can organize amines into three groups: primary, secondary, and tertiary amines, despite the
+amines’ wide variety of molecular structures. Amines in each group will show similar features in
+their IR spectra. We use IR absorbance data from NIST to plot the spectra. We find 15 primary
+amines, 9 secondary amines, and 2 tertiary amines with available absorbance data in NIST. We
+overlay them onto a single graph to demonstrate the presence of shared IR features (Figure 10).
+
+6
+    H radicals do not destroy NH3 or other volatile amines.
+We present the details of those amines and their raw (unnormalized) plots in Supplementary
+Information (SI.4).
+
+
+
+
+    Figure 10. Spectral features of primary, secondary and tertiary amines in NIST (Manion et al., 2008). The x-axis
+    shows wavelength in microns, and the y-axis shows absorbance that is normalized to 1. Amines in each group
+    show similar IR absorbance features7.
+
+
+
+5.7 NH3-Induced Hazes
+
+On an exoplanet with an H2-dominated atmosphere, NH3 haze generation processes have not yet
+been worked out in detail. In contrast to the formation of hydrocarbon and sulfur-based hazes
+that have been extensively studied (Domagal-Goldman et al., 2011; Arney et al., 2017; He et al.,
+2020), there is very little work on nitrogen-based hazes in H2-dominated atmospheres. NH3, on
+its own, does not participate in haze formation in reduced atmospheres. Hence, we do not focus
+on the formation and impact of NH3-induced haze in our analysis. If hydrocarbons are present in
+the atmosphere and form hazes (Arney et al., 2017), NH3 might participate in haze formation. In
+the presence of hydrocarbons, UV photolysis of NH3 could form complex nitrogen-containing
+organics. This process is similar to the formation of organophosphine hazes (Sousa-Silva et al.,
+2020). However, contrary to the formation of organophosphine hazes, UV photolysis of NH3
+could reduce hydrocarbon hazes. The nitrogen-containing organics formed from UV photolysis
+of NH3 are amines in nature. They are highly soluble and are susceptible to atmospheric
+precipitation.
+
+It’s worth noting that on Earth, NH3 plays a vital role in haze formation, especially PM2.5 (i.e.,
+fine particulate matter with diameter <2.5 μm) (Ye et al., 2011; Wei et al., 2015; Chen et al.,
+2016; Liu et al., 2019). In Earth’s oxidized atmosphere, one way that atmospheric NH3 can
+induce haze formation is by reacting with other pollutants such as sulfur dioxide (SO2) and
+nitrogen oxides (NOx). These reactions form fine airborne particles such as ammonium nitrate
+
+7
+    Some peaks remain undiagnosed.
+(NH4NO3), ammonium bisulfate (NH4HSO4), and ammonium sulfate ((NH4)2SO4). The airborne
+particles can then form PM2.5 by mixing with dust and other air pollutants (Chen et al., 2016).
+Furthermore, it has been shown that NH3 can facilitate oxidation-reduction between NO2 and
+SO2 to form atmospheric nitrous acid (HONO) (Ge et al., 2019). Under UV conditions,
+atmospheric HONO can undergo photolysis to yield OH radicals, further facilitating haze
+formation (Ge et al., 2019; Wang et al., 2020).
+
+
+5.8 NH3 as a greenhouse gas
+
+Ammonia is a greenhouse gas, given that it is a good IR absorber. However, its greenhouse
+effect is negligible on Earth due to its high reactivity and short atmospheric lifetime.
+
+For exoplanets, we show in a separate paper that an increase in atmospheric NH3 concentration
+does not lead to a considerable increase in surface temperature (Ranjan et al. Submitted).
+Specifically, in an H2-dominated atmosphere, the surface temperature only increases by about 10
+K with 100 ppm of atmospheric NH3 due to NH3-H2 collision-induced absorption. In contrast, for
+an N2-dominated atmosphere, the temperature increase is roughly 40 K with 100 ppm of NH3
+(Ranjan et al. Submitted).
+
+In an implausible scenario where NH3 does accumulate to extremely high concentrations on
+exoplanets, NH3 can indeed heat the surface significantly, particularly for N2- and CO2-
+dominated atmospheres. NH3-induced heating on H2-dominated atmospheres is minimal because
+NH3 absorption is degenerate with H2-H2 collision-induced absorption. Such high concentrations
+of NH3 might also heat the stratosphere due to NH3 UV absorption.
+
+
+5.9 NH3 Detectability with Future Telescopes
+
+We assess the detectability of NH3 with the premise of using a JWST-like telescope, which has a
+6.5-meter diameter primary mirror, an estimated systematic noise floor of 10 ppm, and an
+estimated service time of 5 years (cryogenic lifetime). As discussed in Section 4.3, for
+exoplanets transiting M5V stars and orbiting in the habitable zone, we find that JWST can
+characterize only those with an H2-dominated atmosphere with reasonable observation time.
+However, not all terrestrial exoplanets can retain H2-dominated atmospheres.
+
+To explore the potential for detecting NH3 in a non-H2-dominated atmosphere, we assume
+observation using more capable telescopes that are currently in design or development, such as
+missions like The Origins Space Telescope (OST) (Battersby et al., 2018) and the 30-meter class
+of ground telescopes (Johns et al., 2012; Tamai and Spyromilio 2014; Skidmore et al., 2015).
+Since these telescopes' instrumental details may change with mission development, we
+generalize those details into two abstract categories: (1) a 10-meter space telescope with broad
+spectral coverage. (2) a 30-meter ground-based telescope constrained by Earth’s atmosphere
+observing windows. In both scenarios, we assume a 1 ppm noise floor. We computed the new
+noise estimate by scaling the JWST noise simulator Pandexo output with lower noise floor input.
+For a 10-meter space telescope with a lower noise floor, characterization of CO2-dominated or
+N2-dominated atmospheres for exoplanets transiting an M5V star (which have an atmospheric
+transit-depth of 10 ~ 20 ppm) are possible with 20 transits per observation mode. However, for
+exoplanets transiting a Sun-like star, even H2-dominated atmospheres are not accessible
+(atmospheric transit-depth of 2 ~ 3 ppm). The fundamental constraint here is (Rplanet/Rstar)2.
+While it is arguably possible to characterize such H2-dominated atmospheres with a 30-meter
+ground-based telescope, the only NH3 IR spectral features observable in Earth’s atmosphere
+window are the 2.3 μm and the 10 μm features.
+
+
+5.10 NH3 in Mini-Neptunes
+
+Super-Earths and mini-Neptunes discovered by future direct imaging programs may not be
+distinguishable from each other, lacking a mass and/or a size measurement. In this situation, any
+NH3 detected should not be considered a possible biosignature gas. The reason is that NH3
+should exist to some level in mini-Neptune atmospheres without production by life, as NH3 can
+be generated deep in the mini-Neptune envelope where temperature and pressure are high
+enough for NH3’s atmospheric production. More work is needed to explore mini-Neptunes,
+including photochemistry, where NH3 might be a marker for identifying a directly imaged planet
+as a mini-Neptune instead of a super-Earth.
+
+
+6. Summary
+
+In this paper, we examine the potential of NH3 as a biosignature gas. We use various approaches,
+ranging from comparing Henry's law constants for different atmospheric gases to our simplified
+ocean-NH3 interaction model to applications of our comprehensive photochemistry code and
+transmission spectra model.
+
+In brief, NH3 in a terrestrial planet atmosphere is generally a good biosignature gas, primarily
+because terrestrial planets have no significant known abiotic NH3 source. NH3's high water
+solubility and high bio-useability likely prevent NH3 from accumulating in the atmosphere to
+detectable levels unless life is a net source of NH3 and produces enough NH3 to saturate the
+surface sinks. Only then can NH3 accumulate in the atmosphere with a reasonable surface
+production flux.
+
+Specifically, for the favorable scenario of exoplanets with H2-dominated atmospheres orbiting M
+dwarf stars (M5V), we find that a minimum of about 5 ppm column-averaged mixing ratio is
+needed for NH3 to be detectable with JWST, considering a 10 ppm JWST systematic noise floor.
+
+Additionally, volatile amines share NH3's weaknesses and strengths as a biosignature since
+volatile amines have similar solubilities and reactivities to NH3. Finally, to establish NH3 as a
+biosignature gas, we must rule out mini-Neptunes with deep atmospheres, where temperatures
+and pressures are high enough for NH3’s atmospheric production.
+Acknowledgments
+
+We thank William Bains for the valuable discussions. We thank Thomas Evans, Ana Glidden,
+and Zahra Essack for helpful discussion to establish the detection metric. We acknowledge
+funding from the Heising-Simons Foundation (grant number #2018-1104) and NASA (grant
+numbers 80NSSC19K0471 and NNX15AC86G). S.R. gratefully acknowledges support from the
+Simons Foundation, grant no. 495062.
+
+
+
+References
+
+1. Amante, C. & Eakins, B. W. ETOPO1 1 Arc-Minute Global Relief Model: Procedures, Data
+    Sources and Analysis. NOAA Tech. Memo. NESDIS NGDC-24 19 (2009)
+    doi:10.1594/PANGAEA.769615.
+
+2. Ardaseva, A. et al. Lightning Chemistry on Earth-like Exoplanets. arXiv 470, 187–196 (2017).
+
+3. Arney, G. N. et al. Pale orange dots: The impact of organic haze on the habitability and
+     detectability of earthlike exoplanets. arXiv 836, 49 (2017).
+
+4. Arney, G., Domagal-Goldman, S. D. & Meadows, V. S. Organic haze as a biosignature in
+     anoxic earth-like atmospheres. arXiv 18, 311–329 (2017).
+
+5. Bar-On, Y. M., Phillips, R. & Milo, R. The biomass distribution on Earth. Proc. Natl. Acad.
+     Sci. U. S. A. 115, 6506–6511 (2018).
+
+6. Batalha, N. E. et al. PandExo: A community tool for transiting exoplanet science with jwst &
+     hst. arXiv 129, 64501 (2017).
+
+7. Battersby, C. et al. The origins space telescope. Nat. Astron. 2, 596–599 (2018).
+
+8. Behera, S. N., Sharma, M., Aneja, V. P. & Balasubramanian, R. Ammonia in the atmosphere:
+     A review on emission sources, atmospheric chemistry and deposition on terrestrial bodies.
+     Environ. Sci. Pollut. Res. 20, 8092–8131 (2013).
+
+9. Bernath, P. F. Atmospheric chemistry experiment (ACE): Mission overview. Opt. InfoBase
+     Conf. Pap. 32, (2005).
+
+10. Bétrémieux, Y. & Kaltenegger, L. Impact of atmospheric refraction: how deeply can we
+     probe exo-Earth’s atmospheres during primary eclipse observations? Astrophys. J. 791, 7
+     (2014).
+
+11. Birnbaum, G., Borysow, A. & Orton, G. S. Collision-induced absorption of H2-H2 and H2-
+     He in the rotational and fundamental bands for planetary applications. Icarus 123, 4–22
+     (1996).
+12. Bouwman, A. F., Boumans, L. J. M. & Batjes, N. H. Estimation of global NH3 volatilization
+     loss from synthetic fertilizers and animal manure applied to arable lands and grasslands.
+     Global Biogeochem. Cycles 16, 1–8 (2002).
+
+13. Bouwman, A. F. et al. A global high-resolution emission inventory for ammonia. Global
+     Biogeochem. Cycles 11, 561–587 (1997).
+
+14. Brasseur, G. P. & Jacob, D. J. Modeling of atmospheric chemistry. Modeling of Atmospheric
+     Chemistry (Cambridge University Press, 2017). doi:10.1017/9781316544754.
+
+15. Burgess, B. K. & Lowe, D. J. Mechanism of molybdenum nitrogenase. Chem. Rev. 96,
+     2983–3011 (1996).
+
+16. Byrne, N. et al. Presence and activity of anaerobic ammonium-oxidizing bacteria at deep-sea
+     hydrothermal vents. ISME J. 3, 117–123 (2009).
+
+17. Caranto, J. D. & Lancaster, K. M. Nitric oxide is an obligate bacterial nitrification
+     intermediate produced by hydroxylamine oxidoreductase. Proc. Natl. Acad. Sci. U. S. A.
+     114, 8217–8222 (2017).
+
+18. Catling, D. C. & Kasting, J. F. Atmospheric evolution on inhabited and lifeless worlds.
+     (Cambridge University Press, 2017).
+
+19. Cockell, C. S. Carbon biochemistry and the ultraviolet radiation environments of F, G, and K
+     main sequence stars. Icarus 141, 399–407 (1999).
+
+20. Daims, H. et al. Complete nitrification by Nitrospira bacteria. Nature 528, 504–509 (2015).
+
+21. Daines, S. J., Mills, B. J. W. & Lenton, T. M. Atmospheric oxygen regulation at low
+     Proterozoic levels by incomplete oxidative weathering of sedimentary organic carbon. Nat.
+     Commun. 8, 1–11 (2017).
+
+22. Dentener, F. J. & Crutzen, P. J. A three-dimensional model of the global ammonia cycle. J.
+     Atmos. Chem. 19, 331–369 (1994).
+
+23. Des Marais, D. J. et al. Erratum: Remote sensing of planetary properties and biosignatures on
+     extrasolar terrestrial planets (Astrobiology (2002) 2: 2 (153-181)). Astrobiology 3, 216
+     (2003).
+
+24. Devol, A. H. Nitrogen cycle: Solution to a marine mystery. Nature 422, 575–576 (2003).
+
+25. Dlugokencky, E. J., Nisbet, E. G., Fisher, R. & Lowry, D. Global atmospheric methane:
+     Budget, changes and dangers. Philos. Trans. R. Soc. A Math. Phys. Eng. Sci. 369, 2058–
+     2072 (2011).
+26. Domagal-Goldman, S. D., Meadows, V. S., Claire, M. W. & Kasting, J. F. Using biogenic
+     sulfur gases as remotely detectable biosignatures on anoxic planets. Astrobiology 11, 419–
+     441 (2011).
+
+27. Dong, Y. et al. Anthropogenic emissions and distribution of ammonia over the Yangtze River
+     Delta. Huanjing Kexue Xuebao / Acta Sci. Circumstantiae 29, 1611–1617 (2009).
+
+28. Elderfield, H. & Schultz, A. Mid-ocean ridge hydrothermal fluxes and the chemical
+     composition of the ocean. Annu. Rev. Earth Planet. Sci. 24, 191–224 (1996).
+
+29. Fauchez, T. J. et al. Impact of clouds and hazes on the simulated JWST transmission spectra
+     of habitable zone planets in the TRAPPIST-1 system. Astrophys. J. 887, 194 (2019).
+
+30. Fleischmann, E. M. The measurement and penetration of ultraviolet radiation into tropical
+     marine water. Limnol. Oceanogr. 34, 1623–1629 (1989).
+
+31. France, K. et al. the Muscles Treasury Survey. I. Motivation and Overview. Astrophys. J.
+     820, 89 (2016).
+
+32. Gaillard, F. et al. The Diverse Planetary Ingassing/Outgassing Paths Produced over Billions
+     of Years of Magmatic Activity. Space Sci. Rev. 217, 1–54 (2021).
+
+33. Gaillard, F. & Scaillet, B. A theoretical framework for volcanic degassing chemistry in a
+     comparative planetology perspective and implications for planetary atmospheres. Earth
+     Planet. Sci. Lett. 403, 307–316 (2014).
+
+34. Galloway, J. N. The Global Nitrogen Cycle. Treatise on Geochemistry 8–9, 557–583 (2003).
+
+35. Gaudi, B. S. et al. The Habitable Exoplanet Observatory (HabEx) Mission Concept Study
+     Interim Report. arXiv Prepr. arXiv1809.09674 (2018).
+
+36. Ge, S. et al. Abundant NH3 in China Enhances Atmospheric HONO Production by
+     Promoting the Heterogeneous Reaction of SO2 with NO2. Environ. Sci. Technol. 53,
+     14339–14347 (2019).
+
+37. Giorgi, F. & Chameides, W. L. The rainout parameterization in a photochemical model. J.
+     Geophical Res. 90, 7872–7880 (1985).
+
+38. Glindemann, D., De Graaf, R. M. & Schwartz, A. W. Chemical reduction of phosphate on
+     the primitive Earth. Orig. Life Evol. Biosph. 29, 555–561 (1999).
+
+39. Glindemann, D., Edwards, M. & Schrems, O. Phosphine and methylphosphine production by
+     simulated lightning - A study for the volatile phosphorus cycle and cloud formation in the
+     earth atmosphere. Atmos. Environ. 38, 6867–6874 (2004).
+40. Guenther, A. et al. Estimates of global terrestrial isoprene emissions using MEGAN (Model
+     of Emissions of Gases and Aerosols from Nature). Atmos. Chem. Phys. 6, 3181–3210
+     (2006).
+
+41. Hawtof, R. et al. Catalyst-free, highly selective synthesis of ammonia from nitrogen and
+     water by a plasma electrolytic system. Asian J. Chem. 31, eaat5778 (2019).
+
+42. He, C. et al. Haze formation in warm H2-rich exoplanet atmospheres. arXiv 1–8 (2020)
+     doi:10.3847/psj/abb1a4.
+
+43. He, J., Rakov, V., Wang, D. & Wang, P. K. Lightning physics and effects. Atmospheric
+     Research vols 129–130 (Cambridge University Press, 2013).
+
+44. Holloway, J. A. M. & Dahlgren, R. A. Nitrogen in rock: Occurrences and biogeochemical
+     implications. Global Biogeochem. Cycles 16, 65-1-65–17 (2002).
+
+45. HOU, X. & YU, X. An ammonia emissions inventory for agricultural sources in Hefei,
+     China. Atmos. Ocean. Sci. Lett. 13, 260–267 (2020).
+
+46. Hu, R. & Seager, S. Photochemistry in terrestrial exoplanet atmospheres. III. Photochemistry
+     and thermochemistry in thick atmospheres on super earths and mini neptunes. Astrophys. J.
+     784, 63 (2014).
+
+47. Hu, R., Seager, S. & Bains, W. Photochemistry in terrestrial exoplanet atmospheres. II. H2S
+     and SO2 photochemistry in anoxic atmospheres. Astrophys. J. 769, 166 (2013).
+
+48. Jeans, J. The universe around us. (1930).
+
+49. Jetten, M. S. M. et al. Biochemistry and molecular biology of anammox bacteria
+     biochemistry and molecular biology of anammox bacteria M.S.M. Jetten et al. Crit. Rev.
+     Biochem. Mol. Biol. 44, 65–84 (2009).
+
+50. Johns, M. et al. Giant Magellan Telescope: overview. in Ground-based and Airborne
+     Telescopes IV vol. 8444 84441H (International Society for Optics and Photonics, 2012).
+
+51. Johnson, B. & Goldblatt, C. The nitrogen budget of Earth. Earth-Science Rev. 148, 150–173
+     (2015).
+
+52. Kaltenegger, L., Traub, W. A. & Jucks, K. W. Spectral Evolution of an Earth‐like Planet.
+     Astrophys. J. 658, 598–616 (2007).
+
+53. Kartal, B., Keltjens, J. T. & Jetten, M. S. M. Metabolism and Genomics of Anammox
+     Bacteria. Nitrification 179–200 (2014) doi:10.1128/9781555817145.ch8.
+
+54. Kasting, J. F. Stability of ammonia in the primitive terrestrial atmosphere. J. Geophys. Res.
+     Ocean. 87, 3091–3098 (1982).
+55. Kasting, J. F. Runaway and moist greenhouse atmospheres and the evolution of Earth and
+     Venus. Icarus 74, 472–494 (1988).
+
+56. Kasting, J. F. Bolide impacts and the oxidation state of carbon in the Earth’s early
+     atmosphere. Orig. Life Evol. Biosph. 20, 199–231 (1990).
+
+57. Korhonen, H., Carslaw, K. S., Spracklen, D. V., Mann, G. W. & Woodhouse, M. T.
+     Influence of oceanic dimethyl sulfide emissions on cloud condensation nuclei
+     concentrations and seasonality over the remote Southern Hemisphere oceans: A global
+     model study. J. Geophys. Res. Atmos. 113, (2008).
+
+58. Kraft, B., Strous, M. & Tegetmeyer, H. E. Microbial nitrate respiration - Genes, enzymes and
+     environmental distribution. J. Biotechnol. 155, 104–117 (2011).
+
+59. Kuypers, M. M. M., Marchant, H. K. & Kartal, B. The microbial nitrogen-cycling network.
+     Nat. Rev. Microbiol. 16, 263 (2018).
+
+60. Lam, P. & Kuypers, M. M. M. Microbial nitrogen cycling processes in oxygen minimum
+     zones. Ann. Rev. Mar. Sci. 3, 317–345 (2011).
+
+61. Lamarque, J. F. et al. Global and regional evolution of short-lived radiatively-active gases
+     and aerosols in the Representative Concentration Pathways. Clim. Change 109, 191–212
+     (2011).
+
+62. Léger, A. et al. Could we search for primitive life on extrasolar planets in the near future?
+     The DARWIN project. Icarus 123, 249–255 (1996).
+
+63. Lincowski, A. P. et al. Evolved Climates and Observational Discriminants for the
+     TRAPPIST-1 Planetary System. Astrophys. J. 867, 76 (2018).
+
+64. Liu, M. et al. Ammonia emission control in China would mitigate haze pollution and
+     nitrogen deposition, but worsen acid rain. Proc. Natl. Acad. Sci. U. S. A. 116, 7760–7765
+     (2019).
+
+65. Loftus, K., Wordsworth, R. D. & Morley, C. V. Sulfate Aerosol Hazes and SO2 Gas as
+     Constraints on Rocky Exoplanets’ Surface Liquid Water. arXiv 887, 231 (2019).
+
+66. Lustig-Yaeger, J., Meadows, V. S. & Lincowski, A. P. The detectability and characterization
+     of the TRAPPIST-1 exoplanet atmospheres with JWST. Astron. J. 158, 27 (2019).
+
+67. Manabe, S. & Wetherald, R. T. Thermal Equilibrium of the Atmosphere with a Given
+     Distribution of Relative Humidity. J. Atmos. Sci. 24, 241–259 (1967).
+
+68. Mancinelli, R. L. & McKay, C. P. The evolution of nitrogen cycling. Orig. Life Evol.
+     Biosph. 18, 311–325 (1988).
+69. Manion, J. A. et al. NIST Chemical Kinetics Database, NIST Standard Reference Database
+     17, Version 7.0 (Web Version), Release 1.4. 3, Data version 2008.12, National Institute of
+     Standards and Technology, Gaithersburg, Maryland, 20899--8320. Web address
+     http//kinetics. nist. gov (2008).
+
+70. Marchant, H. K., Lavik, G., Holtappels, M. & Kuypers, M. M. M. The fate of nitrate in
+     intertidal permeable sediments. PLoS One 9, e104517 (2014).
+
+71. Martin, R. S., Mather, T. A. & Pyle, D. M. Volcanic emissions and the early Earth
+     atmosphere. Geochim. Cosmochim. Acta 71, 3673–3685 (2007).
+
+72. Mather, T. A. et al. Nitric acid from volcanoes. Earth Planet. Sci. Lett. 218, 17–30 (2004).
+
+73. McCormick, M. P., Thomason, L. W. & Trepte, C. R. Atmospheric effects of the Mt
+     Pinatubo eruption. Nature 373, 399–404 (1995).
+
+74. McDermott, J. M., Sylva, S. P., Ono, S., German, C. R. & Seewald, J. S. Geochemistry of
+     fluids from Earth’s deepest ridge-crest hot-springs: Piccard hydrothermal field, Mid-
+     Cayman Rise. Geochim. Cosmochim. Acta 228, 95–118 (2018).
+
+75. Meadows, V. S. et al. Exoplanet biosignatures: understanding oxygen as a biosignature in the
+     context of its environment. Astrobiology 18, 630–662 (2018).
+
+76. Mikhail, S., Barry, P. H. & Sverjensky, D. A. The relationship between mantle pH and the
+     deep nitrogen cycle. Geochim. Cosmochim. Acta 209, 149–160 (2017).
+
+77. Mikhail, S. & Sverjensky, D. A. Nitrogen speciation in upper mantle fluids and the origin of
+     Earth’s nitrogen-rich atmosphere. Nat. Geosci. 7, 816–819 (2014).
+
+78. Misra, A., Meadows, V. & Crisp, D. The effects of refraction on transit transmission
+     spectroscopy: application to Earth-like exoplanets. Astrophys. J. 792, 61 (2014).
+
+79. Möller, D. M. Chemistry of the climate system. Chemistry of the Climate System (Walter de
+     Gruyter GmbH & Co KG, 2014). doi:10.1515/9783110331943.
+
+80. Moss, R. H. et al. The next generation of scenarios for climate change research and
+     assessment. Nature 463, 747–756 (2010).
+
+81. Navarro-González, R., McKay, C. P. & Mvondo, D. N. A possible nitrogen crisis for
+     Archaean life due to reduced nitrogen fixation by lightning. Nature 412, 61–64 (2001).
+
+82. Nguyen, D. A., Iwaniw, M. A. & Fogler, H. S. Kinetics and mechanism of the reaction
+     between ammonium and nitrite ions: Experimental and theoretical studies. Chem. Eng. Sci.
+     58, 4351–4362 (2003).
+83. Olivier, J. G. J., Bouwman, A. F., Van Der Hoek, K. W. & Berdowski, J. J. M. Global air
+     emission inventories for anthropogenic sources of NO(x), NH3 and N2O in 1990. Environ.
+     Pollut. 102, 135–148 (1998).
+
+84. P, D. CRC Handbook of Chemistry and Physics. Journal of Molecular Structure vol. 268
+     (CRC press, 1992).
+
+85. P. Loyd, R. O. et al. the Muscles Treasury Survey. Iii. X-Ray To Infrared Spectra of 11 M
+     and K Stars Hosting Planets. Astrophys. J. 824, 102 (2016).
+
+86. Preisler, A. et al. Biological and chemical sulfide oxidation in a Beggiatoa inhabited marine
+     sediment. ISME J. 1, 341–353 (2007).
+
+87. Ranjan, S. et al. Photochemistry of anoxic abiotic habitable planet atmospheres: impact of
+     new H2O cross-sections. arXiv (2020) doi:10.3847/1538-4357/ab9363.
+
+88. Ranjan, Sukrit; Seager, Sara; Zhan, Zhuchang; Koll, Daniel; Bains, William; Petkowski,
+     Janusz; Huang, Jingcheng; Lin, Z. Photochemical Runaway in Exoplanet Atmospheres:
+     Implications for Biosignatures. Nat. Astron.
+
+89. Ranjan, S., Todd, Z. R., Rimmer, P. B., Sasselov, D. D. & Babbin, A. R. Nitrogen oxide
+     concentrations in natural waters on early earth. arXiv 20, 2021–2039 (2019).
+
+90. Ranjan, S., Wordsworth, R. & Sasselov, D. D. The surface UV environment on planets
+     orbiting M dwarfs: implications for prebiotic chemistry and the need for experimental
+     follow-up. Astrophys. J. 843, 110 (2017).
+
+91. Rascio, N. & La Rocca, N. Biological nitrogen fixation. Encycl. Ecol. 264–279 (2018)
+     doi:10.1016/B978-0-444-63768-0.00685-5.
+
+92. Ridgway, J., Appleton, J. D. & Levinson, A. A. Ammonium geochemistry in mineral
+     exploration-a comparison of results from the American cordilleras and the southwest
+     Pacific. Appl. Geochemistry 5, 475–489 (1990).
+
+93. Roberge, A., Fischer, D. & Peterson, B. The Large UV/Optical/Infrared Surveyor
+     (LUVOIR): Telling the Story of Life in the Universe. Baas 51, 199 (2019).
+
+94. Sagan, C. & Chyba, C. The early faint sun paradox: Organic shielding of ultraviolet-labile
+     greenhouse gases. Science (80-. ). 276, 1217–1221 (1997).
+
+95. Sander, R. Compilation of Henry’s law constants (version 4.0) for water as solvent. Atmos.
+     Chem. Phys. 15, 4399–4981 (2015).
+
+96. Schaefer, L. & Fegley, B. Atmospheric composition of Hadean-early Archean Earth: The
+     importance of CO: Comment. Spec. Pap. Geol. Soc. Am. 504, 29–31 (2014).
+97. Schimel, J. P. & Bennett, J. Nitrogen mineralization: Challenges of a changing paradigm.
+     Ecology 85, 591–602 (2004).
+
+98. Schlesinger, W. H. & Hartley, A. E. A global budget for atmospheric NH3. Biogeochemistry
+     15, 191–211 (1992).
+
+99. Schrauzer, G. N., Strampach, N., Hui, L. N., Palmer, M. R. & Salehi, J. Nitrogen
+     photoreduction on desert sands under sterile conditions. Proc. Natl. Acad. Sci. 80, 3873–
+     3876 (1983).
+
+100. Seager, S., Bains, W. & Hu, R. Biosignature gases in H2-Dominated atmospheres on rocky
+     exoplanets. Astrophys. J. 777, 95 (2013).
+
+101. Seager, S., Bains, W. & Hu, R. A biomass-based model to estimate the plausibility of
+     exoplanet biosignature gases. Astrophys. J. 775, 104 (2013).
+
+102. Seager, S., Huang, J., Petkowski, J. J. & Pajusalu, M. Laboratory studies on the viability of
+     life in H2-dominated exoplanet atmospheres. Nat. Astron. 4, 802–806 (2020).
+
+103. Seager, S., Schrenk, M. & Bains, W. An astrophysical view of earth-based metabolic
+     biosignature gases. Astrobiology 12, 61–82 (2012).
+
+104. Segura, A. et al. Biosignatures from Earth-like planets around M dwarfs. Astrobiology 5,
+     706–725 (2005).
+
+105. Shi, Q., Davidovits, P., Jayne, J. T., Worsnop, D. R. & Kolb, C. E. Uptake of gas-phase
+     ammonia. 1: Uptake by aqueous surfaces as a function of pH. J. Phys. Chem. A 103, 8812–
+     8823 (1999).
+
+106. Sigurdsson, H., Houghton, B., McNutt, S., Rymer, H. & Stix, J. The Encyclopedia of
+     Volcanoes. The Encyclopedia of Volcanoes (Elsevier, 2015). doi:10.1016/c2015-0-00175-7.
+
+107. Skidmore, W. Thirty Meter Telescope Detailed Science Case: 2015. Res. Astron.
+     Astrophys. 15, 1945–2140 (2015).
+
+108. Smirnov, A., Hausner, D., Laffers, R., Strongin, D. R. & Schoonen, M. A. A. Abiotic
+     ammonium formation in the presence of Ni-Fe metals and alloys and its implications for the
+     Hadean nitrogen cycle. Geochem. Trans. 9, 1–20 (2008).
+
+109. Sousa-Silva, C. et al. Phosphine as a Biosignature Gas in Exoplanet Atmospheres. arXiv 20,
+     235–268 (2019).
+
+110. Sousa-Silva, C. et al. Phosphine as a Biosignature Gas in Exoplanet Atmospheres.
+     Astrobiology 20, 235–268 (2020).
+111. Stevenson, D. P. The Strengths of Chemical Bonds. Journal of the American Chemical
+     Society vol. 77 (Butterworths Scientific Publications, 1955).
+
+112. Stief, P. et al. Dissimilatory nitrate reduction by Aspergillus terreus isolated from the
+     seasonal oxygen minimum zone in the Arabian Sea. BMC Microbiol. 14, 35 (2014).
+
+113. Strous, M. et al. Deciphering the evolution and metabolism of an anammox bacterium from
+     a community genome. Nature 440, 790–794 (2006).
+
+114. Stüeken, E. E., Buick, R., Guy, B. M. & Koehler, M. C. Isotopic evidence for biological
+     nitrogen fixation by molybdenum-nitrogenase from 3.2 Gyr. Nature 520, 666–669 (2015).
+
+115. Sugiyama, M., Stone, P. H. & Emanuel, K. A. The role of relative humidity in radiative-
+     convective equilibrium. J. Atmos. Sci. 62, 2001–2011 (2005).
+
+116. Sutton, M. A. et al. Towards a climate-dependent paradigm of ammonia emission and
+     deposition. Philos. Trans. R. Soc. B Biol. Sci. 368, 20130166 (2013).
+
+117. Tamai, R. & Spyromilio, J. European Extremely Large Telescope: progress report. in
+     Ground-based and Airborne Telescopes V vol. 9145 91451E (International Society for
+     Optics and Photonics, 2014).
+
+118. Tian, H. et al. Global methane and nitrous oxide emissions from terrestrial ecosystems due
+     to multiple environmental changes. Ecosyst. Heal. Sustain. 1, 1–20 (2015).
+
+119. Tijhuis, L., Van Loosdrecht, M. C. M. & Heijnen, J. J. A thermodynamically based
+     correlation for maintenance gibbs energy requirements in aerobic and anaerobic
+     chemotrophic growth. Biotechnol. Bioeng. 42, 509–519 (1993).
+
+120. Uematsu, M. et al. Enhancement of primary productivity in the western North Pacific
+     caused by the eruption of the Miyake-jima volcano. Geophys. Res. Lett. 31, (2004).
+
+121. Van Damme, M. et al. Industrial and agricultural ammonia point sources exposed. Nature
+     564, 99–103 (2018).
+
+122. van Niftrik, L. & Jetten, M. S. M. Anaerobic Ammonium-Oxidizing Bacteria: Unique
+     Microorganisms with Exceptional Properties. Microbiol. Mol. Biol. Rev. 76, 585–596
+     (2012).
+
+123. Wang, J. et al. Fast sulfate formation from oxidation of SO2 by NO2 and HONO observed
+     in Beijing haze. Nat. Commun. 11, 1–7 (2020).
+
+124. Wei, L. F. et al. Gas-to-particle conversion of atmospheric ammonia and sampling artifacts
+     of ammonium in spring of Beijing. Sci. China Earth Sci. 58, 345–355 (2015).
+125. Wendeborn, S. The Chemistry, Biology, and Modulation of Ammonium Nitrification in
+     Soil. Angew. Chemie - Int. Ed. 59, 2182–2202 (2020).
+
+126. Wordsworth, R. D. & Pierrehumbert, R. T. Water loss from terrestrial planets with CO2-
+     rich atmospheres. Astrophys. J. 778, 154 (2013).
+
+127. Wordsworth, R. & Pierrehumbert, R. Abiotic oxygen-dominated atmospheres on terrestrial
+     habitable zone planets. Astrophys. J. Lett. 785, L20 (2014).
+
+128. Yang, C. et al. Progress in deaminase materials for reducing haze formation. New Chem.
+     Mater. 44, 1–3 (2016).
+
+129. Ye, X. et al. Important role of ammonia on haze formation in Shanghai. Environ. Res. Lett.
+     6, 24019 (2011).
+
+130. Yeung, L. Y. et al. In Situ Quantification of Biological N2 Production Using Naturally
+     Occurring 15N15N. Environ. Sci. Technol. 53, 5168–5175 (2019).
+
+131. Yokouchi, Y., Takenaka, A., Miyazaki, Y., Kawamura, K. & Hiura, T. Emission of methyl
+     chloride from a fern growing in subtropical, temperate, and cool-temperate climate zones. J.
+     Geophys. Res. G Biogeosciences 120, 1142–1149 (2015).
+
+132. Zahnle, K., Claire, M. & Catling, D. The loss of mass-independent fractionation in sulfur
+     due to a Palaeoproterozoic collapse of atmospheric methane. Geobiology 4, 271–283
+     (2006).
+
+133. Zhan, Z. et al. Assessment of Isoprene as a Possible Biosignature Gas in Exoplanets with
+     Anoxic Atmospheres. Astrobiology (2021).
+
+134. Zhu, L. et al. Sources and Impacts of Atmospheric NH3: Current Understanding and
+     Frontiers for Modeling, Measurements, and Remote Sensing in North America. Curr. Pollut.
+     Reports 1, 95–116 (2015).
+Supplementary Information
+SI.1 Simulation Parameters for the Photochemistry Model
+
+
+
+
+Figure SI.1. The synthetic stellar spectrum input of our photochemistry model (Loyd et al., 2016; France et al.,
+2016). The y-axis shows spectral irradiance in W·m-2·nm-1, and the x-axis shows wavelength in nm.
+
+
+
+
+Figure SI.2. The temperature-pressure profiles of the simulated exoplanets with H2-dominated, CO2-dominated,
+and N2-dominated atmospheres. The y-axis shows atmospheric pressure (Pa) on a log scale, and the x-axis shows
+temperature in Kelvin (K).
+ Figure SI.3. The eddy diffusion profiles of the simulated exoplanets with H2-dominated (top panel), CO2-
+ dominated (middle panel), and N2-dominated (bottom panel) atmospheres. The y-axis shows altitude in km, and
+ the x-axis shows the eddy diffusion coefficient in cm2·s-1.
+
+
+Our photochemistry model demarcates chemical species into 4 types: type “A” for aerosol
+species, type “C” for chemically inert species which are assumed not to react or transport, type
+“F” for species assumed to be in photochemical equilibrium (i.e., for which transport is
+neglected), and type “X”, for species for which the full photochemical transport equation is
+solved. For the lower boundary condition, our model allows us to either specify a fixed surface
+mixing ratio (type “1”) or the surface emission flux and dry deposition velocity (type “2") (Hu et
+al., 2012).
+
+Table S1-1. Surface boundary conditions for exoplanets with CO2-dominated atmospheres.
+                               Upper Boundary                       Dry
+                    Initial                         Lower                      Lower Boundary
+                                  Flux Beside                    Deposition
+  Name     Type     Mixing                         Boundary                     Flux (Upwards)
+                               Escape (Upwards)                   Velocity
+                    Ratio                            Type                      [molecule/(cm2s)]
+                               [molecule/(cm2s)]                   [cm/s]
+ H         X       0           0                   2            1             0
+ H2        X       1.60×10-3   0                   2            0             3.00×1010
+ O         X       0           0                   2            1             0
+ O(1D)     X       0           0                   2            0             0
+ O2        X       0           0                   2            0             0
+ O3        X       0           0                   2            0.4           0
+ OH        X       0           0                   2            1             0
+ HO2       X       0           0                   2            1             0
+ H2O       X       2.00×10-6   0                   1            0             0.01
+ H2O2      X       0           0                   2            0.5           0
+ CO2       X       0.9         0                   1            0             0.9
+ CO        X       0           0                   2            1.00×10-8     0
+ CH2O      X       0           0                   2            0.1           0
+ CHO       X       0           0                   2            0.1           0
+ C         X       0           0                   2            0             0
+ CH        X       0           0                   2            0             0
+ CH2       X       0           0                   2            0             0
+ CH21      X       0           0                   2            0             0
+ CH3       X       0           0                   2            0             0
+ CH4       X       0           0                   2            0             3.00×108
+ CH3O      X       0           0                   2            0.1           0
+ CH4O      X       0           0                   2            0.1           0
+ CHO2      X       0           0                   2            0.1           0
+ CH2O2     X       0           0                   2            0.1           0
+ CH3O2     X       0           0                   2            0             0
+ CH4O2     X       0           0                   2            0.1           0
+ C2        X       0           0                   2            0             0
+ C2H       X       0           0                   2            0             0
+ C2H2      X       0           0                   2            0             0
+ C2H3      X       0           0                   2            0             0
+ C2H4      X       0           0                   2            0             0
+ C2H5      X       0           0                   2            0             0
+ C2H6      X       0           0                   2            1.00×10-5     0
+ C2HO      X       0           0                   2            0             0
+C2H2O    X   0     0   2   0.1     0
+C2H3O    X   0     0   2   0.1     0
+C2H4O    X   0     0   2   0.1     0
+C2H5O    X   0     0   2   0.1     0
+S        X   0     0   2   0       0
+S2       X   0     0   2   0       0
+S3       X   0     0   2   0       0
+S4       X   0     0   2   0       0
+SO       X   0     0   2   0       0
+SO2      X   0     0   2   1       3.00×109
+SO21     X   0     0   2   0       0
+SO23     X   0     0   2   0       0
+SO3      X   0     0   2   1       0
+H2S      X   0     0   2   0.015   3.00×108
+HS       X   0     0   2   0       0
+HSO      X   0     0   2   0       0
+HSO2     X   0     0   2   0       0
+HSO3     X   0     0   2   0.1     0
+H2SO4    X   0     0   2   1       0
+H2SO4A   A   0     0   2   0.2     0
+S8       X   0     0   2   0       0
+S8 A     A   0     0   2   0.2     0
+N2       C   0.1   0   1   0       0.1
+N        X   0     0   2   0       0
+NH3      X   0     0   2   1       1.0×109
+NH2      X   0     0   2   0       0
+NH       X   0     0   2   0       0
+N2O      X   0     0   2   0       0
+NO       X   0     0   2   0.02    0
+NO2      X   0     0   2   0.02    0
+NO3      X   0     0   2   1       0
+N2O5     X   0     0   2   4       0
+HNO      X   0     0   2   0       0
+HNO2     X   0     0   2   0.5     0
+HNO3     X   0     0   2   4       0
+HNO4     X   0     0   2   4       0
+HCN      X   0     0   2   0.01    0
+CN       X   0     0   2   0.01    0
+CNO      X   0     0   2   0       0
+HCNO     X   0     0   2   0       0
+CH3NO2   X   0     0   2   0.01    0
+CH3NO3   X   0     0   2   0.01    0
+CH5N     X   0     0   2   0       0
+C2H2N    X   0     0   2   0       0
+ C2H5N    X       0           0                    2          0             0
+ N2H2     X       0           0                    2          0             0
+ N2H3     X       0           0                    2          0             0
+ N2H4     X       0           0                    2          0             0
+ OCS      X       0           0                    2          0.01          0
+ CS       X       0           0                    2          0.01          0
+ CH3S     X       0           0                    2          0.01          0
+ CH4S     X       0           0                    2          0.01          0
+
+Table S1-2. Surface boundary conditions for exoplanets with H2-dominated atmospheres.
+                               Upper Boundary                      Dry
+                   Initial                          Lower                   Lower Boundary
+                                 Flux Beside                   Deposition
+  Name     Type    Mixing                          Boundary                  Flux (Upwards)
+                              Escape (Upwards)                  Velocity
+                   Ratio                             Type                   [molecule/(cm2s)]
+                               [molecule/(cm2s)]                  [cm/s]
+ H        X       0           0                    2          1             0
+ H2       C       0.9         0                    1          0             0.9
+ O        X       0           0                    2          1             0
+ O(1D)    X       0           0                    2          0             0
+ O2       X       0           0                    2          0             0
+ O3       X       0           0                    2          0             0
+ OH       X       0           0                    2          1             0
+ HO2      X       0           0                    2          1             0
+ H2O      X       2.00×10-6   0                    1          0             1.00×10-2
+ H2O2     X       0           0                    2          0.5           0
+ CO2      X       0           0                    2          1.00×10-4     3.00×1011
+ CO       X       0           0                    2          1.00×10-8     0
+ CH2O     X       0           0                    2          0.1           0
+ CHO      X       0           0                    2          0.1           0
+ C        X       0           0                    2          0             0
+ CH       X       0           0                    2          0             0
+ CH2      X       0           0                    2          0             0
+ CH21     X       0           0                    2          0             0
+ CH3      X       0           0                    2          0             0
+ CH4      X       0           0                    2          0             3.00×108
+ CH3O     X       0           0                    2          0.1           0
+ CH4O     X       0           0                    2          0.1           0
+ CH2O2    X       0           0                    2          0.1           0
+ CH3O2    X       0           0                    2          0             0
+ CH4O2    X       0           0                    2          0.1           0
+ C2       X       0           0                    2          0             0
+ C2H      X       0           0                    2          0             0
+ C2H2     X       0           0                    2          0             0
+ C2H3     X       0           0                    2          0             0
+ C2H4     X       0           0                    2          0             0
+ C2H5     X       0           0                    2          0             0
+C2H6     X   0     0   2   1.00×10-5   0
+C2HO     X   0     0   2   0           0
+C2H2O    X   0     0   2   0.1         0
+C2H3O    X   0     0   2   0.1         0
+C2H4O    X   0     0   2   0.1         0
+C2H5O    X   0     0   2   0.1         0
+N2       C   0.1   0   1   0           0.1
+S        X   0     0   2   0           0
+S2       X   0     0   2   0           0
+S3       X   0     0   2   0           0
+S4       X   0     0   2   0           0
+SO       X   0     0   2   0           0
+SO2      X   0     0   2   1           3.00×109
+SO21     X   0     0   2   0           0
+SO23     X   0     0   2   0           0
+SO3      X   0     0   2   0           0
+H2S      X   0     0   2   0.015       3.00×108
+HS       X   0     0   2   0           0
+HSO      X   0     0   2   0           0
+HSO2     X   0     0   2   0           0
+HSO3     X   0     0   2   0           0
+H2SO4    X   0     0   2   1           0
+H2SO4A   A   0     0   2   0.2         0
+S8       X   0     0   2   0           0
+S8 A     A   0     0   2   0.2         0
+CHO2     X   0     0   2   0.1         0
+N        X   0     0   2   0           0
+NH3      X   0     0   2   1           1.0×1010
+NH2      X   0     0   2   0           0
+NH       X   0     0   2   0           0
+N2O      X   0     0   2   0           0
+NO       X   0     0   2   0.02        0
+NO2      X   0     0   2   0.02        0
+NO3      X   0     0   2   1           0
+N2O5     X   0     0   2   4           0
+HNO      X   0     0   2   0           0
+HNO2     X   0     0   2   0.5         0
+HNO3     X   0     0   2   4           0
+HNO4     X   0     0   2   4           0
+HCN      X   0     0   2   0.01        0
+CN       X   0     0   2   0.01        0
+CNO      X   0     0   2   0           0
+HCNO     X   0     0   2   0           0
+CH3NO2   X   0     0   2   0.01        0
+ CH3NO3   X       0           0                    2          0.01          0
+ CH5N     X       0           0                    2          0             0
+ C2H2N    X       0           0                    2          0             0
+ C2H5N    X       0           0                    2          0             0
+ N2H2     X       0           0                    2          0             0
+ N2H3     X       0           0                    2          0             0
+ N2H4     X       0           0                    2          0             0
+ OCS      X       0           0                    2          0.01          0
+ CS       X       0           0                    2          0.01          0
+ CH3S     X       0           0                    2          0.01          0
+ CH4S     X       0           0                    2          0.01          0
+
+Table S1-3. Surface boundary conditions for exoplanets with N2-dominated atmospheres.
+                               Upper Boundary                      Dry
+                   Initial                          Lower                   Lower Boundary
+                                 Flux Beside                   Deposition
+  Name     Type    Mixing                          Boundary                  Flux (Upwards)
+                              Escape (Upwards)                  Velocity
+                   Ratio                             Type                   [molecule/(cm2s)]
+                               [molecule/(cm2s)]                  [cm/s]
+ H        X       0           0                    2          1             0
+ H2       X       0           0                    2          0             3.00×1010
+ O        X       0           0                    2          1             0
+ O(1D)    X       0           0                    2          0             0
+ O2       X       0           0                    2          0             0
+ O3       X       0           0                    2          0.4           0
+ OH       X       0           0                    2          1             0
+ HO2      X       0           0                    2          1             0
+ H2O      X       2.00×10-6   0                    1          0             1.00×10-2
+ H2O2     X       0           0                    2          0.5           0
+ CO2      X       0           0                    2          1.00×10-4     3.00×1011
+ CO       X       0           0                    2          1.00×10-8     0
+ CH2O     X       0           0                    2          0.1           0
+ CHO      X       0           0                    2          0.1           0
+ C        X       0           0                    2          0             0
+ CH       X       0           0                    2          0             0
+ CH2      X       0           0                    2          0             0
+ CH21     X       0           0                    2          0             0
+ CH3      X       0           0                    2          0             0
+ CH4      X       0           0                    2          0             3.00×108
+ CH3O     X       0           0                    2          0.1           0
+ CH4O     X       0           0                    2          0.1           0
+ CHO2     X       0           0                    2          0.1           0
+ CH2O2    X       0           0                    2          0.1           0
+ CH3O2    X       0           0                    2          0.1           0
+ CH4O2    X       0           0                    2          0.1           0
+ C2       X       0           0                    2          0             0
+ C2H      X       0           0                    2          0             0
+C2H2     X   0   0   2   0           0
+C2H3     X   0   0   2   0           0
+C2H4     X   0   0   2   0           0
+C2H5     X   0   0   2   0           0
+C2H6     X   0   0   2   1.00×10-5   0
+C2HO     X   0   0   2   0.1         0
+C2H2O    X   0   0   2   0.1         0
+C2H3O    X   0   0   2   0.1         0
+C2H4O    X   0   0   2   0.1         0
+C2H5O    X   0   0   2   0.1         0
+N2       C   1   0   1   0           1
+S        X   0   0   2   0           0
+S2       X   0   0   2   0           0
+S3       X   0   0   2   0           0
+S4       X   0   0   2   0           0
+SO       X   0   0   2   0           0
+SO2      X   0   0   2   1           3.00×109
+SO21     X   0   0   2   0           0
+SO23     X   0   0   2   0           0
+SO3      X   0   0   2   1           0
+H2S      X   0   0   2   0.015       3.00×108
+HS       X   0   0   2   0           0
+HSO      X   0   0   2   0           0
+HSO2     X   0   0   2   0           0
+HSO3     X   0   0   2   0.1         0
+H2SO4    X   0   0   2   1           0
+H2SO4A   A   0   0   2   0.2         0
+S8       X   0   0   2   0           0
+S8 A     A   0   0   2   0.2         0
+N        X   0   0   2   0           0
+NH3      X   0   0   2   1           1.0×1010
+NH2      X   0   0   2   0           0
+NH       X   0   0   2   0           0
+N2O      X   0   0   2   0           0
+NO       X   0   0   2   0.02        0
+NO2      X   0   0   2   0.02        0
+NO3      X   0   0   2   1           0
+N2O5     X   0   0   2   4           0
+HNO      X   0   0   2   0           0
+HNO2     X   0   0   2   0.5         0
+HNO3     X   0   0   2   4           0
+HNO4     X   0   0   2   4           0
+HCN      X   0   0   2   0.01        0
+CN       X   0   0   2   0.01        0
+ CNO       X      0          0                   2            0             0
+ HCNO      X      0          0                   2            0             0
+ CH3NO2    X      0          0                   2            0.01          0
+ CH3NO3    X      0          0                   2            0.01          0
+ CH5N      X      0          0                   2            0             0
+ C2H2N     X      0          0                   2            0             0
+ C2H5N     X      0          0                   2            0             0
+ N2H2      X      0          0                   2            0             0
+ N2H3      X      0          0                   2            0             0
+ N2H4      X      0          0                   2            0             0
+ OCS       X      0          0                   2            0.01          0
+ CS        X      0          0                   2            0.01          0
+ CH3S      X      0          0                   2            0.01          0
+ CH4S      X      0          0                   2            0.01          0
+
+
+SI.2 Dissociation Constants of Representative Amines at 25°C
+
+Table S1-1. The pKa values of some representative amines at 25ºC (David R. Lide et al., 2005).
+               Chemical species                                  pKa values
+ Ammonia NH3                                                        9.25
+ Methylamine CH5N                                                  10.66
+ Ethylamine CH7N                                                   10.65
+ Propylamine C3H9N                                                 10.54
+ Isopropylamine C3H9N                                              10.63
+ Butylamine C4H11N                                                 10.60
+ sec-Butylamine C4H11N                                             10.56
+ tert-Butylamine C4H11N                                            10.68
+ Dimethylamine C2H7N                                               10.73
+ Diethylamine C4H11N                                               10.84
+ Diisopropylamine C6H15N                                           11.05
+ Trimethylamine C3H9N                                               9.80
+ Triethylamine C6H15N                                              10.75
+ Diethylmethylamine C5H13N                                         10.35
+
+
+SI.3 Reaction Rates Between Life Produced Volatile Amines and O, OH Radicals
+
+Table S3-1. Reactions between life produced volatile amines and OH radicals. Reaction rates are
+at 298K. Second-order reactions have units of [cm3 molecule-1 s-1] (Reference: NIST).
+                                                                       Reaction     Reaction
+     Chemical                 Reaction with OH radicals
+                                                                          rate        Order
+ Ammonia (NH3) NH3 + ·OH → ·NH2 + H2O                                1.60 × 10 -13
+                                                                                        2
+ Ethanamine
+                   C2H5NH2 + ·OH → C2H5NH + H2O                      2.77 × 10-11       2
+ (C2H5NH2)
+ 2-methylpropan-
+ 2-amine            tert-C4H9NH2 + ·OH → C4H9NH + H2O               1.20 × 10-11        2
+ (tert-C4H9NH2)
+ Trimethylamine
+                    C3H9N + ·OH → C3H8N + H2O                       6.11 × 10-11        2
+ (C3H9N)
+
+Table S3-2. Reactions between life produced volatile amines and O radicals. Reaction rates are
+at 298K. Second-order reactions have units of [cm3 molecule-1 s-1] (Reference: NIST).
+                                                                       Reaction     Reaction
+     Chemical                 Reaction with O radicals
+                                                                          rate        Order
+ Ammonia (NH3) NH3 + ·O → ·OH + ·NH2                                 4.37 × 10-17       2
+ Methylamine
+                   CH3NH2 + ·O → ·OH + CH3NH                         5.56 × 10-13       2
+ (CH3NH2)
+ Ethylamine
+                   C2H5NH2 + ·O → ·OH + C2H5NH                       3.87 × 10-12       2
+ (C2H5NH2)
+ Dimethylamine
+                   (CH3)2NH + ·O → ·OH + (CH3)2N·                    6.00 × 10-12       2
+ ((CH3)2NH)
+ Trimethylamine
+                   C3H9N + ·O →·OH + C3H8N                           7.54 × 10-12       2
+ (C3H9N)
+
+
+SI.4 IR Spectra of Primary, Secondary and Tertiary Amines
+
+We list the IUPAC names of the 15 primary amines, 9 secondary amines, and 2 tertiary amines
+with absorbance data in NIST (Manion et al., 2008) in Table S4-1.
+
+Table S4-1. Primary (15), Secondary (9) and Tertiary (2) Amines in NIST
+                    2-methylpropan-2-amine, 2-methylbutan-2-amine, propan-2-amine,
+                    pentan-2-amine, methylamine, 2-methylprop-2-en-1-amine,
+ Primary amines     2-methylbutan-1-amine, ethanamine, prop-2-en-1-amine, propan-1-amine,
+                    butan-1-amine, pentan-1-amine, butane-1,4-diamine,
+                    (3-aminopropyl)(methyl)amine, (2-aminoethyl)(ethyl)amine
+                    diethylamine, ethyl(prop-2-en-1-yl)amine, [(1R)-1-(naphthalen-1-
+                    yl)ethyl]({3-[3-(trifluoromethyl)phenyl]propyl})amine,
+ Secondary amines methyl(prop-2-yn-1-yl)amine, methyl(2-methylpropyl)amine,
+                    methyl(prop-2-en-1-yl)amine, methyl[2-(methylamino)ethyl]amine,
+                    (3-aminopropyl)(methyl)amine, (2-aminoethyl)(ethyl)amine
+ Tertiary amines    trimethylamine, ethyldimethylamine
+
+Here we show the overlaid IR spectra of the primary, secondary and tertiary amines.
+Figure SI.4. IR absorbance spectra of primary amines. Included are the fifteen are in the NIST database (Manion
+et al., 2008). The x-axis is the wavenumber, and the y axis is absorbance. Although only two of the amines
+contain nitrogen (N-H bending and C-N stretching), there are several distinctive peaks.
+Figure SI.5. IR absorbance spectra of secondary amines. Nine species are present in the NIST database (Manion
+et al., 2008). The x-axis is the wavenumber, and the y axis is absorbance. Although only two of the amines
+contain nitrogen (N-H bending and C-N stretching), there are several distinctive peaks. The secondary amines
+have an N-H stretching feature not present in primary or tertiary amine spectra.
+Figure SI.6. IR absorbance spectra of tertiary amines. Only two are present in the NIST database (Manion et al.,
+2008). The x-axis is the wavenumber, and the y-axis is absorbance. Tertiary amines lack N-H bonds, so they lack
+the N-H stretch feature found in primary and secondary amines.
+
+
+
+SI.5 NH3 Removal Rate in the Photochemistry Model
+
+Table S5-1. The top three photochemical removal mechanisms for NH3 on exoplanets with H2-
+dominated, CO2-dominated, and N2-dominated atmospheres orbiting M dwarf stars (M5V).
+                    Atmospheric              The top three                Loss rate
+                      scenarios              loss reactions          [molecule cm-2 s-1]
+                                     NH3 → NH2 + H                       1.54 × 1010
+                 H2-dominated        OH + NH3 → H2O + NH2                1.27 × 104
+                                     H + NH3 → H2 + NH2                  4.99 × 102
+                                     NH3 → NH2 + H                       8.35 × 108
+  With NH3
+                 CO2-dominated       O(1D) + NH3 → OH + NH2              3.30 × 106
+  deposition
+                                     NH3 → NH + H2                       1.34 × 106
+                                     NH3 → NH2 + H                       9.01 × 1010
+                 N2-dominated        OH + NH3 → H2O + NH2                1.85 × 108
+                                     NH3 → NH + H2                       5.60 × 105
+ Without NH3                         NH3 → NH2 + H                       2.00 × 1010
+                 H2-dominated
+  deposition                         OH + NH3 → H2O + NH2                2.78 × 104
+                                              NH3 + CH → HCN + H2 + H                        1.34 × 103
+                                              NH3 → NH2 + H                                  8.79 × 108
+                    CO2-dominated             O(1D) + NH3 → OH + NH2                         3.54 × 106
+                                              NH3 → NH + H2                                  1.44 × 106
+                                              NH3 → NH2 + H                                  9.64 × 1010
+                    N2-dominated              OH + NH3 → H2O + NH2                           1.96 × 108
+                                              NH3 → NH + H2                                  1.08 × 106
+
+
+SI.6 Photochemistry Model Sensitivity Tests
+
+To test the robustness of our photochemistry results, we decide to run various sensitivity tests.
+We choose the H2-dominated atmosphere as our example here since it is the most favorable
+scenario for detecting NH3. Here we present our results.
+
+I. The presence of a cold trap: Our results are not sensitive to the presence of a cold trap. To first
+order, the presence of a cold trap does not affect NH3 rainout or dry deposition. Instead, whether
+a cold trap is present only influences the NH3 photochemical production and loss rate. Here, we
+simulate an atmosphere with a reduced cold trap (compared to the existing cold trap we set for
+the H2-dominated atmosphere) (see Figure SI.7). In this case, the planet has a hot stratosphere
+due to UV-absorbers present in the upper atmosphere. We choose the H2-dominated atmosphere
+as our example here since it is the most favorable scenario for detecting NH3. To simulate an
+exoplanet with a reduced cold trap, we set the temperature above tropopause to 220K (see Figure
+SI.7)
+
+
+
+
+ Figure SI.7. The temperature-pressure profiles of the simulated exoplanets with ‘standard’ and ‘reduced’ cold
+ traps. The y-axis shows atmospheric pressure (Pa) on a log scale, and the x-axis shows temperature in Kelvin (K).
+
+Our results show that when a cold trap is reduced, the photochemical production of NH3 from
+NH2 becomes more efficient due to more H radicals being present in the H2-dominated
+atmosphere. As a result, with the same surface production flux, NH3 column-averaged mixing
+ratio increases slightly from 5.0 ppm to 5.1 ppm (see Table S6-2).
+Table S6-2. Simulated mixing ratios and reaction rates for exoplanets with H2-dominated
+atmospheres orbiting M dwarf stars (M5V).
+                                                  With a cold trap           Without a cold trap
+ NH3 outgassing [molecule/(cm2s)]                   6.40 × 1015                    6.40 × 1015
+ NH3 column-averaged mixing ratio                    5.0 ppm                        5.1 ppm
+ Chemical production [molecule/(cm2s)]              4.90 × 109                     1.20 × 1010
+ Chemical loss [molecule/(cm2s)]                    1.54 × 1010                    1.21 × 1010
+ Dry deposition [molecule/(cm2s)]                   4.16 × 1014                    4.16 × 1014
+ Wet deposition [molecule/(cm2s)]                   5.98 × 1015                    5.98 × 1015
+
+We currently include a cold trap in each of our existing photochemical simulations. To simulate
+cold traps, we set the temperature above tropopause to 160 K, 200 K, and 175 K for the H2-
+dominated, N2-dominated, and CO2-dominated atmosphere. In comparison, the Earth's
+tropopause temperature is about 217 K (US Standard Atmosphere 1976). Please note that a cold
+trap does not require a thermal inversion. A cold trap is a part of the (upper) atmosphere where
+the temperature is low enough to condense volatiles like water (Wordsworth et al., 2013,
+Wordsworth et al., 2014).
+
+II. The choice of eddy diffusion coefficient (Kzz): The choice of Kzz can affect NH3 concentration
+because photochemistry is most important in the upper atmosphere layers, whereas NH3 is
+primarily produced at the planet's surface. Kzz is measured or inferred for solar system planets
+but is not known for exoplanets. The Kzz variation does not change our main conclusion, as
+explained below.
+
+The Kzz as a function of altitude (i.e., the eddy diffusion profile) is an input to our code. Each
+simulated atmospheric scenario has its own fixed eddy diffusion profile. Here, we perform a
+sensitivity test to a changing Kzz for the H2-dominated atmosphere scenario (see Table S6-3).
+
+Table S6-3. Steady-state simulation outputs as a function of eddy diffusion magnitude, NH3
+surface flux, and presence/absence of wet and dry deposition of NH3 for exoplanets with H2-
+dominated atmospheres orbiting M dwarf stars (M5V).
+                                        With NH3 deposition
+ Eddy diffusion coefficient scaling factor           0.1                  1                10
+ NH3 outgassing [molecule/(cm2s)]                6.40 × 1015         6.40 × 1015       6.40 × 1015
+ NH3 column-averaged mixing ratio                 3.3 ppm             5.0 ppm            12 ppm
+ Chemical production [molecule/(cm2s)]           1.78 × 109          4.90 × 109        6.05 × 109
+ Chemical loss [molecule/(cm2s)]                 1.79 × 109          1.54 × 1010       2.44 × 1010
+ Dry deposition [molecule/(cm2s)]                4.26 × 1014         4.16 × 1014       3.93 × 1014
+ Wet deposition [molecule/(cm2s)]                5.97 × 1015         5.98 × 1015       6.01 × 1015
+                                      Without NH3 deposition
+ Eddy diffusion coefficient scaling factor          0.1                1                10
+ NH3 outgassing [molecule/(cm2s)]               1.44 × 1010       1.44 × 1010       1.44 × 1010
+ NH3 column-averaged mixing ratio                9.8 ppm           5.0 ppm           1.9 ppm
+ Chemical production [molecule/(cm2s)]          5.76 × 109        5.52 × 109        6.37 × 109
+ Chemical loss [molecule/(cm2s)]                2.02 × 1010       2.00 × 1010       2.08 × 1010
+ Dry deposition [molecule/(cm2s)]                    0                 0                 0
+ Wet deposition [molecule/(cm2s)]                    0                 0                 0
+
+We find that the Kzz variation does not affect rainout or dry deposition. In a more diffusive
+atmosphere (i.e., larger Kzz), the photochemical recycling of NH3 becomes more efficient.
+Specifically, as Kzz increases, the photochemical loss of NH3 becomes larger, mainly due to
+enhanced NH3 direct photolysis (NH3 → NH2 + H). Simultaneously, the reproduction of NH3
+from NH2 also increases (H2 + NH2 → NH3 + H) since there are more NH2 radicals in the
+atmosphere. Our findings are consistent with (Kasting et al., 1982).
+
+The effect of Kzz variation on NH3 atmosphere abundance depends on whether there are NH3-
+removal sinks on the surface. When NH3 deposition is present (i.e., the surface is not saturated
+with NH3), the column-averaged mixing ratio of NH3 scales with Kzz. Compared to chemical
+loss, wet and dry deposition can remove NH3 much more efficiently than chemical loss (see
+Table S6-3). As Kzz increases, more NH3 is transported to the upper atmosphere before NH3 can
+be removed by deposition. In this case, larger Kzz suppresses the efficacy of NH3 deposition,
+leading to an increase in atmospheric NH3 concentration. However, when the surface is saturated
+with NH3 (i.e., without NH3 deposition), NH3 column-averaged mixing ratio is inversely
+proportional to Kzz. In a more stagnant atmosphere (i.e., smaller Kzz), more NH3 can accumulate
+at low altitudes since there is no wet or dry deposition. This local accumulation of NH3 at low
+altitudes causes NH3 surface mixing ratio and NH3 column-averaged mixing ratio to increase. As
+Kzz increases, the NH3 that could have accumulated locally at low altitudes is now transported to
+the upper atmosphere, where NH3 photochemical removal dominates. Hence, when there is no
+deposition, NH3 column-averaged mixing ratio decreases when the atmosphere becomes more
+diffusive.
+
+Overall, the Kzz variation does not change our main conclusion as NH3 column-averaged mixing
+ratio stays roughly at the same order of magnitude in our sensitivity test.
+
+III. Henry’s law constant for NH3: The effect of pH on NH3 Henry's law constant is minimal.
+Even under high pH conditions (pH~14), NH3 Henry's law constant will only decrease by up to
+10% (Shi et al., 1999).
+
+What might conceivably be quite different is the effective Henry’s law constant invoked in the
+rainout calculation, which assumes a raindrop pH of 5 (Giorgi et al., 1985; Hu et al., 2012). At
+such acidic pH, the effective Henry’s law constant (including partitioning of N(-III) into NH4+) is
+much higher than Henry’s law constant alone. As raindrop becomes basic (pH>7), the effective
+Henry’s law constant will converge with Henry’s law constant. Hence, rainout would be much
+less efficient (though not ineffective, as even the 'regular' Henry’s law constant for NH3 is very
+high). In this case, we expect results intermediate to our NH3 deposition on and off cases.
+SI.7 NH3 Condensation in the Atmosphere
+
+We find that NH3 does not condense in our simulated atmospheres. At even the highest NH3 flux
+considered in our study, NH3 is insufficiently abundant anywhere in the atmosphere to condense.
+Here we plot the scenario with the highest NH3 surface flux (i.e., H2-dominated atmosphere, with
+NH3 deposition), and we superimpose the NH3 saturation curve (equilibrium with both the liquid
+and solid phase) on top of it (see Figure SI.8). The black curve is the NH3 volume mixing ratio
+on planets with H2-dominated atmospheres orbiting M dwarfs. The red curve is the NH3
+saturation curve (Stull, 1947). The NH3 surface production flux is 6.4×1015 molecule cm-2 s-1
+(see Table 4-1).
+
+
+
+
+ Figure SI.8. The volume mixing ratio of NH3 on planets with H2-dominated atmospheres orbiting active M
+ dwarfs. The NH3 surface production flux is 6.4×1015 molecules cm-2 s-1. The y-axis shows altitude in km, and the
+ x-axis shows the mixing ratio. At even the highest NH3 flux considered in our study, NH3 is insufficiently
+ abundant anywhere in the atmosphere to condense.
+
+This figure clearly shows that our simulated NH3 is not concentrated enough to condense in the
+atmosphere. Therefore, the stratospheric mixing ratio of NH3 will never decouple from the
+surface mixing ratio (or the surface production flux). As a result, we do not consider upper
+atmosphere NH3 condensation in our study.
+
+
+SI.8 NH3 Abiotic False-Positive Analysis
+
+I. Volcanic NH3 outgassing: We can estimate the flux at which NH3 can be degassed on an
+exoplanet based on Earth's N2 volcanic outgassing flux. (Catling et al., 2017) estimates the N2
+volcanic outgassing on Earth is roughly 0.9×1011 mol/year. If all the nitrogen comes out as NH3
+instead, the NH3 outgassing flux can be as high as 6.7×108 molecules cm-2 s-1. For an exoplanet
+with H2-dominated atmospheres, to generate an NH3 false positive from volcanic outgassing, the
+exoplanet's mantle conditions need to favor NH3/NH4+ production, and the volcanic outgassing
+of N needs to be at least 100 times greater than Earth's (assuming there is no NH3-removal sink
+on the planet’s surface). Hence, it is unlikely for volcanic NH3 outgassing alone to generate a
+detectable false positive.
+II. Nitrogen photoreduction on TiO2 containing sands: We can estimate the upper limit of the
+amount of NH3 this abiotic N2 photo-fixation can produce. Suppose there is an Earth-sized
+exoplanet orbiting an M dwarf. The planet is arid, and the surface is covered by TiO2 containing
+sands. We assume the planet has an Earth-sized desert (about 1.9×107 square miles) (Schrauzer
+et al., 1983). We also assume the planet's total surface area is the same as Earth's (roughly
+1.97×108 square miles). Since M dwarf planets receive roughly 100 ~1000 times less UV than
+Sun-like star planets do (Ranjan et al., 2017), we assume this abiotic pathway is only 1%
+effective on the M dwarf planets. Hence, this abiotic N2 fixation can produce up to 1 Tg of NH3
+every year (about 2.0×108 molecules cm-2 s-1), roughly 2 orders of magnitude smaller than the
+flux needed to generate a detectable NH3 false positive (assuming there is no NH3-removal sink
+on the surface). (Kasting et al., 1982) reports that this abiotic N2 photo-fixation can generate NH3
+at a rate of 2.8×1010 to 2.8×1011 molecules cm-2 s-1 locally on Earth. Assuming this reaction is
+1% effective on the M dwarf planets, we estimate that this abiotic N2 fixation could produce NH3
+at a rate of up to 2.8×109 molecules cm-2 s-1. Even in the most optimum case where NH3 is
+emitted globally at this rate on exoplanets, the NH3 production flux is still about an order of
+magnitude smaller than the flux needed to generate a detectable false positive. Overall, it is
+unlikely for nitrogen photoreduction on TiO2 containing sands alone to generate a detectable
+false positive.
+
+III. Abiotic NH3/NH4+ synthesis around Hadean submarine hydrothermal vents: Suppose there is
+an Earth-sized exoplanet orbiting an M dwarf star. We assume the planet's total heat flow is the
+same as modern Earth's (roughly 4.3×1013 W) (Elderfield et al., 1996; Smirnov et al., 2008).
+Assuming the most favorable scenario with 80% of the planet’s heat flow released via
+hydrothermal activity and 10% conversion of N2 to NH4+, the annual NH4+ production can be as
+high as 1.9×1012 mol/year (Smirnov et al. 2008). If we further assume all the NH4+ produced in
+the ocean is released into the atmosphere as NH3, this abiotic NH3/NH4+ synthesis can produce
+up to 32 Tg of NH3 every year (about 7×109 molecules cm-2 s-1). Even in this most optimum
+case, the NH3 production flux is not large enough to generate a detectable NH3 false positive.
+
+
+SI.9 Detectability of TRAPPIST-1 Planets with JWST
+
+Recently, some papers (e.g., Fauchez et al., 2019; Lustig-Yaeger et al., 2019) claim that gases
+like CH4, H2O, CO2, and SO2 might be detectable for TRAPPIST-1 planets with JWST (Lustig-
+Yaeger et al., 2019). Depends on the assumptions of the atmosphere (i.e., CO2-, N2- or H2O-
+dominated atmospheres) and the signal-to-noise (S/N) ratio, the number of transits required to
+detect those gases on TRAPPIST-1 planets could range from 10 transits to more than 100
+transits. What they claim is not contradictory to our statement here. TRAPPIST-1, an ultra-
+cooled M8V dwarf star, is rare and unique. TRAPPIST-1's small stellar radius and relatively low
+temperature are beneficial for trace gas detection because the transit depth scales with
+(Rplanet/Rstar)2. Furthermore, neither (Fauchez et al., 2019) or (Lustig-Yaeger et al., 2019) assumes
+a fixed systematic noise floor as we do in our analysis. Lastly, the detectability of gases on
+exoplanets depends on more than a dozen parameters - the presence of clouds and hazes,
+scattering, atmospheric refraction, to name a few. Different assumptions for those parameters can
+lead to very different conclusions. It is beyond the scope of this paper to go through every
+parameter to assess detectability. Our findings are valid given the assessment metrics we mention
+in Section 3.4.
+

@@ -1,0 +1,9 @@
+{
+  "operator_closure_max_relative": 2.2648549702353193e-14,
+  "legacy_vs_truth_rms_sigma": 2.9256783067641536,
+  "legacy_vs_truth_max_sigma": 8.985808882824788,
+  "corrected_truth_chi2": 32.97837233512558,
+  "legacy_truth_chi2": 314.51898738402974,
+  "actual_forward_model_global_bound_and_restored": true,
+  "official_code_or_data_changed": false
+}

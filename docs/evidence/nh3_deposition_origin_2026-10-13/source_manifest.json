@@ -1,0 +1,79 @@
+{
+  "analysis_date": "2026-10-13",
+  "campaign_id": "nh3_deposition_origin_review_20261013",
+  "status": "LITERATURE_REVIEW_COMPLETED_PHYSICAL_SCENARIOS_PROPOSED",
+  "new_atmospheric_simulations": 0,
+  "canonical_bc_or_profiles_changed": false,
+  "local_primary_sources": [
+    {
+      "path": "tmp/pdfs/nh3_deposition_origin_20261013/hauglustaine_1994_93JD02987.pdf",
+      "bytes": 1457390,
+      "sha256": "6002f4fd697e148902b2fd3640080ded2a6e1ef12a8e48d70c6d16152f2ec840",
+      "doi": "10.1029/93JD02987",
+      "pdf_pages": 14,
+      "verified_details": {
+        "boundary_conditions_pdf_page": 3,
+        "deposition_table_pdf_page": 4,
+        "NH3_in_deposition_table": false
+      }
+    },
+    {
+      "path": "tmp/pdfs/nh3_deposition_origin_20261013/hu_seager_bains_2012.pdf",
+      "bytes": 947299,
+      "sha256": "7712d40ae1f98327e2c28ceaedcb6ff8e7b3a1394360b945ea9258ae39627b99",
+      "doi": "10.1088/0004-637X/761/2/166",
+      "pdf_pages": 29,
+      "verified_details": {
+        "earth_validation_table_pdf_page": 15,
+        "NH3_velocity_cm_s": 1.0,
+        "NH3_footnote": "e: assumed from solubility/reactivity; Appendix C",
+        "Hauglustaine_footnote": "c",
+        "physical_resistances_pdf_page": 26
+      }
+    }
+  ],
+  "Lee_1998_preliminary_marine_coefficients": {
+    "doi": "10.1016/S1352-2310(97)00277-X",
+    "reading_scope": "Publisher abstract, introduction and available methods/results snippets; not full article",
+    "regime": "Laboratory marine-water uptake with emission negligible relative to deposition; air transport added for British Isles estimate",
+    "values": [
+      {
+        "velocity_mm_s": 2,
+        "velocity_cm_s": 0.2,
+        "velocity_m_s": 0.002,
+        "equivalent_resistance_s_m": 500.0
+      },
+      {
+        "velocity_mm_s": 5,
+        "velocity_cm_s": 0.5,
+        "velocity_m_s": 0.005,
+        "equivalent_resistance_s_m": 200.0
+      },
+      {
+        "velocity_mm_s": 15,
+        "velocity_cm_s": 1.5,
+        "velocity_m_s": 0.015,
+        "equivalent_resistance_s_m": 66.66666666666667
+      }
+    ],
+    "interpretation": "Marine component anchors; not global VULCAN velocities"
+  },
+  "additional_physical_sources": [
+    {
+      "doi": "10.5194/os-6-913-2010",
+      "reading_scope": "Published methods and gas-transfer equations"
+    },
+    {
+      "doi": "10.1029/2020GL091963",
+      "reading_scope": "Air-sea NH3 flux and compensation point methods/results"
+    }
+  ],
+  "reference_1_cm_s_total_resistance_s_m": 100.0,
+  "checks": [
+    "mm/s to cm/s and m/s checked",
+    "Resistance units checked",
+    "Eight existing boundary/profile SHA-256 values unchanged",
+    "Hauglustaine table and Hu NH3 footnote inspected visually"
+  ],
+  "superseded_proposal": "Heuristic 0.1/0.01 cm/s grid withdrawn as physical-scenario proposal; no runs were made"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "actual_forward_model_callback_bound": true,
+  "native_grid_identical": true,
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "max_relative_truth_closure": 2.2648549702353193e-14,
+  "truth_chi2": 32.97837233512558,
+  "temperature_opacity_grid_K": [
+    180,
+    310,
+    10
+  ],
+  "binding_scope": "sampling and posterior postprocessing",
+  "operator": "midpoint-edge photon overlap, energy conversion at precise channel centre"
+}

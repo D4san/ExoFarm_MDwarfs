@@ -15,7 +15,6 @@ import plot_pure_transmission_spectra
 import plot_retrieved_zooms
 import plot_retrieval_campaign_comparison
 import plot_profile_posterior_comparison
-import plot_molecular_snr_summary
 import plot_trappist_simulated_observations
 
 
@@ -24,6 +23,7 @@ SPECTROSCOPY_DIR = NOTEBOOK_DIR.parent
 FINAL_FIGURE_DIR = SPECTROSCOPY_DIR / "final_products" / "figures"
 TRAPPIST_PLOTS_DIR = NOTEBOOK_DIR / "POSEIDON_output" / "TRAPPIST-1e" / "plots"
 PURE_SPECTRA_PLOTS_DIR = NOTEBOOK_DIR / "POSEIDON_output" / "pure_spectra" / "plots"
+SNR_SUMMARY_CSV = PURE_SPECTRA_PLOTS_DIR / "trappist1e_molecular_snr_by_instrument.csv"
 
 FINAL_EXTENSIONS = ("png", "pdf")
 
@@ -71,9 +71,10 @@ FINAL_PLOT_SOURCES = (
     (
         TRAPPIST_PLOTS_DIR,
         "trappist_retrieval_profiles_posteriors_A0_A3_all_campaigns",
-    ),    (
-        TRAPPIST_PLOTS_DIR,
-        "trappist1e_net_molecular_snr_comparison",
+    ),
+    (
+        PURE_SPECTRA_PLOTS_DIR,
+        "trappist1e_molecular_snr_by_instrument",
     ),
     (
         TRAPPIST_PLOTS_DIR,
@@ -95,6 +96,16 @@ def copy_plot(source_dir, stem):
         print(destination)
 
 
+def copy_table(source, destination):
+    """Copy a generated source table into the curated final layer."""
+
+    if not source.exists():
+        print(f"Missing: {source}")
+        return
+    shutil.copy2(source, destination)
+    print(destination)
+
+
 def main():
     FINAL_FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -103,11 +114,15 @@ def main():
     plot_retrieved_zooms.main()
     plot_retrieval_campaign_comparison.main()
     plot_profile_posterior_comparison.main()
-    plot_molecular_snr_summary.main()
     plot_trappist_simulated_observations.main()
 
     for source_dir, stem in FINAL_PLOT_SOURCES:
         copy_plot(source_dir, stem)
+
+    copy_table(
+        SNR_SUMMARY_CSV,
+        SPECTROSCOPY_DIR / "final_products" / SNR_SUMMARY_CSV.name,
+    )
 
 
 if __name__ == "__main__":

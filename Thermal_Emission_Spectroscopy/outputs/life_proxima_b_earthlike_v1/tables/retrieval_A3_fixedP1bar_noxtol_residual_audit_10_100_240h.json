@@ -1,0 +1,279 @@
+{
+  "validation_max_relative_rebin_error": 2.2754521971164762e-14,
+  "10": {
+    "n_bins": 31,
+    "max_grid_rounding_um": 4.603736158514948e-06,
+    "median_spectrum_chi2": 33.64324671710022,
+    "median_spectrum_chi2_per_18_dof": 1.8690692620611233,
+    "reported_best_fit_chi2": 25.81,
+    "reported_best_fit_chi2_per_18_dof": 1.4338888888888888,
+    "injected_noise_chi2": 31.085888719502957,
+    "truth_minus_median_chi2": 32.466622628946794,
+    "n_observed_minus_median_over_3sigma": 0,
+    "temperature_probes": [
+      {
+        "pressure_bar": 1.0,
+        "true_K": 300.0459,
+        "retrieved_median_K": 300.759909,
+        "median_minus_true_K": 0.7140089999999759
+      },
+      {
+        "pressure_bar": 0.1,
+        "true_K": 195.4019266886437,
+        "retrieved_median_K": 220.78565943713505,
+        "median_minus_true_K": 25.383732748491354
+      },
+      {
+        "pressure_bar": 0.01,
+        "true_K": 230.2119241036845,
+        "retrieved_median_K": 217.61089213689402,
+        "median_minus_true_K": -12.601031966790487
+      },
+      {
+        "pressure_bar": 0.001,
+        "true_K": 266.82873513411766,
+        "retrieved_median_K": 216.3790344528357,
+        "median_minus_true_K": -50.44970068128197
+      }
+    ],
+    "windows": {
+      "N2O 7.5-8.1": {
+        "bins": 1,
+        "median_residual_chi2": 3.325446173065229,
+        "truth_minus_median_chi2": 0.0004387614872390911
+      },
+      "NH3 9.5-11.5": {
+        "bins": 4,
+        "median_residual_chi2": 5.225244477890243,
+        "truth_minus_median_chi2": 3.5756469304972183
+      },
+      "N2O 16.5-17.5": {
+        "bins": 2,
+        "median_residual_chi2": 1.729937806901551,
+        "truth_minus_median_chi2": 0.2409556871595477
+      },
+      "other": {
+        "bins": 24,
+        "median_residual_chi2": 23.36261825924319,
+        "truth_minus_median_chi2": 28.649581249802786
+      }
+    },
+    "top_bins": [
+      {
+        "wavelength_um": 12.327609501114884,
+        "residual_sigma": 1.8530770317487328,
+        "model_offset_sigma": 1.412316154244512,
+        "injected_noise_sigma": 0.44076087750422094
+      },
+      {
+        "wavelength_um": 7.859693702818809,
+        "residual_sigma": -1.8235805913271914,
+        "model_offset_sigma": 0.02094663426995113,
+        "injected_noise_sigma": -1.8445272255971426
+      },
+      {
+        "wavelength_um": 11.154249881734525,
+        "residual_sigma": 1.6936490973917324,
+        "model_offset_sigma": 0.07048458499462548,
+        "injected_noise_sigma": 1.623164512397107
+      },
+      {
+        "wavelength_um": 6.120816690011881,
+        "residual_sigma": 1.4723553518111416,
+        "model_offset_sigma": 0.5758373577591419,
+        "injected_noise_sigma": 0.8965179940519996
+      },
+      {
+        "wavelength_um": 15.829788682420727,
+        "residual_sigma": -1.4644163212628265,
+        "model_offset_sigma": -1.4950995203930721,
+        "injected_noise_sigma": 0.030683199130245715
+      }
+    ],
+    "results_file": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\results\\proxima_A3_10h_fixedP1bar_noxtol_proxima_A3_10h_fixedP1bar_noxtol_results.txt"
+  },
+  "100": {
+    "n_bins": 31,
+    "max_grid_rounding_um": 4.603736158514948e-06,
+    "median_spectrum_chi2": 114.30734027449428,
+    "median_spectrum_chi2_per_18_dof": 6.35040779302746,
+    "reported_best_fit_chi2": 94.89,
+    "reported_best_fit_chi2_per_18_dof": 5.2716666666666665,
+    "injected_noise_chi2": 42.36045840234441,
+    "truth_minus_median_chi2": 113.59653888317813,
+    "n_observed_minus_median_over_3sigma": 3,
+    "temperature_probes": [
+      {
+        "pressure_bar": 1.0,
+        "true_K": 300.0459,
+        "retrieved_median_K": 300.678015,
+        "median_minus_true_K": 0.6321149999999989
+      },
+      {
+        "pressure_bar": 0.1,
+        "true_K": 195.4019266886437,
+        "retrieved_median_K": 212.2594119880735,
+        "median_minus_true_K": 16.85748529942981
+      },
+      {
+        "pressure_bar": 0.01,
+        "true_K": 230.2119241036845,
+        "retrieved_median_K": 224.9227594943876,
+        "median_minus_true_K": -5.289164609296904
+      },
+      {
+        "pressure_bar": 0.001,
+        "true_K": 266.82873513411766,
+        "retrieved_median_K": 255.6260039317445,
+        "median_minus_true_K": -11.202731202373172
+      }
+    ],
+    "windows": {
+      "N2O 7.5-8.1": {
+        "bins": 1,
+        "median_residual_chi2": 3.2065613374678748,
+        "truth_minus_median_chi2": 1.1095239873998983
+      },
+      "NH3 9.5-11.5": {
+        "bins": 4,
+        "median_residual_chi2": 4.438260313712178,
+        "truth_minus_median_chi2": 4.923642127522468
+      },
+      "N2O 16.5-17.5": {
+        "bins": 2,
+        "median_residual_chi2": 5.0555880906596755,
+        "truth_minus_median_chi2": 17.727736247759644
+      },
+      "other": {
+        "bins": 24,
+        "median_residual_chi2": 101.60693053265454,
+        "truth_minus_median_chi2": 89.83563652049612
+      }
+    },
+    "top_bins": [
+      {
+        "wavelength_um": 12.959794603736158,
+        "residual_sigma": 5.352827061716739,
+        "model_offset_sigma": 4.00547079754644,
+        "injected_noise_sigma": 1.3473562641702983
+      },
+      {
+        "wavelength_um": 7.111596741217972,
+        "residual_sigma": 4.801480388954709,
+        "model_offset_sigma": 3.9773484886332287,
+        "injected_noise_sigma": 0.8241319003214805
+      },
+      {
+        "wavelength_um": 6.764689583109778,
+        "residual_sigma": 3.849368476318711,
+        "model_offset_sigma": 3.16529970121984,
+        "injected_noise_sigma": 0.6840687750988707
+      },
+      {
+        "wavelength_um": 12.327609501114884,
+        "residual_sigma": 2.930313500590189,
+        "model_offset_sigma": 3.6743348342581807,
+        "injected_noise_sigma": -0.7440213336679918
+      },
+      {
+        "wavelength_um": 14.323086606759027,
+        "residual_sigma": 2.8974037733669746,
+        "model_offset_sigma": 1.0407027467841288,
+        "injected_noise_sigma": 1.8567010265828456
+      }
+    ],
+    "results_file": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\results\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol_results.txt"
+  },
+  "240": {
+    "n_bins": 31,
+    "max_grid_rounding_um": 4.603736158514948e-06,
+    "median_spectrum_chi2": 238.86426902441448,
+    "median_spectrum_chi2_per_18_dof": 13.270237168023026,
+    "reported_best_fit_chi2": 235.24,
+    "reported_best_fit_chi2_per_18_dof": 13.068888888888889,
+    "injected_noise_chi2": 27.625439757036848,
+    "truth_minus_median_chi2": 230.27218134306307,
+    "n_observed_minus_median_over_3sigma": 9,
+    "temperature_probes": [
+      {
+        "pressure_bar": 1.0,
+        "true_K": 300.0459,
+        "retrieved_median_K": 301.29384,
+        "median_minus_true_K": 1.2479399999999714
+      },
+      {
+        "pressure_bar": 0.1,
+        "true_K": 195.4019266886437,
+        "retrieved_median_K": 210.70104029350838,
+        "median_minus_true_K": 15.299113604864687
+      },
+      {
+        "pressure_bar": 0.01,
+        "true_K": 230.2119241036845,
+        "retrieved_median_K": 226.02807627169742,
+        "median_minus_true_K": -4.183847831987094
+      },
+      {
+        "pressure_bar": 0.001,
+        "true_K": 266.82873513411766,
+        "retrieved_median_K": 258.26241382352896,
+        "median_minus_true_K": -8.566321310588705
+      }
+    ],
+    "windows": {
+      "N2O 7.5-8.1": {
+        "bins": 1,
+        "median_residual_chi2": 15.939987162115974,
+        "truth_minus_median_chi2": 8.83636216776504
+      },
+      "NH3 9.5-11.5": {
+        "bins": 4,
+        "median_residual_chi2": 15.432541145781208,
+        "truth_minus_median_chi2": 6.950952726036121
+      },
+      "N2O 16.5-17.5": {
+        "bins": 2,
+        "median_residual_chi2": 16.328606357128987,
+        "truth_minus_median_chi2": 28.17862523423978
+      },
+      "other": {
+        "bins": 24,
+        "median_residual_chi2": 191.16313435938827,
+        "truth_minus_median_chi2": 186.30624121502208
+      }
+    },
+    "top_bins": [
+      {
+        "wavelength_um": 12.959794603736158,
+        "residual_sigma": 6.128855837252478,
+        "model_offset_sigma": 6.001638051350131,
+        "injected_noise_sigma": 0.12721778590234648
+      },
+      {
+        "wavelength_um": 14.323086606759027,
+        "residual_sigma": 4.843841128955751,
+        "model_offset_sigma": 4.049115627353708,
+        "injected_noise_sigma": 0.7947255016020431
+      },
+      {
+        "wavelength_um": 6.764689583109778,
+        "residual_sigma": 4.8034093882955915,
+        "model_offset_sigma": 4.487506631045867,
+        "injected_noise_sigma": 0.31590275724972444
+      },
+      {
+        "wavelength_um": 7.111596741217972,
+        "residual_sigma": 4.7029242699934475,
+        "model_offset_sigma": 5.008474283261604,
+        "injected_noise_sigma": -0.3055500132681566
+      },
+      {
+        "wavelength_um": 12.327609501114884,
+        "residual_sigma": 4.696793944350987,
+        "model_offset_sigma": 5.414512530408973,
+        "injected_noise_sigma": -0.7177185860579862
+      }
+    ],
+    "results_file": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\results\\proxima_A3_240h_fixedP1bar_noxtol_proxima_A3_240h_fixedP1bar_noxtol_results.txt"
+  }
+}

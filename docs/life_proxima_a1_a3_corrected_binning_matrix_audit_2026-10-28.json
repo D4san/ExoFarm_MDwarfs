@@ -1,0 +1,38 @@
+{
+  "campaign_id": "proxima_A1_A3_corrected_bin_matrix_33_20261021_r01",
+  "campaign_status": "COMPLETE_VALIDATED",
+  "audit_date": "2026-10-28",
+  "audit_status": "PASS",
+  "campaign_runs": 33,
+  "validated_campaign_runs": 33,
+  "validated_a3_full_reference_models": 3,
+  "loo_pairs": 30,
+  "return_code_zero_runs": 33,
+  "preflight_passes": 33,
+  "supervisor_exit_code": 0,
+  "recovery_supervisor_exit_code": 0,
+  "recovery_supervisor_pid": 473,
+  "recovery_ended_utc": "2026-10-28T20:13:03+00:00",
+  "active_runs_after_close": [],
+  "max_parallel_mpi4": 3,
+  "max_total_ranks": 12,
+  "manifest_sha256_before_reconciliation": "2a126703a378c273fb61218581dcabe6b453e4310c040868b39b137635f3ce4a",
+  "preserved_pre_audit_files": [
+    "recovery_20261027_power_restore_r01/manifest.before.csv",
+    "recovery_20261027_power_restore_r01/campaign_state.before.json",
+    "recovery_20261027_power_restore_r01/checkpoint_snapshots/attempt_02/"
+  ],
+  "supervisor_guard_event": "[RECOVERY_ERROR] RuntimeError: Prior recovery supervisor 473 is still alive; duplicate start rejected while existing supervisor continued to completion.",
+  "pair_definition": "delta_lnZ = lnZ(full)-lnZ(without species); numeric error quadrature; calibrated bilateral sigma auxiliary only.",
+  "checks": [
+    "33 unique run IDs",
+    "33 MPI4 preflights PASS",
+    "33 exit codes zero",
+    "matched dataset hashes and priors",
+    "corrected-bin callback bound to sampling and postprocessing",
+    "finite outputs and posterior-to-MultiNest row match",
+    "spectrum/PT/log_X structure and finiteness",
+    "excluded molecule absent from active model",
+    "three A3 full references independently validated"
+  ]
+}

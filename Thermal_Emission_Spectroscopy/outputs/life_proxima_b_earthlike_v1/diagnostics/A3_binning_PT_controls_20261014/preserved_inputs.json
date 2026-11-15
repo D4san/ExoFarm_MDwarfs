@@ -1,0 +1,21 @@
+{
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/forward_emission/A3_emission.npz": "cd9a06a75085820fd54d13bd8b145b929459ce779fadbb5fa152be6e3e263381",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/lifesim/life_classic_binned_products.npz": "4788633212963bf9df3fa806db285e8ca47a760d52b8e6b58d19794b18874c14",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_PT.txt": "79e25b6cd3114235c31bb7a7f12c69398a18d13c1fb1e88b068eb7cbd9a15dd3",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_chem.txt": "fed71b978a04e032466a295221a67d56dd453f318d7af18c03ac61bd889afd7c",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/native_grid_retry/resolved_configuration.json": "2976d13f5669a2558c17dca2f30972dc16b907fba378b66dd3e065da476d5e7f",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/native_grid_retry/campaign_state.json": "393e6ffefe97140cdf796b1364ab13e135112b172a267d8c3f3819589d5c18e0",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/native_grid_retry/products/MultiNest_raw/proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG-post_equal_weights.dat": "e2ca774c0f7138155aa831358d77e344580f4b5edaad2878b73645bf9cfd3193",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/campaign_state.json": "c16b312e20b741ea11c9eff774fb5026a4cdb39af49bdd494a1b16484e41e176",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/emission_forward.py": "a9d383115f6bbd63ebc559dcd9751502011691a5f06390a15651f875e8a89b8d",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/diagnose_proxima_a3_binning_pt_controls.py": "98e7df51e9245a1ec2047ec10dca7df93a1c09285fbefeadd7a77834341a8477",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/life_bin_operator_diagnostic.py": "194a1c6cc958a2f2b681bd207170f09ef7e9fab45b31fc0a03f8b7e3a6dd2c83",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/test_life_bin_operator_diagnostic.py": "1ee41f6f0556222ef9b434868cafa89ff68657499670f532764774bd91b30262",
+  "/home/dasan/Astro/POSEIDON/POSEIDON/atmosphere.py": "2fb88a81a21cc1e5e2d9cd2cfb77c493017b8330f4cae8d47bc4651fe2ea49fe",
+  "/home/dasan/Astro/POSEIDON/POSEIDON/core.py": "7cfbbcedbdf63d5b4c15a4b8525e3295ee5f0008a97e16a7bcb1c29eab8fcecb",
+  "/home/dasan/Astro/POSEIDON/POSEIDON/retrieval.py": "04d4df30bff5a98af5c6bd647a16fce6c401e74c0cf837a0bcdb78ed29200f11",
+  "/home/dasan/Astro/POSEIDON/POSEIDON/instrument.py": "d100a431e2cf858ba7ece5c57c791ba91020214c03662f0acb2dd4e159c173f4",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py": "3fcd08939e385ac9934b6fe297591480244fa753bf0122184aee2697e6e73fa1",
+  "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/make_life_datasets.py": "4d8b263f6ca77d3d0ec7c2434968b1273260e9e2b21c95ea245b14d021eb9333"
+}

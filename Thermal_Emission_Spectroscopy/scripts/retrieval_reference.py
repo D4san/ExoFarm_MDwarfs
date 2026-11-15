@@ -42,10 +42,15 @@ def column_averaged_mixing_ratio(
     pressure = pressure[order]
     vmr = vmr[order]
 
-    pressure_span = np.trapezoid(np.ones_like(pressure), x=pressure)
+    # NumPy 1.x (used by the POSEIDON environment) exposes this as trapz;
+    # NumPy 2.x provides the preferred trapezoid name.
+    # ``getattr`` evaluates its default eagerly, and NumPy 2.4 no longer has
+    # ``trapz``. Select the available API without touching the missing alias.
+    trapezoid = np.trapezoid if hasattr(np, "trapezoid") else np.trapz
+    pressure_span = trapezoid(np.ones_like(pressure), x=pressure)
     if pressure_span <= 0.0:
         raise ValueError(f"Non-positive pressure span for {molecule}")
-    return float(np.trapezoid(vmr, x=pressure) / pressure_span)
+    return float(trapezoid(vmr, x=pressure) / pressure_span)
 
 
 def log10_column_averaged_mixing_ratio(

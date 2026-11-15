@@ -1,0 +1,26 @@
+{
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "protected_sources_checked": 19,
+  "all_hashes_match": true,
+  "all_exported_arrays_finite": true,
+  "operator_recomputed_independently": true,
+  "max_relative_recomputed_binning_error": {
+    "true": 0.0,
+    "Madhu_truth_approximation": 0.0,
+    "Madhu_archived_bestpoint_1000h": 0.0
+  },
+  "surface_temperature_difference_K": {
+    "Madhu_truth_approximation": -6.060550136454367,
+    "Madhu_archived_bestpoint_1000h": 0.6026699648119234
+  },
+  "python": "3.10.13 | packaged by conda-forge | (main, Dec 23 2023, 15:36:39) [GCC 12.3.0]",
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8",
+    "POSEIDON": "1.4.0"
+  },
+  "new_retrievals": 0,
+  "noise_changed": false,
+  "scientific_acceptance_of_existing_retrievals_changed": false
+}

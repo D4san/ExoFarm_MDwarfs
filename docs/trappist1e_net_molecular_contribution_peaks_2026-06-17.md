@@ -1,6 +1,6 @@
 # Picos de contribución molecular neta en TRAPPIST-1e, 2026-06-17
 
-Fecha de generación: `2026-07-02`.
+Fecha de generación: `2026-09-21`.
 
 ## Propósito
 

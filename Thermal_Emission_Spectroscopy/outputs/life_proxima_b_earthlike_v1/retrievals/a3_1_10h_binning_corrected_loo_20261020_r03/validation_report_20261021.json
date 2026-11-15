@@ -1,0 +1,797 @@
+{
+  "audit_status": "PASS",
+  "audited_utc_date": "2026-10-21",
+  "campaign_id": "proxima_A3_1h_10h_corrected_bin_full_noNH3_noN2O_20261020_r03",
+  "campaign_status_before_audit": "COMPLETE_PENDING_VALIDATION",
+  "campaign_acceptance_before_audit": "PENDING_INDEPENDENT_AUDIT",
+  "campaign_state_run_snapshots_stale": true,
+  "campaign_state_snapshot_note": "The six campaign_state.runs entries still say pending; final manifest, supervisor completion log and all products were independently checked after supervisor exit.",
+  "supervisor_exit_check": {
+    "pid": 852,
+    "running": false,
+    "mpiexec_count": 0
+  },
+  "supervisor_log_sha256": "a846fc7339c7ab5db84ccd440e5e91717ccd1fe17f28e95889afed110fcae9ca",
+  "supervisor_completion_marker": true,
+  "waves_completed": [
+    1,
+    2
+  ],
+  "checkpoint_reuse": false,
+  "settings": {
+    "PT_profile": "Madhu",
+    "R": 10000,
+    "abundance_profile": "isochem",
+    "declared_free_dimensions": {
+      "ablations": "14/13",
+      "full": "15/14"
+    },
+    "error_inflation": "none",
+    "evidence_tolerance": 0.5,
+    "include_O2": true,
+    "n_live": 800,
+    "operator": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+    "surface": "opaque black fixed at 1 bar",
+    "wavelength_range_um": [
+      3.0,
+      20.0
+    ]
+  },
+  "datasets": {
+    "1": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "channels": 31
+    },
+    "10": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "channels": 31
+    }
+  },
+  "configuration_pair_checks": [
+    {
+      "hours": 1,
+      "excluded_species": "NH3",
+      "matched_priors_and_dataset": true
+    },
+    {
+      "hours": 1,
+      "excluded_species": "N2O",
+      "matched_priors_and_dataset": true
+    },
+    {
+      "hours": 10,
+      "excluded_species": "NH3",
+      "matched_priors_and_dataset": true
+    },
+    {
+      "hours": 10,
+      "excluded_species": "N2O",
+      "matched_priors_and_dataset": true
+    }
+  ],
+  "audit_code": {
+    "path": "Thermal_Emission_Spectroscopy/scripts/audit_proxima_a3_1_10h_corrected_bin_campaign.py",
+    "sha256": "98f3545edd173309354b7b29e4e1d1ffe48cea55bd92589c0ef0b06faab2f019"
+  },
+  "audit_helpers": {
+    "product_validator": {
+      "path": "Thermal_Emission_Spectroscopy/scripts/validate_proxima_molecular_ablation_loo.py",
+      "sha256": "3f477b1abc8ab4ea0ee1ad238204cf589f4d9abc8ffa3eadbe5549ff66b6d76c"
+    },
+    "calibrated_sigma": {
+      "path": "Thermal_Emission_Spectroscopy/scripts/report_proxima_loo_lin_sigma.py",
+      "sha256": "6f09aead0144e118f8e9850437627079ed9f937eba31d982b112673c1fd83e4f"
+    }
+  },
+  "models": [
+    {
+      "run_id": "A3_1h_full",
+      "hours": 1,
+      "model": "full",
+      "excluded_species": null,
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 15,
+      "effective_free_parameters": 14,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 866.2827604951315,
+      "lnz_error": 0.16658852865450852,
+      "chi2_red": 1.63,
+      "dof": 16,
+      "posterior_rows": 6026,
+      "posterior_columns": 15,
+      "posterior_rows_crosschecked": 6026,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 800,
+      "multinest_resume": {
+        "replacements": 22336,
+        "evaluations": 312285,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          14966,
+          17
+        ],
+        "-ev.dat": [
+          21536,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "bad5bfde21ffbbd167372cef8227771a459d853b7444efb3406f3eee1d4f8c90",
+        "runtime_sha256": "6bcf62fc6911dd0ac53d61c786f026d641ab7c0acae4e6ea6df39fe2d7cdee81",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "3d95a8d74aee9caef8bb62085b05ecdf0c338aabc62951726976f7ce1af3a9c2",
+      "preflight_log_sha256": "320835d20d64e473b5f6a61182e0e12ead923982d2e9ba30f02b983b010296d5",
+      "launch_log_sha256": "584fa032e684e500d0b33fec4fed113d326d3d9af4b4972dfea318a5e77b2ba8",
+      "product_sha256": {
+        "results": "c334443a791db167ce7fc03025021162d7c9416b96a36e1a54a96fc0785f4819",
+        "posterior": "ca150f785bef10db0b5f924565efbd88dfd43ae9ef8da67138817744666fd405",
+        "spectrum": "b654c70387ba1eb3e692630443f290708e0ecc4041767d19071dfe3497211e03",
+        "pt": "f8a41c9d0cc1777a17730c485a62943150c5eb87f3fad07824015e2c0e5ad399",
+        "log_x": "286c67c14cadcfe1c8e0df6d5e7102c67c32f4bb9f385cb75470843c35dce4f5",
+        "multinest_stats": "ced5f507256f34660fa81ea008b8aac95c4ac9bbe9f1d684189792a726d43a5d",
+        "multinest_equal_weights": "5a406834fed35d4ff53d4331b836504b18798c7c6a57c3aa399adfa0570d7e4d",
+        "multinest_resume": "620dbe475b752036d608aaf65d97f48fb6abaeee6ebcc6fa595e49ee7ffb2672",
+        "multinest_evidence_samples": "338d6aa983bae2b96a1bacfca26edb52c516484f515366dc0d89407dd12c106a",
+        "multinest_live_points": "f71d77db425801ab6286f7223ce4d550b3de5b68d9df5c67d6f7420ff8c9e367",
+        "multinest_physical_live_points": "b6de9da3d5f9af9a8dc9a3f95f783f1af75621522defba7b1615554c93ca3d2e"
+      },
+      "posterior_abundances": {
+        "N2O": {
+          "parameter": "log_N2O",
+          "a0_threshold_log10": -6.884325289636784,
+          "samples": 6026,
+          "q025": -11.775239481760611,
+          "q16": -10.827371574387849,
+          "median": -8.784134874978779,
+          "q84": -6.654922771491548,
+          "q975": -5.6245161029701585,
+          "samples_above_a0": 1144,
+          "probability_above_a0": 0.1898440092930634
+        },
+        "NH3": {
+          "parameter": "log_NH3",
+          "a0_threshold_log10": -9.950526295665036,
+          "samples": 6026,
+          "q025": -11.859914757663025,
+          "q16": -11.18573318113142,
+          "median": -9.787107954399099,
+          "q84": -8.324791428263012,
+          "q975": -7.420215088881038,
+          "samples_above_a0": 3252,
+          "probability_above_a0": 0.5396614669764355
+        }
+      },
+      "chi2": 26.08,
+      "result_dataset_label": "LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat"
+    },
+    {
+      "run_id": "A3_1h_no_NH3",
+      "hours": 1,
+      "model": "noNH3",
+      "excluded_species": "NH3",
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 866.8092451868757,
+      "lnz_error": 0.16472491422161178,
+      "chi2_red": 1.51,
+      "dof": 17,
+      "posterior_rows": 6202,
+      "posterior_columns": 14,
+      "posterior_rows_crosschecked": 6202,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 700,
+      "multinest_resume": {
+        "replacements": 22067,
+        "evaluations": 287596,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          15186,
+          16
+        ],
+        "-ev.dat": [
+          21267,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "fc222f731fbc17fc253281a61713b312c89fad94f23437b21cbeee6a48a62826",
+        "runtime_sha256": "24ed86b516c9a3577580b8f21f0029cd047fa007846133a53b4b15ce21216236",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "e69756d6bea273f373aaceb1b838880c08f1f09870c50fcfde46ed10a8f140b9",
+      "preflight_log_sha256": "9bb0b98c9b02e788bd8c079e18bd4894ee06ce9cba8421e17e891320eb255604",
+      "launch_log_sha256": "da587469908d1066f1240ffd6c8678211d9ed4f61309d5a82cec396fe87228db",
+      "product_sha256": {
+        "results": "747b5c4f7bc2ebbd74ebc6519e345fd7d64df33ca792eedde06429669db49cc5",
+        "posterior": "6a5e1a01d08b291807eebcb0acfc730e9f66c42ca0dc2553b8f22de7ea137a56",
+        "spectrum": "9d921cf690c07b5cfe162a8f6a76c04f67e5eb9c675c119f2b89a29f32f883df",
+        "pt": "c15f048eda5615e130626ed180ad1872c72df4f8e89d1c1d5a6dba7993011be3",
+        "log_x": "dc610d591a477b360974e03f7b04338e283c192ee2c0c3d05cc161d7f90f6cd0",
+        "multinest_stats": "257e3d0a5eaaa79b65c3bcbf797d4db409b9f6aef79e62fa9c1b555f6c36def3",
+        "multinest_equal_weights": "ed37fb17400345b650c2fd5f66cafea6af502f927ab9112600b4da322962476d",
+        "multinest_resume": "3745ed85738ec9d4eed19415ec04ce3bb74aa82a6b951ded689f07f4e3916915",
+        "multinest_evidence_samples": "190ab532fae1fa652b8c1f45820e5899a6413d1546d4e0b6f9ef367bc6c9c39c",
+        "multinest_live_points": "cc4bcc0478951b9e11a777aeb46bdf98ba68db9e1a969d5484ec375f7e198bfe",
+        "multinest_physical_live_points": "5fb63f4946ee7fd466445573961f151b118e690b3e24c08f27da805da5a2c6db"
+      },
+      "posterior_abundances": {
+        "N2O": {
+          "parameter": "log_N2O",
+          "a0_threshold_log10": -6.884325289636784,
+          "samples": 6202,
+          "q025": -11.79416008538564,
+          "q16": -10.823483885849345,
+          "median": -8.64091135877371,
+          "q84": -6.505290001154511,
+          "q975": -5.639164157960447,
+          "samples_above_a0": 1345,
+          "probability_above_a0": 0.21686552724927444
+        }
+      },
+      "chi2": 25.67,
+      "result_dataset_label": "LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat"
+    },
+    {
+      "run_id": "A3_1h_no_N2O",
+      "hours": 1,
+      "model": "noN2O",
+      "excluded_species": "N2O",
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 866.3123789634556,
+      "lnz_error": 0.16564025884746428,
+      "chi2_red": 1.52,
+      "dof": 17,
+      "posterior_rows": 6307,
+      "posterior_columns": 14,
+      "posterior_rows_crosschecked": 6307,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 700,
+      "multinest_resume": {
+        "replacements": 22422,
+        "evaluations": 290668,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          15355,
+          16
+        ],
+        "-ev.dat": [
+          21622,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "5d1d22033946491e2716485c59a19ef5776b986a9f445d610f0d76c76d2fc233",
+        "runtime_sha256": "f198f698880bba44bd19d4521315e927336f9760f8272bb544b063e65a04926c",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "db48d3570c4ecd4ed2630f824fc8e73b2cfe474ce162ed6e2baf9f671d18821a",
+      "preflight_log_sha256": "c00e77a3e0caac94f41819d7926be1dffd20fedeb4c452fa875691576f34433e",
+      "launch_log_sha256": "a59ce791d20f9b21ab9afc1a2cce4dff9220b41e84d2c1c2a5f40191b6c06f6e",
+      "product_sha256": {
+        "results": "192f00e5dd3c9555fe889d724955e2d12ca4457f88b9084b7d5ca9f02e5761f0",
+        "posterior": "98a9a9ec11b9f9a84f33162ce11c52499b148c3a7aeacc5c9f07d4e6ae2b493e",
+        "spectrum": "94dca900cfdda811cc25c27241485abfb162bd00a36e61b63849394832869cd7",
+        "pt": "da81d12f37be4e773c2208738cbd751111eab503755a1a970e5cc32ae8d61eba",
+        "log_x": "5e99ca0029c6a8a8cdbab472bc444a4aecdfb17a5c4020263e16c8dc2ee59101",
+        "multinest_stats": "2cd240e6fd34bbf454e7a891e47e55ac28df86c5098088a417f681dc711fe6c9",
+        "multinest_equal_weights": "57cfbd70f559bffb7612d35315181af5215b7a00caec5aaaa5010d34ff1ee833",
+        "multinest_resume": "18617f156c966be2becd2c72c0bcf227e037baed2b71efb1a9784e08d5f02b0b",
+        "multinest_evidence_samples": "b4ddd13e5d2265e82edaa3664154cb5c3123872217a212f3752f3d0bd17094a9",
+        "multinest_live_points": "e2b7ae07e9b74dae15ba90531e9571deefd6b213538a14931b6dab407f4dae99",
+        "multinest_physical_live_points": "52e07155594f213279b1bc96ae4fa852cfd4419bd6e3caf652be9314370cd20b"
+      },
+      "posterior_abundances": {
+        "NH3": {
+          "parameter": "log_NH3",
+          "a0_threshold_log10": -9.950526295665036,
+          "samples": 6307,
+          "q025": -11.876914422063386,
+          "q16": -11.228823206789258,
+          "median": -9.8366386130624,
+          "q84": -8.390571682122928,
+          "q975": -7.469626395927823,
+          "samples_above_a0": 3307,
+          "probability_above_a0": 0.5243380371016331
+        }
+      },
+      "chi2": 25.84,
+      "result_dataset_label": "LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat"
+    },
+    {
+      "run_id": "A3_10h_full",
+      "hours": 10,
+      "model": "full",
+      "excluded_species": null,
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 15,
+      "effective_free_parameters": 14,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "dataset_sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 891.3871735263015,
+      "lnz_error": 0.2088106602640967,
+      "chi2_red": 1.22,
+      "dof": 16,
+      "posterior_rows": 7036,
+      "posterior_columns": 15,
+      "posterior_rows_crosschecked": 7036,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 800,
+      "multinest_resume": {
+        "replacements": 33424,
+        "evaluations": 1407316,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          19911,
+          17
+        ],
+        "-ev.dat": [
+          32624,
+          18
+        ],
+        "-live.points": [
+          800,
+          16
+        ],
+        "-phys_live.points": [
+          800,
+          17
+        ],
+        "-summary.txt": [
+          2,
+          62
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "2dd7e454427cc71d1f4d90ba351e371fd8bec67fa84547ba7b4eb396f6195431",
+        "runtime_sha256": "3d609a2239b577eb86c198ac6be267efcd572d65cc4968e660998e68ecf99e90",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "18a5bc1a9f79541bc42048270ef3589e92d7fd5ef7988c31dcb92ca9732f5401",
+      "preflight_log_sha256": "94380c87923e458a1be458531476d4a5a81b8d531482abc5542c5752a53811d2",
+      "launch_log_sha256": "73de2b3b88748b2dab1dc1615c61f01109ba776b0bb16e0245acdb42252215af",
+      "product_sha256": {
+        "results": "556b9170617ad92d2a970c112206dc931a0016f43c5bed355364517a28d3d035",
+        "posterior": "13101314d3b0449cb8cde10f241bf71919412b9bc484e467668323ad0a9a8616",
+        "spectrum": "0e2b4b1a7f20ec39f6f5dda95b79c050fef5ea8aa5e0ca1f6bf0edf174c57201",
+        "pt": "ad78da439af5adde31a7e6848372677e5f1e91650eda6dba90b3a8299e17fc87",
+        "log_x": "98a30f06197c167590f2cdc73f4ea643a3e992e1eedbc5be900f17d9787a12e7",
+        "multinest_stats": "7a964cd4bb65ed8da23fcf169c12e2e9949954cd10d0183e761b985b4f2072fa",
+        "multinest_equal_weights": "d59652046e5b1e9ed867286632d37509fb51663a274247750996260594c9196c",
+        "multinest_resume": "ec7dcb84e83f5c572abf3eaaa1a37950079af709d0e6ae4fb4989f5ec6616d9e",
+        "multinest_evidence_samples": "9046995e2f9f3b61934ed372416a01bf95a862f7a298bc7fcdb4a4b8f9330077",
+        "multinest_live_points": "af4402193f3f44d5f860f10c0f75dbbed15f5b5b19e94a5042798878aebc1e91",
+        "multinest_physical_live_points": "3b03a5733b58ec0bf53b408f8eecff62378d17d6faacf6eaa9c3f6decd841fb2"
+      },
+      "posterior_abundances": {
+        "N2O": {
+          "parameter": "log_N2O",
+          "a0_threshold_log10": -6.884325289636784,
+          "samples": 7036,
+          "q025": -6.345922239363483,
+          "q16": -6.175377385048057,
+          "median": -6.01531066883497,
+          "q84": -5.885802865768063,
+          "q975": -5.778127058341024,
+          "samples_above_a0": 7035,
+          "probability_above_a0": 0.9998578737919273
+        },
+        "NH3": {
+          "parameter": "log_NH3",
+          "a0_threshold_log10": -9.950526295665036,
+          "samples": 7036,
+          "q025": -11.697806326101805,
+          "q16": -10.29820225015388,
+          "median": -8.229241861342574,
+          "q84": -7.689529946248284,
+          "q975": -7.427649042108767,
+          "samples_above_a0": 5657,
+          "probability_above_a0": 0.8040079590676521
+        }
+      },
+      "chi2": 19.52,
+      "result_dataset_label": "LIFE_proxima_A3_10h.dat"
+    },
+    {
+      "run_id": "A3_10h_no_NH3",
+      "hours": 10,
+      "model": "noNH3",
+      "excluded_species": "NH3",
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "dataset_sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 891.6128798616535,
+      "lnz_error": 0.20499529949608455,
+      "chi2_red": 1.35,
+      "dof": 17,
+      "posterior_rows": 6441,
+      "posterior_columns": 14,
+      "posterior_rows_crosschecked": 6441,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 700,
+      "multinest_resume": {
+        "replacements": 31869,
+        "evaluations": 803805,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          18971,
+          16
+        ],
+        "-ev.dat": [
+          31069,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "04bd8904dc8e6726ca1d02a6780c5fc1c61383363d2298311b3c113556dc26da",
+        "runtime_sha256": "eb23f51e0dcf3ef388db1c321ed7c29b370a06b227883e749cb46a5c2437918d",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "ef3405b65c089cf6dac6ef699d82d34cf502c8169b7576b8e5294385d1e531e1",
+      "preflight_log_sha256": "081647063b77de10b1c05dfd4b601de92fb742ff4820f9fa2d2755d4311efa3c",
+      "launch_log_sha256": "df9f9d8ea34c5ce311af634adc0907b9da5677e1b2ded0fe82391227693c53e2",
+      "product_sha256": {
+        "results": "b5ef3e1bc2a528d5c25f7bb8f68a7daeb35ef00ed947de0dc615061f183f7b9e",
+        "posterior": "2726620d7e8366fb6a01a1bbcbd18b54ce2e0166b93e190993c7fa8e31a3e52a",
+        "spectrum": "aedc3d75b2bdd1362ba4821b3c3ae48577000d9144796d6789a8d307a24d68b4",
+        "pt": "00152024f9ab5fccc3a31bb2a8f008edcc3012075ec09b44500377c8942359ea",
+        "log_x": "1c83e30292cd089f8c478303166f19e96c768125f1af7328e3ca7c0f30df5c09",
+        "multinest_stats": "9986cd33b015709f6646366ae8b8adba6132b24b7c945c0e05a3bea38c6684af",
+        "multinest_equal_weights": "5ec485ec9036aabb919e9568802023943f4a6447e63c2bea851a0b69798c262c",
+        "multinest_resume": "c6c0c54ed63906f8e3fcdc44514e1cb20e7eb35efbaa0621b73f70a37d217284",
+        "multinest_evidence_samples": "31b552d62c38a9c42953bffbaa4ae04df6d90e4b422e8245cd3ce427f02d21d9",
+        "multinest_live_points": "4665d0c4c7ae98ae2dbcbd013b258a6581b9119725ca99a27f9fdf003ab850c0",
+        "multinest_physical_live_points": "c5facc8f247fd57cea77f5932bb7c3128e2acb9b94b01f1d772acb4163fb5d2a"
+      },
+      "posterior_abundances": {
+        "N2O": {
+          "parameter": "log_N2O",
+          "a0_threshold_log10": -6.884325289636784,
+          "samples": 6441,
+          "q025": -6.4108474904819195,
+          "q16": -6.241537389218934,
+          "median": -6.089320085359537,
+          "q84": -5.9460502061535525,
+          "q975": -5.823575204344708,
+          "samples_above_a0": 6441,
+          "probability_above_a0": 1.0
+        }
+      },
+      "chi2": 22.950000000000003,
+      "result_dataset_label": "LIFE_proxima_A3_10h.dat"
+    },
+    {
+      "run_id": "A3_10h_no_N2O",
+      "hours": 10,
+      "model": "noN2O",
+      "excluded_species": "N2O",
+      "status_manifest": "complete_pending_validation",
+      "return_code": 0,
+      "mpi_ranks": 5,
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "dataset_sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "dataset_rows": 31,
+      "dataset_columns": 4,
+      "lnz": 882.245180804774,
+      "lnz_error": 0.20457474936222214,
+      "chi2_red": 2.34,
+      "dof": 17,
+      "posterior_rows": 7591,
+      "posterior_columns": 14,
+      "posterior_rows_crosschecked": 7591,
+      "spectrum_rows": 18971,
+      "spectrum_columns": 6,
+      "pt_rows": 100,
+      "pt_columns": 6,
+      "logx_rows": 700,
+      "multinest_resume": {
+        "replacements": 32621,
+        "evaluations": 728710,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          19205,
+          16
+        ],
+        "-ev.dat": [
+          31821,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "operator": {
+        "name": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+        "preflight_sha256": "53ec1d2ca3873482330302b1c3c8a81e11b17273e325029b9343fd1382589555",
+        "runtime_sha256": "47134abba7af38741ccfd2f4b46ca03c3ba0242f2878769b63658e1d78a5f24e",
+        "callback_bound": true,
+        "binding_scope": "sampling and posterior spectral/PT postprocessing",
+        "closure_max_relative": 2.2648549702353193e-14
+      },
+      "configuration_sha256": "c3d821fb754e8531fad5e8a627cbc042b400567adb24a0ce7ffa739194b094f8",
+      "preflight_log_sha256": "7e058cce49905036ea5a4888067581300642e7dbe7918c78c74da8c097e3f41c",
+      "launch_log_sha256": "37fa38f294aecd51f87211d90d881e80c180bed79b32b43ecc560a5c29b19cff",
+      "product_sha256": {
+        "results": "345a454fbe17610610917d2da0431daf990e6348d2215634605fb8475d1cbc94",
+        "posterior": "134c73ad8777e41ec01011bde05ed3d618148d5bf521371339e709b12d09d1b7",
+        "spectrum": "41e856e41aaba6121e2d3062aff192490e019f73d8508ff7476146fd903a6f07",
+        "pt": "3b252e36d40895b72dbb21225f59f933ed8a884d0e83d2e448fed11008f6c27f",
+        "log_x": "d297293e63c2d05c74111f12857052aab74ed9474640dc368d9bf71347936a71",
+        "multinest_stats": "e97dc9f3553768d8fa08176d96d2b6ca75f49b429b3087c06351799b6c03643d",
+        "multinest_equal_weights": "67e22935bac1f30842216d81c0df6ce8ca813d12faa9b43b7156d6d513bdf5f2",
+        "multinest_resume": "e9029841a6c594178439c5283844e34b789ac4f3d447dd5dfaa1b3f3359053c9",
+        "multinest_evidence_samples": "0746446990e0f6782d9636be9ec71d8a4bc428c1b723c1d2a999cc3bab13ae79",
+        "multinest_live_points": "fda0393ea66316c08c66bff6e7f7c3057c60fe8952a14c7bab01f4a43094a8ff",
+        "multinest_physical_live_points": "6936f20fbccd32ffbcd66ed7e246ed2144e56b5705cbd765f5e4dbf40a6c6ae3"
+      },
+      "posterior_abundances": {
+        "NH3": {
+          "parameter": "log_NH3",
+          "a0_threshold_log10": -9.950526295665036,
+          "samples": 7591,
+          "q025": -11.630905672781822,
+          "q16": -9.958618792436242,
+          "median": -8.185960110497216,
+          "q84": -7.742218748133446,
+          "q975": -7.4924885755763535,
+          "samples_above_a0": 6369,
+          "probability_above_a0": 0.8390198919773416
+        }
+      },
+      "chi2": 39.78,
+      "result_dataset_label": "LIFE_proxima_A3_10h.dat"
+    }
+  ],
+  "matched_loo_contrasts": [
+    {
+      "hours": 1,
+      "excluded_species": "NH3",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "lnz_full": 866.2827604951315,
+      "lnz_full_error": 0.16658852865450852,
+      "lnz_without_species": 866.8092451868757,
+      "lnz_without_species_error": 0.16472491422161178,
+      "delta_lnb_full_minus_without": -0.5264846917442583,
+      "delta_lnb_numeric_error_quadrature": 0.2342776883200604,
+      "sigma_calibrated_auxiliary": null,
+      "calibration_log_p": null,
+      "direction": "favours omission",
+      "chi2_red_full": 1.63,
+      "dof_full": 16,
+      "chi2_red_without_species": 1.51,
+      "dof_without_species": 17,
+      "p_species_gt_a0_full_model": 0.5396614669764355,
+      "posterior_probability_for_excluded_species_in_loo": null,
+      "posterior_rows_full": 6026,
+      "posterior_rows_without_species": 6202
+    },
+    {
+      "hours": 1,
+      "excluded_species": "N2O",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+      "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+      "lnz_full": 866.2827604951315,
+      "lnz_full_error": 0.16658852865450852,
+      "lnz_without_species": 866.3123789634556,
+      "lnz_without_species_error": 0.16564025884746428,
+      "delta_lnb_full_minus_without": -0.0296184683240881,
+      "delta_lnb_numeric_error_quadrature": 0.23492218547921134,
+      "sigma_calibrated_auxiliary": null,
+      "calibration_log_p": null,
+      "direction": "favours omission",
+      "chi2_red_full": 1.63,
+      "dof_full": 16,
+      "chi2_red_without_species": 1.52,
+      "dof_without_species": 17,
+      "p_species_gt_a0_full_model": 0.1898440092930634,
+      "posterior_probability_for_excluded_species_in_loo": null,
+      "posterior_rows_full": 6026,
+      "posterior_rows_without_species": 6307
+    },
+    {
+      "hours": 10,
+      "excluded_species": "NH3",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "dataset_sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "lnz_full": 891.3871735263015,
+      "lnz_full_error": 0.2088106602640967,
+      "lnz_without_species": 891.6128798616535,
+      "lnz_without_species_error": 0.20499529949608455,
+      "delta_lnb_full_minus_without": -0.22570633535201523,
+      "delta_lnb_numeric_error_quadrature": 0.2926174373741548,
+      "sigma_calibrated_auxiliary": null,
+      "calibration_log_p": null,
+      "direction": "favours omission",
+      "chi2_red_full": 1.22,
+      "dof_full": 16,
+      "chi2_red_without_species": 1.35,
+      "dof_without_species": 17,
+      "p_species_gt_a0_full_model": 0.8040079590676521,
+      "posterior_probability_for_excluded_species_in_loo": null,
+      "posterior_rows_full": 7036,
+      "posterior_rows_without_species": 6441
+    },
+    {
+      "hours": 10,
+      "excluded_species": "N2O",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+      "dataset_sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b",
+      "lnz_full": 891.3871735263015,
+      "lnz_full_error": 0.2088106602640967,
+      "lnz_without_species": 882.245180804774,
+      "lnz_without_species_error": 0.20457474936222214,
+      "delta_lnb_full_minus_without": 9.141992721527458,
+      "delta_lnb_numeric_error_quadrature": 0.29232297192753093,
+      "sigma_calibrated_auxiliary": 4.66368624123106,
+      "calibration_log_p": -12.682191485706145,
+      "direction": "favours including molecule",
+      "chi2_red_full": 1.22,
+      "dof_full": 16,
+      "chi2_red_without_species": 2.34,
+      "dof_without_species": 17,
+      "p_species_gt_a0_full_model": 0.9998578737919273,
+      "posterior_probability_for_excluded_species_in_loo": null,
+      "posterior_rows_full": 7036,
+      "posterior_rows_without_species": 7591
+    }
+  ],
+  "summary_files": {
+    "models_csv": "retrieval_models_validated_20261021.csv",
+    "loo_csv": "loo_results_validated_20261021.csv",
+    "figure_svg": "a3_1_10h_corrected_bin_molecular_ablation_lnB_20261021.svg"
+  },
+  "method": {
+    "delta_lnb": "lnZ(full) - lnZ(without X), both read from final native MultiNest stats.dat and paired only at the same exposure and dataset.",
+    "numeric_error": "sqrt(error_full^2 + error_without_X^2), assuming independent numerical evidence errors.",
+    "sigma": "Calibrated bilateral mapping implemented in report_proxima_loo_lin_sigma.py; descriptive auxiliary only; N/A if delta lnB <= 0.",
+    "posterior_probability": "P(log10 X > log10 A0) calculated from equal-weight POSEIDON posterior samples only when X is retained; N/A for the removed species."
+  },
+  "interpretation_guardrails": [
+    "Positive delta lnB favors the full model over the specified one-species-absent model under the matched priors and likelihood.",
+    "Posterior probability above A0 describes abundance direction, not model preference or a causal agricultural attribution.",
+    "Evidence differences are conditional on the same duration-specific dataset; 1 h and 10 h are not compared by subtracting their lnZ values.",
+    "The historical old-binning campaign is not the comparator; it also used a different native wavelength interval."
+  ],
+  "ledger_reconciliation": {
+    "status": "PASS",
+    "reconciled_utc": "2026-10-22T00:04:56Z",
+    "pre_audit_campaign_state_sha256": "0ec0f4d70bef65f3b41dbf096a1473135d38235c7e55698a0ed86d973fffa525",
+    "pre_audit_manifest_sha256": "97a1b00326303158d7ebd4678592f6cc4b1634186ef84994469f6645adf08d78",
+    "campaign_state_snapshot": "campaign_state_pre_audit_20261021.json",
+    "manifest_snapshot": "manifest_pre_audit_20261021.csv"
+  }
+}

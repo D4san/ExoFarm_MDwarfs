@@ -1,0 +1,7 @@
+scenario,hours,dataset_file,n_bins,expected_sigma_factor_vs_10h,median_dataset_over_lifesim_scaled_sigma,max_abs_fractional_difference,note
+A1,1.0,LIFE_proxima_A1_1h_O2_fixedBlack1bar_official.dat,31,3.1622776601683795,1.0000000268271159,2.7215572906413854e-07,difference is consistent with six-significant-digit .dat rounding
+A3,1.0,LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat,31,3.1622776601683795,1.0000000098407924,4.67638662904335e-07,difference is consistent with six-significant-digit .dat rounding
+A1,10.0,LIFE_proxima_A1_10h.dat,31,1.0,0.999999999335804,3.4684519767402833e-07,difference is consistent with six-significant-digit .dat rounding
+A3,10.0,LIFE_proxima_A3_10h.dat,31,1.0,0.9999999842816408,3.4439298124411266e-07,difference is consistent with six-significant-digit .dat rounding
+A1,100.0,LIFE_proxima_A1_100h_O2_fixedBlack1bar_noxtol_audit.dat,31,0.31622776601683794,1.000000026827116,2.7215572906413854e-07,difference is consistent with six-significant-digit .dat rounding
+A3,100.0,LIFE_proxima_A3_100h.dat,31,0.31622776601683794,1.0000000098407922,4.67638662904335e-07,difference is consistent with six-significant-digit .dat rounding

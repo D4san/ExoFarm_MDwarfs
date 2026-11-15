@@ -1,0 +1,27 @@
+{
+  "R": 10000,
+  "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1; export OPENBLAS_NUM_THREADS=1; export MKL_NUM_THREADS=1; export NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 5 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval_a3_short_binning_corrected.py --operator-record Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/runtime/operators/A3_1h_no_NH3.json --campaign proxima --scenario A3 --hours 1 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _O2_fixedBlack1bar_noxtol_BIN1_20261020_1h_noNH3 --R 10000 --wl-min 3.0 --wl-max 20.0 --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat --run-dir /home/dasan/exofarm_a3_1_10h_binning_corrected_loo_20261020_r03/runs/A3_1h_no_NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1_10h_binning_corrected_loo_20261020_r03/resolved/A3_1h_no_NH3.json --exclude-species NH3",
+  "created_utc": "2026-10-20T19:40:25+00:00",
+  "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+  "dataset_sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2",
+  "declared_parameters": 14,
+  "effective_free_parameters": 13,
+  "error_inflation": "none",
+  "evidence_tolerance": 0.5,
+  "excluded_species": "NH3",
+  "hours": 1,
+  "matched_full_run": "A3_1h_full",
+  "model": "noNH3",
+  "mpi_ranks": 5,
+  "n_live": 800,
+  "operator": "midpoint-edge photon overlap; energy conversion at exact channel centre",
+  "resume_checkpoint": false,
+  "run_id": "A3_1h_no_NH3",
+  "scenario": "A3",
+  "surface": "opaque black, fixed at 1 bar",
+  "wavelength_range_um": [
+    3.0,
+    20.0
+  ],
+  "x_profile": "isochem"
+}

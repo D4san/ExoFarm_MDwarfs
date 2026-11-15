@@ -1,0 +1,580 @@
+{
+  "active_run_ids": [],
+  "attempt": 2,
+  "campaign_id": "proxima_A1_A3_corrected_bin_matrix_33_20261021_r01",
+  "checkpoint_snapshot_hashes": {
+    "A3_100h_no_CH4": {
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-.txt": {
+          "bytes": 898,
+          "sha256": "763f23fb5a914e9df01709dab6db29f34b60d95c4e50e34662433dc4a8ebd61f"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-ev.dat": {
+          "bytes": 5720400,
+          "sha256": "f17207d7262843f18cf3c609dfa182dd2c0089d9acac20c373717ff68a7cd0f5"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-live.points": {
+          "bytes": 336800,
+          "sha256": "9d16606c7a9bb806487f72e23cc0e5ec0a419544a774a111fea0d1c17a5c7f21"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "89fa28d6ac21c4f802447bb63b68df1ed7c7838a6354698250f4478f27258bea"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "6cb4172b6c9960dea7cef78a35bcbd1cccac7ebbe4e6ef2e2023c4eae6b9be7e"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-resume.dat": {
+          "bytes": 225,
+          "sha256": "0e7f096721d9d34cee31aec2145c9171fe1ae3df7fdf009ed2fd56dbd3998803"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-stats.dat": {
+          "bytes": 2017,
+          "sha256": "e7341c9dfd903aecd64a32e80308f5e63a6c287b60c39ec388103b9d2e3fc54f"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-summary.txt": {
+          "bytes": 3250,
+          "sha256": "2274fe025c38bb9c12407e0c581acccdf71f8717cd9dbca5543a1ddabab844f0"
+        }
+      },
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/recovery_20261027_power_restore_r01/checkpoint_snapshots/attempt_02/A3_100h_no_CH4"
+    },
+    "A3_100h_no_CO2": {
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-.txt": {
+          "bytes": 449,
+          "sha256": "2dd0df7eac0d13ed1fb66513f8d23e007028f864cc46fa12844797312a91f5b8"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-ev.dat": {
+          "bytes": 6900800,
+          "sha256": "7264bd15a1899e77dab72db1553ed8eeb33c982623c848708f20fe48af7f5cb7"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-live.points": {
+          "bytes": 336800,
+          "sha256": "cad7070d4494291a296bc7d1598171c14aef23a96fc1aba91fa167d7ec479c08"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "22b6b7023731f29db5114f474ac5d1e52bd294ee505cffe54cc0907a736fe39d"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "63e0ad3c9c7a4e2c1703cd709b6e6b84cae98902a361dc935e70db8e5cd745b8"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-resume.dat": {
+          "bytes": 225,
+          "sha256": "e6d5bd08f8db93b2cd67740b4f3e43202c3d446c4029a644f27da39e36fe575c"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-stats.dat": {
+          "bytes": 2017,
+          "sha256": "37f118684e82f7fc1c8a8bfdeea2d8249e144864b7b96fe3965fc5be9d4f4ffb"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-summary.txt": {
+          "bytes": 3250,
+          "sha256": "b2840927e1a85ff206e024faab9a27f8749cb20911faa1fb3c0d99f92b4127eb"
+        }
+      },
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/recovery_20261027_power_restore_r01/checkpoint_snapshots/attempt_02/A3_100h_no_CO2"
+    },
+    "A3_100h_no_O3": {
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-.txt": {
+          "bytes": 1347,
+          "sha256": "c3c291aa220fed9c1c44e1d79aae6a185173a69495c37cbcb4f317cdafdeefcf"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-ev.dat": {
+          "bytes": 5493400,
+          "sha256": "3e7fe78eb8735522ba571ce7593ce89ed7ab41e40c345cfd857765e173f4e47a"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-live.points": {
+          "bytes": 336800,
+          "sha256": "6d79134cac08ba1aa5601830eb1d981fd7a1c8ea7529cef2588d7c4d38d76079"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "813afb33e3e3c74d2c48858c90b2e98fcdbaf8788b132793b5b178ee03fd3ff3"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "5a90a41c3912c831e4c23051b79303e9af2c439839763a6d8a66bfbbfc1613a5"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat": {
+          "bytes": 225,
+          "sha256": "7a5f3d178768626d7e7c9c3a8e0b452489f912c50a2b220bbbb1c27e55572847"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-stats.dat": {
+          "bytes": 2017,
+          "sha256": "e91ba4da7bd73e7255abaa66429c1ed1f09148bedda50a803ab4be4061daf814"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-summary.txt": {
+          "bytes": 3250,
+          "sha256": "0be54f5fde944df42f3021f0d2acdd0e42489df374224ad8c10ed46d4df62116"
+        }
+      },
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/recovery_20261027_power_restore_r01/checkpoint_snapshots/attempt_02/A3_100h_no_O3"
+    }
+  },
+  "checkpoint_snapshots": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/recovery_20261027_power_restore_r01/checkpoint_snapshots/attempt_02",
+  "created_utc": "2026-10-28T03:47:29+00:00",
+  "ended_utc": "2026-10-28T20:13:03+00:00",
+  "frozen_input_verification": {
+    "datasets": {
+      "A1_100h": {
+        "bytes": 1666,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_100h_O2_fixedBlack1bar_noxtol_audit.dat",
+        "seed": 460512527,
+        "sha256": "d66c886238a2916312c645589be8601828fbf0a7cd2f02a383ef1d6a3454b5e3"
+      },
+      "A1_10h": {
+        "bytes": 1698,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_10h.dat",
+        "seed": 1099171982,
+        "sha256": "ed39ae6dc5b8ff0d5c8aca3d126a2945343a289be30f3b8d9e8e72c434ee9b8f"
+      },
+      "A1_1h": {
+        "bytes": 1668,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_1h_O2_fixedBlack1bar_noiseRepeat2.dat",
+        "seed": 2125532119,
+        "sha256": "93fb65765101950063d5aa9a3dafae4df38273292cb0e3349e94b8a34516cfcc"
+      },
+      "A3_100h": {
+        "bytes": 1666,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+        "seed": 129315834,
+        "sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705"
+      },
+      "A3_10h": {
+        "bytes": 1700,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_10h.dat",
+        "seed": 1469409748,
+        "sha256": "46a026504b9b9521fa29407a501169b9d3cfc433de40a91b8ade86d7767abb5b"
+      },
+      "A3_1h": {
+        "bytes": 1669,
+        "noise_realization_reused": true,
+        "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1h_O2_fixedBlack1bar_official.dat",
+        "seed": 1376328125,
+        "sha256": "a3043e5de76a834983949e6eca12636ea4de174ebdb2db0853155282c100dee2"
+      }
+    },
+    "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+    "runner_sha256": "7afe7d83cb4b6f8a117baa5e765092528772ee83f7b59103259c4f8011222cdb",
+    "runs": {
+      "A3_100h_no_CH4": {
+        "checkpoint": {
+          "evaluations": 68100,
+          "files": {
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-.txt": {
+              "bytes": 898,
+              "sha256": "763f23fb5a914e9df01709dab6db29f34b60d95c4e50e34662433dc4a8ebd61f"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-ev.dat": {
+              "bytes": 5720400,
+              "sha256": "f17207d7262843f18cf3c609dfa182dd2c0089d9acac20c373717ff68a7cd0f5"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-live.points": {
+              "bytes": 336800,
+              "sha256": "9d16606c7a9bb806487f72e23cc0e5ec0a419544a774a111fea0d1c17a5c7f21"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-phys_live.points": {
+              "bytes": 340000,
+              "sha256": "89fa28d6ac21c4f802447bb63b68df1ed7c7838a6354698250f4478f27258bea"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-post_equal_weights.dat": {
+              "bytes": 421,
+              "sha256": "6cb4172b6c9960dea7cef78a35bcbd1cccac7ebbe4e6ef2e2023c4eae6b9be7e"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-resume.dat": {
+              "bytes": 225,
+              "sha256": "0e7f096721d9d34cee31aec2145c9171fe1ae3df7fdf009ed2fd56dbd3998803"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-stats.dat": {
+              "bytes": 2017,
+              "sha256": "e7341c9dfd903aecd64a32e80308f5e63a6c287b60c39ec388103b9d2e3fc54f"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-summary.txt": {
+              "bytes": 3250,
+              "sha256": "2274fe025c38bb9c12407e0c581acccdf71f8717cd9dbca5543a1ddabab844f0"
+            }
+          },
+          "mode_count": 1,
+          "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4",
+          "n_live": 800,
+          "replacements": 13400,
+          "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CH4/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-resume.dat",
+          "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CH4"
+        },
+        "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+        "declared_dimension": 14,
+        "effective_free_dimension": 13,
+        "operator_preflight_sha256": "488ef274f92faac9e58d885e3c6986ac01dc96257b0efc4a06cffa22ef9a1731",
+        "operator_runtime_before_recovery_sha256": "7c05372c31dfd3da6372c50c0d813128642c50fc9a68324295ada4e343147f56",
+        "resolved_config_sha256": "791c55b79cb2530f43eee4cdae77b683c9806743e2820f0c57c4769d5c12b1bd",
+        "species": [
+          "H2O",
+          "CO2",
+          "O2",
+          "O3",
+          "N2O",
+          "NH3"
+        ]
+      },
+      "A3_100h_no_CO2": {
+        "checkpoint": {
+          "evaluations": 68657,
+          "files": {
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-.txt": {
+              "bytes": 449,
+              "sha256": "2dd0df7eac0d13ed1fb66513f8d23e007028f864cc46fa12844797312a91f5b8"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-ev.dat": {
+              "bytes": 6900800,
+              "sha256": "7264bd15a1899e77dab72db1553ed8eeb33c982623c848708f20fe48af7f5cb7"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-live.points": {
+              "bytes": 336800,
+              "sha256": "cad7070d4494291a296bc7d1598171c14aef23a96fc1aba91fa167d7ec479c08"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-phys_live.points": {
+              "bytes": 340000,
+              "sha256": "22b6b7023731f29db5114f474ac5d1e52bd294ee505cffe54cc0907a736fe39d"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-post_equal_weights.dat": {
+              "bytes": 421,
+              "sha256": "63e0ad3c9c7a4e2c1703cd709b6e6b84cae98902a361dc935e70db8e5cd745b8"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-resume.dat": {
+              "bytes": 225,
+              "sha256": "e6d5bd08f8db93b2cd67740b4f3e43202c3d446c4029a644f27da39e36fe575c"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-stats.dat": {
+              "bytes": 2017,
+              "sha256": "37f118684e82f7fc1c8a8bfdeea2d8249e144864b7b96fe3965fc5be9d4f4ffb"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-summary.txt": {
+              "bytes": 3250,
+              "sha256": "b2840927e1a85ff206e024faab9a27f8749cb20911faa1fb3c0d99f92b4127eb"
+            }
+          },
+          "mode_count": 1,
+          "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2",
+          "n_live": 800,
+          "replacements": 16000,
+          "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CO2/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-resume.dat",
+          "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CO2"
+        },
+        "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+        "declared_dimension": 14,
+        "effective_free_dimension": 13,
+        "operator_preflight_sha256": "5d595d99c56695d4198dc5544a1ad3ed9928d4decbca14d9b39a85d653830d6b",
+        "operator_runtime_before_recovery_sha256": "f642fccd0280654a4f81e4f7b64ff585a09d8ea65a717a3bd3aefca169ef1abe",
+        "resolved_config_sha256": "2f08086831cb1619c93a3b32076bc5948ebc221cf874a5766d1bd7a5a8d84086",
+        "species": [
+          "H2O",
+          "CH4",
+          "O2",
+          "O3",
+          "N2O",
+          "NH3"
+        ]
+      },
+      "A3_100h_no_O3": {
+        "checkpoint": {
+          "evaluations": 67768,
+          "files": {
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-.txt": {
+              "bytes": 1347,
+              "sha256": "c3c291aa220fed9c1c44e1d79aae6a185173a69495c37cbcb4f317cdafdeefcf"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-ev.dat": {
+              "bytes": 5493400,
+              "sha256": "3e7fe78eb8735522ba571ce7593ce89ed7ab41e40c345cfd857765e173f4e47a"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-live.points": {
+              "bytes": 336800,
+              "sha256": "6d79134cac08ba1aa5601830eb1d981fd7a1c8ea7529cef2588d7c4d38d76079"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-phys_live.points": {
+              "bytes": 340000,
+              "sha256": "813afb33e3e3c74d2c48858c90b2e98fcdbaf8788b132793b5b178ee03fd3ff3"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-post_equal_weights.dat": {
+              "bytes": 421,
+              "sha256": "5a90a41c3912c831e4c23051b79303e9af2c439839763a6d8a66bfbbfc1613a5"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat": {
+              "bytes": 225,
+              "sha256": "7a5f3d178768626d7e7c9c3a8e0b452489f912c50a2b220bbbb1c27e55572847"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-stats.dat": {
+              "bytes": 2017,
+              "sha256": "e91ba4da7bd73e7255abaa66429c1ed1f09148bedda50a803ab4be4061daf814"
+            },
+            "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-summary.txt": {
+              "bytes": 3250,
+              "sha256": "0be54f5fde944df42f3021f0d2acdd0e42489df374224ad8c10ed46d4df62116"
+            }
+          },
+          "mode_count": 1,
+          "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3",
+          "n_live": 800,
+          "replacements": 12900,
+          "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat",
+          "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3"
+        },
+        "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+        "declared_dimension": 14,
+        "effective_free_dimension": 13,
+        "operator_preflight_sha256": "00c156a7f162bff85c579412b07d54e11c57cd708a12551faae59d3864f40694",
+        "operator_runtime_before_recovery_sha256": "13f3a6b1c100622ff3bcd99ea32415f4e07bd9e67f40a3f00d78b2aa2aa05166",
+        "resolved_config_sha256": "2a3ff58f2964e7d82ac03cefd048b3eee50bcc13fce6b7a793495b0d6fe6beba",
+        "species": [
+          "H2O",
+          "CO2",
+          "CH4",
+          "O2",
+          "N2O",
+          "NH3"
+        ]
+      }
+    }
+  },
+  "incomplete_or_failed_run_ids": [],
+  "initial_target_run_ids": [
+    "A3_100h_no_CO2",
+    "A3_100h_no_CH4",
+    "A3_100h_no_O3"
+  ],
+  "latest_resources": {
+    "active_mpi_ranks": 4,
+    "cases": {
+      "A3_100h_no_O3": {
+        "evaluations": 1387965,
+        "pid": 996,
+        "pid_tree_count": 6,
+        "posterior_rows": 7403,
+        "pss_kib": 2328616,
+        "replacements": 41419
+      }
+    },
+    "logical_cpus": 16,
+    "mem_available_kib": 29125380,
+    "observed_utc": "2026-10-28T20:12:43+00:00",
+    "project_disk_free_gib": 291,
+    "recovery_attempt": 2,
+    "sampling_mode": "same_run_checkpoint_resume",
+    "scratch_disk_free_gib": 494,
+    "swap_free_kib": 8388608
+  },
+  "max_parallel_retrievals": 3,
+  "original_campaign_status_at_interruption": "RUNNING_WAVE_11",
+  "pre_interruption_checkpoint_counters": {
+    "A3_100h_no_CH4": {
+      "evaluations": 68100,
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-.txt": {
+          "bytes": 898,
+          "sha256": "763f23fb5a914e9df01709dab6db29f34b60d95c4e50e34662433dc4a8ebd61f"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-ev.dat": {
+          "bytes": 5720400,
+          "sha256": "f17207d7262843f18cf3c609dfa182dd2c0089d9acac20c373717ff68a7cd0f5"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-live.points": {
+          "bytes": 336800,
+          "sha256": "9d16606c7a9bb806487f72e23cc0e5ec0a419544a774a111fea0d1c17a5c7f21"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "89fa28d6ac21c4f802447bb63b68df1ed7c7838a6354698250f4478f27258bea"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "6cb4172b6c9960dea7cef78a35bcbd1cccac7ebbe4e6ef2e2023c4eae6b9be7e"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-resume.dat": {
+          "bytes": 225,
+          "sha256": "0e7f096721d9d34cee31aec2145c9171fe1ae3df7fdf009ed2fd56dbd3998803"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-stats.dat": {
+          "bytes": 2017,
+          "sha256": "e7341c9dfd903aecd64a32e80308f5e63a6c287b60c39ec388103b9d2e3fc54f"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-summary.txt": {
+          "bytes": 3250,
+          "sha256": "2274fe025c38bb9c12407e0c581acccdf71f8717cd9dbca5543a1ddabab844f0"
+        }
+      },
+      "mode_count": 1,
+      "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4",
+      "n_live": 800,
+      "replacements": 13400,
+      "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CH4/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCH4-resume.dat",
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CH4"
+    },
+    "A3_100h_no_CO2": {
+      "evaluations": 68657,
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-.txt": {
+          "bytes": 449,
+          "sha256": "2dd0df7eac0d13ed1fb66513f8d23e007028f864cc46fa12844797312a91f5b8"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-ev.dat": {
+          "bytes": 6900800,
+          "sha256": "7264bd15a1899e77dab72db1553ed8eeb33c982623c848708f20fe48af7f5cb7"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-live.points": {
+          "bytes": 336800,
+          "sha256": "cad7070d4494291a296bc7d1598171c14aef23a96fc1aba91fa167d7ec479c08"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "22b6b7023731f29db5114f474ac5d1e52bd294ee505cffe54cc0907a736fe39d"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "63e0ad3c9c7a4e2c1703cd709b6e6b84cae98902a361dc935e70db8e5cd745b8"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-resume.dat": {
+          "bytes": 225,
+          "sha256": "e6d5bd08f8db93b2cd67740b4f3e43202c3d446c4029a644f27da39e36fe575c"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-stats.dat": {
+          "bytes": 2017,
+          "sha256": "37f118684e82f7fc1c8a8bfdeea2d8249e144864b7b96fe3965fc5be9d4f4ffb"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-summary.txt": {
+          "bytes": 3250,
+          "sha256": "b2840927e1a85ff206e024faab9a27f8749cb20911faa1fb3c0d99f92b4127eb"
+        }
+      },
+      "mode_count": 1,
+      "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2",
+      "n_live": 800,
+      "replacements": 16000,
+      "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CO2/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noCO2-resume.dat",
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_CO2"
+    },
+    "A3_100h_no_O3": {
+      "evaluations": 67768,
+      "files": {
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-.txt": {
+          "bytes": 1347,
+          "sha256": "c3c291aa220fed9c1c44e1d79aae6a185173a69495c37cbcb4f317cdafdeefcf"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-ev.dat": {
+          "bytes": 5493400,
+          "sha256": "3e7fe78eb8735522ba571ce7593ce89ed7ab41e40c345cfd857765e173f4e47a"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-live.points": {
+          "bytes": 336800,
+          "sha256": "6d79134cac08ba1aa5601830eb1d981fd7a1c8ea7529cef2588d7c4d38d76079"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-phys_live.points": {
+          "bytes": 340000,
+          "sha256": "813afb33e3e3c74d2c48858c90b2e98fcdbaf8788b132793b5b178ee03fd3ff3"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-post_equal_weights.dat": {
+          "bytes": 421,
+          "sha256": "5a90a41c3912c831e4c23051b79303e9af2c439839763a6d8a66bfbbfc1613a5"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat": {
+          "bytes": 225,
+          "sha256": "7a5f3d178768626d7e7c9c3a8e0b452489f912c50a2b220bbbb1c27e55572847"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-stats.dat": {
+          "bytes": 2017,
+          "sha256": "e91ba4da7bd73e7255abaa66429c1ed1f09148bedda50a803ab4be4061daf814"
+        },
+        "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-summary.txt": {
+          "bytes": 3250,
+          "sha256": "0be54f5fde944df42f3021f0d2acdd0e42489df374224ad8c10ed46d4df62116"
+        }
+      },
+      "mode_count": 1,
+      "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3",
+      "n_live": 800,
+      "replacements": 12900,
+      "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat",
+      "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3"
+    }
+  },
+  "ranks_per_retrieval": 4,
+  "resource_gate": {
+    "logical_cpus": 16,
+    "mem_available_gib": 30.218124389648438,
+    "mem_available_kib": 31686000,
+    "observed_utc": "2026-10-28T05:01:19+00:00",
+    "project_disk_free_gib": 299,
+    "scratch_disk_free_gib": 494,
+    "swap_free_gib": 8.0,
+    "swap_free_kib": 8388608
+  },
+  "resume_from_same_run_multinest_checkpoint": true,
+  "run_results": {
+    "A3_100h_no_CH4": {
+      "archive_dir": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A3_100h_no_CH4",
+      "elapsed_seconds": "34629.1",
+      "finished_utc": "2026-10-28T14:55:12+00:00",
+      "products": {
+        "all_finite": true,
+        "operator_record_sha256": "4b805df58c642d9abde89ae01887e0a641edcbad2dfa10945f6340cebde80349",
+        "posterior_columns": 15,
+        "posterior_rows": 6242,
+        "posterior_sha256": "cc9aa90ccff1e5d80dc0a0a9b38b1ee3c846d861e40d0384a0bf448c9a30062e"
+      },
+      "return_code": 0,
+      "status": "COMPLETE_PENDING_INDEPENDENT_AUDIT"
+    },
+    "A3_100h_no_CO2": {
+      "archive_dir": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A3_100h_no_CO2",
+      "elapsed_seconds": "8913.6",
+      "finished_utc": "2026-10-28T07:37:10+00:00",
+      "products": {
+        "all_finite": true,
+        "operator_record_sha256": "6ac62c40f565569c1f37ffa3f656eaca72131c2786248b836361645a0456467e",
+        "posterior_columns": 15,
+        "posterior_rows": 8635,
+        "posterior_sha256": "3f7d56b371d77514612cd872ad0ab150f2b95b2dcce631f9a31e03fc331a64e7"
+      },
+      "return_code": 0,
+      "status": "COMPLETE_PENDING_INDEPENDENT_AUDIT"
+    },
+    "A3_100h_no_O3": {
+      "archive_dir": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/runs/A3_100h_no_O3",
+      "elapsed_seconds": "53281.6",
+      "finished_utc": "2026-10-28T20:13:03+00:00",
+      "products": {
+        "all_finite": true,
+        "operator_record_sha256": "b4746042fdf2be613246a8745b4825cc88f13aff3b5609520c4ad7eb1a624107",
+        "posterior_columns": 15,
+        "posterior_rows": 7403,
+        "posterior_sha256": "20fd4140bd75236d4a7992f5805425aa5c03a0033d130e63df58f0e509af22fb"
+      },
+      "return_code": 0,
+      "status": "COMPLETE_PENDING_INDEPENDENT_AUDIT"
+    }
+  },
+  "started_utc": "2026-10-28T05:01:19+00:00",
+  "status": "COMPLETE_VALIDATED",
+  "supervisor_exit_code": 0,
+  "supervisor_pid": 473,
+  "total_mpi_ranks": 12,
+  "independent_audit": {
+    "status": "PASS",
+    "completed_utc": "2026-10-28T21:31:04Z",
+    "validated_campaign_runs": 33,
+    "validated_a3_full_reference_models": 3,
+    "matched_loo_pairs": 30,
+    "all_return_codes_zero": true,
+    "all_preflights_passed": true,
+    "reconciled_after_supervisor_exit": true,
+    "report": "docs/life_proxima_a1_a3_corrected_binning_matrix_results_2026-10-28.md"
+  }
+}

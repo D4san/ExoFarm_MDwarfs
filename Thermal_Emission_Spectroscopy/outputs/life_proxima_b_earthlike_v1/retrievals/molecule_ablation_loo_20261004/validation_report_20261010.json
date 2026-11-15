@@ -1,0 +1,25 @@
+{
+  "campaign_id": "proxima_a1_a3_molecule_ablation_loo_20261004",
+  "campaign_status": "completed",
+  "completed_utc": "2026-10-10T21:16:44+00:00",
+  "updated_utc": "2026-10-10T21:16:44+00:00",
+  "state_runs": 36,
+  "manifest_runs": 36,
+  "preflight_passes": 36,
+  "exit_zero_runs": 36,
+  "archived_run_products_valid": 36,
+  "official_full_models_valid": 6,
+  "active_run_ids": [],
+  "max_parallel": 2,
+  "mpi_ranks_per_run": 6,
+  "canonical_8of8_modified": false,
+  "errors": [],
+  "validated_pairs": 36,
+  "summary_csv": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/molecule_ablation_loo_20261004/loo_results_validated_20261010.csv",
+  "figure_svg": "Thermal_Emission_Spectroscopy/final_products/figures/life_proxima_molecular_ablation_loo_lnB_2026-10-10.svg",
+  "method": {
+    "delta_lnb": "lnZ(full) - lnZ(without X), from final MultiNest stats.dat; matched only by scenario/time/dataset/seed",
+    "numeric_error": "quadrature of the two MultiNest lnZ errors, assuming independent numerical errors",
+    "sellke_sigma": "signed inversion of the Sellke upper-bound relation; descriptive upper bound, not frequentist detection significance"
+  }
+}

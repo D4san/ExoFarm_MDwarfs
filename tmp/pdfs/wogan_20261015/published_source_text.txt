@@ -1,0 +1,2355 @@
+PAGE 1
+Toward Inferring the Surface Fluxes of Biosignature Gases on Rocky Exoplanets from
+Telescope Spectra
+Nicholas F. Wogan
+1,2
+aa , Natasha E. Batalha
+2
+aa , Joshua Krissansen-Totton
+3
+, Kevin Zahnle
+2
+aa , Victoria S. Meadows
+4
+aa ,
+Amber V. Young
+5
+aa , Evan L. Sneed
+6
+aa , and Edward W. Schwieterman
+6
+aa
+1
+SETI Institute, Mountain View, CA 94043, USA
+2
+NASA Ames Research Center, Moffett Field, CA 94035, USA
+3
+Department of Earth and Space Sciences/Astrobiology Program, University of Washington, Seattle, WA 98103, USA
+4
+SETI Institute, Mountain View, CA, 94043, USA
+5
+Mary W. Jackson NASA Headquarters, Washington, DC, USA
+6
+Department of Earth and Planetary Sciences, University of California, Riverside, CA 92521, USA
+Received 2026 March 13; revised 2026 April 17; accepted 2026 April 27; published 2026 June 12
+Abstract
+The James Webb Space Telescope and the future Habitable Worlds Observatory aim to discover exoplanet
+atmospheric spectra that detect life. Currently, most existing spectral “retrieval” algorithms focus on inferring the
+abundances of biogenic gases from these spectra. However, abundances are hard to interpret as signatures of life
+because they are modified by photochemistry, climate, and atmospheric escape. To address this problem, we
+develop a method for inferring the fluxes of gases at a planetary surface by inverting a coupled photochemical-
+climate model. As a proof of concept, we apply the approach to a synthetic 10-transit JWST NIRSpec Prism
+spectrum of TRAPPIST-1 e, assuming it hosts a biosphere similar to that of the Archean Earth. The retrieval
+confidently detects CO
+2
+and CH
+4
+and can constrain the flux of CH
+4
+into the atmosphere to within approximately
+1.5 orders of magnitude (68% CI), provided that TRAPPIST-1’s near-UV spectrum is accurately known. We
+demonstrate how inferred surface gas fluxes naturally fold into a probabilistic assessment of life, finding that
+∼80% of the surface gas flux posterior is consistent with a CH
+4
+-producing metabolism for our nominal test case.
+As with any inverse problem, these results are conditional on a number of assumptions in our forward model.
+Overall, we argue that increasing the robustness of life detection on exoplanets requires moving beyond
+atmospheric abundances toward inference of the surface fluxes that sustain them.
+Unified Astronomy Thesaurus concepts: Exoplanet atmospheres (487); Astrobiology (74); Biosignatures (2018);
+Chemical kinetics (2233); Planetary climates (2184)
+1. Introduction
+Determining if exoplanets host life is a profound unsolved
+problem in science that has become a driving question for
+NASA. The James Webb Space Telescope (JWST) and large
+ground-based telescopes will search for biosignatures in a few
+favorable M dwarf systems with modest-resolution transit
+spectroscopy (V. S. Meadows et al. 2023), and high-resolution
+transit and reflected-light spectroscopy (M. López-Morales
+et al. 2019; M. H. Currie & V. S. Meadows 2025). In the
+future, the space-based Habitable Worlds Observatory will
+expand the search for signs of life on several dozen Earth-size
+planets orbiting Sun-like stars, using direct imaging and
+reflected-light observations (e.g., J. Krissansen-Totton et al.
+2025; G. Arney et al. 2026; N. Parenteau et al. 2026). The
+Large Interferometer For Exoplanets, if realized, would
+provide a complementary pathway to biosignature detection
+via mid-infrared spectroscopy in a subsequent generation of
+space missions (S. P. Quanz et al. 2022).
+Researchers can determine exoplanet properties and search
+for biosignatures from measured spectra with atmospheric
+retrieval methods (e.g., R. J. MacDonald & N. Madhusud-
+han 2017; P. Mollière et al. 2019; S. Mukherjee et al. 2021).
+The goal of atmospheric retrieval is to construct a model of an
+exoplanet and its atmosphere that has a simulated spectrum
+that is consistent with measured data. The measured spectrum
+does not uniquely correspond to a single set of planetary
+parameters; therefore, a Bayesian approach is common where
+the researcher infers probability distributions of atmospheric
+properties (e.g., the O
+2
+abundance).
+However, in the search for exoplanetary life, existing
+atmospheric retrieval models have two drawbacks. First,
+existing retrieval frameworks often permit models of exoplanet
+atmospheres that are not constrained by known photochemistry
+and climate physics. One example is O
+2
+and O
+3
+, which
+are tightly coupled by photochemistry (J. H. Seinfeld &
+S. N. Pandis 2016). Many current retrieval frameworks do not
+account for the photochemical link between these gases, or any
+other gases (i.e., also called a “free-chemistry” retrieval).
+Accounting for such relationships during a retrieval would
+break degeneracies—a retrieved O
+3
+concentration implies
+likely O
+2
+abundances even if the spectrum does not contain
+detectable O
+2
+features (T. Kozakis et al. 2022). On the other
+hand, free-chemistry retrievals are valuable because they can
+reveal unexpected chemical or climate scenarios that are not
+captured by current models.
+Perhaps the more important problem is that current retrieval
+methods determine the gas abundances that are compatible
+with spectra, but gas abundances alone are hard to interpret as
+a sign of life. Atmospheric abundances are determined by a
+complex interplay of photochemical sources and sinks,
+atmospheric escape, and surface fluxes, which includes the
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 https://doi.org/10.3847/1538-4357/ae6646
+© 2026. The Author(s). Published by the American Astronomical Society.
+aaaaaaa
+Original content from this work may be used under the terms
+of the Creative Commons Attribution 4.0 licence. Any further
+distribution of this work must maintain attribution to the author(s) and the title
+of the work, journal citation and DOI.
+1
+
+PAGE 2
+influence of biology if active (e.g., J. Krissansen-Totton
+et al. 2018b). Inferring life or its absence should be much
+easier if we can estimate the fluxes of gas into the atmosphere
+at the planet’s surface, because fluxes are closely linked
+to a biosphere’s metabolic pathways. An example is the
+atmospheric methane biosignature (e.g., T. L. Schindler &
+J. F. Kasting 2000; A. Guzmán-Marmolejo et al. 2013;
+M. A. Thompson et al. 2022). It is unlikely that any single
+methane abundance value is indicative of life across all
+planetary systems, because its abundance is influenced by
+details of the incident UV spectrum, atmospheric temperature,
+and the redox state of the background atmosphere (A. Segura
+et al. 2005; N. Wogan et al. 2020). An estimated methane flux
+is easier to interpret because it can be directly compared to
+Earth’s large biological flux and the relatively small plausible
+abiotic fluxes from geologic processes (N. Wogan et al. 2020;
+J. Krissansen-Totton et al. 2018a, 2018b), effectively normal-
+izing out confounding planetary and astrophysical variables.
+To our knowledge, J. Krissansen-Totton et al. (2018a) is the
+only study that explicitly attempted to infer a surface flux of a
+biosignature gas from a synthetic exoplanet spectrum. They
+performed a standard “free-chemistry” atmospheric retrieval
+on synthetic JWST NIRSpec Prism transmission spectra of an
+Archean Earth-like TRAPPIST-1 e, finding that ∼10 transits
+could detect the CH
+4
+–CO
+2
+disequilibrium biosignature
+(J. Krissansen-Totton et al. 2018b). Next, they converted the
+inferred CH
+4
+abundance to a minimum surface flux posterior
+by assuming CH
+4
+is destroyed at least as rapidly as diffusion-
+limited hydrogen escape of the hydrogen atoms in the CH
+4
+.
+However, S. Ranjan et al. (2025) used a photochemical model
+to show that this approximation is valid only when there are
+sufficient UV photons to destroy CH
+4
+by either direct
+photolysis or indirectly by driving a catalytic cycle. This is
+not always the case for M-star-hosted planets like TRAPPIST-
+1 e because M stars can have a small UV output (see Section
+4.1 of S. Ranjan et al. 2025 for details). Moreover, J. Krissa-
+nsen-Totton et al. (2018b) do not address how to infer the flux
+of biologically influenced gases beyond methane (e.g., O
+2
+or CO).
+Here, we demonstrate a new atmospheric inference method
+that can more rigorously infer the surface flux of biogenic and
+other atmospheric gases from a planetary spectrum. We
+accomplish this by performing a grid-based Bayesian inversion
+of a coupled photochemical-climate model. The photochemi-
+cal-climate model estimates the net production (or loss) of
+each atmospheric species from chemical reactions, condensa-
+tion/evaporation, and escape; the result is the surface flux of a
+gas required to sustain a given atmospheric abundance. The
+model also naturally accounts for the photochemical relation-
+ships between gases (e.g., O
+2
+and O
+3
+).
+Following J. Krissansen-Totton et al. (2018a), we apply the
+new flux-inference method to synthetic JWST transmission
+spectra of TRAPPIST-1 e, assuming that it is an inhabited
+world similar to the Archean Earth, to assess the feasibility of
+inferring a biological methane flux on such a world. We
+choose TRAPPIST-1 e as a test case because it is one of the
+few habitable-zone rocky planets that are accessible with
+JWST and because the planet is being actively observed
+(N. H. Allen et al. 2026). However, our flux-inference
+methodology is applicable to any other potentially habitable
+world (e.g., LHS-1140 b) and to other spectroscopic datasets
+(emission, reflected light, etc.). This study is intended as a
+proof-of-concept demonstration of flux retrieval and does not
+attempt to marginalize over all uncertainties in the forward
+model. Finally, using TRAPPIST-1 e as an example, we
+demonstrate how an inferred surface flux of a biosignature gas
+readily permits a probabilistic inference of exoplanetary life.
+2. Methods
+2.1. Forward Model Overview
+Figure 1 shows our forward model that we invert to infer the
+surface flux of biosignature gases on habitable-zone rocky
+exoplanets. The inputs are split into two categories. The first
+category includes parameters that are inputs to a one-
+dimensional (1D) photochemical-climate atmospheric model
+(see Section 2.2). For our TRAPPIST-1 e test case, these
+inputs are the surface partial pressures of CO
+2
+, O
+2
+, CO, H
+2
+,
+and CH
+4
+(all in
+log 10 bars), although additional variables could
+also be considered (see Section 4.2 discussion). Given these
+fixed partial pressures at the lower boundary, the photoche-
+mical-climate model predicts the pressure–temperature (i.e.,
+P–T) profile, the gas abundances above the surface (including
+trace gases like C
+2
+H
+2
+, O
+3
+, etc.), and the surface gas fluxes of
+the fixed gases. The photochemical-climate model is relatively
+slow (∼5 core minutes per simulation), so we precompute a
+grid of atmospheres and linearly interpolate the resulting
+compositions and climates during Bayesian inversion.
+The atmosphere predicted by the photochemical climate
+model is an input to a radiative transfer code (Section 2.3) that
+computes a planetary spectrum. The radiative transfer code
+also accounts for the second category of inputs to our forward
+model (Figure 1): “postprocessed” atmospheric parameters. In
+our TRAPPIST-1 e test case, we have two such variables: a
+gray cloud top pressure (in
+log 10 bars) and a spectral offset to
+marginalize over planet radii. We set the cloud optical depth to
+Photochemical-climate model inputs (Surface pressure of CO2, O2, CO, H2 and CH4)
+1-D photochemical-climate model(interpolation of pre-computed grid)P-T profile, trace gas abundances, and surface gas fluxesRadiative transfer model(computed on-the-fly)Planetary spectrumPost-processed atmospheric parameters (cloud top pressure + spectral offset)
+Inputs Outputs & InputsOutput
+Figure 1. A schematic of the forward model that we use to retrieve surface gas fluxes and other atmospheric parameters from telescope spectra. The inputs include
+the surface partial pressure of bulk gases (CO
+2
+, O
+2
+, CH
+4
+, etc.) and cloud parameters. With the surface gas partial pressures, the model linearly interpolates a
+precomputed grid of 1D photochemical-climate simulations to predict the P–T profile, trace gas abundances (C
+2
+H
+6
+, O
+3
+, etc.), and surface gas fluxes. This predicted
+atmosphere, along with the input cloud parameters, are fed into a radiative transfer code to generate a planetary spectrum.
+2
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 3
+10 to rapidly attenuate radiation entering the cloud layer. The
+simple cloud parameterization is meant to represent any
+possible atmospheric aerosol layer (water cloud or haze).
+In the following subsections, we describe each component of
+the Figure 1 forward model in the context of our TRAPPIST-1 e
+test scenario. Section 2.2 addresses the photochemical-climate
+model and corresponding grid of calculations, while Section 2.3
+describes the radiative transfer code. Section 2.4 then details the
+TRAPPIST-1 e case study to which we apply our flux-inference
+method, and Section 2.5 defines the flux-based biosignature
+framework used later for probabilistic interpretation.
+The following Zenodo archive contains most of the code
+necessary to reproduce the main calculations in this article:
+doi:10.5281/zenodo.20097584.
+2.2. The Photochemical-climate Model
+2.2.1. Model Description
+Our flux-inference method incorporates the 1D photoche-
+mical and climate models in the Photochem software
+package version 0.6.8 (N. Wogan 2025). N. F. Wogan et al.
+(2025) describe the model in full and validate the code against
+the observed composition and climates of Venus, Earth, Mars,
+Jupiter, and Titan. Here, we provide a brief overview of
+the code.
+The climate model solves for radiative and convective energy
+balance in the atmosphere. To estimate the radiation field, the
+code uses standard two-stream methods (O. B. Toon et al. 1989)
+with opacities representing photolysis, Rayleigh scattering,
+collision-induced absorption (CIA), and approximates line
+absorption with k-distributions (D. S. Amundsen et al. 2017).
+In this work, we include opacities for H
+2
+, H
+2
+O, O
+2
+, CO, CO
+2
+,
+CH
+4
+, and N
+2
+. Most opacities are derived from HITEMP or
+HITRAN (I. E. Gordon et al. 2017; R. J. Hargreaves et al.
+2020), although N. F. Wogan et al. (2025) provide a complete
+description of each opacity and their origin in the literature.
+Convection occurs in the model if the temperature gradient
+exceeds a moist or dry pseudo-adiabat (R. J. Graham et al.
+2021). The model iterates to radiative-convective equilibrium
+directly with a variation of Newton’s method (N. F. Wogan
+et al. 2025).
+The photochemical model solves for the steady state of a
+system of partial differential equations describing how atmo-
+spheric gases are influenced by chemical reactions, condensa-
+tion/evaporation, escape, and vertical transport (Equation (1)
+in N. F. Wogan et al. 2025). Here, we use the chemical
+network and thermodynamics of N. F. Wogan et al. (2025)
+limited to species composed of H, N, O, and C. In total, the
+model tracks 73 gas-phase and 14 condensed-phase species
+modulated by 483 reversible chemical reactions and 73
+nonreversible photolysis reactions. The network includes a
+routine for estimating the production of hydrocarbon haze,
+which has been benchmarked against Titan’s observed haze
+production rate (N. F. Wogan et al. 2025). The haze only
+serves to remove hydrocarbons from the atmosphere by
+sedimentation, and we do not include the predicted haze
+profile when generating planetary spectra (and instead adopt a
+parameterized gray cloud).
+We couple the climate and photochemical models to
+generate P–T and composition profiles: first, given the input
+partial pressures of bulk gases (e.g., N
+2
+, CO
+2
+, CO, O
+2
+, CH
+4
+,
+H
+2
+O, and H
+2
+), we compute a climate at radiative-convective
+equilibrium. Next, we fix this resulting P–T profile and
+corresponding bulk surface partial pressures in the photo-
+chemical model and compute a photochemical steady-state
+atmospheric composition. We do not perform further iterations
+back and forth between the climate and photochemical models
+to simulate a perfectly self-consistent composition and climate.
+We choose a loose coupling to maintain computational
+efficiency and stability over the large grid of calculations
+required to infer surface gas fluxes. Appendix B shows that
+this approach is a reasonable approximation, especially for an
+Archean Earth-like atmosphere.
+2.2.2. Grid of TRAPPIST-1 e Calculations
+For our TRAPPIST-1 e case study, we generate a grid of
+photochemical-climate simulations that we linearly interpolate
+over the course of a retrieval. Specifically, the grid covers all
+the Table 1 surface partial pressure combinations for CO
+2
+, O
+2
+,
+CO, H
+2
+, and CH
+4
+, totaling 34,992 simulations. These model
+runs share several assumptions. In all simulations, we assume
+1 bar of N
+2
+, a surface reservoir of H
+2
+O (i.e., an ocean), and
+impose a 50% relative humidity of condensation for all gases
+(although H
+2
+O is the main condensate). Furthermore, the
+surface albedo is set to 0.1, and the eddy diffusion coefficient
+is fixed to a vertically constant 10
+5
+cm
+2
+s
+−1
+. The photo-
+chemical model adopts the deposition velocities in Table 6 of
+S. Ranjan et al. (2023). H and H
+2
+escape the atmosphere at the
+diffusion-limited rate. We use the planetary and stellar
+parameters (mass, radius, bolometric insolation) derived in
+E. Agol et al. (2021). We nominally adopt the HAZMAT
+spectrum for TRAPPIST-1 from S. Peacock et al. (2019) (their
+“model group 1a”), although we perform a sensitivity test with
+the MUSCLES TRAPPIST-1 semi-empirical spectrum from
+(D. J. Wilson et al. 2021).
+We emphasize that the grid, and consequently our inversion
+for surface fluxes, necessarily assumes several planetary
+properties that may not be constrained by JWST observations
+alone, including the vertical mixing coefficient, the presence of a
+surface ocean, and 1 bar of N
+2
+. Ideally, the grid would cover a
+wider range of uncertain parameters, although the “curse of
+dimensionality” limited us to the Table 1 grid without expending
+vast amounts of computational resources. Section 4.2 discusses
+the consequences of failing to capture all the uncertainty in the
+photochemical-climate model.
+2.3. Planetary Spectra
+We use the PICASO code (N. E. Batalha et al. 2019) to
+compute transmission spectra of TRAPPIST-1 e. We use a set
+of R = 15,000 resampled opacities archived on Zenodo
+Table 1
+Parameters of the Photochemical and Climate Grid
+Parameter Values (
+log 10 bars)
+Plog 10 CO 2 ( )
+a
+−9, −7, −5, −4, −3, −2, −1, 0, 1
+Plog 10 O 2 ( )
+−19, −15, −11, −7, −5, −3, −1, 1
+Plog 10 CO ( )
+−11, −7, −5, −3, −1, 1
+Plog 10 H 2 ( )
+−10, −8, −6, −4, −2, 0
+Plog 10 CH 4 ( )
+−13, −11, −9, −7, −6, −5, −4, −3, −2, −1, 0, 1
+Note.
+a
+A fixed surface pressure in
+log 10 bars.
+3
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 4
+(N. Wogan et al. 2025), derived from a similar set of HITEMP
+and HITRAN opacities used by Photochem for climate
+calculations (Section 2.2). The opacity database accounts for
+line absorption from the following relevant species: C
+2
+H
+2
+,
+C
+2
+H
+6
+, CH
+4
+, CO, CO
+2
+, H
+2
+O, NH
+3
+, O
+2
+, and O
+3
+. Also, relevant
+CIA partners include CH
+4
+–CH
+4
+, CO
+2
+–CH
+4
+, CO
+2
+–CO
+2
+,
+CO
+2
+–H
+2
+, H
+2
+–CH
+4
+, H
+2
+–H
+2
+, H
+2
+O–H
+2
+O, H
+2
+O–N
+2
+, N
+2
+–CH
+4
+,
+N
+2
+–H
+2
+, N
+2
+–N
+2
+, N
+2
+–O
+2
+, and O
+2
+–O
+2
+. Here, the water continuum
+(MT_CKD v3.5; E. J. Mlawer et al. 2012) is reformulated as a
+H
+2
+O–H
+2
+O (self) and H
+2
+O–N
+2
+(foreign) contribution. PICASO
+also folds in Rayleigh scattering for all specified molecules.
+We include a single gray and opaque cloud deck (τ = 10) that
+extends from the surface to a specified pressure level. Note that
+clouds only affect the transmission spectrum—the atmosphere
+is assumed to be largely cloud-free for radiative transfer
+calculations in the 1D photochemistry and climate.
+2.4. A TRAPPIST-1 e Flux Inference Case Study
+2.4.1. The “True” Archean Earth-like TRAPPIST-1 e Atmosphere
+We test the flux-inference method on a synthetic JWST
+NIRSpec Prism transmission spectrum of TRAPPIST-1 e,
+assuming the planet has an atmosphere and biosphere like the
+Archean Earth’s. Specifically, we assume TRAPPIST-1 e has a
+1 bar N
+2
+-dominated atmosphere with ∼5% CO
+2
+, to increase the
+likelihood of a habitable surface temperature (V. S. Meadows
+et al. 2023), influenced by CH
+4
+-producing and CO-consuming
+microbes. We represent methanogenic life (CO
+2
++ 4 H
+2
+⟶ CH
+4
++ 2 H
+2
+O) with a surface CH
+4
+flux into the atmosphere identical
+to modern Earth’s (1.122 × 10
+11
+molecules cm
+−2
+s
+−1
+;
+D. C. Catling & J. F. Kasting 2017), and an H
+2
+deposition
+velocity of 2.4 × 10
+−4
+cm s
+−1
+following P. Kharecha et al.
+(2005). Also, based on P. Kharecha et al. (2005), we adopt a CO
+deposition velocity of 1.2 × 10
+−4
+cm s
+−1
+to model the influence
+of a CO-consuming metabolism (4 CO + 2 H
+2
+O ⟶ 2 CO
+2
++
+CH
+3
+COOH). Implicitly, this approach also implies acetotrophic
+methanogens that convert CH
+3
+COOH to CH
+4
+and CO
+2
+(P. Kharecha et al. 2005). We do not consider any volcanic
+surface fluxes of H
+2
+or CO. This is a valid assumption for
+Earth-like outgassing, which has small fluxes of H
+2
+and
+CO (�3.7 × 10
+9
+molecules cm
+−2
+s
+−1
+; D. C. Catling &
+J. F. Kasting 2017), compared to the large rate at which H
+2
+and
+CO are sequestered into the planet by biology in our nominal
+model (�8 × 10
+10
+molecules cm
+−2
+s
+−1
+). Otherwise, our
+model adopts the other parameters described in the grid of
+TRAPPIST-1 e simulations (Section 2.2.2), like the deposition
+velocities in Table 6 of S. Ranjan et al. (2023), a 0.1 surface
+albedo, and a vertically constant eddy diffusion of 10
+5
+cm
+2
+s
+−1
+.
+Figure 2, left, shows the atmospheric temperature and
+composition predicted by the forward model for these inputs.
+The flux of CH
+4
+from methanogens sustains 234 ppmv CH
+4
+at
+the surface against photochemical destruction, while biological
+deposition of CO and H
+2
+result in 27 and 57 ppmv,
+respectively. The CO
+2
+and CH
+4
+greenhouse supports a
+habitable 298 K surface. As a postprocessing step to our
+photochemical-climate calculation, we impose a gray and
+opaque cloud that extends from the surface to 0.2 bar, as this is
+the approximate region of H
+2
+O condensation. Figure 2, right,
+illustrates the transmission spectrum of the planet, along with
+each molecule’s contribution. CH
+4
+and CO
+2
+features dominate,
+and there is minor CO absorption near 4.8 μm. Overall, the
+atmospheric composition and spectrum are similar to the
+“Archean warm (cloudy)” case modeled in V. S. Meadows
+et al. (2023).
+2.4.2. Synthetic JWST NIRSpec Prism Observations
+We use PandExo (N. E. Batalha et al. 2017) to compute a
+synthetic 10 transit JWST Prism spectrum for the modeled
+Archean Earth-like TRAPPIST-1 e. Figure 2, right, shows the
+data with 0.15 μm bins for visual clarity, although our
+Bayesian inversions (described below) use native NIRSpec
+Prism resolution. We center the synthetic observations on our
+Archean Earth-like scenario, ignoring random Gaussian noise
+10 8
+ 10 6
+ 10 4
+ 10 2
+ 100
+Volume Mixing Ratio
+10 7
+10 6
+10 5
+10 4
+10 3
+10 2
+10 1
+100
+Pressure (bar)
+Archean
+Earth-like
+TRAPPIST-1e
+(True atmos.)
+H2O
+CO2 N2
+O2 COH2
+CH4
+1 2 3 4 5
+Wavelength ( m)
+4900
+4950
+5000
+5050
+5100
+5150Transit Depth (ppm)
+CH4 CO2 CO H2O O3 Clouds Rayleigh & CIA
+200 250 300
+T emperature (K)
+T emp.
+Archean Earth-like TRAPPIST-1e (True spectrum)
+Synthetic JWST NIRSpec Prism
+(10 transits)
+Figure 2. A simulated Archean Earth-like TRAPPIST-1 e, to which we apply our novel retrieval algorithm. Left: the modeled temperature profile (black dashed line)
+and mixing ratio profiles (solid color lines) of main atmospheric species for an Archean Earth-like TRAPPIST-1 e. The simulation has a biological CH
+4
+flux equal to
+that of modern Earth, resulting in a 234 ppmv surface abundance. Right: the transmission spectrum of the Archean Earth-like atmosphere (red line). The data points
+are a synthetic NIRSpec Prism spectrum for 10 transits computed with PandExo assuming no stellar contamination. The colored lines below the data indicate the
+spectral contribution of various molecules, clouds, Rayleigh scattering, and CIA, all shifted downward for visual clarity.
+4
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 5
+to avoid an anomalous noise realization. In reality, achieving
+the precision of this synthetic data would likely require more
+than 10 transits as PandExo predicts errors ∼20% smaller
+than real-world spectra (e.g., N. Scarsdale et al. 2024). Also,
+extracting a planetary spectrum will require techniques for
+eliminating stellar contamination (e.g., A. D. Rathcke et al.
+2025), given the strong contamination in the first four
+published TRAPPIST-1 e transits (N. Espinoza et al. 2025).
+Nevertheless, these real-world challenges do not affect the
+validity of this proof-of-concept demonstration of flux
+inference from spectra.
+2.4.3. Bayesian Inversion for Surface Fluxes and Other Parameters
+Given the synthetic JWST TRAPPIST-1 e spectrum in
+Figure 2, right, we do a Bayesian inversion of our forward
+model (Figure 1) using the PyMultiNest algorithm
+(J. Buchner et al. 2014), adopting 1000 live points and an
+evidence tolerance of 0.5 to ensure convergence. We infer
+seven total parameters: five of the parameters are the surface
+partial pressures of CO
+2
+, O
+2
+, CO, H
+2
+, and CH
+4
+in
+log 10 space.
+For each gas, we adopt uniform priors that span the range of
+values in our precomputed grid (Table 1; e.g., CO
+2
+has a
+uniform prior between −9 and 1
+log 10 bars). The sixth
+parameter is a gray and opaque cloud top pressure with a
+uniform prior between −5 and 0
+log 10 bars. Finally, we fit for a
+vertical shift to the transmission spectrum (to accommodate for
+uncertain planet radius and reference pressure) with a uniform
+prior between −1000 and 1000 ppm. Each set of partial
+pressures (CO
+2
+, O
+2
+, CO, H
+2
+, CH
+4
+) corresponds to a set of
+surface gas fluxes necessary to sustain each gas abundance.
+Therefore, as a postprocessing step, we derive posteriors for
+surface gas fluxes and other atmospheric properties (e.g.,
+volume mixing ratios) by feeding samples from the partial
+pressure posteriors through our forward model.
+While our Bayesian inversion adopts explicit log-uniform
+priors on surface partial pressures, the mapping between
+partial pressure and sustaining surface flux in our forward
+model induces nonuniform implicit priors on the corresp-
+onding fluxes. Appendix Figure A2 shows the implicit priors
+on each surface gas flux. When defining the bounds of our
+precomputed grid (Table 1), we ensured that the induced
+implicit priors on surface fluxes did not artificially constrain
+the posterior distributions. For example, the grid extends to
+P 10 O
+19
+ 2 =
+bar so that the resulting prior on the O
+2
+surface
+flux is approximately symmetric between net sources and net
+sinks (i.e., fluxes into and out of the atmosphere). Methane is
+hard to synthesize photochemically (e.g., N. F. Wogan et al.
+2024), so the implicit flux prior has some preference for
+positive values even though we consider CH
+4
+surface pressures
+down to 10
+−13
+bar.
+2.5. Flux-based Biosignature Definitions
+To interpret inferred surface gas fluxes in our TRAPPIST-1
+e case study as evidence for an inhabited or lifeless planet, we
+must define how those fluxes map to biosignatures. Therefore,
+in this section, we define biosignatures and false positives
+directly in terms of surface fluxes using a set-based frame-
+work. Later, in Section 3.3, we apply these definitions to our
+TRAPPIST-1 e flux posteriors to compute the probability that
+the inferred fluxes are consistent with life.
+Let
+F F F F F F, , , , CH CO H O CO 4 2 2 2 ( )= denote the vector of
+surface gas fluxes, and let
+F denote the space of all such flux
+vectors allowed by our retrieval priors for these gases. Our
+goal is to define a subset of
+F that corresponds to metabolism
+influencing a planet. Here, we develop a simple and
+interpretable definition of this “biosignature space,” although
+the same set-based framework can accommodate more
+sophisticated definitions.
+First, we describe the subset of
+F corresponding to an
+Archean Earth-like CH
+4
+biosignature. A surface CH
+4
+flux is a
+compelling biosignature when the flux is too large to explain
+with nonliving processes, and thus can be best explained by
+efficient methanogenic microbes. So, establishing a CH
+4
+biosignature requires estimates for how rapidly the gas can be
+produced by abiotic processes. J. Krissansen-Totton et al.
+(2018b) estimated an upper bound for abiotic CH
+4
+production
+from ocean-bottom serpentinization, where iron minerals in the
+seafloor react with water to produce H
+2
+, which subsequently
+reduces CO
+2
+. They compute a probability distribution for this
+upper bound; however, for simplicity, we adopt a single upper
+limit for abiotic serpentinization of 3.7 × 10
+10
+molecules cm
+−2
+s
+−1
+(or 10 Tmol yr
+−1
+on Earth), corresponding to the ∼99.7th
+percentile of their distribution. M. A. Thompson et al. (2022)
+found that other upper-bound literature estimates for methane
+production from water-rock or metamorphic reactions on Earth
+over time are all <3.7 × 10
+10
+molecules cm
+−2
+s
+−1
+, meaning our
+adopted upper limit is very conservative. We define the subset
+of flux space corresponding to methane fluxes too large to be
+explained by abiotic serpentinization:
+H F F 3.7 10 . 1 CH CH
+10
+ 4 4 { } ( )= > ⋅
+In this set notation, the expression on the right-hand side
+should be read as “the set of all flux vectors F for which the
+surface CH
+4
+flux exceeds 3.7 × 10
+10
+molecules cm
+−2
+s
+−1
+.”
+N. Wogan et al. (2020) argued that volcanism may still be able
+to produce large CH
+4
+fluxes within the space
+H CH 4 ; however,
+such reducing outgassing would also likely generate more CO
+than CH
+4
+and significant H
+2
+. Therefore, we define the
+“reducing volcanic false-positive” subset within
+H CH 4 as
+V HF F F F 0 . 2 CH CO,max CH H ,max 4 4 2 { } ( )= > >
+Here, the symbol ∧ denotes a logical “and”, so that
+V consists
+of flux vectors in
+H CH 4 for which
+F F CO,max CH 4 > and
+F 0 H ,max 2 >
+. The quantities
+FF CO,max ( ) and
+FF H ,max 2 ( ) are
+maximum upward fluxes of CO and H
+2
+, respectively, implied
+by the net flux vector F under a deposition-limited uptake
+model, as derived in Appendix C following P. Kharecha et al.
+(2005). A planet could have a large flux of both CO and H
+2
+into the atmosphere from volcanism, as well as a large surface
+deposition into the planet, with net fluxes close to zero.
+Therefore, Equation (2) uses estimated maximum upward
+fluxes (e.g.,
+F CO,max ) instead of the net surface flux (e.g., F
+CO
+).
+In sum, we define an Archean Earth-like methane
+biosignature as
+B H V 3 CH CH 4 4 ( )=
+Here, the ⧹ symbol denotes set subtraction, so that
+B CH 4 is the
+space where
+F CH 4 is too large to be explained by serpentiniza-
+tion (
+H CH 4 ), but excludes the reducing volcanic false-positive
+(
+V ). Furthermore, we also define a modern Earth-like oxygen
+5
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 6
+biosignature as the subset of
+H CH 4 with a net positive O
+2
+flux
+into the atmosphere:
+B HF F 0 . 4 O CH O 2 4 2 { } ( )= >
+The overall region of flux space consistent with either an
+Archean Earth-like or modern Earth-like biosignature is the
+union,
+L B B . 5 CH O 4 2 ( ) =
+We also assume that all fluxes outside
+L are an abiotic space
+that can be explained by nonliving processes:
+A F L. 6 ( )=
+Our definitions of the biosignature space (i.e.,
+L ) and abiotic
+space (i.e.,
+A ) in terms of surface gas fluxes are intentionally
+simple and discrete in order to illustrate the framework. In
+reality, the gas fluxes corresponding to inhabited and
+uninhabited worlds likely overlap, and the distinction between
+biological and abiotic regimes is inherently probabilistic rather
+than binary. In such a generalized formulation, one would
+replace the sharp set
+L with a probability density or weighting
+function p(life|F), which assigns a higher probability of life to
+some regions of flux space and a lower probability to others.
+The discrete sets defined here can therefore be interpreted as a
+limiting case of this more general framework, in which p(life|
+F) is approximated as either zero or 1.
+3. Results
+3.1. Inferred Atmospheric Abundances
+Figure 3 shows the surface and 10
+−3
+bar mixing ratios and
+temperatures inferred by our inverse method from the synthetic
+JWST TRAPPIST-1 e spectrum in Figure 2. While our
+inversion constrains surface partial pressures, we derive
+mixing ratio profiles by propagating the posterior samples
+through the forward model (Figure 1). The CO
+2
+and CH
+4
+posteriors show clear detections because the spectrum is
+sensitive to both molecules. In contrast, the surface abun-
+dances of CO, H
+2
+, and O
+2
+are poorly constrained, only ruling
+out concentrations larger than −1.9, −1.6, and −1.4
+log 10
+mixing ratio (95% CI), respectively. These surface abundance
+constraints are broadly consistent with previous free retrieval
+studies of an Archean TRAPPIST-1 e (J. Krissansen-Totton
+et al. 2018a; T. Mikal-Evans 2022).
+Unlike the surface abundances, the 10
+−3
+bar posteriors in
+Figure 3 for CO, H
+2
+, and O
+2
+are peaked. The constraints do not
+come directly from spectral features, as these molecules do not
+have strong absorption in the JWST Prism bandpass (Figure 2).
+Instead, the inversion, which embeds a photochemical model, is
+sensitive to stratospheric CO, H
+2
+, and O
+2
+because they are
+photochemical byproducts of the strongly detected CO
+2
+and CH
+4
+.
+The transmission spectrum does not constrain the upper-
+bound surface partial pressure of CO
+2
+(Figure A1), permitting
+up to 4.8 bar CO
+2
+(95% CI). As a result, the 1σ constraint on
+surface temperature is 279–357 K (Figure 3), biased toward
+higher temperatures because of the possibility of a strong CO
+2
+greenhouse. The confident ≲1% upper bound on CH
+4
+(Figure 3) contributes to the tight constraints on stratospheric
+temperature (188–205 K, 68% CI). Without large CH
+4
+concentrations, the atmosphere has few molecules capable of
+heating the stratosphere by starlight absorption, so the upper
+atmosphere tends toward the planet’s 192 K skin temperature
+(for a Bond albedo of 0.3; D. C. Catling & J. F. Kasting 2017).
+The inferred temperature profile, along with our assumption of
+a large surface H
+2
+O reservoir, determines the H
+2
+O posteriors
+(i.e., the spectrum does not directly constrain H
+2
+O). At the
+surface, H
+2
+O is at a 50% relative humidity, and the tropopause
+cold trap determines the 10
+−3
+bar H
+2
+O concentration.
+3.2. Inferred Surface Gas Fluxes
+We propagated the posteriors for each surface partial
+pressure through our forward model to derive posteriors for
+5
+ 4
+ 3
+ 2
+ 1
+ 0
+log10 (XCO2)
+Probability Density
+10 3 bar
+Surface
+8
+ 6
+ 4
+ 2
+ 0
+log10 (XCH4)
+10 3 bar
+Surface
+10
+ 8
+ 6
+ 4
+ 2
+ 0
+log10 (XCO)
+10 3 bar
+Surface
+9
+ 7
+ 5
+ 3
+ 1
+log10 (XH2)
+Probability Density
+10 3 bar
+Surface
+14
+ 10
+ 6
+ 2
+log10 (XO2)
+10 3
+bar
+Surf.
+8
+ 6
+ 4
+ 2
+log10 (XH2O)
+10 3 bar
+Surface
+200 300 400
+T emperature (K)
+10 3 bar
+Surface
+Figure 3. Inferred atmospheric volume mixing ratios and temperatures for an Archean Earth-like TRAPPIST-1 e observed with 10 JWST Prism transits (Figure 2).
+Each panel has two posterior distributions: one for the surface atmospheric layer and another for the 10
+−3
+bar layer of the atmosphere. The vertical dotted lines are
+the true values. The retrieval places tight constraints on CO
+2
+and CH
+4
+because the synthetic spectrum is sensitive to both molecules (Figure 2). The retrieval has
+peaked posteriors for CO, O
+2
+, and H
+2
+at 10
+−3
+bar because they are photochemical byproducts of the detected CO
+2
+and CH
+4
+.
+6
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 7
+the surface flux of CH
+4
+, CO
+2
+, O
+2
+, CO, and H
+2
+(Appendix
+Figure A2). The surface CH
+4
+flux (i.e.,
+F CH 4 ), shown in
+Figure 4, is the only surface flux that is well constrained by the
+data. The inversion favors a
+11.2 0.9
+0.6
++
+log 10 molecules cm
+−2
+s
+−1
+CH
+4
+flux into the atmosphere (68% CI) because CH
+4
+is
+confidently detected by the spectra (Figures 2 and 3) and CH
+4
+is photochemically unstable. Over much of the posterior, CH
+4
+is primarily destroyed by photolysis and reactions with O and
+OH. CH
+4
+destruction often yields CH
+3
+, which is further
+oxidized through a sequence involving O and OH to CO and
+CO
+2
+(via H
+2
+CO and HCO). The oxidants (O and OH) that
+convert CH
+4
+to CO and CO
+2
+are often ultimately derived from
+H
+2
+O (e.g., H
+2
+O + h ν ⟶ OH + H). Because methane
+oxidation is controlled by UV-driven oxidant production, we
+later quantify the sensitivity of the inferred
+F CH 4 to the
+assumed stellar UV spectrum (Section 4.2; Figure 5).
+To determine what controls the width of the retrieved CH
+4
+surface flux posterior, we repropagated the surface pressure
+posteriors of CH
+4
+, CO
+2
+, O
+2
+, CO, and H
+2
+through our forward
+model to derive a new
+F CH 4 probability distribution while
+artificially fixing one or more species to their true surface
+pressures. The test addresses questions such as “if additional
+data perfectly measured the surface CH
+4
+pressure, how would
+that improve the inferred surface CH
+4
+flux?” For each
+experiment, we computed the 68% CI width of the resulting
+CH
+4
+flux posterior, with results summarized in Table A1. We
+find that uncertainty in inferred
+P CH 4 is the largest single
+contributor to the CH
+4
+flux uncertainty: If the data perfectly
+constrained
+P CH 4 , but left the other posteriors untouched, the
+68% CI width would shrink by ∼27% from 1.5 to 1.1 (
+log 10
+molecules cm
+−2
+s
+−1
+). More decisive constraints on
+F CH 4
+require better knowledge of
+P CH 4 , P
+CO
+, and
+P O 2 . Knowing all
+three abundances shrinks the posterior width by 80%. This
+result is understandable because both CO and O
+2
+are important
+for the CH
+4
+photochemical lifetime. Large O
+2
+can enhance
+CH
+4
+destruction by delivering additional oxidants, while CO
+can react with OH, inhibiting its reaction with CH
+4
+and
+impacting the CH
+4
+destruction rate.
+Unfortunately, JWST is not very sensitive to either
+CO or O
+2
+in transmission (J. Krissansen-Totton et al. 2018a;
+J. Lustig-Yaeger et al. 2019). When repeating the Bayesian
+inversion, but instead for 50 transits, the 68% width of the
+F CH 4
+posterior shrank from 1.5 to 0.8 (i.e., by 50%; units are
+log 10
+molecules cm
+−2
+s
+−1
+), representing a hard limit to how precisely
+a JWST Prism transmission spectrum can estimate the CH
+4
+flux.
+Our inversion and sensitivity analysis also reveals that the
+inferred CH
+4
+flux is not influenced by the CO
+2
+abundance.
+Appendix Table A1 shows that more precise knowledge of
+P CO 2
+does not notably tighten the
+F CH 4 distribution. To further
+test this, we repeated the posterior propagation while replacing
+the retrieved
+P CO 2 posterior with our broad prior (
+log 10 uniform
+from 10
+−9
+to 10
+1
+bar), leaving the other species posteriors
+unchanged. This modification does not substantially alter the
+resulting
+F CH 4 distribution. Thus, within our model, uncertainty
+in
+P CO 2 is not a meaningful contributor to the uncertainty in the
+inferred CH
+4
+surface flux (Figure 4). This is consistent with the
+expectation that CH
+4
+destruction is largely controlled by
+oxidants from water vapor and not CO
+2
+.
+3.3. Probabilistic Interpretation of Inferred Surface Gas
+Fluxes
+Using the flux-based biosignature definitions established in
+Section 2.5, we now calculate the probability that our inferred
+surface gas fluxes (Section 3.2 and Figure A2) are consistent
+with those expected from biology.
+To achieve this, we compute the posterior and prior
+probability mass in each of the biosignature and false-positive
+spaces defined in Section 2.5. In practice, we accomplish this
+by calculating the fraction of our posterior or prior samples in
+a given flux space
+S . For example, for
+S L= (where
+L is our
+biosignature definition from Section 2.5), the posterior
+probability mass in
+L is
+L
+ L
+F F FP d p d d 7
+(
+) (
+) ( )
+=
+L
+ L
+F
+ F N
+1
+1,
+ 0,
+. 8
+ i
+N
+i
+ i 1
+( )
+ =
+Here, p(F|d) is the posterior probability density over surface
+gas-flux space and should be read as “the probability density of
+flux vector F given the spectral data d.” Also,
+LFP d( ) is
+the posterior probability that the inferred surface gas flux lies
+within the life-consistent region
+L .
+Table 2 lists each probability mass for the prior and
+posterior in our nominal TRAPPIST-1 e Bayesian inversion
+(Section 3.2). For our synthetic test, we find a 76% chance that
+the surface gas fluxes on TRAPPIST-1 e are consistent with
+the flux-based biosignature
+L (i.e.,
+LFP d 0.76( ) = ). For
+comparison, only 38% of our adopted prior resides in the life-
+consistent region (i.e.,
+LFP 0.38( ) = ), indicating that the
+spectrum shifts substantial probability mass toward the
+biosignature region relative to the prior. The fact that
+LFP d 0.76( ) =
+is only modestly larger than
+BFP d 0.71 CH 4 ( ) =
+and
+BFP d 0.44 O 2 ( ) = reflects the
+substantial overlap between these two subsets of flux space, so
+the probability of their union is much smaller than the sum of
+their separate probabilities.
+8 9 10 11 12 13 14
+CH4 surface flux (log10 molec. cm 2 s 1)
+0.0
+0.2
+0.4
+0.6
+0.8Probability density
+Retrieved
+CH4 surface flux
+Prior
+True value
+Approx. abiotic
+upper limit
+from
+serpentinization
+Figure 4. Inferred surface CH
+4
+flux for an Archean Earth-like TRAPPIST-1 e
+observed with 10 JWST Prism transits (Figure 2). The black dotted line is the
+true value. The red shaded dashed line is a plausible upper limit of methane
+flux from serpentinization (see the text). The bulk of the posterior distribution
+resides above the region that can be explained by serpentinization, possibly
+favoring the presence of a biosphere.
+7
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 8
+4. Discussion
+4.1. Translating Our Results to a Probability of Life on the
+Planet
+Our synthetic TRAPPIST-1 e flux-inference calculation
+finds that 76% of the posterior mass lies in the life-consistent
+flux region (
+LFP d 0.76( ) = ). However, this quantity is
+not itself the probability that the planet hosts life.
+LFP d( )
+can be thought of as the probability of a biosignature given the
+spectra, and additional assumptions are necessary to translate it
+to a probability that a world is inhabited.
+The probability we ultimately seek is P(life|d, c), the
+probability of life given the spectral data and planetary
+context, which D. C. Catling et al. (2018) derived from Bayes’
+theorem:
+P d c
+P d c P c
+ P d c
+life ,
+, life life
+, 9(
+)
+(
+) (
+)
+ ( )
+( )=
+P d c P d c P c
+ P d c P c
+, life life
+ , no life no life . 10
+(
+) (
+) (
+)
+ ( ) ( ) ( )
+=
+ +
+Here, d stands for “spectral data” and c refers to “planetary
+context”, such that P(life|d, c) should be read as “the
+probability the exoplanet has life given the spectral data and
+planetary context.” The term P(life|c) is a prior probability of
+life (discussed later), while the denominator is a normalization.
+We next derive an expression for P(life|d, c) in terms of
+quantities from our retrieval
+LFP d( ) and
+LFP( ) .
+Multiplying both the right-hand-side numerator and denomi-
+nator of Equation (9) by 1/P(d|c, no life) and substituting P
+(no life|c) = 1 − P(life|c) gives
+P d c
+K P c
+ K P c
+life ,
+life
+ 1 1 life
+11
+life
+ life
+(
+)
+(
+)
+ ( ) ( )
+( )=
+ +
+where K
+life
+is the Bayes factor for the hypotheses “life” and
+“no life”:
+K
+P d c
+ P d c
+, life
+ , no life
+.. 12
+life
+(
+)
+ ( )
+( )=
+We cannot compute K
+life
+directly from our inversion
+outputs. Instead, we can compute the following Bayes factor:
+L
+A
+L A
+ L A
+L
+F
+F
+F F
+ F F
+K
+P d c
+P d c
+P d c P d c
+ P c P c
+,
+,
+, ,
+, 13
+(
+)
+(
+)
+(
+) (
+)
+ ( ) ( )
+( )
+/
+ /
+=
+Table 2
+Posterior and Prior Probability Masses Contained within Each Region of Surface Flux Space for the Section 3 Inversion
+Subset of
+F
+Definition Description of Subset
+SP dF( )
+a
+SP F( ) b
+H CH 4
+Equation (1) Methane flux exceeding the abiotic serpentinization limit 0.77 0.38
+V
+Equation (2) Reducing volcanic false positive within
+H CH 4 0.06 0.05
+B CH 4
+Equation (3) Archean Earth-like methane biosignature 0.71 0.33
+B O 2
+Equation (4) Modern Earth-like O
+2
+biosignature 0.44 0.36
+L
+Equation (5) Union of methane and oxygen biosignature regions 0.76 0.38
+A
+Equation (6) Abiotic flux region (
+F L ) 0.24 0.62
+Notes.
+a
+Posterior probability that the gas fluxes on the planet are within subset
+S .
+b
+Assumed prior probability that the gas fluxes on the planet are within subset
+S .
+102 103
+Wavelength (nm)
+10 3
+10 2
+10 1
+100
+101
+102
+103
+104
+Stellar flux at TRAPPIST-1e
+(mW m 2 nm 1)
+HAZMAT (Peacock+2019)
+MUSCLES (Wilson+2021)
+8 9 10 11 12 13
+CH4 surface flux (log10 molec. cm 2 s 1)
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0Probability density
+Retrieved
+CH4 surface flux
+(Assumes MUSCLES
+stellar spectrum)
+P(F d)
+= 0.04
+Retrieved
+CH4 surface flux
+(Assumes HAZMAT
+stellar spectrum)
+P(F d)
+= 0.76
+True value
+(Assumes HAZMAT
+stellar spectrum)
+Approx. abiotic
+upper limit
+from
+serpentinization
+Figure 5. The sensitivity of the inferred surface CH
+4
+flux to TRAPPIST-1’s stellar spectrum. Left: the HAZMAT TRAPPIST-1 spectrum (black line; S. Peacock
+et al. 2019) that we nominally assume in this work alongside the MUSCLES TRAPPIST-1 semi-empirical spectrum (blue line; D. J. Wilson et al. 2021) that we use
+in this sensitivity test. Right: the inferred surface methane flux for the Figure 2 synthetic JWST data (10 transits) assuming the HAZMAT TRAPPIST-1 spectrum
+(black line) and MUSCLES TRAPPIST-1 spectrum (blue line). The retrieval that uses the MUSCLES spectrum can explain the CH
+4
+spectral features with a small
+CH
+4
+flux, demonstrating that stellar UV needs to be better constrained to interpret methane biosignatures on TRAPPIST-1 e.
+8
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 9
+where we assume that
+A is the complement of
+L in flux space
+(see Section 2.5), such that
+A LF FP d c P d c, 1 ,( ) ( ) =
+and
+A LF FP c P c1 ( ) ( ) = . Equation (13) follows
+directly from Bayes’ theorem in odds form. We emphasize that
+assuming that
+A is the complement of
+L is valid only for our
+simple and discrete definitions for
+A and
+L . More realistically,
+the life-bearing and abiotic flux spaces should be treated as
+overlapping probability distributions, in which case
+Equation (13) would break down (see the discussion at the
+end of Section 2.5).
+We then adopt the proxy assumption
+LK K life . This
+approximation is defensible only if our flux-based biosignature
+definition from Section 2.5 is a good discriminator between an
+inhabited and lifeless planet, and if the forward model used to
+infer surface fluxes captures the dominant physical and chemical
+processes. Additionally, we assume that
+L is approximately
+context independent, in the sense that once the sustaining surface
+gas fluxes are inferred, much of the dependence on planetary
+context that shapes atmospheric abundances, such as stellar UV
+and atmospheric redox state, has already been folded into the flux
+inference itself, so that
+L LF FP d c P d ,( ) ( ) . In our
+nominal retrieval from Section 3,
+LFP d c, 0.7 6( ) = and
+LFP c 0.38( ) =
+, so in this instance,
+LK 5.1 , and under the
+proxy assumption,
+LK K 5.1 life .
+The final unknown in Equation (11) is P(life|c), our prior
+expectation that the planet hosts life given its planetary
+context. This prior reflects both the likelihood that the planet is
+habitable (e.g., whether it resides in the habitable zone) and the
+probability that life emerges and persists over geologic time.
+At present, P(life|c) is poorly constrained, as it represents a
+population-level statistic about the prevalence of life that has
+not yet been empirically measured.
+For example, an optimistic prior of P(life|c) = 0.5 would
+yield P(life|d, c) = 0.84 for our nominal case, whereas a more
+pessimistic prior of P(life|c) = 10
+−3
+would imply P(life|d, c) =
+0.005. However, this prior dependence does not imply that life
+detection is fundamentally hopeless: if the Bayes factor K
+life
+becomes sufficiently large (i.e., if P(d|c, no life) → 0), then
+P(life|d, c) approaches unity regardless of the assumed prior. The
+role of the prior is therefore to modulate the strength of the
+evidence rather than to negate it, underscoring that progress in
+exoplanet life detection will come both from stronger spectral
+constraints and from improved understanding of life’s origin and
+prevalence (M. L. Wong et al. 2022).
+4.2. Caveat: Our Inversion for Surface Fluxes Does Not
+Marginalize over All Uncertainties
+The TRAPPIST-1 e flux-inference calculation described
+here fixes several variables that are not well constrained. For
+example, we only consider atmospheres with 1 bar of N
+2
+, a
+surface liquid water reservoir (i.e., an ocean), a constant
+vertical mixing coefficient, and irradiated by a single plausible
+stellar UV spectrum. Furthermore, our inversion does not
+marginalize over the uncertainty in the chemical kinetics or
+opacities themselves. A better calculation would treat these
+unknowns as free parameters. However, to accomplish this,
+photochemical and climate models will need to be more
+efficient, as currently the calculations shown here, which do
+not exhaust the parameter space, expend significant computa-
+tional resources (e.g., the Section 2.2.2 precomputed grid
+requires ∼4000 core hr).
+Here, we demonstrate the impact of one of these uncertain
+variables: the incident stellar UV. This sensitivity test is
+motivated by E. L. Sneed et al. (2026), who showed that
+varying the assumed TRAPPIST-1 UV spectrum can substan-
+tially alter atmospheric outcomes for photochemical simula-
+tions with fixed methane fluxes. Our exercise is different:
+rather than prescribing the methane flux, we infer the surface
+gas fluxes required to sustain atmospheres consistent with the
+synthetic spectrum under an assumed stellar UV spectrum.
+TRAPPIST-1 e’s UV spectrum is still uncertain because the
+star is faint in the UV, large parts of the UV-EUV range cannot
+be observed directly, and the UV emission is variable (e.g.,
+D. J. Wilson et al. 2021). In our nominal calculations in
+Section 3, we adopted a TRAPPIST-1 e UV spectrum from
+S. Peacock et al. (2019), based on PHOENIX upper-
+atmosphere stellar models. Using new HST spectroscopy and
+XMM-Newton X-ray data, D. J. Wilson et al. (2021) show that
+the S. Peacock et al. (2019) models reproduced TRAPPIST-1’s
+Lyα and some other strong lines, but over-predicted several
+other UV emission lines, so they constructed a new semi-
+empirical spectrum for atmospheric modeling (blue line in
+Figure 5, left). To quantify how uncertainty in the stellar UV
+propagates into uncertainty in the CH
+4
+flux, we repeat the
+surface flux inference for the Figure 2 data using the newer
+D. J. Wilson et al. (2021) spectrum.
+The blue distribution in Figure 5, right, shows that the derived
+CH
+4
+flux when assuming the D. J. Wilson et al. (2021) UV
+spectrum is one or two orders of magnitude smaller on average
+than the inversion that uses the S. Peacock et al. (2019) spectrum.
+The difference is almost completely accounted for by the
+discrepant 130 to 230 nm continuum between the two spectra.
+We demonstrate this by running two models for our “true”
+Archean atmospheric composition (Figure 2). The first uses the
+D. J. Wilson et al. (2021) spectrum, yielding a CH
+4
+flux a factor
+of ∼20 smaller than the same calculation with the S. Peacock
+et al. (2019) spectrum. We also performed a second calculation
+with the D. J. Wilson et al. (2021) spectrum, except with the
+130–230 nm stellar flux replaced by the S. Peacock et al. (2019)
+spectrum. The resulting CH
+4
+flux matches the nominal S. Peac-
+ock et al. (2019) simulation (Figure 2) to within ∼5%. The low
+130–230 nm stellar flux in the D. J. Wilson et al. (2021) spectrum
+leads to a slow 1.9 × 10
+9
+molecules cm
+−2
+s
+−1
+H
+2
+O photolysis
+rate (compared to 2.1 × 10
+11
+molecules cm
+−2
+s
+−1
+in the S. Pea-
+cock et al. 2019 model), inhibiting OH and O production and
+methane oxidation to CO and CO
+2
+. These results demonstrate
+that stellar UV emission must be better constrained to
+quantitatively interpret methane biosignatures on TRAPPIST-1 e.
+This example highlights the importance of marginalizing over
+all unknown variables when inferring surface gas fluxes. Without
+a full propagation of the uncertainties, the biosignature and
+probabilistic framework developed here (Sections 2.5, 3.3, and
+4.1) should be interpreted with caution and understood as
+conditional on the modeling assumptions adopted in the inversion.
+5. Conclusions
+Many spectral retrieval models infer surface atmospheric
+abundances, but abundances are challenging to interpret as a
+sign of life, given their indirect relationship to metabolism on a
+planetary surface. Here, we developed a method to instead
+infer surface gas fluxes from telescope spectra by inverting a
+coupled photochemical-climate model (Photochem) together
+with a radiative transfer code (PICASO). We applied the
+9
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 10
+method to a synthetic JWST NIRSpec Prism transmission
+spectrum of TRAPPIST-1 e, assuming the planet is inhabited
+by an Archean Earth-like biosphere. Finally, we show how
+surface gas fluxes can be readily and probabilistically
+interpreted as a sign of life. From this analysis, our conclusions
+are the following:
+1. The inversion, which embeds a photochemical model,
+enables constraints on gases that do not substantially
+impact the observed spectra but are photochemically tied
+to other species that have large spectral features. In our
+TRAPPIST-1 e example, although these species are
+observationally unconstrained, we nevertheless infer
+peaked posteriors for stratospheric O
+2
+, H
+2
+, and CO,
+because these molecules are photochemical byproducts
+of the confidently detected CH
+4
+and CO
+2
+.
+2. In our nominal Archean TRAPPIST-1 e test case, CH
+4
+is
+the only gas with a well-constrained surface gas flux,
+with a retrieved value of
+Flog 11.2 10 CH 0.9
+0.6
+ 4 =
++ molecules
+cm
+−2
+s
+−1
+(68% CI), demonstrating that JWST can
+perhaps, in specific scenarios, meaningfully constrain
+biosphere-relevant boundary conditions.
+3. The width of the CH
+4
+surface flux (
+F CH 4 ) posterior is
+driven primarily by uncertainty in the methane abun-
+dance itself and secondarily by the CO and O
+2
+abundances, because CO and O
+2
+modulate oxidant
+budgets (e.g., O and OH) and therefore methane lifetime.
+On the other hand, the CO
+2
+abundance does not
+contribute to the uncertainty in
+F CH 4 .
+4. We show how biosignatures and false positives can be
+cleanly expressed in terms of surface gas fluxes. For
+example, we define an Archean Earth-like biosignature
+as the region of flux space where
+F CH 4 is larger than what
+is plausible from ocean-bottom serpentinization and
+where the CO and H
+2
+fluxes are inconsistent with a
+large abiotic source of CH
+4
+from reducing volcanism.
+5. For our nominal retrieval, the posterior probability mass
+in the life-consistent flux region is 2 times larger than the
+prior:
+LFP d 0.76( ) versus
+LFP 0.38( ) .
+6. The probability we ultimately seek, P(life|d, c), depends
+on the prior probability of life in a given planetary context
+(P(life|c)). While this prior is uncertain, sufficiently
+decisive spectral evidence (e.g.,
+LFP d 1( ) ) can
+dominate even pessimistic assumptions for P(life|c).
+7. Our nominal TRAPPIST-1 e test case does not margin-
+alize over all uncertainties. For example, adopting an
+alternative TRAPPIST-1 UV spectrum shifts the inferred
+methane flux by orders of magnitude, resulting in a very
+low probability that life impacts the planetary environ-
+ment, even though a biosphere is present. This under-
+scores that a robust search for life with JWST on
+TRAPPIST-1 e will require better UV constraints and
+marginalization over other model uncertainties.
+In sum, the search for life on exoplanets requires more than the
+detection of putative biogenic gases. It requires evidence that
+gases in a planetary atmosphere are sustained by surface gas
+fluxes consistent with metabolism, and inconsistent with known
+abiotic processes. Here, we introduce a framework that enables
+this inference by using atmospheric chemistry and physics to link
+spectra to biological and abiotic processes at a planet’s surface.
+Acknowledgments
+We thank our reviewer who improved the quality of this
+article. We also thank Jacob Lustig-Yaeger, Mark Moussa and
+Giada Arney for conversations that aided this research. This
+work was supported in part by the NASA Planetary Science
+Division “Center for Life Detection” ISFM, and NASA’s
+Interdisciplinary Consortia for Astrobiology Research (grant
+No. NNH19ZDA001N-ICAR) under award No. 19-ICAR19_2-
+0041. Also, N.F.W. was supported in part by the NASA
+Postdoctoral Program. J.K.T. and V.S.M. were supported by a
+NASA Astrophysics Decadal Survey Precursor Science grant
+80NSSC23K1471 and the Virtual Planetary Laboratory, a
+member of the NASA Nexus for Exoplanet System Science
+(NExSS), funded via NASA Astrobiology Program grant No.
+80NSSC23K1398. J.K.T. was also supported by the Alfred
+P. Sloan Foundation under grant No. 2025-2520. A.V.Y. would
+like to acknowledge support from the GSFC Sellers Exoplanet
+Environments Collaboration (SEEC), which is supported
+by NASA’s Planetary Science Division’s Research Program.
+E.L.S. and E.W.S. acknowledge support from the NASA
+Interdisciplinary Consortia for Astrobiology Research (ICAR)
+Program via the Alternative Earths team, with funding issued
+under grant No. 80NSSC21K0594.
+Appendix A
+Supplemental Figures and Tables
+This appendix contains the supporting diagnostics refer-
+enced in the main text. Table A1 quantifies how fixing selected
+retrieved abundances to their true values affects the inferred
+CH
+4
+flux posterior width. Figures A1 and A2 provide the full
+posterior structure for atmospheric abundances and surface
+fluxes, respectively.
+Table A1
+The Sensitivity of the Surface CH
+4
+Flux Posterior on Abundance Constraints
+Species Each Column is One Configuration of Species Fixed to Their True Value (✓ = fixed, · = not fixed)
+CH
+4
+· ✓ · · · · ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ·
+CO
+2
+· · ✓ · · · ✓ · · · ✓ ✓ ✓ · · · ✓ ✓ ✓ · ✓
+O
+2
+· · · ✓ · · · ✓ · · ✓ · · ✓ ✓ · ✓ ✓ · ✓ ✓
+CO · · · · ✓ · · · ✓ · · ✓ · ✓ · ✓ ✓ · ✓ ✓ ✓
+H
+2
+· · · · · ✓ · · · ✓ · · ✓ · ✓ ✓ · ✓ ✓ ✓ ✓
+CI width 1.5 1.1 1.6 1.2 1.4 1.4 1.0 0.9 0.6 1.1 0.8 0.6 1.1 0.3 0.7 0.6 0.1 0.7 0.6 0.2 1.3
+Note. “CI width” is the 68% CI width of
+Flog 10 CH 4 in
+log 10 molecules cm
+−2
+s
+−1
+. The first column, where no species is fixed, gives the
+Flog 10 CH 4 posterior width
+shown in Figure 4. Each column fixes one or more gases to their true surface pressure, then propagates those abundances through the forward model to derive a new
+CH
+4
+flux distribution, with a given 68% CI width.
+10
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 11
+log10 PCO2 = 0.86+1.09
+1.34
+16
+12
+8
+4
+0
+log10 PO2
+log10 PO2 = 9.04+5.95
+6.24
+10.0
+7.5
+5.0
+2.5
+0.0
+log10 PCO
+log10 PCO = 6.07+3.17
+3.11
+8
+6
+4
+2
+log10 PH2
+log10 PH2 = 5.82+3.20
+2.83
+12.5
+10.0
+7.5
+5.0
+2.5
+log10 PCH4
+log10 PCH4 = 3.49+0.97
+1.08
+4
+3
+2
+1
+log10 Pcloud
+log10 Pcloud = 0.73+0.47
+0.55
+8
+ 6
+ 4
+ 2
+ 0
+log10 PCO2
+60
+30
+0
+30
+offset
+16
+ 12
+ 8
+ 4
+ 0
+log10 PO2
+10.0
+ 7.5
+ 5.0
+ 2.5
+ 0.0
+log10 PCO
+8
+ 6
+ 4
+ 2
+log10 PH2
+12.5
+10.0
+7.5
+ 5.0
+ 2.5
+log10 PCH4
+4
+ 3
+ 2
+ 1
+log10 Pcloud
+60
+ 30
+ 0 30
+offset
+offset = 7.55+21.71
+16.63
+Figure A1. Corner plot of our nominal retrieval of the synthetic spectrum in Figure 2 (10 JWST Prism transits). The parameters
+Plog 10 CO 2 ,
+Plog 10 O 2 ,
+Plog 10 CO ,
+Plog 10 H 2
+,
+Plog 10 CH 4 are surface partial pressures in
+log 10 bars.
+Plog 10 cloud is the gray cloud top pressure in
+log 10 bars. The “offset” parameter is an offset added to the
+spectrum in ppm. The blue lines indicate the true values.
+11
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 12
+Appendix B
+Justification for Loosely Coupling the Photochemical and
+Climate Models
+As described in Section 2.2, we compute atmospheric states
+by “loosely“ coupling the photochemical and climate models:
+the climate model is first run for a given set of input surface
+CO
+2
+, O
+2
+, CO, H
+2
+, and CH
+4
+partial pressures, then, with the
+output P–T profile, the photochemistry is computed. No further
+iterations are performed between each code to ensure a fully
+self-consistent state. We chose this approximation to make our
+precomputed grid (Section 2.2.2) computationally feasible.
+Here, we illustrate the error introduced by this loose coupling
+approach near our assumed “true” Archean Earth-like atmos-
+phere (Section 2.4).
+Figure B1 shows two atmospheric simulations at the
+following input partial pressures (bars):
+P 10 CO
+1
+ 2 = ,
+P O 2 =
+10 11
+, P
+CO
+= 10
+−5
+,
+P 10 H
+4
+ 2 = , and
+P 10 CH
+4
+ 4 = . As with all
+other calculations in this paper, the simulation also has 1 bar of
+N
+2
+and a surface H
+2
+O reservoir. This is one of the closest points
+in our grid (Section 2.2.2) to the “true” Archean Earth-like
+atmosphere that we assume in our flux-inference case study
+(Section 2.4). The solid lines are from a simulation that uses our
+“loose” photochemical-climate coupling approach (adopted
+1013
+108
+0
+108
+1013
+O2
+1013
+108
+0
+108
+1013
+CO
+1013
+108
+0
+108
+1013
+H2
+1013
+108
+ 0
+108
+1013
+CO2
+1013
+108
+0
+108
+1013
+CH4
+1013
+108
+ 0
+108
+1013
+O2
+1013
+108
+ 0
+108
+1013
+CO
+1013
+108
+ 0
+108
+1013
+H2
+1013
+108
+ 0
+108
+1013
+CH4
+Figure A2. Corner plot of surface gas fluxes in our nominal inversion of the synthetic spectrum in Figure 2. Each parameter is a surface gas flux in
+log 10 molecules
+cm
+−2
+s
+−1
+. Positive values are fluxes into the atmosphere, while negative values are fluxes into the planet. Black distributions are posteriors, red distributions are
+priors, and the blue lines are true values. Note that most posteriors appear bimodal at first glance, but this is only an artifact of the semi-log scale (necessary for visual
+clarity).
+12
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 13
+throughout this paper), while the dotted lines are for a fully self-
+consistent photochemical-climate calculation. Both models have
+very similar composition and temperature profiles (and have
+surface CH
+4
+fluxes within 25%), because the photochemistry
+does not significantly alter the composition of the main climate-
+relevant absorbers (H
+2
+O, CO
+2
+, and CH
+4
+). However, we find that
+even O
+2
+-rich test cases with substantial photochemical O
+3
+(a
+strong stratospheric absorber) are well approximated by our
+loose coupling strategy, which neglects O
+3
+in the radiative-
+convective calculation. A likely reason is that TRAPPIST-1
+emits predominantly in the near-infrared, where H
+2
+O already
+strongly absorbs, reducing the relative radiative importance of
+stratospheric O
+3
+.
+In summary, the loose coupling approach adopted through-
+out this paper is a sensible approximation, especially near our
+assumed “true” Archean Earth-like atmosphere.
+Appendix C
+Derivation of Maximum Upward Flux of CO and H
+2
+A net surface flux can be decomposed into upward and
+downward components,
+F F F , C1 i i i ( )=
+where
+F 0 i and
+F 0 i . Following P. Kharecha et al.
+(2005), we approximate an upper bound on the downward flux
+of H
+2
+and CO with
+F n v , C2 i i i ,max ,max ( )=
+for
+v 1.2 10 CO,max
+4
+ = ⋅ cm s
+−1
+and
+v 2.4 10 H ,max
+4
+ 2 = ⋅ cm s
+−1
+.
+Here, n
+i
+is the near-surface number density (molecules cm
+−3
+)
+of species i. It then follows that
+F F F F n v F . C 3 i i i i i i i ,max ,max ( )= + +
+In practice, we also enforce
+F 0 i by setting
+F F n vmax 0, . C4 i i i i ,max ,max ( ) ( )= +
+ORCID iDs
+Nicholas F. Wogan
+ aa https:/ /orcid.org/0000-0002-0413-3308
+Natasha E. Batalha
+ aa https:/ /orcid.org/0000-0003-1240-6844
+Kevin Zahnle
+ aa https:/ /orcid.org/0000-0002-2462-4358
+Victoria S. Meadows
+ aa https:/ /orcid.org/0000-0002-
+1386-1710
+Amber V. Young
+ aa https:/ /orcid.org/0000-0003-
+3099-1506
+Evan L. Sneed
+ aa https:/ /orcid.org/0000-0001-5290-1001
+Edward W. Schwieterman
+ aa https:/ /orcid.org/0000-0002-
+2949-2163
+References
+Agol, E., Dorn, C., Grimm, S. L., et al. 2021, PSJ, 2, 1
+Allen, N. H., Espinoza, N., Boehm, V. A., et al. 2026, AJ, 171, 105
+Amundsen, D. S., Tremblin, P., Manners, J., Baraffe, I., & Mayne, N. J. 2017,
+A&A, 598, A97
+Arney, G., Parenteau, N., Hinkel, N., et al. 2026, arXiv:2601.09766
+Batalha, N. E., Marley, M. S., Lewis, N. K., & Fortney, J. J. 2019, ApJ,
+878, 70
+Batalha, N. E., Mandell, A., Pontoppidan, K., et al. 2017, PASP, 129, 064501
+Buchner, J., Georgakakis, A., Nandra, K., et al. 2014, A&A, 564, A125
+Catling, D. C., & Kasting, J. F. 2017, Atmospheric Evolution on Inhabited and
+Lifeless worlds (Cambridge Univ. Press)
+Catling, D. C., Krissansen-Totton, J., Kiang, N. Y., et al. 2018, Astrobiol,
+18, 709
+Currie, M. H., & Meadows, V. S. 2025, PSJ, 6, 96
+Espinoza, N., Allen, N. H., Glidden, A., et al. 2025, ApJL, 990, L52
+Gordon, I. E., Rothman, L. S., Hill, C., et al. 2017, JQSRT, 203, 3
+Graham, R. J., Lichtenberg, T., Boukrouche, R., & Pierrehumbert, R. T. 2021,
+PSJ, 2, 207
+Guzmán-Marmolejo, A., Segura, A., & Escobar-Briones, E. 2013, AsBio,
+13, 550
+Hargreaves, R. J., Gordon, I. E., Rey, M., et al. 2020, ApJS, 247, 55
+Kharecha, P., Kasting, J., & Siefert, J. 2005, Gbio, 3, 53
+Kozakis, T., Mendonça, J. M., & Buchhave, L. A. 2022, A&A, 665,
+A156
+Krissansen-Totton, J., Garland, R., Irwin, P., & Catling, D. C. 2018a, AJ,
+156, 114
+Krissansen-Totton, J., Olson, S., & Catling, D. C. 2018b, SciA, 4, eaao5747
+Krissansen-Totton, J., Ulses, A. G., Frissell, M., et al. 2025, arXiv:2507.14771
+López-Morales, M., Ben-Ami, S., Gonzalez-Abad, G., et al. 2019,
+AJ, 158, 24
+Lustig-Yaeger, J., Meadows, V. S., & Lincowski, A. P. 2019, AJ, 158, 27
+MacDonald, R. J., & Madhusudhan, N. 2017, MNRAS, 469, 1979
+Meadows, V. S., Lincowski, A. P., & Lustig-Yaeger, J. 2023, PSJ, 4, 192
+Mikal-Evans, T. 2022, MNRAS, 510, 980
+Mlawer, E. J., Payne, V. H., Moncet, J.-L., et al. 2012, RSPTA, 370,
+2520
+Mollière, P., Wardenier, J. P., van Boekel, R., et al. 2019, A&A, 627,
+A67
+Mukherjee, S., Batalha, N. E., & Marley, M. S. 2021, ApJ, 910, 158
+Parenteau, N., Ulses, A. G., Metz, C., et al. 2026, arXiv:2601.08883
+Peacock, S., Barman, T., Shkolnik, E. L., Hauschildt, P. H., & Baron, E. 2019,
+ApJ, 871, 235
+Quanz, S. P., Ottiger, M., Fontanet, E., et al. 2022, A&A, 664, A21
+Ranjan, S., Schwieterman, E. W., Leung, M., Harman, C. E., & Hu, R. 2023,
+ApJL, 958, L15
+Ranjan, S., Wogan, N. F., Glidden, A., et al. 2025, ApJL, 993, L39
+Rathcke, A. D., Buchhave, L. A., de Wit, J., et al. 2025, ApJL, 979, L19
+Scarsdale, N., Wogan, N., Wakeford, H. R., et al. 2024, AJ, 168, 276
+Schindler, T. L., & Kasting, J. F. 2000, Icar, 145, 262
+Segura, A., Kasting, J. F., Meadows, V., et al. 2005, AsBio, 5, 706
+Seinfeld, J. H., & Pandis, S. N. 2016, Atmospheric Chemistry and Physics:
+from Air Pollution to Climate Change (Wiley)
+Sneed, E. L., Schwieterman, E. W., Peacock, S. R., et al. 2026, arXiv:2606.
+05451
+Thompson, M. A., Krissansen-Totton, J., Wogan, N., Telus, M., &
+Fortney, J. J. 2022, PNAS, 119, e2117933119
+10 8
+ 10 6
+ 10 4
+ 10 2
+ 100
+Volume Mixing Ratio
+10 7
+10 6
+10 5
+10 4
+10 3
+10 2
+10 1
+100
+Pressure (bar)
+H2O
+CO2
+N2
+O2
+CO
+H2
+CH4
+T emp.
+175 200 225 250 275 300
+T emperature (K)
+Loose photochemical-climate coupling
+Full photochemical-climate coupling
+Figure B1. Two photochemical-climate simulations of TRAPPIST-1 e with an
+Archean Earth-like atmosphere. The solid lines are a simulation that adopts the
+“loose” coupling strategy that we use throughout this article. The dotted lines
+are a fully self-consistent photochemical-climate state. The composition and
+pressure profiles are very similar for both methods, justifying our “loose”
+coupling approach.
+13
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.
+
+PAGE 14
+Toon, O. B., McKay, C. P., Ackerman, T. P., & Santhanam, K. 1989, JGR, 94,
+16287
+Wilson, D. J., Froning, C. S., Duvvuri, G. M., et al. 2021, ApJ, 911,
+18
+Wogan, N. 2025, Photochem, v0.6.7, Zenodo, doi:10.5281/zenodo.16322107
+Wogan, N., Krissansen-Totton, J., & Catling, D. C. 2020, PSJ, 1, 58
+Wogan, N., Lopez, J., Batalha, N., & Fortney, J. 2025, Resampled Opacity
+Databases for PICASO from the Photochem model, Zenodo, doi: 10.5281/
+zenodo.17381172
+Wogan, N. F., Batalha, N. E., Zahnle, K. J., et al. 2024, ApJL, 963, L7
+Wogan, N. F., Batalha, N. E., Zahnle, K., et al. 2025, PSJ, 6, 256
+Wong, M. L., Bartlett, S., Chen, S., & Tierney, L. 2022, Life, 12, 783
+14
+The Astrophysical Journal, 1004:191 (14pp), 2026 June 20 Wogan et al.

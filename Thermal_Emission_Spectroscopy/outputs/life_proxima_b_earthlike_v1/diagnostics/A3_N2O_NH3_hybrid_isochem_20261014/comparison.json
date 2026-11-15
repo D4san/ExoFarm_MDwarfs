@@ -1,0 +1,113 @@
+{
+  "scope": "three hybrid forwards, no retrieval/fitting/noise changes",
+  "isochem_values": {
+    "N2O": 9.681400972906523e-07,
+    "NH3": 5.86808608607744e-09
+  },
+  "definition": "pressure-column A3 means",
+  "true_PT_and_unselected_profiles_identical": true,
+  "bulk_N2": "original file-read profile retained exactly",
+  "comparisons": {
+    "N2O": {
+      "constant_species": [
+        "N2O"
+      ],
+      "rms_relative": 0.0007382159296372863,
+      "max_relative": 0.0035428701034321275,
+      "rms_sigma_1000h": 0.0949597461877582,
+      "max_sigma_1000h": 0.4766901053405816,
+      "windows": {
+        "N2O_7p5_9": {
+          "bins": 3,
+          "rms_relative": 0.0011224882820708001,
+          "max_relative": 0.0019424619153427525,
+          "rms_sigma_1000h": 0.13077651975358548
+        },
+        "NH3_9p5_11p5": {
+          "bins": 4,
+          "rms_relative": 4.0619855960717025e-07,
+          "max_relative": 7.470432068501509e-07,
+          "rms_sigma_1000h": 0.0004912897886220147
+        },
+        "N2O_16p5_17p5": {
+          "bins": 2,
+          "rms_relative": 0.0004787249392374655,
+          "max_relative": 0.0006767952610744477,
+          "rms_sigma_1000h": 0.3372407363108045
+        }
+      },
+      "chemical_sum_range": [
+        0.3562123376252143,
+        0.9906463779019962
+      ]
+    },
+    "NH3": {
+      "constant_species": [
+        "NH3"
+      ],
+      "rms_relative": 0.00016640157179107702,
+      "max_relative": 0.0007336560009466586,
+      "rms_sigma_1000h": 0.1902732521298158,
+      "max_sigma_1000h": 0.8719368263727357,
+      "windows": {
+        "N2O_7p5_9": {
+          "bins": 3,
+          "rms_relative": 7.947297687795066e-06,
+          "max_relative": 1.3764574637198379e-05,
+          "rms_sigma_1000h": 0.004183151940236603
+        },
+        "NH3_9p5_11p5": {
+          "bins": 4,
+          "rms_relative": 0.0004035726599462008,
+          "max_relative": 0.0007336560009466586,
+          "rms_sigma_1000h": 0.4772326460213302
+        },
+        "N2O_16p5_17p5": {
+          "bins": 2,
+          "rms_relative": 1.5930585520866126e-07,
+          "max_relative": 1.6907246336295145e-07,
+          "rms_sigma_1000h": 0.0001276660216691418
+        }
+      },
+      "chemical_sum_range": [
+        0.35621137535361547,
+        0.990646388193066
+      ]
+    },
+    "joint": {
+      "constant_species": [
+        "N2O",
+        "NH3"
+      ],
+      "rms_relative": 0.0007566838949723298,
+      "max_relative": 0.003542867869948285,
+      "rms_sigma_1000h": 0.21248043291992136,
+      "max_sigma_1000h": 0.8710347134653469,
+      "windows": {
+        "N2O_7p5_9": {
+          "bins": 3,
+          "rms_relative": 0.0011222959562814138,
+          "max_relative": 0.0019424899834903364,
+          "rms_sigma_1000h": 0.13028423167736253
+        },
+        "NH3_9p5_11p5": {
+          "bins": 4,
+          "rms_relative": 0.00040317682667488283,
+          "max_relative": 0.0007328969545019604,
+          "rms_sigma_1000h": 0.4767509838731561
+        },
+        "N2O_16p5_17p5": {
+          "bins": 2,
+          "rms_relative": 0.0004788182801404818,
+          "max_relative": 0.0006769316350978549,
+          "rms_sigma_1000h": 0.33730534165532255
+        }
+      },
+      "chemical_sum_range": [
+        0.3562123434933004,
+        0.9906463774000633
+      ]
+    }
+  },
+  "joint_not_assumed_additive": true
+}

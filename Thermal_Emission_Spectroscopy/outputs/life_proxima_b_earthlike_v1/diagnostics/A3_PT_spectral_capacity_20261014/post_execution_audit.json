@@ -1,0 +1,24 @@
+{
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "protected_sources_checked": 13,
+  "all_hashes_match": true,
+  "all_arrays_finite": true,
+  "operator_and_objective_recomputed": true,
+  "forward_history_count_verified": 161,
+  "temperature_domain_K": [
+    192.19754069738406,
+    299.97639399416255
+  ],
+  "optimizer_success_each_start": [
+    true,
+    true
+  ],
+  "global_minimum_proven": false,
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "POSEIDON": "1.4.0"
+  },
+  "new_retrievals": 0,
+  "noise_changed": false
+}

@@ -1,0 +1,113 @@
+{
+  "objective": "mean squared T error over 100 equally log-spaced layers",
+  "uses_observed_flux_or_sigma": false,
+  "bounds": {
+    "a1": [
+      0.02,
+      2.0
+    ],
+    "a2": [
+      0.02,
+      2.0
+    ],
+    "log_P1": [
+      -6.0,
+      1.0
+    ],
+    "log_P2": [
+      -6.0,
+      1.0
+    ],
+    "log_P3": [
+      -2.0,
+      1.0
+    ],
+    "T_ref": [
+      150.0,
+      400.0
+    ]
+  },
+  "P_param_set_bar": 0.01,
+  "gaussian_sigma_layers": 3,
+  "attempts": [
+    {
+      "seed": 20261014,
+      "parameters": [
+        0.5893453160193802,
+        0.12565416805922153,
+        -2.4056874216283086,
+        -1.3148336808400085,
+        0.8449565580242249,
+        225.51296076698426
+      ],
+      "temperature_mse_K2": 292.0940907766301,
+      "de_success": true,
+      "de_message": "Optimization terminated successfully.",
+      "de_evaluations": 10680,
+      "polish_success": true,
+      "polish_message": "Optimization terminated successfully",
+      "polish_evaluations": 76
+    },
+    {
+      "seed": 20261015,
+      "parameters": [
+        0.5893453152903945,
+        0.12565416822238534,
+        -2.405687424682592,
+        -1.314833682668529,
+        0.5911031614614806,
+        225.5129605088715
+      ],
+      "temperature_mse_K2": 292.0940907766368,
+      "de_success": true,
+      "de_message": "Optimization terminated successfully.",
+      "de_evaluations": 9720,
+      "polish_success": true,
+      "polish_message": "Optimization terminated successfully",
+      "polish_evaluations": 76
+    }
+  ],
+  "selected": {
+    "seed": 20261014,
+    "parameters": [
+      0.5893453160193802,
+      0.12565416805922153,
+      -2.4056874216283086,
+      -1.3148336808400085,
+      0.8449565580242249,
+      225.51296076698426
+    ],
+    "temperature_mse_K2": 292.0940907766301,
+    "de_success": true,
+    "de_message": "Optimization terminated successfully.",
+    "de_evaluations": 10680,
+    "polish_success": true,
+    "polish_message": "Optimization terminated successfully",
+    "polish_evaluations": 76
+  },
+  "global_optimum_proven": false,
+  "profile_metrics": {
+    "Madhu_truth_approximation": {
+      "rms_K_all_log_spaced_layers": 17.090760391996316,
+      "max_abs_K_all_layers": 63.17734449253223,
+      "min_K": 197.90085550746775,
+      "max_K": 293.98534986354565,
+      "rms_K_1e_minus4_to_1bar": 8.765731945326458
+    },
+    "Madhu_archived_bestpoint_1000h": {
+      "rms_K_all_log_spaced_layers": 59.979852203875375,
+      "max_abs_K_all_layers": 100.2809124211152,
+      "min_K": 195.10547463854851,
+      "max_K": 300.64856996481194,
+      "rms_K_1e_minus4_to_1bar": 22.908681613479413
+    }
+  },
+  "archived_bestpoint_PT_parameters": {
+    "a1": 1.493835794426545,
+    "a2": 0.12081898117011108,
+    "log_P1": -2.5880184447684313,
+    "log_P2": -1.3451701612911,
+    "log_P3": 0.11433986185193001,
+    "T_ref": 218.74845041733886
+  }
+}

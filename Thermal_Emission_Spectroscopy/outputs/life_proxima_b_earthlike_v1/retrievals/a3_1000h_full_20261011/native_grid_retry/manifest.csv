@@ -1,0 +1,2 @@
+run_id,scenario,hours,model,mpi_ranks,n_live,dataset_sha256,seed
+A3_1000h_full,A3,1000,full,6,800,5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa,1450560596

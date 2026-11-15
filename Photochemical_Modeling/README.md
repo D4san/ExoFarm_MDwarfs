@@ -72,6 +72,39 @@ current matrix. See
 
 The old A2/A3 10x/100x flux multipliers are legacy sensitivity cases only and should not be interpreted as the current scenario definition.
 
+## NH3 surface-sink research (2026-10-13)
+
+The current A0-A3 boundaries all prescribe `v_dep(NH3) = 1 cm s^-1`.
+This is an effective surface-removal coefficient; the local boundary does
+not resolve ocean, soil and vegetation separately, or explicit NH3 rainout.
+The [Huang/VULCAN review](../docs/nh3_surface_sinks_huang_vulcan_review_2026-10-13.md)
+reconstructs the agricultural emission budget and audits the existing Earth
+products. The [coefficient provenance review](../docs/nh3_deposition_velocity_provenance_and_physical_scenarios_2026-10-13.md)
+finds no NH3 entry in Hauglustaine's table; Hu et al. prescribe `1 cm/s`
+from solubility/reactivity and give a resistance framework. The initial
+heuristic reduction grid has been withdrawn as a physical-scenario proposal.
+The [single weakened-sink design](../docs/nh3_weakened_surface_sink_vdep_0p65_design_2026-10-13.md)
+selects `v_dep(NH3) = 0.65 cm/s`, without implementing or running it. It
+subtracts an idealized marine contribution `0.70*0.50=0.35 cm/s` from the
+global reference, using Lee's central regional capture estimate and
+retaining a calibrated land residual. This is a conditional project
+inference motivated by a surface ocean near its ammonia compensation
+point; the oxidizing atmosphere and chemical losses remain active.
+Global ocean compensation and its persistence have not been demonstrated.
+Marine emissions already present in the natural baseline must be separated
+before adding physical bidirectional exchange. Keeping current prescribed
+fluxes would only test sensitivity to the effective coefficient. No new
+scenarios have been run and the active matrix above is unchanged.
+
+The [extra-phase proposal](../docs/nh3_reduced_capture_extra_phase_proposal_2026-10-13.md)
+defines four candidate cases `A0-A3_NH3D065` per future selected stellar
+environment, with matched references at `1 cm/s`. Source fluxes and all
+other inputs stay identical within each pair. A0 with weakened capture is
+a counterfactual control, not a predicted enriched preagricultural ocean.
+The phase has conditional plausibility and is documented only; no new
+boundaries, profiles or execution campaign exist. Historical Earth A2/A3
+must not be paired as current controls without resolving N2O provenance.
+
 ## Recommended Workflow
 
 1. Run the chemistry ensemble from `Scripts/Simulation/`.

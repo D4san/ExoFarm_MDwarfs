@@ -1,0 +1,40 @@
+{
+  "authorized_runs": [
+    {
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "excluded_species": "NH3",
+      "mpi_ranks": 8,
+      "run_id": "A3_100h_no_NH3"
+    },
+    {
+      "declared_parameters": 14,
+      "effective_free_parameters": 13,
+      "excluded_species": "N2O",
+      "mpi_ranks": 7,
+      "run_id": "A3_100h_no_N2O"
+    }
+  ],
+  "campaign": "proxima_A3_100h_corrected_bin_NH3_N2O_ablations_20261019",
+  "checkpoint_reuse": false,
+  "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+  "dataset_seed": 129315834,
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "matched_baseline": {
+    "acceptance": "PENDING_INDEPENDENT_AUDIT",
+    "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018",
+    "chi2_red": 3.57,
+    "configuration": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/resolved_configuration.json",
+    "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+    "effective_free_parameters": 14,
+    "lnz": 894.3312235445454,
+    "lnz_error": 0.24665403052524296,
+    "n_live": 800,
+    "n_params_declared": 15,
+    "note": "Completed matched baseline; independent full audit remains pending.",
+    "result": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_results.txt",
+    "state_status": "COMPLETE_PENDING_VALIDATION",
+    "stats": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-stats.dat"
+  },
+  "operator": "midpoint-edge photon overlap; energy conversion at exact channel centre"
+}

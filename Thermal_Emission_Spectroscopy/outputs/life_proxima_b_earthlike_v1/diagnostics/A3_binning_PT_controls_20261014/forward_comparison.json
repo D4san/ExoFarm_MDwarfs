@@ -1,0 +1,36 @@
+{
+  "scope": "PT-only forward controls, common generator-compatible observation operator",
+  "same_vertical_chemistry_all_controls": true,
+  "same_geometry_surface_and_native_grid": true,
+  "noise_modified": false,
+  "comparisons": {
+    "true": {
+      "rms_relative": 8.210809274018083e-15,
+      "max_relative": 2.2648549702353193e-14,
+      "rms_difference_over_sigma": 2.8738327074202463e-12,
+      "max_difference_over_sigma": 8.83250222268167e-12,
+      "chi2_observed_given_control": 32.97837233512558
+    },
+    "Madhu_truth_approximation": {
+      "rms_relative": 0.08437152482891708,
+      "max_relative": 0.1880818459016318,
+      "rms_difference_over_sigma": 51.27643535233693,
+      "max_difference_over_sigma": 113.49028028585639,
+      "chi2_observed_given_control": 80968.92099123525
+    },
+    "Madhu_archived_bestpoint_1000h": {
+      "rms_relative": 0.1013678306779478,
+      "max_relative": 0.5408309942495657,
+      "rms_difference_over_sigma": 7.5857570992903005,
+      "max_difference_over_sigma": 13.837172591031148,
+      "chi2_observed_given_control": 1855.441586675665
+    }
+  },
+  "archived_vector_re_evaluation": {
+    "not_a_new_fit": true,
+    "ln_prior_TP": 0.0,
+    "legacy_chi2_same_vector": 542.6429057973611,
+    "candidate_chi2_same_vector": 365.8557678447492,
+    "actual_forward_model_uses_candidate_exactly": true
+  }
+}

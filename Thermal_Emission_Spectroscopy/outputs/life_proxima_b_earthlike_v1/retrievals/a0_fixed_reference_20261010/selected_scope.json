@@ -1,0 +1,17 @@
+{
+  "mode": "both",
+  "scenarios": [
+    "A3"
+  ],
+  "hours": [
+    100
+  ],
+  "selected_cells": 3,
+  "selected_run_ids": [
+    "A3_100h_A0_N2O",
+    "A3_100h_A0_NH3",
+    "A3_100h_A0_joint"
+  ],
+  "candidate_plan_preserved": true,
+  "selection_utc": "2026-10-11T00:05:21+00:00"
+}

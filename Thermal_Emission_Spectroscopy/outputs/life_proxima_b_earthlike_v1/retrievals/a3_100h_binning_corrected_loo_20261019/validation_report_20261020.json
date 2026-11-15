@@ -1,0 +1,358 @@
+{
+  "campaign_id": "proxima_A3_100h_corrected_bin_NH3_N2O_ablations_20261019",
+  "campaign_status_at_audit": "COMPLETE_VALIDATED",
+  "campaign_acceptance_before_audit": "PENDING",
+  "pre_validation_snapshot": {
+    "campaign_status": "COMPLETE_PENDING_VALIDATION",
+    "acceptance": "PENDING",
+    "baseline_full_acceptance": "PENDING_INDEPENDENT_AUDIT",
+    "runs": {
+      "A3_100h_no_NH3": {
+        "status": "complete_pending_validation",
+        "posterior_rows_controller": 6380,
+        "return_code": 0
+      },
+      "A3_100h_no_N2O": {
+        "status": "complete_pending_validation",
+        "posterior_rows_controller": 6822,
+        "return_code": 0
+      }
+    }
+  },
+  "completed_utc": "2026-10-20T10:29:04+00:00",
+  "audit_status": "PASS",
+  "dataset": {
+    "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+    "sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+    "channels": 31,
+    "columns": 4,
+    "seed": 129315834
+  },
+  "settings": {
+    "n_live": 800,
+    "evidence_tolerance": 0.5,
+    "R": 10000,
+    "native_wavelength_range_um": [
+      3.0,
+      20.0
+    ],
+    "error_inflation": "none",
+    "total_mpi_ranks": 15
+  },
+  "baseline_full": {
+    "campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018",
+    "source_state_status": "COMPLETE_VALIDATED",
+    "source_acceptance_before_audit": "VALIDATED_INDEPENDENT_AUDIT",
+    "source_historical_error_field": null,
+    "source_retry_preflight": null,
+    "source_final_exit_code": null,
+    "campaign_state_status": "COMPLETE_VALIDATED",
+    "campaign_acceptance_before_audit": "VALIDATED_INDEPENDENT_AUDIT",
+    "campaign_historical_error_field": "RuntimeError: MPI14 corrected-bin preflight exited 15",
+    "result": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_results.txt",
+    "result_sha256": "8925cc8803813cdc6a33df895790437fc6ff15f9882f6c8d23f1e86555afdbe9",
+    "stats": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017-stats.dat",
+    "stats_sha256": "598cafc95d6bc0ece2c298012972d085aed7515732b66adb34d9b3413da87195",
+    "lnz": 894.3312235445454,
+    "lnz_error": 0.24665403052524296,
+    "chi2_red": 3.57,
+    "dof": 16,
+    "chi2": 57.12,
+    "declared_parameters": 15,
+    "effective_free_parameters": 14,
+    "posterior_rows": 7268,
+    "posterior_sha256": "d56084124109efc11c478e7389b4bcf7b6e488b1bd9f86a3a215376d1c748baf",
+    "posterior_finite": true,
+    "spectrum_rows": 18971,
+    "spectrum_sha256": "898817d25bb7cac33a5722adfcff258b47940e21ed537b7ea3ffac2455b09449",
+    "pt_rows": 100,
+    "pt_sha256": "19ec1ea8cfcc91d8cfacacd0c22439dd947f624a72d87d6ed75f2f9e4a2a3e4e",
+    "logx_rows": 800,
+    "logx_sha256": "c2328ae9ef85dc7daab3ff83eb7cff564421de85097f0c4f91db030ef1c4d3b0",
+    "resume": {
+      "replacements": 44526,
+      "evaluations": 1474040,
+      "n_live": 800
+    },
+    "multinest_shapes": {
+      "-.txt": [
+        20839,
+        17
+      ],
+      "-ev.dat": [
+        43726,
+        18
+      ],
+      "-live.points": [
+        800,
+        16
+      ],
+      "-phys_live.points": [
+        800,
+        17
+      ],
+      "-summary.txt": [
+        2,
+        62
+      ]
+    },
+    "operator_preflight_sha256": "424756d290c4536133a9d68a5bc2fa7b15f9c157c5b95a2b8007d73e42f2bed1",
+    "operator_callback_bound": true,
+    "operator_closure_max_relative": 2.2648549702353193e-14,
+    "configuration_sha256": "2ef6fb87c0dff24ae93eb7d1b84f62b4284bfcc306758bbf0036dcb1f8d9710b",
+    "operator_product_hashes": {
+      "posterior_equal_weights": "ce79bf241ceb823159e2cd798f7ae4003c240b26a1e919be2f65680861183ad0",
+      "resume": "c301b1dbe53e5e442826ba6103d06ba41356e7f5266418f391ad07b9588c5746",
+      "evidence_samples": "ab10deeef4644156731ac65d6c5c86fcfff1b4e2c868bd6311de77cd19014442",
+      "live_points": "c28b55e195e496ef652406048aa1dc4f9e9d28dcdab9880a17989c38c1ff39c7",
+      "physical_live_points": "2396438f6f2aec661903928d6d7261e2c9e8d5b11fc0731c9099227d6409e6d1"
+    },
+    "posterior_abundances": {
+      "N2O": {
+        "rows": 7268,
+        "columns": 15,
+        "parameter": "log_N2O",
+        "a0_log10_threshold": -6.884325289636784,
+        "q16": -6.169192057740827,
+        "median": -6.116277538104692,
+        "q84": -6.064926209404957,
+        "q025": -6.223618730712187,
+        "q975": -6.019810110179728,
+        "samples_above_a0": 7268,
+        "probability_above_a0": 1.0
+      },
+      "NH3": {
+        "rows": 7268,
+        "columns": 15,
+        "parameter": "log_NH3",
+        "a0_log10_threshold": -9.950526295665036,
+        "q16": -8.393807668656573,
+        "median": -8.170365220435915,
+        "q84": -8.015291569004034,
+        "q025": -8.894573041136995,
+        "q975": -7.900431601782845,
+        "samples_above_a0": 7205,
+        "probability_above_a0": 0.9913318657127133
+      }
+    }
+  },
+  "source_code_hashes": {
+    "corrected_ablation_runner": {
+      "path": "Thermal_Emission_Spectroscopy/scripts/run_life_retrieval_a3_100h_binning_corrected_loo.py",
+      "sha256": "44df70b99aadf78b51ad194f4558894025e16d6aa6475d4ba11370ab6d1453ad"
+    },
+    "supervisor": {
+      "path": "Thermal_Emission_Spectroscopy/scripts/launch_proxima_a3_100h_binning_corrected_loo.py",
+      "sha256": "e6f7e20f42fb0cf29b6d2a29e53a72ef1807b229172875096690e2543c2cea2e"
+    },
+    "independent_audit": {
+      "path": "Thermal_Emission_Spectroscopy/scripts/audit_proxima_a3_100h_corrected_bin_ablations.py",
+      "sha256": "666c3bb67b05a9f94493b78de388ea541df78a723b0c21b8f26c5dfe2cdf17d9"
+    }
+  },
+  "ablations": [
+    {
+      "run_id": "A3_100h_no_N2O",
+      "scenario": "A3",
+      "hours": 100,
+      "excluded_species": "N2O",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+      "dataset_seed": 129315834,
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "full_results": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_results.txt",
+      "full_evidence": null,
+      "lnz_loo": 809.6707154971366,
+      "lnz_loo_error": 0.24340610502894947,
+      "chi2_red_loo": 13.55,
+      "dof_loo": 17,
+      "posterior_samples": 6823,
+      "spectrum_rows": 18971,
+      "pt_rows": 100,
+      "logx_rows": 700,
+      "numeric_columns": {
+        "dataset": 4,
+        "spectrum": 6,
+        "pt": 6,
+        "logx": 6
+      },
+      "posterior_rows_crosschecked": 6823,
+      "resume": {
+        "replacements": 42995,
+        "evaluations": 1023289,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          20955,
+          16
+        ],
+        "-ev.dat": [
+          42195,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "posterior_rows_ledger": 6823,
+      "posterior_rows_reconciled_delta": 0,
+      "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261019_noN2O",
+      "mpi_ranks": 7,
+      "replacements": 42995,
+      "evaluations": 1023289,
+      "chi2_loo": 230.35000000000002,
+      "posterior_abundance_retained": {
+        "NH3": {
+          "rows": 6823,
+          "columns": 14,
+          "parameter": "log_NH3",
+          "a0_log10_threshold": -9.950526295665036,
+          "q16": -8.230887689759236,
+          "median": -8.069230644531249,
+          "q84": -7.93887269807146,
+          "q025": -8.461669447750458,
+          "q975": -7.840570718529694,
+          "samples_above_a0": 6817,
+          "probability_above_a0": 0.9991206214275246
+        }
+      },
+      "posterior_rows_final": 6823,
+      "posterior_rows_controller": 6823,
+      "posterior_rows_controller_initial": 6822,
+      "configuration_sha256": "2e578c33f9d1b26e2ccf09e0f51c31e51c16aebf8e9a6b858972c4a8087add4b",
+      "operator_preflight_sha256": "7a9606b9c935f56625f8a7827151b744a78293ac98033cbc1ed1e74e8fc0b00d",
+      "operator_runtime_sha256": "756ba9b8d9e19984cbfba11e1d71b48b65628f3aaddc566a70fbaf3f64a72594",
+      "launch_log_sha256": "ebfa9b219b8afade28e98a8c38ae310756eea0ca28a22066fa362d421350de2e",
+      "product_hashes": {
+        "results": "c4f64254e6416d376ed341edc4b2ea3a74d84b735311257d04d80f36c92836f4",
+        "posterior": "89a925862bf75f87d4c653512c83f08adb5812b2636ee3efd1b3ea89a7db7e20",
+        "spectrum": "51cd3e3f59a08887eb8dc0e154eb55d626d8869fdec629707d3cb2e06c9dfcef",
+        "pt": "cc1190df394674f4f22f106f5ffc976be1b9b5dd6dd97189b4fc01e5bf8ca9cb",
+        "log_x": "1e1f67fbe86d905aecad6becc0977c472ed218dafe0bbf8a0320dd5d5f781e0c",
+        "multinest_stats": "5c29ae490419ef16fe10434e236cedc85b1c6398fc6f22bdbbaeaa00191fbe5c",
+        "multinest_equal_weights": "ab5d4f2d0efd9687bd7aff38efc7f6a4d9b56e376f3efff7a7b00213b9083b38",
+        "multinest_resume": "ce3b1e286ade3dfbb851b9fb75acf0f6ea11ec1fc8dd248ad0fad488e02bf1a1",
+        "multinest_evidence_samples": "f1f07b02c2da476ce233121205b957c514cdeb297b28ceddfe825e3a54046ac6"
+      },
+      "delta_lnb": 84.66050804740883,
+      "delta_lnb_numeric_error": 0.3465324555358581,
+      "sigma_calibrated_auxiliary": 13.21734854924016,
+      "log_p_calibration": -90.16211740180023,
+      "ln_b_direction": "favours including molecule"
+    },
+    {
+      "run_id": "A3_100h_no_NH3",
+      "scenario": "A3",
+      "hours": 100,
+      "excluded_species": "NH3",
+      "dataset_rel": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+      "dataset_seed": 129315834,
+      "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+      "full_results": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/products/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017_results.txt",
+      "full_evidence": null,
+      "lnz_loo": 891.5822329146155,
+      "lnz_loo_error": 0.2406893747740984,
+      "chi2_red_loo": 4.06,
+      "dof_loo": 17,
+      "posterior_samples": 6381,
+      "spectrum_rows": 18971,
+      "pt_rows": 100,
+      "logx_rows": 700,
+      "numeric_columns": {
+        "dataset": 4,
+        "spectrum": 6,
+        "pt": 6,
+        "logx": 6
+      },
+      "posterior_rows_crosschecked": 6381,
+      "resume": {
+        "replacements": 42008,
+        "evaluations": 1248394,
+        "n_live": 800
+      },
+      "multinest_shapes": {
+        "-.txt": [
+          19305,
+          16
+        ],
+        "-ev.dat": [
+          41208,
+          17
+        ],
+        "-live.points": [
+          800,
+          15
+        ],
+        "-phys_live.points": [
+          800,
+          16
+        ],
+        "-summary.txt": [
+          2,
+          58
+        ]
+      },
+      "posterior_rows_ledger": 6381,
+      "posterior_rows_reconciled_delta": 0,
+      "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261019_noNH3",
+      "mpi_ranks": 8,
+      "replacements": 42008,
+      "evaluations": 1248394,
+      "chi2_loo": 69.02,
+      "posterior_abundance_retained": {
+        "N2O": {
+          "rows": 6381,
+          "columns": 14,
+          "parameter": "log_N2O",
+          "a0_log10_threshold": -6.884325289636784,
+          "q16": -6.183019552719391,
+          "median": -6.130783441736748,
+          "q84": -6.081445353786346,
+          "q025": -6.242551201467058,
+          "q975": -6.035929797153941,
+          "samples_above_a0": 6381,
+          "probability_above_a0": 1.0
+        }
+      },
+      "posterior_rows_final": 6381,
+      "posterior_rows_controller": 6381,
+      "posterior_rows_controller_initial": 6380,
+      "configuration_sha256": "875c0cb81fd48e1bbc929e8f66299ac65c3f684000d4f397b82ff1e31ad84ff4",
+      "operator_preflight_sha256": "13168019158486fe63fcef65cde8bff3569031883850a15a81080e49514d31ff",
+      "operator_runtime_sha256": "ec34dfbb72ee975aac7772fe9f2fb27a249dea8609b3c9f69ac4e6615d7c88bc",
+      "launch_log_sha256": "af8d8ef758b0359ab12816d6135e6d851b23f45799c28f964ec0d77d147ee138",
+      "product_hashes": {
+        "results": "ce95840a8ae7e19c013ea99c3eabab9a72de8036fa398efa45827821a6bbc1a0",
+        "posterior": "530b6d9de8652c527f82ba4799ce64ee81b32056cba8602e8d81fcea585bf23c",
+        "spectrum": "a316afb365d1b77220020ad0a1e4d6e6c355dda836899dc06265a2fce00b1f3b",
+        "pt": "3eab3ede52d5818a9fa697382e496842e4eb05c62de0b56a60bd5b0d49bf4ab0",
+        "log_x": "4baefd01db107c83e990addcef0ef7bc4244164e19a496a9da07f503b3e698af",
+        "multinest_stats": "b100194d9c77c52f78e6cd31c88b8e536c410f3c29f94e27a3476949d9597013",
+        "multinest_equal_weights": "2e010e3ebe2e2c7c7866e4a0de53198dcc1aeb9c6759f90e8b7556a12231588b",
+        "multinest_resume": "2f88e6451c75c8d82896e9ccd63148b48c383df5d34715e14cc03d6539ecea25",
+        "multinest_evidence_samples": "6de1566307e628cde6b618307bd3a8fe5ef803a68fd3b168eeef4aaf2c5f6458"
+      },
+      "delta_lnb": 2.748990629929949,
+      "delta_lnb_numeric_error": 0.34462963584621376,
+      "sigma_calibrated_auxiliary": 2.8534463298412263,
+      "log_p_calibration": -5.443393256777082,
+      "ln_b_direction": "favours including molecule"
+    }
+  ],
+  "interpretation_guardrails": [
+    "lnB compares model evidence under the matched prior/configuration; it is not a probability of agriculture.",
+    "Posterior P(log10 X > A0) is defined only for models that retain X.",
+    "Calibrated sigma is auxiliary and is not a frequentist detection significance.",
+    "Historical old-binning retrievals also used a different wavelength interval; they are not the matched comparator."
+  ],
+  "audit_errors": []
+}

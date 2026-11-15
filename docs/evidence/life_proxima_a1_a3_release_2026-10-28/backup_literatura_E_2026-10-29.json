@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-10-29T07:41:02.382517+00:00",
+  "source": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs",
+  "destination": "E:\\Respaldos\\ExoFarm_MDwarfs\\LIFE_Proxima_A1_A3_20261028\\suplemento_literatura_detectabilidad_20261029",
+  "verified": true,
+  "files": [
+    {
+      "relative_path": "docs/life_proxima_detectabilidad_comparacion_literatura_2026-10-29.md",
+      "bytes": 12236,
+      "sha256": "e304ca423340f7c36ccb52d3364f98ceb77152d08b132f51f9cff223c036a1fe"
+    },
+    {
+      "relative_path": "docs/README.md",
+      "bytes": 36561,
+      "sha256": "42603d08861cbadc3bd7d530dae0bdb145f43603712c2eb8ef1dc1e1413b70af"
+    },
+    {
+      "relative_path": "docs/project_resume.md",
+      "bytes": 133954,
+      "sha256": "5bdb50ef7995a290189beaaff58bd880e00ed8ab55bdf1e49cb0c7c297b256fc"
+    },
+    {
+      "relative_path": "docs/project_status_tracker.md",
+      "bytes": 168953,
+      "sha256": "f8b29ae36270aaac73b26e2df726877937d79cdff83149e31c619853d7868ac7"
+    },
+    {
+      "relative_path": "experiments/README.md",
+      "bytes": 107903,
+      "sha256": "eb376e559e6cc83c4cc71d2f3883d06209dca869589c0437e12b70bf1b7e507a"
+    },
+    {
+      "relative_path": "Thermal_Emission_Spectroscopy/README.md",
+      "bytes": 67977,
+      "sha256": "7378be38f3b8ba9e024c8d777c42f3e086c98ee9b04823d5096d68e1174cbe7a"
+    }
+  ]
+}

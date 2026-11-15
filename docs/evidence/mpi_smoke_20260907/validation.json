@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "campaign": "mpi_smoke_20260907",
+  "mpi_ranks": 2,
+  "variables": {
+    "land_area": {
+      "shape": [
+        10,
+        16,
+        1
+      ],
+      "finite_cells_per_year": 8,
+      "units": "m2",
+      "min": 763975424.0,
+      "max": 1914838528.0
+    },
+    "cellfrac_agr": {
+      "shape": [
+        10,
+        16,
+        1
+      ],
+      "finite_cells_per_year": 8,
+      "units": "",
+      "min": 0.005583434831351042,
+      "max": 0.47052353620529175
+    },
+    "n2o_nit_agr": {
+      "shape": [
+        10,
+        16,
+        1
+      ],
+      "finite_cells_per_year": 8,
+      "units": "gN/m2/yr",
+      "min": 0.0006275078048929572,
+      "max": 0.0973125472664833
+    },
+    "n2o_denit_agr": {
+      "shape": [
+        10,
+        16,
+        1
+      ],
+      "finite_cells_per_year": 8,
+      "units": "gN/m2/yr",
+      "min": 5.282925485516898e-05,
+      "max": 0.5658878684043884
+    },
+    "nh3_agr": {
+      "shape": [
+        10,
+        16,
+        1
+      ],
+      "finite_cells_per_year": 8,
+      "units": "gN/m2/yr",
+      "min": 0.00017542250861879438,
+      "max": 2.492295026779175
+    }
+  },
+  "restart_bytes": 113373,
+  "restart_sha256": "d3f05f4bbc5f5e6894ceb9912714f13c3fc869e4ae05aeefd331327c2ea3a977",
+  "summary": {
+    "coverage": "pilot",
+    "scientific_status": "interface_smoke_test_not_for_planetary_interpretation",
+    "year_source": "configured_first_year",
+    "years": [
+      1996,
+      2005
+    ],
+    "n_years": 10,
+    "mean_n2o_tgN_yr": 0.0023325045670029806,
+    "mean_nh3_tgN_yr": 0.002119111939996651,
+    "mean_n2o_molecules_cm-2_s-1": null,
+    "mean_nh3_molecules_cm-2_s-1": null,
+    "source_units": "gN/m2/yr",
+    "integration_note": "Agricultural outputs already include stand-fraction weighting; they were multiplied by land_area but not by cellfrac_agr again.",
+    "files": {
+      "land_area": "land_area.nc",
+      "cellfrac_agr": "cellfrac_agr.nc",
+      "n2o_nit_agr": "n2o_nit_agr.nc",
+      "n2o_denit_agr": "n2o_denit_agr.nc",
+      "nh3_agr": "nh3_agr.nc"
+    }
+  },
+  "warnings": {
+    "spinup_natural": [
+      "WARNING001: First year in CO2 data file '/home/dasan/lpjml-data/public_standard/global_co2_ann_1700_2022.txt'=1700 greater than first simulation year -400,",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/lwnet_gswp3-w5e5_obsclim_1901-2019.clm.json'=1901 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/nh4-deposition_isimip3a_histsoc_1850-2021.clm.json'=1850 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/no3-deposition_isimip3a_histsoc_1850-2021.clm.json'=1850 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/pr_gswp3-w5e5_obsclim_1901-2019.clm.json'=1901 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/rsds_gswp3-w5e5_obsclim_1901-2019.clm.json'=1901 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/sfcwind_gswp3-w5e5_obsclim_1901-2019.clm.json'=1901 greater than 1700.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/tas_gswp3-w5e5_obsclim_1901-2019.clm.json'=1901 greater than 1700.",
+      "WARNING036: 'map' not defined in '/home/dasan/lpjml-data/public_standard/soil_30arcmin_13_types.clm.json' for soil type 'clay (light)'.",
+      "WARNING043: Climate data starts at 1901, later than first simulation year 1700."
+    ],
+    "a1_2005_n": [
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/grassland_lsuha_gswp3_2000-2000.clm.json'=2000 greater than 1901.",
+      "WARNING004: First year in '/home/dasan/lpjml-data/public_standard/tillage_1973_1974-2010_1973_as_till_everywhere.clm.json'=1973 greater than 1901.",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1871 greater 1: 1.004638 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1872 greater 1: 1.004490 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1873 greater 1: 1.004341 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1874 greater 1: 1.004193 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1875 greater 1: 1.004045 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1876 greater 1: 1.003897 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1877 greater 1: 1.003748 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1878 greater 1: 1.003600 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1879 greater 1: 1.003452 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1880 greater 1: 1.003304 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1881 greater 1: 1.003165 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1882 greater 1: 1.003027 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1883 greater 1: 1.002888 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1884 greater 1: 1.002750 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1885 greater 1: 1.002611 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1886 greater 1: 1.002473 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1887 greater 1: 1.002334 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1888 greater 1: 1.002196 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1889 greater 1: 1.002057 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1890 greater 1: 1.001919 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1891 greater 1: 1.001795 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1892 greater 1: 1.001672 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1893 greater 1: 1.001548 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1894 greater 1: 1.001425 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1895 greater 1: 1.001302 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1896 greater 1: 1.001178 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1897 greater 1: 1.001055 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1898 greater 1: 1.000931 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1899 greater 1: 1.000808 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1900 greater 1: 1.000684 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1901 greater 1: 1.000485 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1902 greater 1: 1.000286 after scaling with landfrac of 0.417979",
+      "WARNING013: Sum of land-use fractions in cell 27415 at year 1903 greater 1: 1.000086 after scaling with landfrac of 0.417979",
+      "WARNING024: Last year in livestock density data file=2000 is less than last simulation year 2005, data from last year used.",
+      "WARNING024: Last year in sowing date data file=1901 is less than last simulation year 2005, data from last year used.",
+      "WARNING036: 'map' not defined in '/home/dasan/lpjml-data/public_standard/soil_30arcmin_13_types.clm.json' for soil type 'clay (light)'."
+    ]
+  }
+}

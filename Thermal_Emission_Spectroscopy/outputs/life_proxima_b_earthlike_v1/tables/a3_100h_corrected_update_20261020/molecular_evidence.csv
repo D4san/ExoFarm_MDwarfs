@@ -1,0 +1,5 @@
+scenario,hours,species,version,ln_B,ln_B_numeric_error,sigma_calibrated_auxiliary,lnz_full,lnz_omitted,source
+A3,100,N2O,historical,65.54952765107134,0.34060864196272583,11.672130548053541,884.3333041378268,818.7837764867554,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,100,N2O,corrected,84.66050804740883,0.3465324555358581,13.21734854924016,894.3312235445454,809.6707154971366,Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_loo_20261019/validation_report_20261020.json
+A3,100,NH3,historical,1.5061818521389796,0.34211036697304614,2.305156617536702,884.3333041378268,882.8271222856878,Thermal_Emission_Spectroscopy/final_products/tables/life_proxima_loo_lnB_sigma_lin_2026-10-10.csv
+A3,100,NH3,corrected,2.748990629929949,0.34462963584621376,2.8534463298412263,894.3312235445454,891.5822329146155,Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_loo_20261019/validation_report_20261020.json

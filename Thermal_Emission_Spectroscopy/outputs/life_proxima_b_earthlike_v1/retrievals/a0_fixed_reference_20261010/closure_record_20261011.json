@@ -1,0 +1,32 @@
+{
+  "campaign": "a0_fixed_reference_20261010",
+  "recorded_utc": "2026-10-11T18:42:07+00:00",
+  "status": "VALIDATED_COMPLETE_WITH_SALVEDAD",
+  "acceptance_decision": "acceptance_decision_20261011.json",
+  "validation_report": "validation_report_20261011.json",
+  "strict_finiteness_pass": false,
+  "original_scientific_products_rehashed_unchanged": 52,
+  "reviewed_nan_occurrences_preserved": 8,
+  "stable_auxiliary_fixed_moment_rows": 7,
+  "final_evidence_rows_identical_to_provisional": 3,
+  "unit_tests_passed": 13,
+  "compilation_pass": true,
+  "local_links_checked_before_monitor_removal": 69,
+  "missing_local_links": 0,
+  "local_links_checked_after_monitor_removal": 72,
+  "strict_acceptance_negative_guard_pass": true,
+  "accepted_ledger_report_decision_unchanged_by_negative_guard": true,
+  "ubuntu_process_check": "No campaign supervisor, mpiexec or A0ref retrieval process found at closure",
+  "monitor": {
+    "automation_id": "seguimiento-life-a0-a3-100h-3",
+    "action": "delete",
+    "delete_status": "deleted",
+    "confirmed_by": "Codex app automation tool",
+    "reason": "Three authorized runs accepted with salvedad; final tables, audit and reports closed"
+  },
+  "synthesis_report": "docs/life_proxima_exofarm_retrieval_layers_synthesis_2026-10-11.md",
+  "focal_retrievals": {"full": 6, "loo": 36, "a0_fixed_A3_100h": 3},
+  "new_retrievals_launched_during_closure": 0,
+  "other_15_candidates_executed": false,
+  "scientific_limit": "Conditional N2O enrichment against fixed scalar A0; agricultural causation and instrumental robustness remain open"
+}

@@ -3,12 +3,16 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
-LPJML_DIR="$PROJECT_DIR/Agricultural_Fluxes_LPJmL/software/LPJmL"
+LPJML_DIR="${LPJML_ROOT:-$PROJECT_DIR/Agricultural_Fluxes_LPJmL/software/LPJmL}"
 INPUT_ROOT="${LPJINPATH:-/mnt/c/Proyetos/Data/LPJmL/public_standard}"
+RESULTS_BASE="$SCRIPT_DIR/results"
 export LPJROOT="$LPJML_DIR"
 MODE="pilot"
 STARTGRID=27410
 RUN_POTENTIAL=0
+POTENTIAL_ONLY=0
+WITH_METHANE=0
+CROP_ONLY=0
 
 usage() {
   cat <<'MSG'
@@ -16,9 +20,14 @@ Usage: run_first_test.sh [options]
 
 Options:
   --input-root PATH     LPJmL public_standard directory.
+  --lpjml-root PATH     LPJmL checkout/build to execute.
+  --results-root PATH   Directory holding pilot results.
   --mode pilot|global  Pilot is a one-cell interface test; global is scientific.
   --startgrid INDEX    Cell used by pilot mode (default: 27410).
   --with-potential     Also run the unlimited-N all-crops yield branch.
+  --potential-only     Run spin-up and the potential-yield branch only.
+  --with-methane       Enable methane/oxygen dynamics and CH4 outputs.
+  --crop-only          Disable pasture, livestock grazing and manure.
   -h, --help           Show this help.
 MSG
 }
@@ -27,6 +36,14 @@ while (($#)); do
   case "$1" in
     --input-root)
       INPUT_ROOT="$2"
+      shift 2
+      ;;
+    --lpjml-root)
+      LPJML_DIR="$2"
+      shift 2
+      ;;
+    --results-root)
+      RESULTS_BASE="$2"
       shift 2
       ;;
     --mode)
@@ -39,6 +56,19 @@ while (($#)); do
       ;;
     --with-potential)
       RUN_POTENTIAL=1
+      shift
+      ;;
+    --potential-only)
+      RUN_POTENTIAL=1
+      POTENTIAL_ONLY=1
+      shift
+      ;;
+    --with-methane)
+      WITH_METHANE=1
+      shift
+      ;;
+    --crop-only)
+      CROP_ONLY=1
       shift
       ;;
     -h|--help)
@@ -78,15 +108,24 @@ if [[ ! -x "$LPJML_DIR/bin/lpjml" || ! -x "$LPJML_DIR/bin/lpjcheck" ]]; then
 fi
 
 CAMPAIGN="${MODE}_$(date -u +%Y%m%dT%H%M%SZ)"
-RESULTS_DIR="$SCRIPT_DIR/results/$CAMPAIGN"
+RESULTS_DIR="$RESULTS_BASE/$CAMPAIGN"
 CONFIG_DIR="$RESULTS_DIR/configs"
 
-python3 "$SCRIPT_DIR/prepare_configs.py" \
-  --lpjml-root "$LPJML_DIR" \
-  --input-root "$INPUT_ROOT" \
-  --output-dir "$CONFIG_DIR" \
-  --mode "$MODE" \
+PREPARE_ARGS=(
+  --lpjml-root "$LPJML_DIR"
+  --input-root "$INPUT_ROOT"
+  --output-dir "$CONFIG_DIR"
+  --mode "$MODE"
   --startgrid "$STARTGRID"
+)
+if [[ "$WITH_METHANE" -eq 1 ]]; then
+  PREPARE_ARGS+=(--with-methane)
+fi
+if [[ "$CROP_ONLY" -eq 1 ]]; then
+  PREPARE_ARGS+=(--crop-only)
+fi
+
+python3 "$SCRIPT_DIR/prepare_configs.py" "${PREPARE_ARGS[@]}"
 
 mkdir -p "$RESULTS_DIR/spinup_natural/output" \
   "$RESULTS_DIR/spinup_natural/restart"
@@ -116,12 +155,14 @@ run_checked() {
 
 run_checked spinup_natural "$CONFIG_DIR/spinup_natural.json"
 
-for scenario in a1_2005_n; do
-  mkdir -p "$RESULTS_DIR/$scenario/restart"
-  cp "$RESULTS_DIR/spinup_natural/restart/restart_1700_nv_stdfire.lpj" \
-    "$RESULTS_DIR/$scenario/restart/restart_1700_nv_stdfire.lpj"
-  run_checked "$scenario" "$CONFIG_DIR/$scenario.json"
-done
+if [[ "$POTENTIAL_ONLY" -eq 0 ]]; then
+  for scenario in a1_2005_n; do
+    mkdir -p "$RESULTS_DIR/$scenario/restart"
+    cp "$RESULTS_DIR/spinup_natural/restart/restart_1700_nv_stdfire.lpj" \
+      "$RESULTS_DIR/$scenario/restart/restart_1700_nv_stdfire.lpj"
+    run_checked "$scenario" "$CONFIG_DIR/$scenario.json"
+  done
+fi
 
 if [[ "$RUN_POTENTIAL" -eq 1 ]]; then
   scenario=potential_yield_unlimited_n

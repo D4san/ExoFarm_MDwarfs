@@ -1,0 +1,31 @@
+--- reference.bib (before)
++++ reference.bib (after)
+@@ -947,3 +947,28 @@
+   langid = {english},
+   file = {C:\Users\User\Zotero\storage\YG6DT7U4\Wilson et al. - 2021 - The Mega-MUSCLES Spectral Energy Distribution of TRAPPIST-1.pdf}
+ }
++
++@article{bennekeSeager2013Cloudy,
++  author = {Benneke, Bj{\"o}rn and Seager, Sara},
++  title = {How to Distinguish between Cloudy Mini-Neptunes and Water/Volatile-Dominated Super-Earths},
++  journal = {The Astrophysical Journal},
++  year = {2013},
++  volume = {778},
++  number = {2},
++  pages = {153},
++  doi = {10.1088/0004-637X/778/2/153},
++  eprint = {1306.6325},
++  archivePrefix = {arXiv},
++  url = {https://arxiv.org/abs/1306.6325}
++}
++
++@article{woganSurfaceFluxes2026,
++  author = {Wogan, Nicholas F. and Batalha, Natasha E. and Krissansen-Totton, Joshua and Zahnle, Kevin and Meadows, Victoria S. and Young, Amber V. and Sneed, Evan L. and Schwieterman, Edward W.},
++  title = {Toward Inferring the Surface Fluxes of Biosignature Gases on Rocky Exoplanets from Telescope Spectra},
++  journal = {The Astrophysical Journal},
++  year = {2026},
++  volume = {1004},
++  pages = {191},
++  doi = {10.3847/1538-4357/ae6646},
++  url = {https://doi.org/10.3847/1538-4357/ae6646}
++}

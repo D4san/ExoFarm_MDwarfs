@@ -1,0 +1,19 @@
+{
+  "status": "FAILED",
+  "run_id": "A3_1000h_full",
+  "scenario": "A3",
+  "hours": 1000,
+  "integration_days": 41.666666666666664,
+  "authorized_runs": 1,
+  "mpi_ranks": 6,
+  "n_live": 800,
+  "acceptance": "PENDING",
+  "scratch": "/home/dasan/exofarm_a3_1000h_20261011",
+  "model_changed": false,
+  "updated_utc": "2026-10-11T19:31:20.527139+00:00",
+  "supervisor_pid": 794,
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "seed": 1450560596,
+  "error": "CalledProcessError: Command '['bash', '-lc', 'source /home/dasan/anaconda3/etc/profile.d/conda.sh && conda activate POSEIDON && export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 && exec /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _O2_fixedBlack1bar_noxtol_MPI6_1000h --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --run-dir /home/dasan/exofarm_a3_1000h_20261011/preflight --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/resolved_configuration.json --setup-only --validate-forward']' returned non-zero exit status 1.",
+  "scratch_preserved": true
+}

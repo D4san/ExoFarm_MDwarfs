@@ -1,0 +1,69 @@
+{
+  "date_local": "2026-10-20",
+  "previous": [
+    {
+      "original": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/source/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "sha256": "79af5c9e28656842bbed7a572537fde5f1e07b05415898be6bcf905d37ac1969"
+    },
+    {
+      "original": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/source/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "sha256": "a22b539649b5952c823d75ef9f5e309db49749418780665888fc1fae966cea5b"
+    },
+    {
+      "original": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/source/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "sha256": "c4915e34417b8a8516586c3277268a304483141bca8299d3782018249cb1d163"
+    },
+    {
+      "original": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/final/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "sha256": "79af5c9e28656842bbed7a572537fde5f1e07b05415898be6bcf905d37ac1969"
+    },
+    {
+      "original": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/final/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "sha256": "a22b539649b5952c823d75ef9f5e309db49749418780665888fc1fae966cea5b"
+    },
+    {
+      "original": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "archive": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/history/official_before_A3_100h_update_20261020/final/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "sha256": "c4915e34417b8a8516586c3277268a304483141bca8299d3782018249cb1d163"
+    }
+  ],
+  "updated": [
+    {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "sha256": "fa1a7f966be96f1b786434f279bc939954e6f31b6f277ff8d0815bdaf83b36ae"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "sha256": "5a0014345e92b336c86bb3aa3f513b4bdd8d6a7443d5e1c9ce1111eba4aecfbd"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "sha256": "cf543cfcff83ea67d8b7b8e9c56989abe37a1b63bf1e018d114b72e581b03f54"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/plots/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.provenance.json",
+      "sha256": "292f3ecd41f99eee2bec4351e7c62bc1efe71c16859f9172485dfec6c6a5735a"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.png",
+      "sha256": "fa1a7f966be96f1b786434f279bc939954e6f31b6f277ff8d0815bdaf83b36ae"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf",
+      "sha256": "5a0014345e92b336c86bb3aa3f513b4bdd8d6a7443d5e1c9ce1111eba4aecfbd"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.svg",
+      "sha256": "cf543cfcff83ea67d8b7b8e9c56989abe37a1b63bf1e018d114b72e581b03f54"
+    },
+    {
+      "path": "Thermal_Emission_Spectroscopy/final_products/figures/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.provenance.json",
+      "sha256": "292f3ecd41f99eee2bec4351e7c62bc1efe71c16859f9172485dfec6c6a5735a"
+    }
+  ]
+}

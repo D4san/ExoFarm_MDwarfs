@@ -1,0 +1,23 @@
+{
+  "coverage": "pilot",
+  "scientific_status": "interface_smoke_test_not_for_planetary_interpretation",
+  "year_source": "configured_first_year",
+  "years": [
+    1996,
+    2005
+  ],
+  "n_years": 10,
+  "mean_n2o_tgN_yr": 0.0023325045670029806,
+  "mean_nh3_tgN_yr": 0.002119111939996651,
+  "mean_n2o_molecules_cm-2_s-1": null,
+  "mean_nh3_molecules_cm-2_s-1": null,
+  "source_units": "gN/m2/yr",
+  "integration_note": "Agricultural outputs already include stand-fraction weighting; they were multiplied by land_area but not by cellfrac_agr again.",
+  "files": {
+    "land_area": "land_area.nc",
+    "cellfrac_agr": "cellfrac_agr.nc",
+    "n2o_nit_agr": "n2o_nit_agr.nc",
+    "n2o_denit_agr": "n2o_denit_agr.nc",
+    "nh3_agr": "nh3_agr.nc"
+  }
+}

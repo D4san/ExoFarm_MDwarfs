@@ -42,7 +42,7 @@ selection and will likely change as the analysis matures.
 | Family | Generator | Canonical output stem |
 | :--- | :--- | :--- |
 | Synthetic spectra and molecular signals | `notebooks/plot_pure_transmission_spectra.py` | `trappist1e_pure_a0_molecular_residuals_v2` |
-| Molecular peak S/N comparison | `notebooks/plot_molecular_snr_summary.py` | `trappist1e_net_molecular_snr_comparison` |
+| Integrated molecular S/N by instrument | `notebooks/plot_molecular_snr_instrument.py` | `trappist1e_molecular_snr_by_instrument` |
 | A0/A3 joint sigma separation | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_joint_sigma_separation` |
 | A0/A3 posterior-difference distributions | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A0_A3_diagonal_logX_difference_posteriors` |
 | A3 distance from best A0 reference | `notebooks/plot_a0_a3_diagonal_distinguishability.py` | `trappist_A3_distance_from_best_A0_reference` |
@@ -54,8 +54,8 @@ selection and will likely change as the analysis matures.
 Current files already present in `figures/`:
 
 - `trappist1e_pure_a0_molecular_residuals_v2.{png,pdf}`
-- `trappist1e_net_molecular_snr_comparison.{png,pdf}`
-- `trappist1e_net_molecular_peak_summary.csv` (tabla fuente del gráfico S/N)
+- `trappist1e_molecular_snr_by_instrument.{png,pdf}`
+- `trappist1e_molecular_snr_by_instrument.csv` (tabla fuente del gráfico S/N)
 - `trappist_A0_A3_diagonal_joint_sigma_separation.{png,pdf}`
 - `trappist_A0_A3_diagonal_logX_difference_posteriors.{png,pdf}`
 - `trappist_A3_distance_from_best_A0_reference.{png,pdf}`
@@ -81,6 +81,15 @@ comparisons, run:
 ```bash
 python plot_pure_transmission_spectra.py --include-legacy-v1
 ```
+
+The earlier peak-based S/N comparison
+`trappist1e_net_molecular_snr_comparison.{png,pdf}` and its source table
+`trappist1e_net_molecular_peak_summary.csv` remain available as legacy evidence.
+The current final-figure builder does not copy the peak comparison into the
+curated layer; the shared forward script may refresh its legacy source CSV when
+the spectra are rebuilt. The current S/N figure integrates the counterfactual
+molecular signal over each instrument's observed wavelength grid and reports
+the older windows only as a secondary band decomposition.
 
 ## Scientific Caveat
 

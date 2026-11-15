@@ -1,0 +1,62 @@
+{
+  "status": "STOPPED_BY_USER_MPI14_REBALANCE",
+  "authorized_runs": 1,
+  "scenario": "A3",
+  "hours": 100,
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "mpi_ranks": 1,
+  "n_live": 800,
+  "acceptance": "PENDING",
+  "scratch": "/home/dasan/exofarm_a3_100h_binning_corrected_20261017",
+  "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261017",
+  "operator": "corrected midpoint-edge photon overlap",
+  "checkpoint_reuse": false,
+  "baseline": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_postprocess_manifest.json",
+  "selected_scope": "selected_scope.json",
+  "created_utc": "2026-10-18T04:02:35Z",
+  "updated_utc": "2026-10-18T19:46:23Z",
+  "supervisor_pid": 722,
+  "preflight": "PASS",
+  "baseline_configuration": {
+    "status": "PASS",
+    "matched_to_previous_A3_100h": [
+      "same dataset hash and 31-channel observation",
+      "same 15 parameter coordinates / 14 effective free parameters",
+      "same species, N_live, no-inflation likelihood, R, and isochemical profile",
+      "same fixed black surface at 1 bar and O2-inclusive model"
+    ],
+    "historical_prior_record": "the previous run's postprocess manifest records the prior family, but not a full machine-readable resolved prior table",
+    "intentional_operator_scope_difference": {
+      "historical_native_range_um": [
+        3.8,
+        19.0
+      ],
+      "corrected_native_range_um": [
+        3.0,
+        20.0
+      ],
+      "reason": "cover complete photon-overlap channel edges"
+    },
+    "resolved_configuration": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_20261017/resolved_configuration.json"
+  },
+  "resources": {
+    "execution": "serial, one Python process / one BLAS thread",
+    "peak_preflight_PSS_KiB": 6933415,
+    "minimum_MemAvailable_KiB": 25119396,
+    "required_MemAvailable_KiB": 11652007,
+    "reserve_KiB": 4718592,
+    "status": "PASS"
+  },
+  "run_id": "A3_100h_full_BIN1_20261017",
+  "run_pid": 890,
+  "start_utc": "2026-10-18T04:07:30Z",
+  "error": "RuntimeError: Retrieval exited -15; scratch preserved",
+  "scratch_preserved": true,
+  "stop_reason": "Explicit user request to stop and relaunch with 14 MPI ranks",
+  "stop_signal": "SIGTERM",
+  "successor_campaign": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018",
+  "checkpoint_snapshot": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/checkpoint_validation.json",
+  "checkpoint_replacements_at_stop": 31300,
+  "checkpoint_evaluations_at_stop": 663011,
+  "stop_utc": "2026-10-18T19:46:23Z"
+}

@@ -61,6 +61,51 @@ GLOBAL_A1_OUTPUTS = (
     "ndepo_agr",
 )
 
+# The capacity selector only needs per-CFT carbon harvest and the compact
+# cell geometry.  Keeping N and phenology diagnostics out of this stage is
+# essential: LPJmL allocates their arrays before MPI starts and the full
+# analysis set can exceed the WSL memory budget even though the final crop
+# campaign only needs N/CH4 outputs after the map has been built.
+CAPACITY_OUTPUTS = (
+    "grid",
+    "land_area",
+    "pft_harvestc",
+    "pft_harvestc2",
+    "maxthaw_depth",
+)
+
+# Methane diagnostics are monthly LPJmL land and process outputs.  They are
+# kept out of the original N-only campaigns and added explicitly when a
+# methane-enabled capacity branch is requested.
+METHANE_OUTPUTS = (
+    "ch4_agr",
+    "ch4_rice_em",
+    "ch4_grassland",
+    "ch4_emissions_wet",
+    "ch4_emissions",
+    "ch4_oxidation",
+    "ch4_sink",
+    "ch4_litter",
+    "ch4_ebullition",
+    "ch4_plant_gas",
+)
+
+# Monthly whole-stand losses for the matched natural control. These are kept
+# separate from A1's annual agricultural-stand products.
+GLOBAL_A0_OUTPUTS = (
+    "grid",
+    "land_area",
+    "n2o_nit",
+    "n2o_denit",
+    "n_volatilization",
+)
+
+
+def _outputs_with_methane(outputs: tuple[str, ...], with_methane: bool) -> tuple[str, ...]:
+    """Append methane diagnostics only for an explicitly methane-enabled run."""
+
+    return outputs + METHANE_OUTPUTS if with_methane else outputs
+
 NON_ASCII_METADATA = (
     "kbf.clm.json",
     "phusum_gswp3-w5e5_obsclim_24_bands_annual_1901-2019.clm.json",
@@ -196,12 +241,14 @@ def _spinup_config(
     mode: str,
     startgrid: int,
     endgrid: int | None = None,
+    *,
+    with_methane: bool = False,
 ) -> dict:
     config = deepcopy(base)
     config.update(
         {
             "sim_name": f"ExoFarm Franck 2011 natural spinup ({mode})",
-            "with_methane": False,
+            "with_methane": with_methane,
             # LPJmL 6.0.6 requires at least veg_equil_year +
             # nequilsoil * equisoil_interval = 2100 years whenever
             # equilsoil is enabled. Keep the model constraint in the pilot
@@ -238,12 +285,14 @@ def _managed_config(
     endgrid: int | None,
     scenario: str,
     workflow: str,
+    with_methane: bool = False,
+    crop_only: bool = False,
 ) -> dict:
     config = deepcopy(base)
     config.update(
         {
             "sim_name": f"ExoFarm Franck 2011 {scenario} ({mode})",
-            "with_methane": False,
+            "with_methane": with_methane,
             "nspinup": 30 if mode == "pilot" else 420,
             "nspinyear": 30,
             "firstyear": 1901,
@@ -261,9 +310,16 @@ def _managed_config(
             "output": [
                 _output_spec(item)
                 for item in (
-                    GLOBAL_A1_OUTPUTS
+                _outputs_with_methane(GLOBAL_A1_OUTPUTS, with_methane)
                     if workflow == "global-a1"
-                    else ANALYSIS_OUTPUTS
+                    else _outputs_with_methane(GLOBAL_A0_OUTPUTS, with_methane)
+                    if workflow == "global-a0-control"
+                    else _outputs_with_methane(
+                        CAPACITY_OUTPUTS
+                        if scenario == "potential_yield_unlimited_n"
+                        else ANALYSIS_OUTPUTS,
+                        with_methane,
+                    )
                 )
             ],
         }
@@ -278,6 +334,20 @@ def _managed_config(
                 "manure_input": True,
             }
         )
+    elif scenario == "a0_natural":
+        config.update(
+            {
+                "landuse": "no",
+                "population": "no",
+                "with_nitrogen": "lim",
+                "fertilizer_input": "no",
+                "manure_input": False,
+                "reservoir": False,
+                "wateruse": "no",
+                "river_routing": False,
+                "irrigation": "no",
+            }
+        )
     elif scenario == "potential_yield_unlimited_n":
         config.update(
             {
@@ -290,10 +360,24 @@ def _managed_config(
     else:
         raise ValueError(f"Unknown scenario: {scenario}")
 
+    if crop_only:
+        # This branch deliberately excludes the livestock pathway.  The map
+        # builder must also remove Pasture from the candidate CFT set; these
+        # settings prevent a managed-grass fallback from reintroducing it.
+        config.update(
+            {
+                "grazing": "none",
+                "grazing_others": "none",
+                "manure_input": False,
+                "prescribe_lsuha": False,
+                "others_to_crop": True,
+            }
+        )
+
     # A one-cell pilot is an interface smoke test, not a hydrological result.
     # Routing is retained only for the global campaign where river-limited
     # irrigation can be interpreted scientifically.
-    if mode == "pilot":
+    if mode == "pilot" or scenario == "a0_natural":
         config.update(
             {
                 "river_routing": False,
@@ -330,11 +414,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mode", choices=("pilot", "global"), default="pilot")
     parser.add_argument(
         "--workflow",
-        choices=("franck2011", "global-a1"),
+        choices=("franck2011", "global-a1", "global-a0-control"),
         default="franck2011",
         help=(
-            "franck2011 keeps yield diagnostics; global-a1 writes only the "
-            "nitrogen and land-use fields needed for the first Earth benchmark."
+            "franck2011 keeps yield diagnostics; global-a1 writes agricultural "
+            "N fields; global-a0-control writes monthly natural N losses."
         ),
     )
     parser.add_argument(
@@ -347,6 +431,16 @@ def build_parser() -> argparse.ArgumentParser:
         "--endgrid",
         type=int,
         help="Last LPJmL cell in pilot mode; defaults to --startgrid.",
+    )
+    parser.add_argument(
+        "--with-methane",
+        action="store_true",
+        help="Enable methane/oxygen dynamics and add monthly CH4 outputs.",
+    )
+    parser.add_argument(
+        "--crop-only",
+        action="store_true",
+        help="Disable livestock/manure settings for a crop-only branch.",
     )
     return parser
 
@@ -366,16 +460,31 @@ def main() -> None:
             args.mode,
             args.startgrid,
             args.endgrid,
+            with_methane=args.with_methane,
         ),
-        "a1_2005_n": _managed_config(
+    }
+    if args.workflow == "global-a0-control":
+        configs["a0_natural"] = _managed_config(
+            managed_base,
+            mode=args.mode,
+            startgrid=args.startgrid,
+            endgrid=args.endgrid,
+            scenario="a0_natural",
+            workflow=args.workflow,
+            with_methane=args.with_methane,
+            crop_only=args.crop_only,
+        )
+    else:
+        configs["a1_2005_n"] = _managed_config(
             managed_base,
             mode=args.mode,
             startgrid=args.startgrid,
             endgrid=args.endgrid,
             scenario="a1_2005_n",
             workflow=args.workflow,
-        ),
-    }
+            with_methane=args.with_methane,
+            crop_only=args.crop_only,
+        )
     if args.workflow == "franck2011":
         configs["potential_yield_unlimited_n"] = _managed_config(
             managed_base,
@@ -384,6 +493,8 @@ def main() -> None:
             endgrid=args.endgrid,
             scenario="potential_yield_unlimited_n",
             workflow=args.workflow,
+            with_methane=args.with_methane,
+            crop_only=args.crop_only,
         )
     metadata_overrides, metadata_records = _prepare_runtime_metadata(
         input_root, output_dir
@@ -416,6 +527,8 @@ def main() -> None:
             if args.mode == "pilot"
             else "modern_methodological_reproduction"
         ),
+        "with_methane": args.with_methane,
+        "crop_only": args.crop_only,
         "input_root": str(input_root),
         "runtime_metadata_compatibility_copies": metadata_records,
         "configs": sorted(f"{name}.json" for name in configs),

@@ -1,0 +1,81 @@
+{
+  "utc": "2026-10-13T15:53:32+00:00",
+  "all_pass": true,
+  "reports": [
+    {
+      "variant": "N2O",
+      "raw": "/home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/N2O/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+      "hashes": {
+        "proxima_A3_1000h_A0ref_N2O_1000NG-phys_live.points": "4c0dcb3b98c5397f907026753f81c9da3921bd92d9ae9b824186ff3eb2210796",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-live.points": "dc6be4618f21c84631b974616b3d70c1ffbdd4edac65e4cdda252fbfe9b52428",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-summary.txt": "dd6044c82d70d67adcc6966224eb6192ca801d0ff1bf7f92a9c793894bb235e3",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-resume.dat": "86807638c8d89c62ba68526876366f00bbc94276808fccb4147a677f95620524",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-.txt": "982ea1f78b69d99a1d86a91f6755100a30dd23a929f3106db3c8dccb7aedd541",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-stats.dat": "2698fd609672636c3b608e820c8f1a1ec58a99ed12f45e424f72a30a5512c28e",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-ev.dat": "a45690d5b62ab9183171604f49aed1f91d2be0e397b4bff7f3b71defeacd62c6",
+        "proxima_A3_1000h_A0ref_N2O_1000NG-post_equal_weights.dat": "355f262e5821800b862f88b7b62961649e2dd88165566219cdc9725cfbc00b82"
+      },
+      "replacements": 43600,
+      "evaluations": 889636,
+      "finite_priors_fixed_values": "PASS",
+      "event_shape": [
+        42800,
+        18
+      ]
+    },
+    {
+      "variant": "NH3",
+      "raw": "/home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/NH3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+      "hashes": {
+        "proxima_A3_1000h_A0ref_NH3_1000NG-live.points": "011499ab932d339c6edf08e96fdb45accc52367dc4b60c72c7a8b22c34beb5e9",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-stats.dat": "4964478e4910fc7f78d555fa60a3242cc435de90494627e9750617d9539cc872",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-summary.txt": "26dd802ac392128a18975f64e9ec5f59c2b55b96ae5ce0521c89579b31f8d6cc",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-post_equal_weights.dat": "391916cfe9b7b4626736b7ce1878927194e1a074d1b5579ffc00797ebd2bf8cf",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-ev.dat": "c304c5af7b20ad4ed34b89620e3afab7b181bdc34dab5bc5150bd2227aa154bb",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-resume.dat": "e350f95bf526480fbb9ba3a97361da2b3ce5e4733aea2454d81c1c705180d78b",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-phys_live.points": "5de8771cf269cfab29e1ebb5cb8c5d57d83f26f6bb35f22dcf208fc378a348d9",
+        "proxima_A3_1000h_A0ref_NH3_1000NG-.txt": "bb2bb74b0d9fd48d9b6b5d24aeb5b88af8dfb750014512c2b68654c4d5e9e2ee"
+      },
+      "replacements": 33000,
+      "evaluations": 882767,
+      "finite_priors_fixed_values": "PASS",
+      "event_shape": [
+        32200,
+        18
+      ]
+    },
+    {
+      "variant": "joint",
+      "raw": "/home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/joint/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw",
+      "hashes": {
+        "proxima_A3_1000h_A0ref_joint_1000NG-.txt": "86c78f60dab0c13e4594679b57a0e954cc27b640cf67bc5ca650fe74773c61c5",
+        "proxima_A3_1000h_A0ref_joint_1000NG-stats.dat": "7f5c71eb8de1cbe71e282c2fcfb765d019b2dfd80167b31220df99a238dde476",
+        "proxima_A3_1000h_A0ref_joint_1000NG-live.points": "ddcff9f09b23b5a0af4878695338f5d7a598d106e2e2b1e5730395aff925401b",
+        "proxima_A3_1000h_A0ref_joint_1000NG-post_equal_weights.dat": "efd4038c34d7a31e1f23f0349961079eae183d9d2cc67412ecc177b0fdd4e9ba",
+        "proxima_A3_1000h_A0ref_joint_1000NG-phys_live.points": "8ecdfc2a98246c437f3b36f5313952740577ef1e92e6ecc7c4296be22d90699f",
+        "proxima_A3_1000h_A0ref_joint_1000NG-ev.dat": "51f3579d0073d2b9585e9420031eadd481105b8cebbf260909304b2be8c6d1d6",
+        "proxima_A3_1000h_A0ref_joint_1000NG-resume.dat": "bef39d9481b16d0c580e19451b5c49733905197edee1b21761125147de6db5e7",
+        "proxima_A3_1000h_A0ref_joint_1000NG-summary.txt": "bc9e2ce4bbbab51d31c5776125acfa94a4d7fdd7190a433700f6970e50cda674"
+      },
+      "replacements": 42800,
+      "evaluations": 884613,
+      "finite_priors_fixed_values": "PASS",
+      "event_shape": [
+        42000,
+        18
+      ]
+    }
+  ],
+  "old_ranks": 3,
+  "new_ranks": 5,
+  "host": {
+    "mpi_ranks": [
+      3,
+      3,
+      3
+    ],
+    "rank_total": 9,
+    "available_gib": 25.150264739990234
+  },
+  "supporting_source": "https://xpsi-group.github.io/xpsi/Example_job.html"
+}

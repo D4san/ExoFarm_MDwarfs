@@ -1,0 +1,20 @@
+{
+  "generated_from": "life_proxima_b_earthlike_v1",
+  "master_seed": 20261002,
+  "sigma_scaling": "sigma(t)=sigma(10h)*sqrt(10/t)",
+  "generation_method": "scaled sigma from validated 10 h LIFEsim-classic bins",
+  "units": "Fp in W m^-2 m^-1 (POSEIDON spectrum_unit='Fp')",
+  "datasets": [
+    {
+      "file": "LIFE_proxima_A1_1h_O2_fixedBlack1bar_noiseRepeat2.dat",
+      "campaign": "life_proxima_b_earthlike_v1",
+      "scenario": "A1",
+      "hours": 1.0,
+      "seed": 2125532119,
+      "n_bins": 31,
+      "median_continuum_SNR": 14.85
+    }
+  ],
+  "classification": "audit_independent_noise_repeat_A1_1h_excluded_from_canonical_8of8",
+  "canonical_index": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/dataset_index.json"
+}

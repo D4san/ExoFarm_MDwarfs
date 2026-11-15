@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-09-07T21:52:21.399187+00:00",
+  "lpjml_version": "6.0.6",
+  "lpjml_commit": "5af44a1ed023279a23c28d6dfe76945b97aaac57",
+  "mode": "pilot",
+  "workflow": "global-a1",
+  "startgrid": 27410,
+  "endgrid": 27417,
+  "scientific_status": "interface_smoke_test_not_for_interpretation",
+  "input_root": "/home/dasan/lpjml-data/public_standard",
+  "runtime_metadata_compatibility_copies": [
+    {
+      "source": "/home/dasan/lpjml-data/public_standard/kbf.clm.json",
+      "runtime_copy": "/home/dasan/exofarm-lpjml-runs/mpi_smoke_20260907/configs/runtime_input_metadata/kbf.clm.json",
+      "source_sha256": "6a39cd02d1401b4a851141c4a74914a4c224f1da11ef06ba1a57923710066c48",
+      "runtime_sha256": "47f6b6640b5df438cc3032409dabdebbaa220bed422072747d3ba44263b919c8",
+      "change": "descriptive Unicode transliterated to ASCII; relative filename references resolved against the verified input root"
+    },
+    {
+      "source": "/home/dasan/lpjml-data/public_standard/phusum_gswp3-w5e5_obsclim_24_bands_annual_1901-2019.clm.json",
+      "runtime_copy": "/home/dasan/exofarm-lpjml-runs/mpi_smoke_20260907/configs/runtime_input_metadata/phusum_gswp3-w5e5_obsclim_24_bands_annual_1901-2019.clm.json",
+      "source_sha256": "9a664c44ea8f9df95b2ed66fbe904b09b2ba75719d1fb88b7c43291bd67230b6",
+      "runtime_sha256": "bb5141b77bd10a79ebf64629ae6947972da7737512aab0d16cacf32fdd9c4520",
+      "change": "descriptive Unicode transliterated to ASCII; relative filename references resolved against the verified input root"
+    },
+    {
+      "source": "/home/dasan/lpjml-data/public_standard/sdate_24_bands.clm.json",
+      "runtime_copy": "/home/dasan/exofarm-lpjml-runs/mpi_smoke_20260907/configs/runtime_input_metadata/sdate_24_bands.clm.json",
+      "source_sha256": "1ab468138e4cf91864dee69f8a57497d31e461f0d6821f7a9eb10c30dd6c82b9",
+      "runtime_sha256": "726036b77b40c7f53a39028befec15ba6e3e9a41a9db4b7b11450e0023909aac",
+      "change": "descriptive Unicode transliterated to ASCII; relative filename references resolved against the verified input root"
+    },
+    {
+      "source": "/home/dasan/lpjml-data/public_standard/wateruse_isimip3a_histsoc_1850-2021.clm.json",
+      "runtime_copy": "/home/dasan/exofarm-lpjml-runs/mpi_smoke_20260907/configs/runtime_input_metadata/wateruse_isimip3a_histsoc_1850-2021.clm.json",
+      "source_sha256": "a3166fbcbbdbdd37bb9ff8d426b09c68c4605855bd31a0bdf0d6dcb2be240e27",
+      "runtime_sha256": "c4d138952077fd8b52f8cf83cb8279c2153490e2858a0bcf1c8f5fbaffeaa538",
+      "change": "descriptive Unicode transliterated to ASCII; relative filename references resolved against the verified input root"
+    }
+  ],
+  "configs": [
+    "a1_2005_n.json",
+    "spinup_natural.json"
+  ]
+}

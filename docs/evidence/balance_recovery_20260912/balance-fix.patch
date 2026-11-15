@@ -1,0 +1,21 @@
+--- a/src/lpj/check_fluxes.c
++++ b/src/lpj/check_fluxes.c
+@@ -82,12 +82,15 @@
+   balance.nitrogen-=(cell->balance.deforest_emissions.nitrogen+cell->balance.prod_turnover.fast.nitrogen+cell->balance.prod_turnover.slow.nitrogen+
+                     cell->balance.trad_biofuel.nitrogen);  //+cell->balance.timber_harvest.nitrogen); //goes in product pool
+ #endif
+-  if(config->ischeckpoint)
+-    startyear=max(config->firstyear-config->nspinup,config->checkpointyear)+1;
+-  else if (config->withlanduse)
++  if (config->withlanduse)
+     startyear=config->firstyear-config->nspinup+2;
+   else
+     startyear=config->firstyear-config->nspinup+param.veg_equil_year+param.equisoil_interval*param.nequilsoil+param.equisoil_fadeout+2;
++
++  /* The natural spin-up gate in updateannual_grid must initialize balance.tot
++     before checking a difference, including when resuming a checkpoint. */
++  if(config->ischeckpoint)
++    startyear=max(startyear,config->checkpointyear+1);
+ 
+   if(year>startyear && fabs(balance.carbon)>param.error_limit.stocks.carbon)
+   {

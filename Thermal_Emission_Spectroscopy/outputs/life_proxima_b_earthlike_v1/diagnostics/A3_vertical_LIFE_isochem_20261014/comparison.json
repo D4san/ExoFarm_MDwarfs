@@ -1,0 +1,67 @@
+{
+  "observable": "Fp at observer in W m^-2 m^-1",
+  "scenario": "A3",
+  "true_PT_identical": true,
+  "isochem_definition": "integral X(p) dp / pressure span",
+  "constant_vmr": {
+    "H2O": 0.002906112079674578,
+    "CO2": 0.0004020318511110808,
+    "CH4": 1.4564850786619769e-05,
+    "O2": 0.20148080717375744,
+    "O3": 5.069988808191866e-09,
+    "N2O": 9.681400972906523e-07,
+    "NH3": 5.86808608607744e-09
+  },
+  "log10_constant_vmr": {
+    "H2O": -2.536687640332024,
+    "CO2": -3.395739538423446,
+    "CH4": -4.836693960255648,
+    "O2": -0.6957663179373828,
+    "O3": -8.294992999354214,
+    "N2O": -6.014061792404634,
+    "NH3": -8.231503523589122
+  },
+  "N2_bulk": "isochem balance 1-sum(trace VMR); vertical uses original profile convention",
+  "no_fitting": true,
+  "native_grid_points": 18971,
+  "native_grid_um": [
+    3.0,
+    20.0
+  ],
+  "R": 10000,
+  "n_layers": 100,
+  "shared_opacities": true,
+  "surface_bar": 1.0,
+  "distance_pc": 1.3,
+  "comparisons": {
+    "vertical_common_operator": {
+      "rms_relative": 7.947311914706172e-15,
+      "max_relative": 2.2648549702353193e-14,
+      "rms_sigma_1000h": 2.6704889483691222e-12,
+      "max_sigma_1000h": 8.648491759709136e-12,
+      "sum_squared_difference_over_sigma": 2.210768479242102e-22
+    },
+    "isochem_common_operator": {
+      "rms_relative": 0.22275199692950984,
+      "max_relative": 0.5829697904723505,
+      "rms_sigma_1000h": 17.27167933108301,
+      "max_sigma_1000h": 67.33025223629805,
+      "sum_squared_difference_over_sigma": 9247.638114388563
+    },
+    "vertical_actual_likelihood": {
+      "rms_relative": 0.019011317762328842,
+      "max_relative": 0.08139996485003897,
+      "rms_sigma_1000h": 2.9256783067641536,
+      "max_sigma_1000h": 8.985808882824788,
+      "sum_squared_difference_over_sigma": 265.3474001947813
+    },
+    "isochem_actual_likelihood": {
+      "rms_relative": 0.22471205091341562,
+      "max_relative": 0.5890778614392631,
+      "rms_sigma_1000h": 16.285320184422027,
+      "max_sigma_1000h": 56.68914127855772,
+      "sum_squared_difference_over_sigma": 8221.561258783448
+    }
+  },
+  "limitations": "pressure mean is not radiatively equivalent truth; PT file_read control is not a Madhu fit; saved noiseless LIFE product reused, no new extraction or noise realization"
+}

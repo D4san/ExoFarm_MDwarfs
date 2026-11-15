@@ -1,0 +1,81 @@
+{
+  "analysis_date": "2026-10-13",
+  "design_id": "nh3_weakened_surface_sink_vdep_0p65_20261013",
+  "status": "PASS_ANALYTIC_DESIGN_AND_INPUT_INTEGRITY_ONLY",
+  "python_version": "3.12.14",
+  "design_sha256": "347c50a38152e7953640efdabc41ac32b2377f35740c7fc9cdb3bdbdca40616c",
+  "verification_script_sha256": "6611c5bc8f7d577b20867f666f54af7a9b682c01248c6c3fcde76645a3fc9cdb",
+  "checks": [
+    "NH3 only",
+    "No new simulations",
+    "No canonical mutations",
+    "Area fractions sum to one",
+    "5 mm/s equals 0.50 cm/s",
+    "Baseline recovers 1 cm/s",
+    "Ocean contribution is 0.35 cm/s",
+    "Residual land capture is positive",
+    "Weak sink is 0.65 cm/s",
+    "35 percent coefficient reduction at fixed density",
+    "Resistance converted from cm/s to m/s",
+    "Hand-checkable surface flux",
+    "Four paired scenario proposals",
+    "Unique candidate case identities",
+    "One additional sink value for the phase",
+    "Phase report exists",
+    "Deposition-only box ratio",
+    "Equal-chemical-loss box ratio",
+    "Box calculation is not a VULCAN prediction",
+    "SHA-256 unchanged: Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_preagri_full.txt",
+    "SHA-256 unchanged: Photochemical_Modeling/Results/Outputs/Earth_A0_PreAgri.vul",
+    "One canonical NH3 row: A0",
+    "Canonical NH3 v_dep remains 1: A0",
+    "SHA-256 unchanged: Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_current_full.txt",
+    "SHA-256 unchanged: Photochemical_Modeling/Results/Outputs/Earth_A1_Current.vul",
+    "One canonical NH3 row: A1",
+    "Canonical NH3 v_dep remains 1: A1",
+    "SHA-256 unchanged: Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_moderate_full.txt",
+    "SHA-256 unchanged: Photochemical_Modeling/Results/Outputs/Earth_A2_Moderate.vul",
+    "One canonical NH3 row: A2",
+    "Canonical NH3 v_dep remains 1: A2",
+    "SHA-256 unchanged: Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_full.txt",
+    "SHA-256 unchanged: Photochemical_Modeling/Results/Outputs/Earth_A3_Extreme.vul",
+    "One canonical NH3 row: A3",
+    "Canonical NH3 v_dep remains 1: A3"
+  ],
+  "reference_products_checked": [
+    {
+      "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_preagri_full.txt",
+      "sha256": "2c136fb15e1a4fcecd542b9a3e67254d2556e660b2ddfc7ac34a3f96aa3279a6"
+    },
+    {
+      "path": "Photochemical_Modeling/Results/Outputs/Earth_A0_PreAgri.vul",
+      "sha256": "84ab5614741973743b7a49621bb91463f4378ee7e584eab4736617413d31f79d"
+    },
+    {
+      "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_current_full.txt",
+      "sha256": "db4d0469e081653b6c8f6829da2efc36c7154e432269b413dc383bd4adec7b56"
+    },
+    {
+      "path": "Photochemical_Modeling/Results/Outputs/Earth_A1_Current.vul",
+      "sha256": "024a8e0365583ee12ab2b18ba45c29c71a06a95ff41d741f3527b6067a633f1b"
+    },
+    {
+      "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_moderate_full.txt",
+      "sha256": "c716fd0a001a6af620a214d0179f02724a89e5ddb93f2e2d8fbd6758cdd27018"
+    },
+    {
+      "path": "Photochemical_Modeling/Results/Outputs/Earth_A2_Moderate.vul",
+      "sha256": "c40ea81c9728efd2c3f3bc6fc1e2672d0af55157b583c0ffc7ed6365c8fd1199"
+    },
+    {
+      "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_full.txt",
+      "sha256": "7a29ef53f5fdf0124e41e738a36cf78df3a25c2082e9fd55926d7398fcf9653a"
+    },
+    {
+      "path": "Photochemical_Modeling/Results/Outputs/Earth_A3_Extreme.vul",
+      "sha256": "43babd60169b08dd9ac642b31c1a230374f3885b3fef382a3f0d281c2dc2f7c7"
+    }
+  ],
+  "new_atmospheric_simulations": 0,
+  "physical_ocean_budget_validated": false
+}

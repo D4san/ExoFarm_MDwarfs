@@ -1,0 +1,12 @@
+{
+  "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "baseline_manifest": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_postprocess_manifest.json",
+  "baseline_manifest_sha256": "14ca699b98e154a64abb5ad8d2886466e1b6e55fb999aba789a5e8a8c9ec9f9a",
+  "base_runner": "Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py",
+  "base_runner_sha256": "73f7fd1e6cb22f56c4a377cd01173752646030ddd4f89b4ff5552588410220e5",
+  "corrected_runner": "Thermal_Emission_Spectroscopy/scripts/run_life_retrieval_a3_100h_binning_corrected.py",
+  "corrected_runner_sha256": "f54ddc5b221c53a94f91dcedb3c35b21249e395d65739e6b7d863f7dd29c3dc6",
+  "operator": "Thermal_Emission_Spectroscopy/scripts/life_bin_operator_diagnostic.py",
+  "operator_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731"
+}

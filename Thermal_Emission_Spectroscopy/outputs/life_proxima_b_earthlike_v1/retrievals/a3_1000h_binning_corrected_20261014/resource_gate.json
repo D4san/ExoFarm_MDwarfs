@@ -1,0 +1,8 @@
+{
+  "logical_cpus": 16,
+  "preflight_peak_RSS_KiB": 7080708,
+  "MemAvailable_KiB": 31939648,
+  "required_KiB": 110404924,
+  "mpi_ranks": 15,
+  "threads_per_rank": 1
+}

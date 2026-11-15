@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:"STIX Two Text",STIXGeneral,"Times New Roman",serif;fill:#02040F}.title{font-size:25px;font-weight:bold}.sub{font-size:15px}.label{font-size:17px}.tick{font-size:13px}.foot{font-size:14px}</style>
+<text x="540" y="36" text-anchor="middle" class="title">A3 LIFE: evidencia condicional con binning corregido</text>
+<text x="540" y="62" text-anchor="middle" class="sub">Δln Z = ln Z(completo) − ln Z(sin especie); barras = incertidumbre numérica propagada</text>
+<line x1="120.0" y1="95" x2="120.0" y2="430" stroke="#e5dada"/>
+<text x="120.0" y="452" text-anchor="middle" class="tick">-1.00</text>
+<line x1="270.0" y1="95" x2="270.0" y2="430" stroke="#555" stroke-dasharray="5 4"/>
+<text x="270.0" y="452" text-anchor="middle" class="tick">0.74</text>
+<line x1="420.0" y1="95" x2="420.0" y2="430" stroke="#e5dada"/>
+<text x="420.0" y="452" text-anchor="middle" class="tick">2.48</text>
+<line x1="570.0" y1="95" x2="570.0" y2="430" stroke="#e5dada"/>
+<text x="570.0" y="452" text-anchor="middle" class="tick">4.22</text>
+<line x1="720.0" y1="95" x2="720.0" y2="430" stroke="#e5dada"/>
+<text x="720.0" y="452" text-anchor="middle" class="tick">5.96</text>
+<line x1="870.0" y1="95" x2="870.0" y2="430" stroke="#e5dada"/>
+<text x="870.0" y="452" text-anchor="middle" class="tick">7.70</text>
+<line x1="1020.0" y1="95" x2="1020.0" y2="430" stroke="#e5dada"/>
+<text x="1020.0" y="452" text-anchor="middle" class="tick">9.43</text>
+<line x1="120" y1="430" x2="1020" y2="430" stroke="#02040F"/>
+<text x="106" y="160" text-anchor="end" class="label">1 h · sin N2O</text>
+<line x1="183.4" y1="155" x2="224.0" y2="155" stroke="#1f77b4" stroke-width="3"/>
+<line x1="183.4" y1="149" x2="183.4" y2="161" stroke="#1f77b4" stroke-width="2"/>
+<line x1="224.0" y1="149" x2="224.0" y2="161" stroke="#1f77b4" stroke-width="2"/>
+<circle cx="203.7" cy="155" r="6" fill="#1f77b4" stroke="#02040F"/>
+<text x="1034" y="160" class="label">-0.030 ± 0.235</text>
+<text x="106" y="230" text-anchor="end" class="label">1 h · sin NH3</text>
+<line x1="140.6" y1="225" x2="181.0" y2="225" stroke="#ff7f0e" stroke-width="3"/>
+<line x1="140.6" y1="219" x2="140.6" y2="231" stroke="#ff7f0e" stroke-width="2"/>
+<line x1="181.0" y1="219" x2="181.0" y2="231" stroke="#ff7f0e" stroke-width="2"/>
+<circle cx="160.8" cy="225" r="6" fill="#ff7f0e" stroke="#02040F"/>
+<text x="1034" y="230" class="label">-0.526 ± 0.234</text>
+<text x="106" y="330" text-anchor="end" class="label">10 h · sin N2O</text>
+<line x1="969.6" y1="325" x2="1020.0" y2="325" stroke="#1f77b4" stroke-width="3"/>
+<line x1="969.6" y1="319" x2="969.6" y2="331" stroke="#1f77b4" stroke-width="2"/>
+<line x1="1020.0" y1="319" x2="1020.0" y2="331" stroke="#1f77b4" stroke-width="2"/>
+<circle cx="994.8" cy="325" r="6" fill="#1f77b4" stroke="#02040F"/>
+<text x="1034" y="330" class="label">+9.142 ± 0.292</text>
+<text x="106" y="400" text-anchor="end" class="label">10 h · sin NH3</text>
+<line x1="161.5" y1="395" x2="212.0" y2="395" stroke="#ff7f0e" stroke-width="3"/>
+<line x1="161.5" y1="389" x2="161.5" y2="401" stroke="#ff7f0e" stroke-width="2"/>
+<line x1="212.0" y1="389" x2="212.0" y2="401" stroke="#ff7f0e" stroke-width="2"/>
+<circle cx="186.8" cy="395" r="6" fill="#ff7f0e" stroke="#02040F"/>
+<text x="1034" y="400" class="label">-0.226 ± 0.293</text>
+<text x="540" y="490" text-anchor="middle" class="foot">Δln Z positivo favorece incluir la molécula; los contrastes se emparejan solo dentro de cada duración/dataset.</text>
+<text x="540" y="515" text-anchor="middle" class="foot">La evidencia no es una probabilidad de agricultura ni una significancia frecuentista.</text>
+</svg>

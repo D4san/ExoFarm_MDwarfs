@@ -1,0 +1,101 @@
+{
+  "attempt": 2,
+  "checkpoint_before_resume": {
+    "evaluations": 67768,
+    "files": {
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-.txt": {
+        "bytes": 1347,
+        "sha256": "c3c291aa220fed9c1c44e1d79aae6a185173a69495c37cbcb4f317cdafdeefcf"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-ev.dat": {
+        "bytes": 5493400,
+        "sha256": "3e7fe78eb8735522ba571ce7593ce89ed7ab41e40c345cfd857765e173f4e47a"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-live.points": {
+        "bytes": 336800,
+        "sha256": "6d79134cac08ba1aa5601830eb1d981fd7a1c8ea7529cef2588d7c4d38d76079"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-phys_live.points": {
+        "bytes": 340000,
+        "sha256": "813afb33e3e3c74d2c48858c90b2e98fcdbaf8788b132793b5b178ee03fd3ff3"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-post_equal_weights.dat": {
+        "bytes": 421,
+        "sha256": "5a90a41c3912c831e4c23051b79303e9af2c439839763a6d8a66bfbbfc1613a5"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat": {
+        "bytes": 225,
+        "sha256": "7a5f3d178768626d7e7c9c3a8e0b452489f912c50a2b220bbbb1c27e55572847"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-stats.dat": {
+        "bytes": 2017,
+        "sha256": "e91ba4da7bd73e7255abaa66429c1ed1f09148bedda50a803ab4be4061daf814"
+      },
+      "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-summary.txt": {
+        "bytes": 3250,
+        "sha256": "0be54f5fde944df42f3021f0d2acdd0e42489df374224ad8c10ed46d4df62116"
+      }
+    },
+    "mode_count": 1,
+    "model_name": "proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3",
+    "n_live": 800,
+    "replacements": 12900,
+    "resume_file": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3/POSEIDON_output/proxima_b_earthlike/retrievals/MultiNest_raw/proxima_A3_100h_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3-resume.dat",
+    "run_dir": "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3"
+  },
+  "command": [
+    "/home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec",
+    "-n",
+    "4",
+    "/home/dasan/anaconda3/envs/POSEIDON/bin/python",
+    "-u",
+    "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/recover_proxima_a3_100h_final_three_from_checkpoint.py",
+    "--worker",
+    "A3_100h_no_O3",
+    "--operator-record",
+    "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/recovery_20261027_power_restore_r01/attempt_02/runtime_operators/A3_100h_no_O3.json",
+    "--campaign",
+    "proxima",
+    "--scenario",
+    "A3",
+    "--hours",
+    "100",
+    "--n-live",
+    "800",
+    "--error-inflation",
+    "none",
+    "--surface-pressure-mode",
+    "fixed-black",
+    "--include-o2",
+    "--x-profile",
+    "isochem",
+    "--output-tag",
+    "_O2_fixedBlack1bar_noxtol_BIN1_20261021_MATRIX_A3_100h_noO3",
+    "--R",
+    "10000",
+    "--wl-min",
+    "3.0",
+    "--wl-max",
+    "20.0",
+    "--dataset-file",
+    "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+    "--run-dir",
+    "/home/dasan/exofarm_a1_a3_corrected_binning_matrix_20261021_r01/runs/A3_100h_no_O3",
+    "--configuration-json",
+    "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/resolved/A3_100h_no_O3.json",
+    "--exclude-species",
+    "O3",
+    "--resume"
+  ],
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "log": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/recovery_20261027_power_restore_r01/attempt_02/launch_logs/A3_100h_no_O3.log",
+  "mpi_ranks": 4,
+  "operator_record": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a1_a3_corrected_binning_matrix_loo_20261021_r01/recovery_20261027_power_restore_r01/attempt_02/runtime_operators/A3_100h_no_O3.json",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "pid": 996,
+  "resolved_configuration_sha256": "2a3ff58f2964e7d82ac03cefd048b3eee50bcc13fce6b7a793495b0d6fe6beba",
+  "resume_checkpoint": true,
+  "run_id": "A3_100h_no_O3",
+  "started_utc": "2026-10-28T05:01:19+00:00",
+  "threads_per_rank": 1
+}

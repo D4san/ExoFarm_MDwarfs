@@ -1,0 +1,31 @@
+{
+  "marginal_rows": 12,
+  "joint_rows": 6,
+  "math_controls": "PASS",
+  "finite_samples": "PASS",
+  "six_dataset_checksums": "PASS",
+  "reference": {
+    "definition": "integral X(p) dp / (p_bottom - p_top); atlas convention",
+    "profile_rel": "Transmission_Spectroscopy/profiles/Proxima_b_A0_PreAgri_chem.txt",
+    "profile_sha256": "ee8e93c76ff4d3bc62cb68cb29679942b7dad1f099c18a6feb3ed304d6798f7b",
+    "pressure_min_bar": 5e-08,
+    "pressure_max_bar": 1.0,
+    "vmr": {
+      "N2O": 1.305192923200922e-07,
+      "NH3": 1.1206595703796514e-10
+    },
+    "log10_vmr": {
+      "N2O": -6.884325289636784,
+      "NH3": -9.950526295665036
+    },
+    "reference_uncertainty": "fixed; not marginalized",
+    "prior_log10_vmr_nominal": [
+      -12.0,
+      -1.0
+    ]
+  },
+  "sampling": "POSEIDON equal-weight posterior exports",
+  "zero_tail_warning": "zero observed draws does not imply zero tail probability",
+  "nominal_prior_warning": "uniform scalar prior; not probability of an agricultural scenario",
+  "new_retrievals_executed": 0
+}

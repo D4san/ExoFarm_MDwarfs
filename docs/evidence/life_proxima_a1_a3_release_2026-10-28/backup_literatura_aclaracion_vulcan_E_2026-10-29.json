@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-10-29T15:31:06.941967+00:00",
+  "source": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs",
+  "destination": "E:\\Respaldos\\ExoFarm_MDwarfs\\LIFE_Proxima_A1_A3_20261028\\suplemento_aclaracion_vulcan_literatura_20261029",
+  "verified": true,
+  "files": [
+    {
+      "relative_path": "docs/life_proxima_detectabilidad_comparacion_literatura_2026-10-29.md",
+      "bytes": 14786,
+      "sha256": "b9eac17efd5e399d5ff38593fd0c89621119abdbb6db684c460497b5b9e7d17f"
+    },
+    {
+      "relative_path": "docs/project_resume.md",
+      "bytes": 134029,
+      "sha256": "f4d9bbd505ce080bb296c1c63f5a349b17b39c5861ad0ff2b15a667b193c5ea5"
+    },
+    {
+      "relative_path": "docs/project_status_tracker.md",
+      "bytes": 169064,
+      "sha256": "6245c06c756e786e0e4c5fd305e46a6e2204bdf18480bc3623cef1095b258c58"
+    }
+  ]
+}

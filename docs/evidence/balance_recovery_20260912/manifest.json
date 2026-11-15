@@ -1,0 +1,9 @@
+{
+  "source_commit": "5af44a1ed023279a23c28d6dfe76945b97aaac57",
+  "source_checkpoint_sha256": "d4b276cd3f65732a50e1d818dca0681935d2debf0d3abbce727fcf2d430117d5",
+  "source_checkpoint_year": -3,
+  "patched_binary_sha256": "bd7c46e889f5b88b682d237ba58aa1c25a83285bd505fa87c597d901970f585b",
+  "patched_source_sha256": "5e665c356060fe628fe19d4a152f499be32935e4dcaf032bfd613fd70aecc912",
+  "mpi_ranks": 8,
+  "acceptance": "Exit zero, checkpoint after year 4, no balance errors; fail_on_balance remains true"
+}

@@ -1,0 +1,28 @@
+{
+  "scenario": "A3",
+  "hours": 1000,
+  "new_variants": [
+    "N2O",
+    "NH3",
+    "joint"
+  ],
+  "new_retrievals": 3,
+  "total_models_including_existing_full": 4,
+  "existing_full_state": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011/native_grid_retry/campaign_state.json",
+  "existing_full_untouched": true,
+  "mpi_ranks_new": 5,
+  "mpi_ranks_existing_full": 0,
+  "existing_full_status": "COMPLETE_PENDING_VALIDATION; exit 0; preserved",
+  "execution_update": "2026-10-13 user-authorized MPI3 to MPI5 checkpoint recovery; recovery_20261013_MPI5_R1",
+  "global_rank_budget": 15,
+  "max_new_parallel": 3,
+  "authorization": "User explicitly confirmed all four at 1000h in parallel",
+  "utc": "2026-10-12T23:04:42+00:00",
+  "host_at_launch": {
+    "mpi_ranks": [
+      6
+    ],
+    "rank_total": 6,
+    "available_gib": 28.44007110595703
+  }
+}

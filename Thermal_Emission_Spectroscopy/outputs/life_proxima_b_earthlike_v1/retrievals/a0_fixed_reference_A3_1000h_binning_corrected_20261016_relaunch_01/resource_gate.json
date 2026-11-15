@@ -1,0 +1,13 @@
+{
+  "available_KiB": 31860504,
+  "required_KiB": 28831108,
+  "peak_MPI5_PSS_KiB": {
+    "N2O": 7948575,
+    "NH3": 5207065,
+    "joint": 7549004
+  },
+  "sampling_reserve_per_job_KiB": 1310720,
+  "os_reserve_KiB": 4194304,
+  "method": "sum of measured MPI5 PSS peaks, 0.25 GiB per rank work reserve, 4 GiB OS reserve",
+  "all_three_simultaneous_fit": true
+}

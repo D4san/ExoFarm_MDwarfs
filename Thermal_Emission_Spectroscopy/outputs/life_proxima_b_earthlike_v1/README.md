@@ -1,8 +1,39 @@
 # Inventario de la campaña `life_proxima_b_earthlike_v1`
 
-## Productos canónicos
+## Resultado actual: matriz A1/A3 corregida (2026-10-28)
 
-La matriz científica vigente de retrievals contiene **8 corridas**:
+La campaña de retrievals LIFE Proxima más reciente es la matriz
+A1/A3 `COMPLETE_VALIDATED`, con 33 nuevos retrievals auditados y tres
+referencias A3 aceptadas. El índice de campañas está en
+[`retrievals/README.md`](retrievals/README.md); el resultado científico y las
+tablas están en
+[`docs/life_proxima_a1_a3_corrected_binning_matrix_results_2026-10-28.md`](../../../docs/life_proxima_a1_a3_corrected_binning_matrix_results_2026-10-28.md).
+
+## Referencia A3–100 h validada, continuación MPI14 (2026-10-18)
+
+La continuación MPI14 terminó con `exit_code=0` y pasó la auditoría
+independiente. Es la referencia A3–100 h usada por análisis anteriores; sus
+resultados son distintos de la nueva matriz y se conservan. El intento serial
+del 17-oct y el preflight MPI fallido también permanecen documentados como
+historial, no como trabajos activos. Véanse el
+[README de la campaña](retrievals/a3_100h_binning_corrected_mpi14_resume_20261018/README.md)
+y la [bitácora MPI14](../../../docs/life_proxima_a3_100h_binning_corrected_mpi14_resume_2026-10-18.md).
+
+## Campaña focal anterior: cierre 2026-10-11
+
+La serie focal anterior estudió A1/A3 × {1,10,100 h}: seis completos,
+36 LOO y tres restricciones A0 fija **solo A3-100 h**. Las restricciones
+están aceptadas con salvedad numérica de momentos fijos, originales y hashes
+preservados. La matriz corregida posterior está enlazada en la sección
+“Resultado actual” al inicio de este inventario. Véanse la
+[síntesis científica](../../../docs/life_proxima_exofarm_retrieval_layers_synthesis_2026-10-11.md),
+[campaña A0 y tabla final](retrievals/a0_fixed_reference_20261010/README.md)
+y [campaña LOO](retrievals/molecule_ablation_loo_20261004/README.md).
+
+## Productos canónicos históricos: matriz legacy 8/8
+
+La matriz histórica preservada contiene **8 corridas**, fuera del total
+focal de 45 productos que cerró el 2026-10-11:
 
 ```text
 Proxima A0--A3 x {10 h, 240 h}
@@ -10,7 +41,7 @@ Proxima A0--A3 x {10 h, 240 h}
 
 Los ocho datasets autorizados están enumerados en
 [`life_data/dataset_index.json`](life_data/dataset_index.json). Los resultados
-que alimentan el análisis de separación son los archivos 10/240 h de
+que alimentaron el análisis histórico de separación son los archivos 10/240 h de
 `retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/` y el resumen
 [`../_comparison/retrieval_separation_from_A0.csv`](../_comparison/retrieval_separation_from_A0.csv).
 
@@ -55,6 +86,20 @@ distancia en sigma.
 - `retrieval_profiles_posteriors_proxima`: perfil VULCAN A3, posterior A3,
   referencia A0 efectiva, medianas, barras de incertidumbre y muestras para
   H2O, CO2, CH4, O3, N2O y NH3.
+
+Como producto separado de auditoría, `retrieval_A1_A3_10_100_240h_audit_molecular_profiles_PT_proxima`
+ordena las filas por integración (10, 100 y 240 h) y se concentra en N2O/NH3,
+más una columna P–T. Cada panel molecular muestra posteriores A1/A3, barras de
+errores horizontales asimétricos q16–q84 alrededor de la mediana, perfiles verticales VULCAN de ambos
+escenarios, referencia efectiva A0 y distancias z firmadas respecto a A0. Las
+abundancias recuperadas son isochem y constantes con presión; por claridad, la
+incertidumbre se resume como errorbar y no como banda vertical extensa. La fila
+de 100 h usa datasets independientes de auditoría (semillas A1 `460512527` y
+A3 `129315834`). `z` es una distancia descriptiva condicional, distinta de
+`ln Z` y no equivalente a detección formal. Se genera con
+`--audit-a1-a3-times` en `plot_proxima_retrieval_products.py`; deja intactas las
+figuras y datos canónicos. Las figuras anteriores se conservan como vistas
+históricas.
 
 El observable es el flujo planetario directo `F_p` en `W m^-2 m^-1`, mostrado
 con una escala de `10^-13` para legibilidad. Las figuras se construyen desde

@@ -1,0 +1,36 @@
+{
+  "reference_profile": "Transmission_Spectroscopy/profiles/Proxima_b_A3_Extreme_PT.txt",
+  "reference_profile_md5": "0865b6b784915b5bbffca40096f8a90b",
+  "reference_columns": "ALT_km, P_bar, T_K",
+  "retrieved_columns": "P_bar, T_minus_2sigma_K, T_minus_1sigma_K, T_median_K, T_plus_1sigma_K, T_plus_2sigma_K",
+  "retrieval_model": "POSEIDON Madhu six-parameter PT; isochemical abundances",
+  "comparison_pressure_range_bar": [
+    5e-08,
+    1.0
+  ],
+  "runs": {
+    "10": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_10h_O2_fixedBlack1bar_noxtol_proxima_A3_10h_O2_fixedBlack1bar_noxtol_PT_retrieved.txt",
+      "rms_delta_K": 32.70888532172478,
+      "median_abs_delta_K": 14.80115131757617,
+      "max_abs_delta_K": 59.36596549109723,
+      "median_68pct_width_K": 43.39942500000001,
+      "median_95pct_width_K": 80.04128600000001,
+      "within_1sigma_fraction": 0.29896907216494845,
+      "within_2sigma_fraction": 0.5463917525773195,
+      "common_levels": 97
+    },
+    "100": {
+      "path": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/samples/proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_PT_retrieved.txt",
+      "rms_delta_K": 60.36079016174045,
+      "median_abs_delta_K": 39.46486696442673,
+      "max_abs_delta_K": 99.26239149109725,
+      "median_68pct_width_K": 20.613627000000008,
+      "median_95pct_width_K": 41.544122000000016,
+      "within_1sigma_fraction": 0.05154639175257732,
+      "within_2sigma_fraction": 0.09278350515463918,
+      "common_levels": 97
+    }
+  },
+  "interpretation_caveat": "Pointwise posterior intervals; fractions inside bands are descriptive per-level checks, not simultaneous confidence coverage."
+}

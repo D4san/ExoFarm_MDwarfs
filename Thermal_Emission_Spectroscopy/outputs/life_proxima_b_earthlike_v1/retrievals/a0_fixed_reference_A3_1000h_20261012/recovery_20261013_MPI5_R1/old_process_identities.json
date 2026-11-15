@@ -1,0 +1,98 @@
+[
+  {
+    "pid": 1139,
+    "ppid": 1130,
+    "start_ticks": "251305",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_proxima_a0_a3_1000h.py --worker "
+  },
+  {
+    "pid": 1208,
+    "ppid": 1139,
+    "start_ticks": "254379",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 3 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_N2O_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/N2O --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/N2O.json "
+  },
+  {
+    "pid": 1238,
+    "ppid": 1139,
+    "start_ticks": "254596",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 3 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_NH3_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/NH3.json "
+  },
+  {
+    "pid": 1271,
+    "ppid": 1139,
+    "start_ticks": "254813",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 3 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_joint_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/joint --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/joint.json "
+  },
+  {
+    "pid": 1218,
+    "ppid": 1208,
+    "start_ticks": "254446",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/hydra_pmi_proxy --control-port Das4n:34207 --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --pmi-port 0 --gpus-per-proc -2 --gpu-subdevs-per-proc -2 --proxy-id 0 "
+  },
+  {
+    "pid": 1248,
+    "ppid": 1238,
+    "start_ticks": "254655",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/hydra_pmi_proxy --control-port Das4n:35733 --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --pmi-port 0 --gpus-per-proc -2 --gpu-subdevs-per-proc -2 --proxy-id 0 "
+  },
+  {
+    "pid": 1281,
+    "ppid": 1271,
+    "start_ticks": "254880",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/hydra_pmi_proxy --control-port Das4n:38633 --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --pmi-port 0 --gpus-per-proc -2 --gpu-subdevs-per-proc -2 --proxy-id 0 "
+  },
+  {
+    "pid": 1219,
+    "ppid": 1218,
+    "start_ticks": "254447",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_N2O_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/N2O --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/N2O.json "
+  },
+  {
+    "pid": 1220,
+    "ppid": 1218,
+    "start_ticks": "254447",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_N2O_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/N2O --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/N2O.json "
+  },
+  {
+    "pid": 1221,
+    "ppid": 1218,
+    "start_ticks": "254447",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_N2O_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/N2O --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/N2O.json "
+  },
+  {
+    "pid": 1249,
+    "ppid": 1248,
+    "start_ticks": "254656",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_NH3_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/NH3.json "
+  },
+  {
+    "pid": 1250,
+    "ppid": 1248,
+    "start_ticks": "254656",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_NH3_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/NH3.json "
+  },
+  {
+    "pid": 1251,
+    "ppid": 1248,
+    "start_ticks": "254656",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_NH3_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/NH3 --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/NH3.json "
+  },
+  {
+    "pid": 1282,
+    "ppid": 1281,
+    "start_ticks": "254880",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_joint_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/joint --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/joint.json "
+  },
+  {
+    "pid": 1283,
+    "ppid": 1281,
+    "start_ticks": "254880",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_joint_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/joint --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/joint.json "
+  },
+  {
+    "pid": 1284,
+    "ppid": 1281,
+    "start_ticks": "254880",
+    "command": "/home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A3 --hours 1000 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --x-profile isochem --output-tag _A0ref_joint_1000NG --R 10000 --dataset-file Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_1000h_O2_fixedBlack1bar_official.dat --wl-min 3.0 --wl-max 20.0 --a0-reference /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/a0_reference.json --fix-a0-species N2O NH3 --run-dir /home/dasan/exofarm_a0ref_A3_1000h_20261012/runs/joint --configuration-json /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a0_fixed_reference_A3_1000h_20261012/resolved/joint.json "
+  }
+]

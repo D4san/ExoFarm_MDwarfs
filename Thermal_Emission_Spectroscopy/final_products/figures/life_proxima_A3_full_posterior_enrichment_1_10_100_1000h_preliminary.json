@@ -1,0 +1,127 @@
+{
+  "reference_sha256": "79639e6154b2d3d1bd0d613207bf16c0799026e2e95bdc099794222bf58537d7",
+  "method": "equal-weight histogram in log10(X/X_A0); empirical central quantiles",
+  "missing_combinations": [],
+  "rows": [
+    {
+      "hours": 1,
+      "species": "N2O",
+      "n_samples": 6190,
+      "factor_q025_median_q975": [
+        1.2809546817034868e-05,
+        0.014842829795718994,
+        16.521500954796174
+      ],
+      "p_above_a0_empirical": 0.1998384491114701,
+      "n_at_or_below": 4953,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_1h_O2_fixedBlack1bar_noxtol_MPI6_OFFICIAL1h_samples.txt",
+      "samples_sha256": "40b8eb0c39ab69548786cbaa4d1f0de85b88d843d982479fb6b9f7c5ff1b83d0",
+      "status": "official_full"
+    },
+    {
+      "hours": 1,
+      "species": "NH3",
+      "n_samples": 6190,
+      "factor_q025_median_q975": [
+        0.012446335401156621,
+        1.5763361510777252,
+        343.0720126973095
+      ],
+      "p_above_a0_empirical": 0.5432956381260097,
+      "n_at_or_below": 2827,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_1h_O2_fixedBlack1bar_noxtol_MPI6_OFFICIAL1h_samples.txt",
+      "samples_sha256": "40b8eb0c39ab69548786cbaa4d1f0de85b88d843d982479fb6b9f7c5ff1b83d0",
+      "status": "official_full"
+    },
+    {
+      "hours": 10,
+      "species": "N2O",
+      "n_samples": 6972,
+      "factor_q025_median_q975": [
+        2.859454828736777,
+        6.675577644491568,
+        12.291972987983781
+      ],
+      "p_above_a0_empirical": 0.9995697074010327,
+      "n_at_or_below": 3,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_10h_O2_fixedBlack1bar_noxtol_proxima_A3_10h_O2_fixedBlack1bar_noxtol_samples.txt",
+      "samples_sha256": "7437e0a875e901bb9a058a2d0d385dc481b26c86a1c2645473a5cd939a6e6380",
+      "status": "official_full"
+    },
+    {
+      "hours": 10,
+      "species": "NH3",
+      "n_samples": 6972,
+      "factor_q025_median_q975": [
+        0.01391237508297169,
+        18.469644394463796,
+        264.2097184879557
+      ],
+      "p_above_a0_empirical": 0.7158634538152611,
+      "n_at_or_below": 1981,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_10h_O2_fixedBlack1bar_noxtol_proxima_A3_10h_O2_fixedBlack1bar_noxtol_samples.txt",
+      "samples_sha256": "7437e0a875e901bb9a058a2d0d385dc481b26c86a1c2645473a5cd939a6e6380",
+      "status": "official_full"
+    },
+    {
+      "hours": 100,
+      "species": "N2O",
+      "n_samples": 7479,
+      "factor_q025_median_q975": [
+        4.15111848418876,
+        5.453646869814527,
+        6.971234520265203
+      ],
+      "p_above_a0_empirical": 1.0,
+      "n_at_or_below": 0,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_samples.txt",
+      "samples_sha256": "25898e1d57146f21bb0ac63c61b735e4fa83655aeb9254b9594f9ac669f9b95f",
+      "status": "official_full"
+    },
+    {
+      "hours": 100,
+      "species": "NH3",
+      "n_samples": 7479,
+      "factor_q025_median_q975": [
+        0.11937156493435812,
+        49.28767871422156,
+        105.41751376703903
+      ],
+      "p_above_a0_empirical": 0.9486562374649017,
+      "n_at_or_below": 384,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\samples\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_samples.txt",
+      "samples_sha256": "25898e1d57146f21bb0ac63c61b735e4fa83655aeb9254b9594f9ac669f9b95f",
+      "status": "official_full"
+    },
+    {
+      "hours": 1000,
+      "species": "N2O",
+      "n_samples": 7101,
+      "factor_q025_median_q975": [
+        5.545055811541486,
+        5.962812820232794,
+        6.403227730942249
+      ],
+      "p_above_a0_empirical": 1.0,
+      "n_at_or_below": 0,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_full_20261011\\native_grid_retry\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG_samples.txt",
+      "samples_sha256": "42c157999c22e8d1d7f54d63af2fc14788e15ff54f92c5f6670dbb12e3a4a60a",
+      "status": "PRELIMINARY_PENDING_AUDIT"
+    },
+    {
+      "hours": 1000,
+      "species": "NH3",
+      "n_samples": 7101,
+      "factor_q025_median_q975": [
+        0.010398026896024842,
+        0.29100011628748484,
+        7.93525816852008
+      ],
+      "p_above_a0_empirical": 0.30756231516687793,
+      "n_at_or_below": 4917,
+      "samples_path": "Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\a3_1000h_full_20261011\\native_grid_retry\\products\\samples\\proxima_A3_1000h_O2_fixedBlack1bar_noxtol_MPI6_NG_samples.txt",
+      "samples_sha256": "42c157999c22e8d1d7f54d63af2fc14788e15ff54f92c5f6670dbb12e3a4a60a",
+      "status": "PRELIMINARY_PENDING_AUDIT"
+    }
+  ]
+}

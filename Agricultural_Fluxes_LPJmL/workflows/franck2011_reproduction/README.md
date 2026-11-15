@@ -1,5 +1,25 @@
 # Franck et al. (2011): reproducción moderna y flujos de N
 
+> **A0 validado 2026-09-22:** `a0_natural` terminó con `exit_code=0`, cubrió
+> 1996--2005 y pasó la validación global. La integración y el contraste por
+> especie están en [`docs/lpjml_global_a0_control_validation_2026-09-22.md`](../../../docs/lpjml_global_a0_control_validation_2026-09-22.md); no se ejecuta VULCAN hasta resolver el alcance/calibración de NH3.
+
+> **Control natural A0 reanudado 2026-09-21 00:30 UTC:** el checkpoint de
+> `a0_natural` del año 1587 fue verificado por SHA-256 y la campaña volvió a
+> ejecutarse con ocho ranks desde `restart/checkpoint.lpj`. La interrupción
+> anterior no produjo un error de LPJmL; este bloque conserva el historial de la
+> reanudación.
+
+> **Campaña global A1 validada 2026-09-20:** `global_a1_checkpoints_20260909`
+> completó 1996--2005 con 67 420 celdas, ocho ranks y `exit_code=0`. El
+> validador y `analyze_n_fluxes.py --coverage global` produjeron los informes
+> bajo `a1_2005_n/output/analysis/`; el detalle y la comparación con la
+> referencia congelada están en
+> [`docs/lpjml_global_a1_validation_2026-09-20.md`](../../../docs/lpjml_global_a1_validation_2026-09-20.md).
+> Estos son flujos agrícolas integrados de stand. El control natural emparejado
+> ya está validado; el contraste A0/A1 está documentado y todavía no se ha
+> acoplado a VULCAN.
+
 ## Objetivo de la primera prueba
 
 Este flujo separa dos preguntas que no deben mezclarse en una sola corrida:
@@ -16,6 +36,44 @@ La primera ejecución es un piloto de una celda. Conserva el mínimo interno de
 2100 años exigido por LPJmL 6.0.6 para equilibrar el suelo, pero solo valida
 configuración, lectura de entradas, restart y forma/unidades de las salidas. El
 modo `global` es el que puede producir resultados científicos.
+
+## Rama de capacidad seleccionada
+
+Para los escenarios hipotéticos inspirados en Franck et al. (2011) se
+seleccionó como primera rama `FR-genghis-khan-crop-only`, separada de A0--A3.
+`FR-save-forests` queda como segunda rama:
+
+- `FR-genghis-khan-crop-only`: cultivo anual energético ganador en toda la
+  tierra elegible, sin pasture, ganado ni manure;
+- `FR-save-forests`: el mismo mapa crop-only, excluyendo la máscara de bosques
+  tropicales y boreales perennifolios.
+
+La rama potencial `potential_yield_unlimited_n` se usa para obtener los
+rendimientos candidatos. La campaña global activa
+`fr_genghis_potential_20260922_chunks_ch4` conserva las cinco salidas de
+selección más los diagnósticos CH4, y secuencia bloques de 8.000 celdas con un
+rank para mantenerse dentro de la memoria de WSL; cada bloque tiene su propio
+restart y `checkpoint_runner.py`. La pasada local desactiva ríos y embalses
+porque la red de vecinos es global; esa limitación queda en el manifiesto. Al
+finalizar se construirá el mapa `landuse` sintético y se ejecutará una segunda
+campaña con ciclo de nitrógeno y metano. La campaña crop-only usará
+`grazing = "none"`, `grazing_others = "none"`, `manure_input = false` y
+`prescribe_lsuha = false`. `landuse = "all_crops"` no selecciona por sí mismo
+el cultivo ganador. El diseño completo, incluido el plan methane-enabled, está en
+[`docs/lpjml_franck_capacity_scenarios_design_2026-09-22.md`](../../../docs/lpjml_franck_capacity_scenarios_design_2026-09-22.md).
+
+El planificador `run_capacity_potential_chunks.sh` admite concurrencia acotada
+con `MAX_PARALLEL`, manteniendo un rank MPI por bloque; el valor por defecto
+sigue siendo 1. Desde 2026-10-01 01:54 COT la campaña CH4 corre dos bloques
+(`00000_07999` y `08000_15999`) simultáneamente, con un rank MPI en cada uno.
+`checkpoint_runner.py` conserva todas las generaciones
+(`MAX_ARCHIVED_CHECKPOINTS=0`). A las 05:14 COT ambos procesos seguían activos;
+el bloque 0 reporta año 1553 y conserva el checkpoint de año 1552. El bloque 1
+guardó y reanudó año 1482 con hash verificado
+`79698dfb5cd3558c13c2219bf8fe6d862fade574c11a27764c74acec48577f79`.
+La ganancia real de velocidad se medirá con el avance por bloque. Hubo un
+lanzamiento breve en otro directorio, que se detuvo y cuyos archivos parciales
+se preservan separados. Véase [la nota de paralelismo y checkpoints](../../../docs/lpjml_capacity_chunk_parallelism_2026-10-01.md).
 
 ## Qué es reproducción y qué no es réplica exacta
 
@@ -88,6 +146,13 @@ El benchmark solicita, como mínimo:
 - `nfert_agr`, `nmanure_agr`, `nleaching_agr`, `nuptake_agr`, `bnf_agr` y
   `ndepo_agr`.
 
+Los campos con sufijo `_agr` ya incluyen la ponderación por fracción de los
+rodales que LPJmL clasifica como agrícolas. Se integran con `land_area`, sin
+volver a multiplicar por `cellfrac_agr`. Esa fracción incluye el conjunto de
+rodales gestionados definido por `isagriculture(stand)`; para restringir el
+análisis a cultivos/CFT concretos se necesitan `cftfrac` y `cft_n2_emis` (o una
+salida equivalente) en una corrida diagnóstica.
+
 Todas son masa de **N**, no masa molecular. La integración global debe
 multiplicar `gN m-2 yr-1` por el área terrestre de cada celda. Después:
 
@@ -151,6 +216,29 @@ Campaña global (solo después de aceptar el piloto y registrar recursos):
 bash ./run_global_a1_mpi.sh --help
 ```
 
+Cuando termine la selección global, el mapa se valida con `lpjcheck` y la rama
+final se lanza con:
+
+```bash
+python build_capacity_landuse.py \
+  --potential-root /home/dasan/exofarm-lpjml-runs/fr_genghis_potential_20260922_chunks_ch4/chunks/00000_07999 \
+  --potential-root /home/dasan/exofarm-lpjml-runs/fr_genghis_potential_20260922_chunks_ch4/chunks/08000_15999 \
+  --ncell 67420 \
+  --output-dir /home/dasan/exofarm-lpjml-runs/fr_genghis_crop_only_20260922/map
+bash ./run_capacity_genghis_chunks.sh --phase all --mpi-ranks 1 --chunk-size 8000 \
+  --lpjml-root /home/dasan/exofarm-lpjml-runtime/LPJmL-6.0.6-balance-fix-20260912 \
+  --input-root /home/dasan/lpjml-data/public_standard \
+  --campaign-dir /home/dasan/exofarm-lpjml-runs/fr_genghis_crop_only_20260922 \
+  --landuse-meta /home/dasan/exofarm-lpjml-runs/fr_genghis_crop_only_20260922/map/genghis_khan_crop_only_2005.clm.json
+```
+
+El lanzador repite el spin-up con `with_methane=true`, activa `only_crops` en
+2005 y conserva los reinicios y hashes por fase. La campaña final por bloques
+deja explícita la limitación de routing local. `run_capacity_potential_chunks.sh`,
+`run_capacity_genghis_chunks.sh` y `build_capacity_landuse.py` son reproducibles
+y no modifican VULCAN. `analyze_capacity_chunks.py` integra las salidas N y
+CH4 de todos los bloques con sus unidades nativas.
+
 La ejecución en otro PC, incluida la instalación de LPJmL/MPICH, verificación
 de datos, smoke test MPI, selección de ranks, fases recuperables y aceptación,
 está especificada en
@@ -169,8 +257,8 @@ clasificación científica.
 - reconstruir la máscara PNV de `save forests`;
 - resolver el umbral de productividad al que el artículo alude sin publicar su
   valor numérico;
-- generar un mapa de uso de suelo con el cultivo ganador por celda y rerun con
-  N limitado para que `N2O` y `NH3` correspondan al mismo escenario de
-  capacidad de carga;
+- completar la campaña global de candidatos, generar el mapa de uso de suelo
+  con el cultivo ganador por celda y aceptar la corrida crop-only methane-
+  enabled con `lpjcheck`, checkpoints y cobertura global;
 - validar la regla de segunda cosecha frente a las salidas modernas;
-- ejecutar y aceptar la campaña A1 global preparada para MPI en el otro PC.
+- ejecutar y aceptar la campaña A1 global preparada para MPI en el otro PC (cerrado el 2026-09-20); el control A0 y el contraste A1−A0 quedaron validados el 2026-09-22. Pendiente: decidir el alcance/calibración de NH3 antes de VULCAN.

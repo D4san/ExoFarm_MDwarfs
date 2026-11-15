@@ -1,0 +1,29 @@
+{
+  "scenario": "A3",
+  "hours": 1000,
+  "new_variants": [
+    "N2O",
+    "NH3",
+    "joint"
+  ],
+  "new_retrievals": 3,
+  "existing_full": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_binning_corrected_20261014",
+  "campaign": "a0_fixed_reference_A3_1000h_binning_corrected_20261016_relaunch_01",
+  "mpi_ranks_per_run": 5,
+  "max_parallel": 3,
+  "global_rank_budget": 15,
+  "monitor_interval_minutes": 90,
+  "operator": "same corrected midpoint-photon operator as full",
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "checkpoint_reuse": false,
+  "previous_attempt": "a0_fixed_reference_A3_1000h_binning_corrected_20261015",
+  "other_exposures": "deferred; no 1/10/100h execution",
+  "authorization": "2026-10-16: user explicitly authorized relaunch after power loss; preserve the interrupted attempt and use fresh campaign and scratch roots",
+  "utc": "2026-10-16T12:04:00+00:00",
+  "host_at_launch": {
+    "logical_cpus": 16,
+    "mpi_jobs": [],
+    "rank_total": 0,
+    "available_KiB": 31929560
+  }
+}

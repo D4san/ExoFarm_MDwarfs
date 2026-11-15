@@ -1,0 +1,23 @@
+{
+  "verified": [
+    {
+      "run_id": "A3_100h_A0_N2O",
+      "status": "PASS",
+      "utc": "2026-10-11T00:05:21+00:00",
+      "effective_free_dimension": 13
+    },
+    {
+      "run_id": "A3_100h_A0_NH3",
+      "status": "PASS",
+      "utc": "2026-10-11T00:05:21+00:00",
+      "effective_free_dimension": 13
+    },
+    {
+      "run_id": "A3_100h_A0_joint",
+      "status": "PASS",
+      "utc": "2026-10-11T00:05:21+00:00",
+      "effective_free_dimension": 12
+    }
+  ],
+  "retrievals_launched": 0
+}

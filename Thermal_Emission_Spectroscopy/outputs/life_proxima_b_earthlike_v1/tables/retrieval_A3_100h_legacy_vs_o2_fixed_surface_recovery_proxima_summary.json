@@ -1,0 +1,240 @@
+{
+  "question": "A3 100 h posterior recovery and corrected-interface comparison",
+  "dataset": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\life_data\\LIFE_proxima_A3_100h.dat",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "bins": 31,
+  "noise_model": "diagonal LIFE classic; one realization",
+  "a0_effective_log10_vmr": {
+    "N2O": -6.8843252896367835,
+    "NH3": -9.950526295665036
+  },
+  "a3_effective_log10_vmr": {
+    "N2O": -6.014061792404634,
+    "NH3": -8.231503523589122
+  },
+  "variants": {
+    "legacy": {
+      "label": "Legacy: sin O$_2$, sin superficie expl\u00edcita",
+      "n_parameters": 13,
+      "n_live": 800,
+      "ln_Z": 877.05,
+      "ln_Z_error": 0.24,
+      "chi2": 94.89,
+      "chi2_red": 5.27,
+      "dof": 18,
+      "posterior_rows": 7349,
+      "parameters": {
+        "R_p_ref": {
+          "q16": 1.2124157416331416,
+          "median": 1.2191216920769903,
+          "q84": 1.2254799795623892,
+          "sigma68": 0.006532118964623801
+        },
+        "log_N2O": {
+          "q16": -6.571384803857767,
+          "median": -6.484846539254589,
+          "q84": -6.400927827833378,
+          "sigma68": 0.08522848801219451
+        },
+        "log_NH3": {
+          "q16": -9.1878119166444,
+          "median": -8.395402727132584,
+          "q84": -8.164638491804274,
+          "sigma68": 0.5115867124200628
+        }
+      },
+      "z_descriptive": {
+        "N2O": 4.687150502130664,
+        "NH3": 3.039804456953023
+      },
+      "median_spectrum_residual_chi2": 114.30388413383196,
+      "median_spectrum_residual_rms_sigma": 1.9202140684916589,
+      "bins_over_3sigma": 3,
+      "pt_shape": [
+        100,
+        6
+      ],
+      "log_x_numeric_rows": 700,
+      "samples_file_sha256": "5e04b4ae22c156e232e6524960e26ffb40ffa746ad0f67230f6f81a913c0b39f",
+      "results_file_sha256": "6e29cd7fbdc8eaa870a9734bb01f6c7b670bc750fae11ea92de44b05916a9d84"
+    },
+    "corrected": {
+      "label": "Interfaz corregida: O$_2$ + superficie negra a 1 bar",
+      "n_parameters": 15,
+      "n_live": 800,
+      "ln_Z": 884.33,
+      "ln_Z_error": 0.24,
+      "chi2": 79.01,
+      "chi2_red": 4.94,
+      "dof": 16,
+      "posterior_rows": 7479,
+      "parameters": {
+        "R_p_ref": {
+          "q16": 1.2142433699955808,
+          "median": 1.220217332845834,
+          "q84": 1.226595968344226,
+          "sigma68": 0.006176299174322608
+        },
+        "log_N2O": {
+          "q16": -6.203983493131535,
+          "median": -6.147638276210132,
+          "q84": -6.09265959683062,
+          "sigma68": 0.05566194815045744
+        },
+        "log_NH3": {
+          "q16": -8.658618770251364,
+          "median": -8.257787930854676,
+          "q84": -8.056874867937522,
+          "sigma68": 0.3008719511569211
+        },
+        "log_O2": {
+          "q16": -5.095187795550179,
+          "median": -3.309525741354074,
+          "q84": -1.4247835322758489,
+          "sigma68": 1.835202131637165
+        }
+      },
+      "z_descriptive": {
+        "N2O": 13.23502029493011,
+        "NH3": 5.626108908794575
+      },
+      "median_spectrum_residual_chi2": 82.82628011093112,
+      "median_spectrum_residual_rms_sigma": 1.6345688995724197,
+      "bins_over_3sigma": 3,
+      "pt_shape": [
+        100,
+        6
+      ],
+      "log_x_numeric_rows": 800,
+      "samples_file_sha256": "25898e1d57146f21bb0ac63c61b735e4fa83655aeb9254b9594f9ac669f9b95f",
+      "results_file_sha256": "37aca3cd91fdc115323706aa746865e014b6656e6eb77eabd247592f311b54c2"
+    }
+  },
+  "raw_multinest_validation": {
+    "legacy": {
+      "equal_weight_shape": [
+        7349,
+        14
+      ],
+      "live_points_shape": [
+        800,
+        14
+      ],
+      "physical_live_points_shape": [
+        800,
+        15
+      ],
+      "evidence_trace_rows": 42475,
+      "files": {
+        "-.txt": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-.txt",
+          "bytes": 8905413,
+          "sha256": "fad24c000e3a09f156a7d5a075ba649937800ca6d1687334a8af2cae5aff8944"
+        },
+        "-ev.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-ev.dat",
+          "bytes": 18094350,
+          "sha256": "0dc4a06929d6e42bfdf26d371b5a700c82e44340b0d5303325f1f76bd5c7188f"
+        },
+        "-live.points": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-live.points",
+          "bytes": 314400,
+          "sha256": "7dbc9eaeadf66d572f3dc638709fe18fd455cc9ad5b5ac8e2fd59603e6ac160b"
+        },
+        "-phys_live.points": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-phys_live.points",
+          "bytes": 317600,
+          "sha256": "1201f482fbeef2f2ab75832e1f9a48f150a1f23af81474495ab10e70efdf06cb"
+        },
+        "-post_equal_weights.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-post_equal_weights.dat",
+          "bytes": 2888157,
+          "sha256": "9d8fc2242f08b2e0750194872a1a64e747b7846c329811000d1283764c7c8fc6"
+        },
+        "-resume.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-resume.dat",
+          "bytes": 225,
+          "sha256": "d8ac3e95589ca85a3d9a53288b39bc5c79d404aff00ce200d4044d7e9bd4f311"
+        },
+        "-stats.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-stats.dat",
+          "bytes": 1890,
+          "sha256": "bbf6e29acf739bb78ba2013a8a366ec47f87410ddddfca7a232ee7146a9749d4"
+        },
+        "-summary.txt": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_fixedP1bar_noxtol_proxima_A3_100h_fixedP1bar_noxtol-summary.txt",
+          "bytes": 3026,
+          "sha256": "76c9a7728e8c3c85cf60dbf48da021ede9165d0831e382172be4305458889dbf"
+        }
+      }
+    },
+    "corrected": {
+      "equal_weight_shape": [
+        7479,
+        16
+      ],
+      "live_points_shape": [
+        800,
+        16
+      ],
+      "physical_live_points_shape": [
+        800,
+        17
+      ],
+      "evidence_trace_rows": 43003,
+      "files": {
+        "-.txt": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-.txt",
+          "bytes": 10112400,
+          "sha256": "90fdb7fe95be2a6e64864bc4449660aee76e5108ed573265da92f40d3e2682b4"
+        },
+        "-ev.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-ev.dat",
+          "bytes": 20727446,
+          "sha256": "564d505b1f2c8be4e64a3fa5a3ba25f73b52adc23d1e9d1fd2fd034110a45c34"
+        },
+        "-live.points": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-live.points",
+          "bytes": 359200,
+          "sha256": "1676f8e1a77789138b059277bb642b4a1aad5fcee24d4cbbbae7efb19f49402d"
+        },
+        "-phys_live.points": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-phys_live.points",
+          "bytes": 362400,
+          "sha256": "bffe4871c3f6c0c3dabb9b9fb42f6f349c53a42dda07ca70ccc0d614277315aa"
+        },
+        "-post_equal_weights": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-post_equal_weights",
+          "bytes": 3358071,
+          "sha256": "43df7db9bffc11b00dc02f3e7ee97fa6de001d0c693128fa49f1fc3310831bc8"
+        },
+        "-post_equal_weights.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-post_equal_weights.dat",
+          "bytes": 3358071,
+          "sha256": "43df7db9bffc11b00dc02f3e7ee97fa6de001d0c693128fa49f1fc3310831bc8"
+        },
+        "-resume.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-resume.dat",
+          "bytes": 225,
+          "sha256": "3b788287540dd4a59437b5cda2cf87bbcd7215e21f5d0b5238603425ef02116a"
+        },
+        "-stats.dat": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-stats.dat",
+          "bytes": 2144,
+          "sha256": "9d05565afb2a8b3ffa7ceb75e50569f9baba1f4f5e32bf9d360974fc1d774bf7"
+        },
+        "-summary.txt": {
+          "path": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\MultiNest_raw\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol-summary.txt",
+          "bytes": 3474,
+          "sha256": "952e7feb8430ff63294fd69bc1e08ad6ce3cc5c8f36ce6f7da62b0ed2b46942c"
+        }
+      }
+    }
+  },
+  "postprocessing_manifest": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\retrievals\\POSEIDON_output\\proxima_b_earthlike\\retrievals\\results\\proxima_A3_100h_O2_fixedBlack1bar_noxtol_proxima_A3_100h_O2_fixedBlack1bar_noxtol_postprocess_manifest.json",
+  "figure": {
+    "png": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\plots\\retrieval_A3_100h_legacy_vs_o2_fixed_surface_recovery_proxima.png",
+    "pdf": "C:\\Proyectos\\Astro\\ExoFarm_MDwarfs\\Thermal_Emission_Spectroscopy\\outputs\\life_proxima_b_earthlike_v1\\plots\\retrieval_A3_100h_legacy_vs_o2_fixed_surface_recovery_proxima.pdf"
+  },
+  "caveat": "z values are conditional descriptive posterior distances; neither a formal detection nor a Bayes factor between the runs. Isochemical profiles remain mismatched to VULCAN."
+}

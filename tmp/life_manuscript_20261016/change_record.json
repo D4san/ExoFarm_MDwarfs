@@ -1,0 +1,37 @@
+{
+  "target": "E:\\Down\\ExoFarms_Photochemistry_v2.tex",
+  "new_labels": [
+    "sec:life_molecular_evidence",
+    "eq:life_evidence",
+    "eq:life_molecular_bayes",
+    "eq:life_sigma_cal",
+    "tab:life_molecular_evidence",
+    "sec:life_abundance_regions",
+    "eq:life_regions",
+    "eq:life_region_bayes",
+    "tab:life_a1_regions",
+    "tab:life_a3_enrichment",
+    "sec:life_a0_constraints",
+    "tab:life_a0_constraints",
+    "sec:life_interpretation"
+  ],
+  "new_citations": [
+    "bennekeSeager2013Cloudy",
+    "woganSurfaceFluxes2026"
+  ],
+  "loo_comparisons": 36,
+  "posterior_cases": 6,
+  "before_sha256": {
+    "E:\\Down\\ExoFarms_Photochemistry_v2.tex": "cf56a1d4bd9f6d4705cd5a21acb7d8d27287213514e8600b9934738bf54cbe68",
+    "E:\\Down\\reference.bib": "35b1d2c14ef82e0cbac0254733bea96680416d6b3926ce8596f42da0dcab00b5"
+  },
+  "after_sha256": {
+    "E:\\Down\\ExoFarms_Photochemistry_v2.tex": "1839791b321ca99e9f14d2705baef74234718628b19f2c5fdf3e50bb05483929",
+    "E:\\Down\\reference.bib": "7cb59b8851a0bb15d280090e59a6aa92580aff6d02d99f7c24be2635f02dba71"
+  },
+  "bytes_added": {
+    "E:\\Down\\ExoFarms_Photochemistry_v2.tex": 17000,
+    "E:\\Down\\reference.bib": 959
+  },
+  "applied": true
+}

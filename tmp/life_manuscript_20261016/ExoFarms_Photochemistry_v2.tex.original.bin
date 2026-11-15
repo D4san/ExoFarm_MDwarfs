@@ -1,0 +1,1319 @@
+%% Beginning of file 'sample701.tex'
+%%
+%% Version 7.0.1. Created May 2025.
+%% Version 7. Created January 2025.  
+%%
+%% AASTeX v7+ calls the following external packages:
+%% times, hyperref, ifthen, hyphens, longtable, xcolor, 
+%% bookmarks, array, rotating, ulem, and lineno 
+%%
+%% RevTeX is no longer used in AASTeX v7+.
+%%
+\documentclass[linenumbers,trackchanges]{aastex701}
+%%
+%% This initial command takes arguments that can be used to easily modify 
+%% the output of the compiled manuscript. Any combination of arguments can be 
+%% invoked like this:
+%%
+%% \documentclass[argument1,argument2,argument3,...]{aastex701}
+%%
+%% Six of the arguments are typestting options. They are:
+%%
+%%  twocolumn   : two text columns, 10 point font, single spaced article.
+%%                This is the most compact and represent the final published
+%%                derived PDF copy of the accepted manuscript from the publisher
+%%  default     : one text column, 10 point font, single spaced (default).
+%%  manuscript  : one text column, 12 point font, double spaced article.
+%%  preprint    : one text column, 12 point font, single spaced article.  
+%%  preprint2   : two text columns, 12 point font, single spaced article.
+%%  modern      : a stylish, single text column, 12 point font, article with
+%% 		  wider left and right margins. This uses the Daniel
+%% 		  Foreman-Mackey and David Hogg design.
+%%
+%% Note that you can submit to the AAS Journals in any of these 6 styles.
+%%
+%% There are other optional arguments one can invoke to allow other stylistic
+%% actions. The available options are:
+%%
+%%   astrosymb    : Loads Astrosymb font and define \astrocommands. 
+%%   tighten      : Makes baselineskip slightly smaller, only works with 
+%%                  the twocolumn substyle.
+%%   times        : uses times font instead of the default.
+%%   linenumbers  : turn on linenumbering. Note this is mandatory for AAS
+%%                  Journal submissions and revisions.
+%%   trackchanges : Shows added text in bold.
+%%   longauthor   : Do not use the more compressed footnote style (default) for 
+%%                  the author/collaboration/affiliations. Instead print all
+%%                  affiliation information after each name. Creates a much 
+%%                  longer author list but may be desirable for short 
+%%                  author papers.
+%% twocolappendix : make 2 column appendix.
+%%   anonymous    : Do not show the authors, affiliations, acknowledgments,
+%%                  and author contributions for dual anonymous review.
+%%  resetfootnote : Reset footnotes to 1 in the body of the manuscript.
+%%                  Useful when there are a lot of authors and affiliations
+%%		    in the front matter.
+%%   longbib      : Print article titles in the references. This option
+%% 		    is mandatory for PSJ manuscripts.
+%%
+%% Since v6, AASTeX has included \hyperref support. While we have built in 
+%% specific %% defaults into the classfile you can manually override them 
+%% with the \hypersetup command. For example,
+%%
+%% \hypersetup{linkcolor=red,citecolor=green,filecolor=cyan,urlcolor=magenta}
+%%
+%% will change the color of the internal links to red, the links to the
+%% bibliography to green, the file links to cyan, and the external links to
+%% magenta. Additional information on \hyperref options can be found here:
+%% https://www.tug.org/applications/hyperref/manual.html#x1-40003
+%%
+%% The "bookmarks" has been changed to "true" in hyperref
+%% to improve the accessibility of the compiled pdf file.
+%%
+%% If you want to create your own macros, you can do so
+%% using \newcommand. Your macros should appear before
+%% the \begin{document} command.
+%%
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+% Expected figure files for the working v2 draft (PDF format):
+% stellar_spectra_comparison.pdf
+% photochemical_summary_grid.pdf
+% trappist1e_pure_a0_molecular_residuals_v2.pdf
+% trappist1e_net_molecular_snr_comparison.pdf
+% trappist_retrieved_zooms_A0_A3_v2.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% The following section outlines numerous optional output that
+%% can be displayed in the front matter or as running meta-data.
+%%
+%% Running header information. A short title on odd pages and 
+%% short author list on even pages. Note that this
+%% information may be modified in production.
+%%\shorttitle{AASTeX v7.0.1 Sample article}
+%%\shortauthors{The Terra Mater collaboration}
+%%
+%% Include dates for submitted, revised, and accepted.
+%%\received{February 1, 2025}
+%%\revised{March 1, 2025}
+%%\accepted{\today}
+%%
+%% Indicate AAS Journal the manuscript was submitted to.
+%%\submitjournal{PSJ}
+%% Note that this command adds "Submitted to " the argument.
+%%
+%% You can add a light gray and diagonal water-mark to the first page 
+%% with this command:
+%% \watermark{text}
+%% where "text", e.g. DRAFT, is the text to appear.  If the text is 
+%% long you can control the water-mark size with:
+%% \setwatermarkfontsize{dimension}
+%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Use this command to indicate a subdirectory where figures are located.
+%%\graphicspath{{./}{figures/}}
+%% This is the end of the preamble.  Indicate the beginning of the
+%% manuscript itself with \begin{document}.
+
+\begin{document}
+
+\title{ExoFarms Under Red Suns: Photochemical Amplification of Agricultural Technosignatures on TRAPPIST-1e}
+
+%% A significant change from AASTeX v6+ is in the author blocks. Now an email
+%% address is required for each author. This means that each author requires
+%% at least one of the following:
+%%
+%% \author
+%% \affiliation
+%% \email
+%%
+%% If these three commands are not available for each author, the latex
+%% compiler will issue an error and if you force the latex compiler to continue,
+%% it will generate an incomplete pdf.
+%%
+%% Multiple \affiliation commands are allowed and authors can also include
+%% an optional \altaffiliation to indicate a status, i.e. Hubble Fellow. 
+%% while affiliations are indexed as footnotes, altaffiliations are noted with
+%% with a non-numeric footnote that is set away from the numeric \affiliation 
+%% footnotes. NOTE that if an \altaffiliation command is used it must 
+%% come BEFORE the \affiliation call, right after the \author command, in 
+%% order to place the footnotes in the proper location. Because non-numeric
+%% symbols are used, \altaffiliation should be used sparingly.
+%%
+%% In v7+ the \author command takes an optional argument which provides 
+%% additional metadata about the author. Authors can provide the 16 digit 
+%% ORCID, the surname (family or last) name, the given (first or fore-) name, 
+%% and a name suffix, e.g. "Jr.". The syntax is:
+%%
+%% \author[orcid=0000-0002-9072-1121,gname=Gregory,sname=Schwarz]{Greg Schwarz}
+%%
+%% This name metadata in not shown, it is only for parsing by the peer review
+%% system so authors can be more easily identified. This name information will
+%% also be sent to the publisher so they can include it in the CROSSREF 
+%% metadata. Including an orcid will hyperlink the author name to the 
+%% author's ORCID page. Note that  during compilation, LaTeX will do some 
+%% limited checking of the format of the ID to make sure it is valid. If 
+%% the "orcid-ID.png" image file is  present or in the LaTeX pathway, the 
+%% ORCID icon will appear next to the authors name.
+%%
+%% Even though emails are now required for each author, the \email does not
+%% produce output in the compiled manuscript unless the optional "show" command
+%% is used. For example,
+%%
+%% \email[show]{greg.schwarz@aas.org}
+%%
+%% All "shown" emails are show in the bottom left of the first page. Due to
+%% space constraints, only a few emails should be shown. 
+%%
+%% To identify a corresponding author, use the \correspondingauthor command.
+%% The command appends "Corresponding Author: " to the argument it appears at
+%% the bottom left of the first page like the output from \email. 
+
+\author[orcid=0000-0003-3614-7904,sname='Duque-Castaño']{David S. Duque-Castaño}
+\altaffiliation{SEAP-FACom}
+\affiliation{Instituto de Física - FCEN, Universidad de Antioquia}
+\email[show]{dasan.academico@gmail.com}  
+
+%% Use the \collaboration command to identify collaborations. This command
+%% takes an optional argument that is either a number or the word "all"
+%% which tells the compiler how many of the authors above the command to
+%% show. For example "\collaboration[all]{(DELVE Collaboration)}" wil include
+%% all the authors above this command.
+%%
+%% Mark off the abstract in the ``abstract'' environment. 
+\begin{abstract}
+
+Industrial agriculture can perturb the planetary nitrogen cycle and enhance atmospheric $\mathrm{N_2O}$ and $\mathrm{NH_3}$, motivating ExoFarm as a potential technosignature of sustained large-scale food production. We investigate how stellar irradiation modifies this signal from surface emission to atmospheric abundance and detectability. Four agricultural scenarios, ranging from a pre-agricultural state to an extreme technosphere, were imposed as lower-boundary $\mathrm{N_2O}$ and $\mathrm{NH_3}$ fluxes in the 1D photochemical model VULCAN for Earth--Sun and TRAPPIST-1e environments. The resulting profiles were propagated into transmission spectra across the JWST NIRSpec PRISM and MIRI LRS ranges and evaluated with PandExo. A complementary Earth-like atmosphere under Proxima Centauri irradiation was used to model thermal-emission spectra and LIFE detectability. Under TRAPPIST-1 irradiation, $\mathrm{N_2O}$ reached larger column abundances and persisted to lower pressures, while $\mathrm{NH_3}$ survived over a substantially broader vertical range than in the Earth--Sun case. In transmission, the strongest ExoFarm residuals occur in $\mathrm{N_2O}$ bands near 2.8, 4.5, and $8.6\,\mu$m and the $\mathrm{NH_3}$ band near $10.7\,\mu$m; even in the highest-forcing agricultural scenario, the most favorable $\mathrm{N_2O}$ feature remains below $S/N=1$ after 100 NIRSpec transits. In thermal emission, LIFE reaches $S/N=4.8$ for $\mathrm{N_2O}$ at 16.5--$17.5\,\mu$m and $S/N=1.44$ for $\mathrm{NH_3}$ at 9.5--$11.5\,\mu$m after 10 h in the extreme agricultural case. A 240 h LIFE retrieval recovers the enhanced $\mathrm{N_2O}$ abundance at approximately $3.1\sigma$, whereas $\mathrm{NH_3}$ remains independently unconstrained. These results identify $\mathrm{N_2O}$ as the more accessible ExoFarm tracer in the configurations explored and show that stellar photochemistry, observing mode, and retrieval degeneracies jointly control detectability.
+
+
+
+\end{abstract}
+
+%% Keywords should appear after the \end{abstract} command. 
+%% The AAS Journals now uses Unified Astronomy Thesaurus (UAT) concepts:
+%% https://astrothesaurus.org
+%% You will be asked to selected these concepts during the submission process
+%% but this old "keyword" functionality is maintained in case authors want
+%% to include these concepts in their preprints.
+%%
+%% You can use the \uat command to link your UAT concepts back its source.
+\keywords{
+  \uat{Technosignatures}{2128} --- 
+  \uat{Exoplanet atmospheres}{487} --- 
+  \uat{Biosignatures}{2018} --- 
+  \uat{M dwarf stars}{982} --- 
+  \uat{Habitable planets}{695} --- 
+  \uat{Astrochemistry}{75}
+}
+
+%% From the front matter, we move on to the body of the paper.
+%% Sections are demarcated by \section and \section, respectively.
+%% Observe the use of the LaTeX \label
+%% command after the \section to give a symbolic KEY to the
+%% section for cross-referencing in a \ref command.
+%% You can use LaTeX's \ref and \label commands to keep track of
+%% cross-references to sections, equations, tables, and figures.
+%% That way, if you change the order of any elements, LaTeX will
+%% automatically renumber them.
+
+\section{Introduction}\label{sec:intro}
+
+In the search for life beyond Earth, the detection of biosignatures is a key step. Biosignatures are objects, substances, or patterns whose origin can be associated with biological activity, whereas potential biosignatures are features compatible with biological processes that require additional evidence to distinguish biological from abiotic origins \citep{desMaraisNASAstrobiologyRoadmap2008}. Earth, observed from a distance, provides the principal empirical reference for proposing and interpreting such signals \citep{saganSearchLifeEarth1993}. Atmospheric biosignatures are particularly relevant because biological activity can directly produce volatile species or indirectly modify their atmospheric abundances through environmental processing \citep{schwietermanOverviewExoplanetBiosignatures2024,schwietermanExoplanetBiosignaturesReview2018a,seagerTowardListMolecules2016}. Their interpretation, however, cannot rely on molecular detection alone, but must account for the properties of the planet, the history of the system, and plausible abiotic explanations \citep{desMaraisRemoteSensingPlanetary2002,krissansen-tottonDisequilibriumBiosignatures2018}.
+
+For an atmospheric gas to provide useful evidence of life, it must accumulate to detectable levels, persist against atmospheric destruction, and be distinguishable from plausible abiotic sources \citep{catlingExoplanetBiosignaturesFramework2018,meadowsExoplanetBiosignaturesUnderstanding2018,schwietermanOverviewExoplanetBiosignatures2024}. A prominent spectral feature is therefore insufficient by itself: the observed abundance must be interpreted through the balance between atmospheric sources and sinks and within the chemical and redox state of the atmosphere. For example, $CH_4$ may accumulate in reducing or weakly oxidizing atmospheres through both biological and abiotic processes, including serpentinization, whereas its coexistence with oxidized species such as $O_2$ or $O_3$ can indicate sustained chemical disequilibrium requiring continuous replenishment \citep{schwietermanExoplanetBiosignaturesReview2018a,guzman-marmolejoAbioticMethane2013,catlingExoplanetBiosignaturesFramework2018}. Conversely, $O_2$ and $O_3$ can themselves accumulate abiotically through pathways involving $CO_2$ or $H_2O$ photolysis, hydrogen escape, and atmospheric redox chemistry \citep{domagal-goldmanABIOTICOZONEOXYGEN2014,gaoSTABILITYCO2ATMOSPHERES2015,harmanABIOTICO2LEVELS2015,wordsworthPierrehumbertAbioticOxygen2014,lugerBarnesExtremeWaterLoss2015}. Complementary species such as CO, or $O_4$ bands indicative of high oxygen partial pressures, may provide additional contextual information \citep{schwietermanBiosignatureImpostors2016,fauchezSensitiveProbingOxygen2020}. These examples illustrate why atmospheric biosignatures must be interpreted jointly with their chemical environment and plausible formation and destruction pathways rather than as isolated molecular detections.
+
+A central component of this context is the host star. In addition to defining the habitable zone---the range of stellar irradiation compatible with surface liquid water under suitable planetary conditions \citep{kopparapuHABITABLEZONESMAINSEQUENCE2013}---the star controls the photochemical environment of the atmosphere. Its spectral energy distribution, particularly at ultraviolet wavelengths, determines photolysis rates and radical production and thereby regulates atmospheric sources, sinks, and chemical lifetimes. Consequently, terrestrial planets receiving comparable bolometric irradiation can develop different atmospheric compositions and spectral features \citep{seguraBiosignaturesEarthLikePlanets2005}. Lower UV irradiation can, for example, prolong the atmospheric lifetime of $CH_4$ \citep{seguraBiosignaturesEarthLikePlanets2005}, while $O_3$ abundances respond to the wavelengths driving its photochemical production and destruction \citep{grenfellSensitivityBiosignatures2014,schwietermanOverviewExoplanetBiosignatures2024}. Of particular relevance to nitrogen-bearing gases, the atmospheric abundance of $N_2O$ depends jointly on its surface flux, the atmospheric $O_2$ abundance, and the stellar spectral energy distribution \citep{schwietermanEvaluatingPlausibleRange2022a}. Thus, an identical biological or technological surface perturbation need not produce the same atmospheric abundance or vertical profile around different host stars.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/photochemical flux.png}
+    \caption{Enter Caption}
+    \label{fig:placeholder}
+\end{figure}
+
+Chemical accumulation, however, does not by itself imply observational accessibility. The detectability of Earth-like atmospheric signatures has been extensively investigated using Earth and its evolution as empirical references, including studies of disk-integrated and transmission spectra and of the atmospheric information that could be recovered from terrestrial exoplanets \citep{kalteneggerSpectralEvolutionEarthlike2007,kalteneggerHighresolutionTransmissionSpectra2020,lustigYaegerEarthTransitingExoplanet2023}. Subsequent studies have evaluated the recoverability of atmospheric species through combinations of atmospheric models, synthetic spectra, instrumental noise simulations, and Bayesian retrieval analyses, particularly in the context of JWST observations \citep{linDifferentiatingModernPrebiotic2021,barstowHabitableWorldsJWST2016,wunderlichDetectabilityAtmosphericFeatures2019,lustigYaegerEarthTransitingExoplanet2023}. Proposed mid-infrared nulling interferometers such as LIFE extend these assessments to the direct thermal-emission characterization of temperate terrestrial planets \citep{konradLargeInterferometerExoplanets2022,angerhausenLargeInterferometerExoplanets2024}. Therefore, a chemically enhanced atmospheric species is not necessarily an observable one: its relevance ultimately depends on whether the resulting spectral signal can be detected, distinguished from overlapping absorbers, and retrieved from realistic observations.
+
+Technosignatures provide a complementary route for investigating the possible presence of technological life by searching for observable manifestations of a technosphere, including artificial emissions, large-scale environmental modifications, structures, or atmospheric compounds associated with technological processes \citep{haqq-misraSearchingTechnosignaturesExoplanetary2022}. In contrast to biosignatures, which seek evidence associated with biological activity, technosignatures seek evidence of technological transformations; nevertheless, their attribution is likewise context dependent. $NO_2$, for example, may be associated with combustion and industrial pollution but also has natural and biogenic sources \citep{kopparapuNitrogenDioxidePollution2021}. By contrast, chlorofluorocarbons and several other fluorinated gases have much more restricted natural production pathways and have consequently been proposed as atmospheric technosignatures \citep{haqq-misraDetectabilityChlorofluorocarbonsAtmospheres2022,schwietermanArtificialGreenhouseGases2024}. As with biosignatures, atmospheric technosignatures must therefore be interpreted through their production mechanisms, chemical persistence, and planetary context.
+
+Moreover, detectability does not guarantee persistence on geological timescales. Technological evolution may reduce harmful atmospheric emissions through changes in energy production, industrial processes, or environmental remediation, making some pollution-related technosignatures characteristic of comparatively transient phases in the evolution of a technosphere \citep{haqq-misraProjectionsEarthsTechnosphere2025}. A biosphere may therefore coexist with a technologically active civilization without producing an atmospheric signal that is readily distinguishable from that of the biosphere alone. This motivates considering technological activities that can be sustained over long periods while producing recognizable perturbations of planetary-scale biogeochemical cycles.
+
+One such possibility is ExoFarm, proposed by \citet{haqq-misraDisruptionPlanetaryNitrogen2022} as an atmospheric technosignature associated with intensive agriculture on a planetary scale. Industrial nitrogen fixation and fertilizer use perturb the nitrogen cycle and can enhance atmospheric $NH_3$ and $N_2O$ in a planet containing $O_2$, $H_2O$, and $CO_2$. Agriculture is particularly relevant in this context because sustained food production could persist over long timescales even after other pollution-related signals have been reduced. Previous studies established the ExoFarm concept and explored the spectral consequences of enhanced nitrogen-bearing species associated with large-scale agriculture \citep{haqq-misraDisruptionPlanetaryNitrogen2022}. Translating an agricultural perturbation into an observable atmospheric signal, however, requires more than prescribing or scaling molecular abundances: surface emissions must be propagated through atmospheric transport and photochemical production and loss processes whose efficiencies depend on the stellar radiation field. Consequently, the same agricultural surface flux may produce substantially different abundances and vertical profiles around different host stars. A self-consistent connection between agricultural fluxes, stellar-dependent photochemistry, synthetic observations, and atmospheric retrieval is therefore required to evaluate ExoFarm as an observable technosignature.
+
+In this work, we establish this connection by imposing agricultural $NH_3$ and $N_2O$ emissions as lower-boundary fluxes in self-consistent photochemical models of Earth-like planets around Sun-like and M-dwarf stars. We then propagate the resulting vertical abundance profiles into transmission and thermal-emission spectra, evaluate their detectability with JWST and LIFE, and examine whether the enhanced atmospheric species can be recovered through atmospheric retrieval despite molecular degeneracies. In this way, we follow the ExoFarm signal from its surface source through stellar-dependent atmospheric chemistry to its observable spectrum, with the aim of determining under which planetary, stellar, and observational conditions an agricultural technosphere could become distinguishable from a biosphere without an atmospherically identifiable technological component.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/Objetive.png}
+    \caption{Enter Caption}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Nitrogen, Life, and Planetary Perturbation}\label{sec:nitrogen}
+
+Nitrogen is one of the chemical pillars of known life. It is present in amino acids, from which proteins are built, and in the nitrogenous bases of nucleic acids, which allow genetic information to be stored, copied, and transmitted \citep{domagal-goldmanAstrobiologyPrimerV202016}. Its availability therefore conditions the synthesis of essential cellular components and can ultimately limit biological productivity \citep{kuypersMicrobialNitrogencyclingNetwork2018}.
+
+Although nitrogen is essential for life and $N_2$ constitutes approximately 78\% of Earth's atmosphere, this abundant reservoir is not directly available to most organisms. The strong triple bond joining the two nitrogen atoms makes $N_2$ highly stable and difficult to break \citep{domagal-goldmanAstrobiologyPrimerV202016,kuypersMicrobialNitrogencyclingNetwork2018}. To enter the biosphere, atmospheric nitrogen must first be converted through biological, natural, or technological fixation into reactive forms such as $NH_3$ and $NH_4^+$ \citep{haqq-misraDisruptionPlanetaryNitrogen2022}. The biological availability of nitrogen therefore depends on the conversion of the large atmospheric $N_2$ reservoir into chemically accessible forms.
+
+These transformations form part of the nitrogen cycle, a planetary biogeochemical cycle connecting the atmosphere, biosphere, soils, continental waters, oceans, and sediments \citep{gruberEarthsystemPerspectiveGlobal2008,kuypersMicrobialNitrogencyclingNetwork2018}. The term ``cycle'' should not, however, be interpreted as a single linear sequence or a closed circuit in equilibrium. Rather, nitrogen circulates among reservoirs through a network of interconnected transformations that continuously change its chemical form and oxidation state \citep{kuypersMicrobialNitrogencyclingNetwork2018}. Biological nitrogen fixation provides one of the main entry points of atmospheric $N_2$ into this reactive pool. Its overall reduction can be represented schematically as \(\mathrm{N_2 + 8H^+ + 8e^- \rightarrow 2NH_3 + H_2}\), after which $NH_3$ can protonate to $NH_4^+$ and be incorporated into biomass. Ammonification subsequently returns organic nitrogen to the reduced inorganic reservoir during decomposition, which may be represented schematically as \(\mathrm{organic\mbox{-}N \rightarrow NH_4^+}\). These expressions summarize the net transformations rather than the complete enzymatic pathways involved \citep{domagal-goldmanAstrobiologyPrimerV202016,kuypersMicrobialNitrogencyclingNetwork2018}.
+
+Once reduced nitrogen enters the inorganic reservoir, oxidation and reduction pathways redistribute it among different chemical forms and reconnect terrestrial and aquatic reservoirs with the atmosphere. Under oxic conditions, nitrification oxidizes ammonium first to nitrite, \(\mathrm{NH_4^+ + \frac{3}{2}O_2 \rightarrow NO_2^- + 2H^+ + H_2O}\), and subsequently to nitrate, \(\mathrm{NO_2^- + \frac{1}{2}O_2 \rightarrow NO_3^-}\). Under oxygen-limited conditions, denitrification proceeds in the opposite redox direction through the sequence \(\mathrm{NO_3^- \rightarrow NO_2^- \rightarrow NO \rightarrow N_2O \rightarrow N_2}\). The sequence need not proceed to completion. In particular, $N_2O$ can escape from the system before its final reduction to $N_2$, providing a direct connection between microbial nitrogen cycling and the atmosphere \citep{kuypersMicrobialNitrogencyclingNetwork2018,schwietermanEvaluatingPlausibleRange2022,butterbach-bahlNitrousOxideEmissions2013}.
+
+The nitrogen cycle also contains pathways that bypass portions of this sequence. Anaerobic ammonium oxidation (anammox), for example, removes reactive nitrogen by combining ammonium and nitrite, \(\mathrm{NH_4^+ + NO_2^- \rightarrow N_2 + 2H_2O}\), whereas dissimilatory nitrate reduction to ammonium (DNRA) returns oxidized nitrogen to the reduced reservoir through the sequence \(\mathrm{NO_3^- \rightarrow NO_2^- \rightarrow NH_4^+}\). Fixation, ammonification, nitrification, denitrification, anammox, DNRA, assimilation, and other transformations therefore coexist within the nitrogen cycle rather than forming obligatory consecutive stages. Their relative importance depends on the reservoirs and substrates available, local redox conditions, and the microbial communities involved \citep{kuypersMicrobialNitrogencyclingNetwork2018}. This network structure is important for the present problem because an increase in reactive nitrogen at one point in the cycle does not uniquely determine the chemical form or reservoir in which that nitrogen will ultimately accumulate.
+
+Against this natural cycle, industrialized agriculture introduces an additional and technologically controlled source of reactive nitrogen through industrial nitrogen fixation and fertilizer application \citep{gruberEarthsystemPerspectiveGlobal2008,battyeNitrogenNextCarbon2017,haqq-misraDisruptionPlanetaryNitrogen2022}. The Haber--Bosch process converts atmospheric nitrogen into ammonia according to the net reaction \(\mathrm{N_2 + 3H_2 \rightleftharpoons 2NH_3}\), thereby increasing the amount of biologically accessible nitrogen entering agricultural systems. The added nitrogen is not incorporated completely into crops: part remains in soils, undergoes microbial transformation, or is transported through leaching and runoff, while another fraction is transferred to the atmosphere and hydrosphere as $NH_3$, $NO_x$, and $N_2O$ \citep{battyeNitrogenNextCarbon2017,suttonClimateDependentParadigmAmmonia2013,tianComprehensiveQuantificationGlobal2020}. Agriculture therefore changes both the amount of reactive nitrogen circulating through the nitrogen cycle and the partitioning of its fluxes among planetary reservoirs. When nitrogen inputs exceed crop requirements, $N_2O$ emissions can also increase nonlinearly with the amount applied \citep{shcherbakGlobalMetaanalysisNonlinear2014}. The emergence and development of agriculture as a planetary-scale technological perturbation are considered in greater detail in \autoref{sec:agri}.
+
+These transformations can produce an atmospheric signature because not all reactive nitrogen is assimilated or returned directly to $N_2$. Volatilization transfers $NH_3$ from fertilizers, soils, crops, manure, and other residues to the atmosphere, whereas nitrification and incomplete denitrification can release $N_2O$ and other nitrogen oxides \citep{kuypersMicrobialNitrogencyclingNetwork2018,butterbach-bahlNitrousOxideEmissions2013,battyeNitrogenNextCarbon2017,suttonClimateDependentParadigmAmmonia2013}. $NH_3$ and $N_2O$ are therefore complementary tracers of agricultural perturbation: the former is closely linked to relatively rapid transfers of reduced nitrogen from the surface to the atmosphere, while the latter is generated through microbial transformations and can preserve the integrated signature of distributed emissions over substantially longer timescales \citep{suttonClimateDependentParadigmAmmonia2013,butterbach-bahlNitrousOxideEmissions2013,tianComprehensiveQuantificationGlobal2020}.
+
+% Placeholder: replace with the final nitrogen-cycle schematic.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/Nitrogen-Cycle.png}
+    \caption{Schematic representation of the nitrogen cycle and the principal transformations relevant to the production and removal of atmospheric $NH_3$ and $N_2O$. [PLACEHOLDER]}
+    \label{fig:nitrogen_cycle}
+\end{figure}
+
+\subsection{$NH_3$: Production, Emissions, and Sinks}
+
+$NH_3$ has been proposed as a possible atmospheric biosignature because, under suitable planetary conditions, sustaining an appreciable atmospheric abundance requires a continuous source capable of compensating for efficient removal processes \citep{huangAssessmentAmmoniaBiosignature2022a,schwietermanExoplanetBiosignaturesReview2018a,haqq-misraDisruptionPlanetaryNitrogen2022}. Its high solubility, efficient surface uptake, and photochemical destruction make atmospheric accumulation difficult, so its abundance is governed by the balance between production, atmospheric loss, and exchange with surface reservoirs.
+
+Atmospheric $NH_3$, in equilibrium with its protonated form $NH_4^+$ through \(\mathrm{NH_4^+ \rightleftharpoons NH_3 + H^+}\), can originate from biological, technological, and abiotic processes. Biological sources include $N_2$ fixation, ammonification of organic matter, and DNRA, all of which supply reduced nitrogen to the $NH_3/NH_4^+$ reservoir \citep{kuypersMicrobialNitrogencyclingNetwork2018,huangAssessmentAmmoniaBiosignature2022a}. Industrial agriculture greatly enhances this reservoir through Haber--Bosch nitrogen fixation and the subsequent use of ammonia-derived fertilizers, while manure and other animal residues provide additional agricultural sources of reduced nitrogen \citep{huangAssessmentAmmoniaBiosignature2022a,haqq-misraDisruptionPlanetaryNitrogen2022}. Abiotic production is also possible under particular geochemical conditions, including hydrothermal environments, reducing planetary interiors, and proposed photochemical reduction pathways on mineral surfaces \citep{huangAssessmentAmmoniaBiosignature2022a,schwietermanExoplanetBiosignaturesReview2018a}. On present-day Earth, however, atmospheric $NH_3$ is linked predominantly to the biological nitrogen cycle and its technological intensification through agriculture.
+
+Transfer of this reduced nitrogen to the atmosphere occurs primarily through volatilization. The fraction emitted as gaseous $NH_3$ depends on the $NH_4^+/NH_3$ equilibrium and on environmental and management conditions including pH, temperature, moisture, fertilizer type, residue management, and meteorology \citep{suttonClimateDependentParadigmAmmonia2013,huangAssessmentAmmoniaBiosignature2022a}. Reactive nitrogen introduced into an agricultural system therefore does not map one-to-one onto an atmospheric $NH_3$ emission flux: part can instead remain in soils or solution, be assimilated biologically, undergo further nitrogen-cycle transformations, or be removed through other pathways \citep{suttonClimateDependentParadigmAmmonia2013,huangAssessmentAmmoniaBiosignature2022a}.
+
+Global inventories place present-day $NH_3$ emissions at approximately $60$ Tg yr$^{-1}$, although estimates vary with the period considered, the included sources, inventory methodology, and whether the reported mass corresponds to $NH_3$ or to the nitrogen contained in the molecule \citep{suttonClimateDependentParadigmAmmonia2013,haqq-misraDisruptionPlanetaryNitrogen2022,huangAssessmentAmmoniaBiosignature2022a}. \citet{haqq-misraDisruptionPlanetaryNitrogen2022} estimate that anthropogenic activities account for approximately 81\% of the total global $NH_3$ flux and that agriculture alone accounts for approximately 65\% of the global total, principally through fertilizer use and domestic animals. Agriculture therefore represents the dominant component of the present-day anthropogenic perturbation of atmospheric $NH_3$ emissions.
+
+Once emitted, $NH_3$ is removed through both atmospheric chemistry and efficient exchange with the surface. Photolysis and reactions with hydroxyl radicals destroy part of the atmospheric $NH_3$, whereas dissolution, conversion to $NH_4^+$, aerosol formation, and wet and dry deposition return reactive nitrogen to terrestrial and aquatic reservoirs \citep{suttonClimateDependentParadigmAmmonia2013,huangAssessmentAmmoniaBiosignature2022a}. The ocean constitutes an important sink because dissolved $NH_3$ readily partitions toward $NH_4^+$ and can subsequently be assimilated, transformed through the marine nitrogen cycle, or transferred into longer-lived reservoirs \citep{huangAssessmentAmmoniaBiosignature2022a}. These sinks strongly decouple surface production from atmospheric accumulation.
+
+The importance of this source--sink balance is illustrated quantitatively by \citet{huangAssessmentAmmoniaBiosignature2022a}. In their exoplanet scenarios, maintaining an atmospheric abundance of approximately 5 ppm requires a surface flux of order $10^{10}$ molecules cm$^{-2}$ s$^{-1}$ when surface sinks are saturated, whereas the required flux rises to approximately $10^{15}$ molecules cm$^{-2}$ s$^{-1}$ when deposition and surface removal remain efficient. These values are not predictions for terrestrial agriculture, but the five-order-of-magnitude contrast demonstrates that a large production flux alone does not determine atmospheric $NH_3$ abundance: the efficiency of surface and atmospheric sinks can dominate the resulting atmospheric state.
+
+\subsection{$N_2O$: Sources, Biosignature, and Stratospheric Sink}
+
+$N_2O$ has been proposed as a promising atmospheric biosignature because most of its present-day terrestrial production is associated with microbial nitrogen metabolism, whereas known abiotic sources are comparatively limited and generally require specific planetary conditions \citep{seguraBiosignaturesEarthLikePlanets2005,schwietermanExoplanetBiosignaturesReview2018a}. Its near- and mid-infrared absorption bands have consequently been investigated in models of Earth through time and of terrestrial exoplanet spectra, although several bands overlap with absorbers such as $H_2O$, $CO_2$, and $CH_4$ \citep{kalteneggerSpectralEvolutionEarthlike2007,kalteneggerHighresolutionTransmissionSpectra2020,meadowsFeasibilityDetectingBiosignatures2023}. For the ExoFarm problem, however, an equally important property is that the atmospheric abundance of $N_2O$ is not controlled by its surface flux alone: stellar ultraviolet irradiation regulates its principal photochemical losses, allowing comparable surface production rates to generate different atmospheric concentrations around different stellar types \citep{seguraBiosignaturesEarthLikePlanets2005,schwietermanEvaluatingPlausibleRange2022}.
+
+On Earth, $N_2O$ production combines relatively small abiotic contributions with much larger biological and anthropogenically enhanced microbial sources. Proposed abiotic pathways include production associated with electrical discharges and other atmospheric reactions, as well as chemiodenitrification of oxidized nitrogen species in the presence of reductants such as $Fe^{2+}$; these contributions are generally small compared with the biological budget \citep{tianGlobalNitrousOxide2024,grenfellPotentialBiosignaturesSuperEarth2013,schwietermanEvaluatingPlausibleRange2022}. Most $N_2O$ is produced in soils, inland waters, and oceans through microbial nitrogen transformations. Nitrification can release $N_2O$ as a by-product, whereas denitrification produces it as an intermediate when nitrate and nitrite are not completely reduced to $N_2$ \citep{butterbach-bahlNitrousOxideEmissions2013,schwietermanEvaluatingPlausibleRange2022,tianComprehensiveQuantificationGlobal2020}. The balance between $N_2O$ production and its complete reduction to $N_2$ depends on oxygen availability, moisture, temperature, pH, carbon availability, and microbial-community structure \citep{kuypersMicrobialNitrogencyclingNetwork2018,butterbach-bahlNitrousOxideEmissions2013}. Biogeochemical models further indicate that environmental, metabolic, or cofactor limitations capable of preventing complete denitrification could support substantially larger biological $N_2O$ fluxes than those observed on modern Earth \citep{schwietermanEvaluatingPlausibleRange2022,schwietermanOverviewExoplanetBiosignatures2024}.
+
+Human activities amplify these microbial pathways primarily by increasing the supply and redistribution of reactive nitrogen. Fertilizers and manure increase nitrogen availability in soils, while volatilization, leaching, runoff, and subsequent deposition can transport anthropogenic nitrogen into other terrestrial and aquatic environments where further $N_2O$ production occurs \citep{tianComprehensiveQuantificationGlobal2020,tianGlobalNitrousOxide2024}. Additional anthropogenic sources include fossil-fuel combustion, chemical production, wastewater treatment, and biomass burning \citep{tianComprehensiveQuantificationGlobal2020,tianGlobalNitrousOxide2024}.
+
+The global $N_2O$ source is approximately 17--18 Tg N yr$^{-1}$ according to recent global syntheses \citep{tianComprehensiveQuantificationGlobal2020,tianGlobalNitrousOxide2024}. Natural sources, dominated by soils and the ocean and including additional aquatic and coastal reservoirs in recent inventories, contribute approximately 55--65\% of the total, whereas anthropogenic sources account for roughly 35--45\%, with differences among inventories and periods considered \citep{haqq-misraDisruptionPlanetaryNitrogen2022,tianComprehensiveQuantificationGlobal2020,tianGlobalNitrousOxide2024}. Within this anthropogenic perturbation, agriculture is the dominant contributor. Direct and indirect agricultural emissions associated with fertilizer and manure use, animal production, and the subsequent redistribution of reactive nitrogen represent approximately 26--30\% of the total global $N_2O$ source, corresponding to roughly 70--74\% of anthropogenic emissions \citep{tianComprehensiveQuantificationGlobal2020,tianGlobalNitrousOxide2024}. Thus, natural nitrogen cycling remains responsible for most global $N_2O$ production, while agriculture dominates the quantified anthropogenic enhancement.
+
+Once emitted, $N_2O$ behaves very differently from $NH_3$. It is relatively stable in the troposphere and is transported into the stratosphere, where ultraviolet photolysis through \(\mathrm{N_2O + h\nu \rightarrow N_2 + O(^1D)}\) constitutes its principal sink, while reaction with electronically excited oxygen provides a secondary loss channel, including \(\mathrm{N_2O + O(^1D) \rightarrow 2NO}\). The latter pathway couples $N_2O$ destruction to stratospheric ozone chemistry through the production of $NO$ \citep{pratherMeasuringNitrousOxideLifetime2015,schwietermanEvaluatingPlausibleRange2022}. Because $N_2O$ is not efficiently removed by rapid surface deposition, its atmospheric lifetime on present-day Earth is approximately 116--120 years, much longer than that of $NH_3$ \citep{tianComprehensiveQuantificationGlobal2020,pratherMeasuringNitrousOxideLifetime2015}. It can therefore integrate geographically distributed nitrogen-cycle emissions over long spatial and temporal scales. Its atmospheric abundance nevertheless remains sensitive to transport and photochemical loss rates, which vary with atmospheric structure and with the ultraviolet spectrum of the host star \citep{schwietermanEvaluatingPlausibleRange2022,grenfellPotentialBiosignaturesSuperEarth2013}.
+
+\bigskip
+
+The contrasting behavior of $NH_3$ and $N_2O$ summarizes why perturbing the nitrogen cycle does not translate into a unique atmospheric response. Industrial nitrogen fixation and fertilizer application increase the amount of reactive nitrogen entering the planetary nitrogen cycle, but only a fraction of that perturbation reaches the atmosphere as either molecule. $NH_3$ is strongly controlled by volatilization, aqueous partitioning, deposition, and other rapid surface exchanges, whereas $N_2O$ is produced largely through microbial transformations and, once emitted, persists long enough to integrate distributed sources over much broader spatial and temporal scales. Consequently, an agricultural nitrogen input cannot be converted into atmospheric $NH_3$ and $N_2O$ abundances through a simple proportional scaling. A physically consistent assessment must instead begin with surface emission fluxes and propagate them through the transport and molecule-specific chemical sinks that determine the resulting vertical atmospheric profiles. Because several of these sinks are photochemical and depend on the stellar radiation field, the same agricultural regime can produce different $NH_3$ and $N_2O$ atmospheric signatures around different host stars. This source--cycle--atmosphere connection provides the physical basis for the flux-driven photochemical treatment adopted in this work.
+
+\section{Agriculture as a Planetary Technological Transition}\label{sec:agri}
+
+Agriculture designates a set of practices through which societies deliberately manage food production through cultivation, animal management, and landscape transformation. Compared with foraging, which extracts distributed wild resources, it concentrates part of primary production in selected species and spaces \citep{bowlesChoiNeolithicAgriculturalRevolution2019,weisdorfFromForagingToFarming2005}. In biogeochemical terms, this management reorganizes the flows of biomass, water, and nutrients; when it intensifies and extends over large areas, its effects may cease to be confined to fields and acquire a planetary expression \citep{haqq-misraDisruptionPlanetaryNitrogen2022,franckHarvestingSunNew2011}.
+
+The transition from foraging to food production reorganized labor, settlement, and resource management, even though early agriculture did not necessarily improve labor productivity. Once established, agricultural systems made it possible to concentrate, store, and redistribute food and supported broader changes in settlement, specialization, and technology \citep{weisdorfFromForagingToFarming2005,bowlesChoiNeolithicAgriculturalRevolution2019}.
+
+The evolution of agricultural nutrient management reached a new scale with industrial nitrogen fixation. Before it, agricultural fertility depended mainly on the recycling of waste and manure, the incorporation of legumes, and limited external sources such as guano and nitrate deposits \citep{jenkinsonImpactHumansNitrogenCycle2001,gallowayChronologyHumanUnderstandingNitrogen2013}. The Haber--Bosch process transformed this constraint by converting atmospheric nitrogen into ammonia at industrial scales, expanding the supply of reactive nitrogen available for fertilizer production \citep{gallowayChronologyHumanUnderstandingNitrogen2013,haqq-misraDisruptionPlanetaryNitrogen2022}. By relaxing a major constraint on agricultural nitrogen supply, this technological transition increased the food-production capacity of agricultural systems and contributed to the expansion of the population that intensive agriculture could sustain. Between 1961 and 2007, global nitrogen inputs increased by 134\%, while yields increased by 120\%; during the same period, mineral fertilizer doubled its relative share, whereas the contributions of manure and biological fixation decreased in aggregate \citep{conantPatternsNitrogenUseRecovery2013}.
+
+This intensification did not mean that all added nitrogen was incorporated into the harvest: approximately 40\% of the external nitrogen inputs considered was recovered in harvested products \citep{conantPatternsNitrogenUseRecovery2013}. The remaining fraction may stay in the soil or be redistributed to continental waters and the atmosphere through leaching, runoff, and gaseous emissions; these losses promote eutrophication and connect agriculture with atmospheric chemistry, water quality, and climate \citep{jenkinsonImpactHumansNitrogenCycle2001,zhangGlobalNitrogenCycle2020,gongAnthropogenicDrivenPerturbationsNitrogen2024,haqq-misraDisruptionPlanetaryNitrogen2022}. Industrial agriculture thus connects food production with processes that operate simultaneously in soils, continental waters, and the atmosphere.
+
+In the context of ExoFarm, the scale of this perturbation can be related to population, food production, land use, productivity, and technological organization. Together, these factors determine agricultural demand for biomass and nutrients and, consequently, the magnitude of the nitrogen inputs and losses that can propagate through the planetary nitrogen cycle.
+
+Human carrying capacity is commonly used to estimate the population that can be sustained under a given set of resource, productive, technological, and environmental conditions \citep{cohenPopulationGrowthEarths1995,franckHarvestingSunNew2011}. It therefore provides a useful way to establish orders of magnitude for the scale of agricultural activity that different planetary systems might sustain. Carrying capacity depends on assumptions about productivity, land availability, diet, resource use, technology, and social organization. Industrial nitrogen fixation provides a historical example of how technological change can shift a previously limiting constraint on food production. Carrying-capacity estimates therefore provide scenario-dependent bounds on the population and agricultural activity that a planetary system might sustain.
+
+Published estimates of human carrying capacity span several orders of magnitude, reflecting substantial differences in the assumptions and constraints adopted by each model. \citet{cohenPopulationGrowthEarths1995} compiled 65 historical estimates, with median lower and upper bounds of 7.7 and 12 billion people, respectively, although the full set ranged from fewer than 1 billion to more than 1 trillion. Models formulated more explicitly around agricultural production remain similarly sensitive to their assumptions. \citet{mullanPopulationGrowthEnergy2019} estimated carrying capacities of 17--180 billion under contemporary yields and 40--400 billion when historical productivity trends were extrapolated, whereas the spatially explicit analysis of \citet{franckHarvestingSunNew2011} produced values between 11.4 and 281.5 billion depending on land use and the degree to which calorie production was maximized. The breadth of these estimates illustrates how strongly carrying capacity depends on assumptions about productivity, technology, resource use, land allocation, and the other constraints embedded in each model.
+
+For ExoFarm, these projections provide orders of magnitude for exploring how different regimes of population, land use, productivity, diet, and technology modify agricultural nitrogen demand and its associated losses. Their range also reflects the uncertainty inherent in projecting long-term agricultural futures when technological change can alter the constraints embedded in present-day models. These considerations motivate using the technosignature framework and the ExoFarm and technosphere scenarios developed by \citet{haqq-misraSearchingTechnosignaturesExoplanetary2022,haqq-misraDisruptionPlanetaryNitrogen2022,haqq-misraProjectionsEarthsTechnosphere2025} as references for the agricultural forcing levels explored in the following sections. The specific surface-flux scaling adopted for these scenarios is described in \autoref{sec:photo}.
+
+\iffalse
+Working notes preserved from v1:
+
+- MODELOS DE FLUJOS: LPJmL:
+
+**LPJmL** (*Lund-Potsdam-Jena managed Land*) es un framework de modelado global de vegetación dinámica y superficie terrestre gestionada. Representa conjuntamente vegetación natural, cultivos, flujos de carbono y flujos de agua; su valor metodológico está en que la productividad agrícola emerge de procesos y restricciones acopladas, en vez de depender únicamente de una eficiencia fotosintética ideal. Fue desarrollado y validado en trabajos previos, especialmente Bondeau et al. (2007), y es aplicado por Franck et al. (2011) para estimar cotas de población. [[@franckHarvestingSunNew2011|(Bondeau et al., 2007; Franck et al., 2011; p. 2021-2022)]]
+
+- EXOFARM-MDWARFS
+- \textbf{ACTIVIDAD AGROTÉCNICA}
+\fi
+
+
+\section{ExoFarm Scenarios Across Stellar Environments}
+\label{sec:photo}
+
+To model atmospheric responses across increasing agricultural nitrogen forcing,
+we defined four ExoFarm scenarios based on the lower-boundary fluxes of
+$\mathrm{NH_3}$ and $\mathrm{N_2O}$: a pre-agricultural reference state (A0),
+a present-day terrestrial baseline (A1), a moderate ExoFarm perturbation (A2),
+and an extreme regime (A3).
+
+Atmospheric compositions were computed using the one-dimensional kinetic
+photochemical model VULCAN
+\citep{tsaiVULCANOpensourceValidated2017,
+tsaiComparativeStudyAtmospheric2021}. VULCAN has been validated for oxidizing
+atmospheres through simulations of modern Earth and allows surface emissions
+and deposition to be imposed as lower-boundary conditions. For each planetary
+environment, the pressure--temperature profile and eddy-diffusion coefficient
+($K_{zz}$) were held fixed while the chemical network evolved toward steady
+state. The ExoFarm sequence thus isolates the effect of surface chemical
+forcing within a given atmospheric background state.
+
+For species $i\in\{\mathrm{NH_3},\mathrm{N_2O}\}$, the surface flux was
+defined as
+
+\begin{equation}
+F_i(A_j)
+=
+F_i(A_0)
++
+\alpha_{i,j}
+\left[
+F_i(A_1)-F_i(A_0)
+\right],
+\end{equation}
+
+where $\alpha_{i,j}$ governs the magnitude of the perturbation relative to
+the A0--A1 terrestrial increment.
+
+Scenario A0 represents natural background emissions. Following
+\citet{seinfeldAtmosphericChemistryPhysics2016}, who attribute approximately
+19\% of global $\mathrm{NH_3}$ emissions to natural processes and 65\% to
+agriculture, we set A0 to the natural component and A1 to the combined
+natural-plus-agricultural flux, yielding
+$2.94\times10^9$ and
+$1.30\times10^{10}\,\mathrm{molecules\,cm^{-2}\,s^{-1}}$, respectively.
+
+For $\mathrm{N_2O}$, A0 was derived from the natural emission budget of
+approximately $11.8\,\mathrm{Tg\,N\,yr^{-1}}$ estimated by
+\citet{tianGlobalNitrousOxide2024}, giving
+$F_{\mathrm{N_2O}}(A_0)=1.58\times10^9\,
+\mathrm{molecules\,cm^{-2}\,s^{-1}}$.
+For A1, we adopted
+$F_{\mathrm{N_2O}}(A_1)=2.30\times10^9\,
+\mathrm{molecules\,cm^{-2}\,s^{-1}}$,
+consistent with \citet{seinfeldAtmosphericChemistryPhysics2016} and the
+modern-Earth VULCAN validation of
+\citet{tsaiComparativeStudyAtmospheric2021}. The A0--A1 interval for
+$\mathrm{N_2O}$ was therefore treated as an effective present-day
+anthropogenic enhancement for the subsequent scaling.
+
+The enhanced scenarios scaled this A0--A1 increment. For A2, we adopted the
+moderate ExoFarm parameters of
+\citet{haqq-misraDisruptionPlanetaryNitrogen2022}, corresponding to
+$\alpha_{\mathrm{NH_3},A2}=3.50$ and
+$\alpha_{\mathrm{N_2O},A2}=2.55$.
+Scenario A3 adopted $\alpha=15$ for both species, following the
+upper-envelope technosphere case (S2) modeled by
+\citet{haqq-misraProjectionsEarthsTechnosphere2025}.
+
+Within the population--food-production framework discussed in \autoref{sec:agri}, these enhanced cases represent agricultural futures in which larger populations and food requirements increase the scale and intensity of food production. Where this expansion is sustained by industrial nitrogen fixation, greater inputs of nitrogen fertilizer can amplify reactive nitrogen losses to the atmosphere as $\mathrm{NH_3}$ and $\mathrm{N_2O}$. These published contrasts were therefore used to define the relative spacing of the surface-forcing scenarios, while the resulting atmospheric abundances were calculated by VULCAN.
+
+Table~\ref{tab:scenarios} lists the resulting lower-boundary fluxes.
+Apart from the prescribed $\mathrm{NH_3}$ and $\mathrm{N_2O}$ surface
+fluxes, the remaining lower-boundary chemical conditions were retained from
+the present-day Earth VULCAN configuration of \citet{tsaiComparativeStudyAtmospheric2021} and held fixed across A0--A3.
+Among these retained boundary conditions, the deposition velocities for
+$\mathrm{NH_3}$ and $\mathrm{N_2O}$ were $1\,\mathrm{cm\,s^{-1}}$ and $10^{-4}\,\mathrm{cm\,s^{-1}}$, respectively. No direct agricultural enhancement of $\mathrm{CH_4}$ was imposed, so any
+methane variation across the sequence arose from the response of the
+photochemical network to the nitrogen forcing.
+
+\begin{table}[ht]
+\centering
+\caption{Lower-boundary fluxes adopted for the ExoFarm scenarios.
+Flux values correspond to the numerical inputs used in the VULCAN
+calculations.}
+\label{tab:scenarios}
+\begin{tabular}{l l c c c c}
+\hline\hline
+ID & Scenario &
+$\alpha_{\mathrm{NH_3}}$ &
+$\alpha_{\mathrm{N_2O}}$ &
+$\mathrm{NH_3}$ flux &
+$\mathrm{N_2O}$ flux \\
+& & & &
+\multicolumn{2}{c}{($\mathrm{molecules\,cm^{-2}\,s^{-1}}$)} \\
+\hline
+A0 & Pre-agricultural
+& 0 & 0
+& $2.94\times10^9$
+& $1.58\times10^9$ \\
+
+A1 & Modern Earth
+& 1 & 1
+& $1.30\times10^{10}$
+& $2.30\times10^9$ \\
+
+A2 & Moderate ExoFarm
+& 3.50 & 2.55
+& $3.82\times10^{10}$
+& $3.416\times10^9$ \\
+
+A3 & Extreme ExoFarm
+& 15 & 15
+& $1.54\times10^{11}$
+& $1.238\times10^{10}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+We considered three stellar irradiation environments. For the Sun, we used
+the reference solar spectrum of \citet{GUEYMARD2018434}. For Proxima
+Centauri, we used the MUSCLES v22 spectral energy distribution (SED) for
+GJ~551 distributed through the Mikulski Archive for Space Telescopes (MAST) \citep{franceMUSCLESTREASURYSURVEY2016,
+youngbloodMUSCLESTREASURYSURVEY2016,loydMUSCLESTREASURYSURVEY2016}. For TRAPPIST-1, we adopted the Mega-MUSCLES SED presented by \citet{wilsonMegaMUSCLESSpectralEnergy2021}. Figure~\ref{fig:star} compares the corresponding stellar-surface fluxes. Their spectral energy distributions differ strongly in the ultraviolet, where molecular photolysis and radical production strongly influence trace-gas lifetimes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\linewidth]{imgs/stellar_spectra_comparison.pdf}
+\caption{Stellar surface-flux spectra adopted for the Sun (G2V),
+TRAPPIST-1 (M8V), and Proxima Centauri (M5.5V). Wavelengths below
+$400~\mathrm{nm}$ are shaded to highlight the region where differences in
+stellar irradiation are particularly relevant for atmospheric
+photochemistry. Proxima Centauri is included as the stellar environment used
+in the subsequent thermal-emission and LIFE calculations.}
+\label{fig:star}
+\end{figure}
+
+
+The vertical photochemical comparison focused on Earth--Sun and TRAPPIST-1e. The terrestrial baseline adopted a 1 bar reference atmosphere with $X_{\mathrm{CO_2}} = 4\times10^{-4}$. For TRAPPIST-1e, we adopted the
+1 bar modern-Earth-like pressure--temperature profile of
+\citet{linDifferentiatingModernPrebiotic2021}, with
+$X_{\mathrm{CO_2}} = 0.036$. In that scenario, the enhanced $\mathrm{CO_2}$ abundance maintains a mean surface temperature above the freezing point of water, making the profile compatible with surface
+liquid-water conditions. For vertical transport, we retained the present-day Earth $K_{zz}$ profile used in the VULCAN validation of \citet{tsaiComparativeStudyAtmospheric2021}, interpolating it onto the TRAPPIST-1e pressure grid.
+
+The calculations employed the full S--N--C--H--O photochemical network implemented in VULCAN \citep{tsaiComparativeStudyAtmospheric2021}, comprising
+100 chemical species and 1284 reactions. Each atmospheric column was discretized into 120 vertical layers extending from approximately 1 bar to $5\times10^{-8}$ bar. VULCAN evolved the chemical abundances through chemical production and loss, photolysis, vertical transport, surface emissions, and deposition toward steady state under the prescribed atmospheric structure.
+
+Figure~\ref{fig:chem} shows the resulting vertical abundance profiles. To summarize the integrated atmospheric response, we calculated the column-averaged mixing ratio, 
+
+$$
+\overline{x}_{i,\mathrm{col}} = \frac{1}
+{p_{\mathrm{bot}}-p_{\mathrm{top}}} \int_{p_{\mathrm{top}}}^{p_{\mathrm{bot}}} x_i(p)\,dp,
+$$
+
+where $x_i(p)$ is the local volume mixing ratio of species $i$. This quantity
+represents an average abundance over the atmospheric pressure column.
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=\textwidth]{imgs/photochemical_summary_grid.pdf}
+\caption{Photochemical response of the ExoFarm A0--A3 sequence. The first two columns show the vertical mixing-ratio profiles calculated with VULCAN for the Earth--Sun and TRAPPIST-1e configurations, respectively. Scenario
+colors are A0 pre-agricultural (light green), A1 modern Earth (cyan), A2 moderate ExoFarm (purple), and A3 extreme ExoFarm (magenta). The third column shows the corresponding column-averaged mixing ratios, with
+Earth--Sun represented by brown circles and solid lines and TRAPPIST-1e by violet triangles and dashed lines. The dash-dotted horizontal line marks the Earth--Sun A1 reference for each species, and the annotations indicate the ratio relative to this baseline. Rows correspond, from top to bottom, to $\mathrm{N_2O}$, $\mathrm{NH_3}$, $\mathrm{O_3}$, $\mathrm{CH_4}$, and OH.} \label{fig:chem}
+\end{figure*}
+
+For $\mathrm{N_2O}$, the atmospheric response closely followed the imposed surface forcing. Because the scenario coefficients scaled the A0--A1 increment, the resulting total surface fluxes corresponded to approximately $0.69$, $1$, $1.49$, and $5.38$ times the A1 value across A0--A3. The Earth--Sun column averages followed nearly the same progression, reaching
+$0.69$, $1$, $1.5$, and $5.1$ times the Earth--Sun A1 reference. A similar relative response was obtained for TRAPPIST-1e: when normalized to its own A1 value, the A2 and A3 column averages increased by approximately
+$1.5$ and $5.36$, respectively. The atmospheric $\mathrm{N_2O}$ response therefore remained close to proportional with the imposed surface forcing
+in both environments.
+
+The stellar environment mainly affected the abundance reached for a given forcing and the vertical extent of the $\mathrm{N_2O}$ profile. At A3, the TRAPPIST-1e column average reached $7.5$ times the Earth--Sun A1 reference, compared with $5.1$ times for Earth--Sun. Elevated $\mathrm{N_2O}$ mixing ratios also remained abundant to lower pressures under TRAPPIST-1 irradiation.
+
+$\mathrm{NH_3}$ showed a stronger dependence on atmospheric processing. The imposed A3 surface flux corresponded to approximately $11.85$ times its A1
+value, while the Earth--Sun column average increased to $5.9$ times the A1 reference. Under TRAPPIST-1e conditions, the A3 column average reached $22$ times the Earth--Sun A1 reference and approximately $12.2$ times the
+TRAPPIST-1e A1 value.
+
+The vertical profiles show the same environmental dependence. Under solar irradiation, $\mathrm{NH_3}$ declined rapidly above the lower atmosphere and the separation among A0--A3 diminished with altitude. Under TRAPPIST-1 irradiation, the scenario separation persisted to substantially lower pressures, preserving the imposed surface enhancement through a larger fraction of the atmospheric column. The TRAPPIST-1e atmosphere therefore
+maintained higher $\mathrm{NH_3}$ abundances over a broader vertical region.
+
+To examine the contribution of the stellar spectrum, we performed an additional controlled calculation retaining a terrestrial pressure--temperature profile, terrestrial $K_{zz}$, and modern-Earth composition under the TRAPPIST-1 stellar spectrum. This calculation reproduced the same qualitative increase in the vertical persistence of
+$\mathrm{N_2O}$ and $\mathrm{NH_3}$, supporting a substantial contribution from the stellar radiation field to the behavior obtained in the TRAPPIST-1e branch.
+
+The behavior of $\mathrm{O_3}$ and $\mathrm{CH_4}$ reflects the broader response of atmospheric chemistry to the stellar environment. Across the TRAPPIST-1e sequence, both species changed little from A0 to A3 despite their large displacement from the Earth--Sun abundances. The
+column-averaged $\mathrm{O_3}$ abundance remained near
+$1.7\times10^{-3}$ of the Earth--Sun A1 reference, while
+$\mathrm{CH_4}$ remained near approximately $56$ times the same reference.
+
+The low $\mathrm{O_3}$ abundance obtained for TRAPPIST-1e is consistent
+with photochemical calculations of Earth-like atmospheres around cool
+M dwarfs, where reduced irradiation in the relevant
+$\mathrm{O_2}$-photolysis bands can weaken Chapman ozone production and
+substantially alter the ozone profile
+\citep{grenfellPotentialBiosignaturesSuperEarth2013,
+wunderlichDetectabilityAtmosphericFeatures2019}. The enhanced
+$\mathrm{CH_4}$ abundance is likewise consistent with the longer methane
+lifetimes obtained in photochemical models of Earth-like M-dwarf planets,
+where the stellar UV spectrum modifies ozone photolysis, radical production,
+and methane oxidation
+\citep{seguraBiosignaturesEarthLikePlanets2005,
+grenfellPotentialBiosignaturesSuperEarth2013,
+wunderlichDetectabilityAtmosphericFeatures2019}.
+
+The Earth--Sun sequence showed a clear response to increasing nitrogen
+forcing. Its column-averaged $\mathrm{O_3}$ abundance decreased from
+approximately $1.1$ times the A1 reference in A0 to $0.52$ times in A3.
+This decline is qualitatively consistent with the established coupling
+between stratospheric $\mathrm{N_2O}$ photochemistry, $\mathrm{NO_x}$, and
+catalytic ozone destruction
+\citep{pratherMeasuringNitrousOxideLifetime2015,
+grenfellPotentialBiosignaturesSuperEarth2013}. Because $\mathrm{NH_3}$ and
+$\mathrm{N_2O}$ were increased simultaneously across the ExoFarm sequence,
+the present calculations do not separate their individual contributions to
+the ozone response.
+
+Over the same sequence, $\mathrm{CH_4}$ decreased from approximately
+$1.2$ to $0.29$ times its A1 value despite an unchanged methane
+lower-boundary condition. The methane response therefore emerged as a
+secondary change within the photochemical network following the increased
+nitrogen forcing.
+
+OH is one of the principal oxidants in atmospheric chemistry and contributes
+to the removal of reduced trace gases, including $\mathrm{CH_4}$ and
+$\mathrm{NH_3}$. Although its column-averaged abundance changed little
+across A0--A3 in either planetary environment, its vertical distribution
+differed substantially between them. In the TRAPPIST-1e simulations, OH was
+less abundant through much of the lower atmosphere than in the Earth--Sun
+case. Because reaction with OH is an important gas-phase loss pathway for
+$\mathrm{NH_3}$
+\citep{huangAssessmentAmmoniaBiosignature2022a}, this vertical structure is
+consistent with reduced oxidative removal of ammonia during its transport
+away from the surface.
+
+At lower pressures, OH became more abundant while $\mathrm{NH_3}$ remained
+elevated over a broad atmospheric region. The vertical behavior therefore
+indicates contributions from several processes, including OH oxidation,
+direct photolysis, vertical transport, and other reaction pathways. Direct
+photolysis and reaction with OH have both been identified as important loss
+processes for atmospheric ammonia
+\citep{huangAssessmentAmmoniaBiosignature2022a}. Reduced photolytic loss
+under the TRAPPIST-1 stellar spectrum may also contribute to the enhanced
+vertical persistence of $\mathrm{NH_3}$
+\citep{huangAssessmentAmmoniaBiosignature2022a,
+seguraBiosignaturesEarthLikePlanets2005,
+grenfellPotentialBiosignaturesSuperEarth2013}. Quantitatively separating
+oxidation, photolysis, transport, and the remaining chemical pathways would
+require an explicit reaction-rate or chemical-pathway analysis.
+
+The atmospheric response to ExoFarm forcing therefore depended strongly on
+the chemical environment. $\mathrm{N_2O}$ retained an approximately
+proportional response to its imposed surface flux, while the abundance and
+vertical persistence of $\mathrm{NH_3}$ were more strongly shaped by
+photochemical processing. The accompanying changes in $\mathrm{O_3}$,
+$\mathrm{CH_4}$, and OH place these nitrogen species within the broader
+atmospheric response to the stellar radiation field. The resulting vertical
+profiles were subsequently used as inputs for the transmission- and
+thermal-emission calculations.
+\section{Transmission Spectroscopy of ExoFarm Signatures}
+\label{sec:transmission}
+
+TRAPPIST-1e provides a favorable test case for translating the ExoFarm
+photochemical perturbation into an observable transmission signal. Its small
+ultracool host enhances the relative atmospheric imprint during transit,
+making the system particularly attractive for JWST characterization
+\citep{gillonTRAPPIST1JWSTCommunity2020}. At the same time, the planet's terrestrial bulk properties
+and temperate irradiation have motivated a broad range of atmospheric and
+habitability studies
+\citep{agolRefiningTransittimingPhotometric2021,turbetReviewPossiblePlanetary2020,linDifferentiatingModernPrebiotic2021}.
+These characteristics, together with the extensive use of TRAPPIST-1e in
+forward-model and detectability studies of Earth-like atmospheres
+\citep{kalteneggerHighresolutionTransmissionSpectra2020,
+linKaltenegger2022,lustigYaegerEarthTransitingExoplanet2023,
+duquecastanoMachineassistedClassification2025},
+make it a natural benchmark for assessing whether the chemical signatures
+predicted in \autoref{sec:chemres} remain accessible in transmission.
+
+We propagated the VULCAN pressure--temperature and chemical-abundance profiles
+into transmission spectra using POSEIDON
+\citep{macdonaldPOSEIDONMultidimensionalAtmospheric2023}.
+Following the TRAPPIST-1e atmospheric setup of
+\citet{linDifferentiatingModernPrebiotic2021}, we adopted
+$T_{\mathrm{eff}}=2559$ K, $\log g_\star=5.21$,
+$[\mathrm{Fe/H}]=0.04$, $M_p=0.6356\,M_\oplus$, and
+$T_{\mathrm{eq}}=255$ K. The stellar and planetary radii were set to
+$R_\star=0.1192\,R_\odot$ and $R_p=0.920\,R_\oplus$, respectively,
+following the refined system dimensions of \citet{agol2021}. The same stellar
+and planetary configuration was retained across A0--A3.
+
+For the atmospheric structure, we retained the 1 bar modern-Earth-like
+pressure--temperature profile calculated by
+\citet{linDifferentiatingModernPrebiotic2021} with the coupled
+climate--photochemistry model Exo-Prime2. Their TRAPPIST-1e modern-Earth
+scenario adopts an enhanced carbon dioxide abundance,
+$X_{\mathrm{CO_2}}\simeq0.036$, to maintain a global-mean surface
+temperature above the freezing point of water under TRAPPIST-1 irradiation.
+As described in \autoref{sec:photo}, vertical transport was represented using
+the present-day Earth $K_{zz}$ profile adopted in the VULCAN validation of
+\citet{tsaiComparativeStudyAtmospheric2021}, interpolated onto the
+TRAPPIST-1e pressure grid.
+
+The spectroscopy calculation treated $\mathrm{N_2}$ as the bulk atmospheric
+gas and included $\mathrm{H_2O}$, $\mathrm{CO_2}$, $\mathrm{CH_4}$,
+$\mathrm{O_2}$, $\mathrm{O_3}$, $\mathrm{N_2O}$, and $\mathrm{NH_3}$
+as molecular absorbers. We used the POSEIDON High-T opacity database in
+opacity-sampling mode, which compiles molecular line data from ExoMol,
+HITEMP, and HITRAN for the species considered here
+\citep{polyanskyExoMolMolecularLine2018,
+yurchenkoExoMolMolecularLine2020,
+colesExoMolMolecularLine2019,
+hargreavesSpectroscopicLineParameters2019,
+gordonHITRAN2020MolecularSpectroscopic2022}.
+The High-T database was selected because $\mathrm{NH_3}$, one of the target
+species in this study, is not included in the corresponding Temperate set.
+Rayleigh scattering and the available collision-induced absorption continua
+were included through the POSEIDON opacity treatment
+\citep{macdonaldPOSEIDONMultidimensionalAtmospheric2023}. No additional cloud or aerosol opacity was included.
+
+For each scenario, POSEIDON calculates the wavelength-dependent transit depth,
+
+\begin{equation}
+D(\lambda)
+=
+\left[
+\frac{R_p(\lambda)}{R_\star}
+\right]^2 .
+\label{eq:transit_depth}
+\end{equation}
+
+The native POSEIDON spectra were computed at a constant resolving power of
+$R=10{,}000$. The resulting spectra and their molecular contributions are
+shown in \autoref{fig:pure}. At the scale of the total transit depth, the four
+ExoFarm scenarios remain closely superposed, while the atmospheric response
+appears as a much smaller wavelength-dependent structure.
+
+\begin{figure*}[t!]
+    \centering
+    \includegraphics[width=\textwidth]
+    {imgs/trappist1e_pure_a0_molecular_residuals_v2.pdf}
+    \caption{
+    Transmission spectra and net molecular contributions for the TRAPPIST-1e
+    ExoFarm sequence across $0.5$--$20\,\mu\mathrm{m}$. The upper panel shows
+    the transmission spectra for A0--A3. A0 is shown in gray, while A1, A2,
+    and A3 are shown in cyan, green, and magenta, respectively; the shaded
+    regions indicate the spectral difference between each agricultural
+    scenario and A0. The three lower panels show the net contributions of
+    $\mathrm{N_2O}$, $\mathrm{NH_3}$, and $\mathrm{H_2O}$, respectively,
+    obtained as the change in the spectrum when only the selected molecular
+    profile is returned to its A0 state while the remaining atmosphere is kept
+    fixed. The molecular contributions follow the same A1--A3 color scheme,
+    while the darker curves show the corresponding total $A_i-A0$ spectral
+    residual.
+    }
+    \label{fig:pure}
+\end{figure*}
+
+To describe where the scenario-dependent chemical changes appear in the
+spectrum, we define a molecular signal for each species of interest. This
+quantity measures the change in transit depth associated with the variation
+of a selected molecular abundance profile relative to A0 while preserving
+the remaining atmospheric state of the corresponding scenario. It therefore
+provides both the wavelength at which the chemical perturbation is expressed
+and its amplitude in transit-depth units, which can later be compared directly
+with the instrumental uncertainty.
+
+We first define the total spectral difference relative to the pre-agricultural
+atmosphere as
+
+\begin{equation}
+\Delta D_{A_j-A0}(\lambda)
+=
+D_{A_j}(\lambda)-D_{A0}(\lambda).
+\label{eq:scenario_residual}
+\end{equation}
+
+For an individual molecule $X$ in scenario $A_j$, we then recompute the
+spectrum after replacing only the vertical profile of $X$ with its A0
+profile. The pressure--temperature structure and all other molecular profiles
+remain unchanged. The molecular signal is defined as
+
+\begin{equation}
+\Delta_X(A_j,\lambda)
+=
+D_{\mathrm{full}}(A_j,\lambda)
+-
+D_{X\rightarrow A0}(A_j,\lambda).
+\label{eq:molecular_signal}
+\end{equation}
+
+We applied this procedure to $\mathrm{N_2O}$, $\mathrm{NH_3}$, and
+$\mathrm{H_2O}$. In this form, $\Delta_X$ quantifies the
+wavelength-dependent spectral imprint associated with the change in molecule
+$X$ between A0 and $A_j$. Since the surrounding atmospheric composition is
+retained, this signal depends on the full atmospheric state and is not
+expected to form an exactly additive decomposition of the total
+$A_j-A0$ difference.
+
+The nitrogen-bearing molecular signals grow systematically along the
+agricultural sequence. In A3, the $\mathrm{N_2O}$ signal reaches
+approximately $10.9$, $13.3$, and $17.5$ ppm in the regions near
+$2.9$, $4.5$, and $8.6\,\mu\mathrm{m}$, respectively. The strongest
+$\mathrm{NH_3}$ signal reaches about $8.3$ ppm near
+$10.7\,\mu\mathrm{m}$. The largest local modification of the modeled transit
+depth therefore approaches $18$ ppm in the extreme ExoFarm scenario.
+The enhanced nitrogen chemistry is expressed across both the near- and
+mid-infrared, although the observational weight of these features varies
+considerably with wavelength.
+
+We evaluated this observational limitation using PandExo
+\citep{batalhaPandExoCommunityTool2017} for JWST NIRSpec PRISM and MIRI LRS.
+The adopted wavelength grids cover approximately
+$0.6$--$5.3\,\mu\mathrm{m}$ and $5$--$12\,\mu\mathrm{m}$,
+respectively. The simulations use $J=11.354$, a total observing baseline of
+three transit durations, an 80\% detector saturation limit, and no additional
+imposed noise floor. For the present analysis, spectral uncertainties were
+treated as independent, with the uncertainty in bin $i$ after
+$N_{\rm tr}$ transits scaling as
+
+\begin{equation}
+\sigma_i(N_{\rm tr})
+=
+\frac{\sigma_{i,1}}{\sqrt{N_{\rm tr}}},
+\label{eq:noise_scaling}
+\end{equation}
+
+where $\sigma_{i,1}$ is the corresponding one-transit PandExo uncertainty.
+
+For the observability analysis, we focus on $\mathrm{N_2O}$ and
+$\mathrm{NH_3}$, the two nitrogen-bearing species most directly associated
+with the agricultural perturbation. Their molecular signals were evaluated
+on the same wavelength grids used for the instrumental uncertainties. Rather
+than selecting a single favorable spectral feature, we combined the signal
+over the complete observed wavelength range of each instrument. The
+one-transit integrated molecular SNR is defined as
+
+\begin{equation}
+\mathrm{SNR}_{X,k}(1)
+=
+\left[
+\sum_{i\in k}
+\left(
+\frac{\Delta_{X,i}}
+{\sigma_{i,1}}
+\right)^2
+\right]^{1/2},
+\label{eq:integrated_snr}
+\end{equation}
+
+where $k$ denotes either the NIRSpec PRISM or MIRI LRS wavelength grid.
+This statistic combines the wavelength-dependent information carried by the
+molecular signal throughout each instrumental range without requiring
+boundaries to be assigned to individual absorption features. Under the
+adopted noise scaling,
+
+\begin{equation}
+\mathrm{SNR}_{X,k}(N_{\rm tr})
+=
+\sqrt{N_{\rm tr}}\,
+\mathrm{SNR}_{X,k}(1).
+\label{eq:snr_scaling}
+\end{equation}
+
+The resulting molecular sensitivities and their scaling with transit number
+are shown in \autoref{fig:snr}.
+
+\begin{figure*}[t!]
+    \centering
+    \includegraphics[width=\textwidth]
+    {imgs/trappist1e_molecular_snr_by_instrument.pdf}
+    \caption{
+    Integrated molecular SNR for the TRAPPIST-1e ExoFarm sequence.
+    Panel (a) shows the SNR obtained by integrating the $\mathrm{N_2O}$ and
+    $\mathrm{NH_3}$ molecular signals over the observed wavelength grid of
+    each instrument. Circles, squares, and triangles denote A1, A2, and A3,
+    respectively, while cyan, green, and violet indicate 1, 10, and
+    100 transits. Panel (b) shows the A3 SNR as a function of the number of
+    transits. $\mathrm{N_2O}$ and $\mathrm{NH_3}$ are shown in terracotta and
+    violet, respectively; solid curves correspond to NIRSpec PRISM and dashed
+    curves to MIRI LRS. Horizontal reference lines mark
+    $\mathrm{SNR}=3$ and 5, with the associated transit numbers indicated at
+    each intersection.
+    }
+    \label{fig:snr}
+\end{figure*}
+
+Among the combinations considered, $\mathrm{N_2O}$ observed with NIRSpec
+PRISM carries the strongest transmission signal. For A3, its integrated SNR
+increases from approximately $0.29$ in one transit to $0.93$ after
+10 transits and $2.9$ after 100 transits. MIRI retains sensitivity to the
+enhanced $\mathrm{N_2O}$ signal, with corresponding A3 values of
+approximately $0.09$, $0.29$, and $0.93$. A1 and A2 follow the same
+progression at substantially smaller SNR.
+
+The $\mathrm{NH_3}$ signal is considerably less accessible. Even for A3,
+its integrated SNR remains well below unity after 100 transits with either
+instrument. The extrapolation in \autoref{fig:snr}b provides a useful measure
+of the observational scale. Under continued $N_{\rm tr}^{-1/2}$ noise
+scaling, the A3 $\mathrm{N_2O}$ signal with NIRSpec reaches
+$\mathrm{SNR}=3$ after approximately 105 transits and
+$\mathrm{SNR}=5$ after approximately 290 transits. The corresponding MIRI
+requirements are of order $10^3$ transits. For $\mathrm{NH_3}$, the formal
+requirements exceed $10^4$ transits even for MIRI and extend to several
+$10^5$ transits with NIRSpec.
+
+These values leave little observational margin for separating the ExoFarm
+scenarios with JWST transmission spectroscopy. The integrated SNR is evaluated
+under comparatively favorable assumptions: the wavelength dependence of the
+molecular signal is known in advance and its contribution is accumulated
+coherently across the instrumental range. Degeneracies among overlapping
+absorbers, correlations with other atmospheric parameters, aerosols, and
+stellar contamination are not included in this estimate and can further
+reduce the information available during atmospheric inference. Even under
+these conditions, only the extreme A3 $\mathrm{N_2O}$ case approaches
+$\mathrm{SNR}=3$ after 100 NIRSpec transits, while A1, A2, and the
+$\mathrm{NH_3}$ signatures remain substantially less accessible.
+
+The transmission analysis therefore characterizes the ExoFarm molecular
+signatures under favorable observing assumptions. Whether these signatures
+remain distinguishable once the atmospheric composition is inferred jointly,
+including molecular and parameter degeneracies, is examined in the retrieval
+analysis of \autoref{sec:retrieval}.
+
+[SIGUE MATERIAL VIEJO]
+
+
+\section{Thermal-Emission Spectroscopy of ExoFarm Signatures}
+\label{sec:thermal}
+
+The transmission analysis in \autoref{sec:transmission} shows that the ExoFarm signatures remain challenging for JWST even under the strongest agricultural forcing considered here. We therefore examined their accessibility through direct thermal emission in the mid-infrared. Previous LIFE studies identify nearby temperate terrestrial planets as particularly favorable targets for this observing geometry. Using the reference LIFE configuration, \citet{carrion-gonzalezLargeInterferometerExoplanets2023} obtained a broadband planetary S/N of approximately 170 in 10 h for Proxima Centauri b. At the molecular level, \citet{angerhausenLargeInterferometerExoplanets2024} showed strong $\mathrm{N_2O}$ signatures for an Earth-like planet placed at the actual distance of Proxima Centauri in a one-day LIFE observation and identified nearby systems of this type as ``golden targets'' for mid-infrared characterization.
+
+Motivated by this observational regime, we modeled a controlled Earth-like atmospheric analog irradiated by Proxima Centauri. The atmospheric composition and pressure--temperature structure provide the terrestrial control, while the Proxima system sets the stellar irradiation and observing geometry. Following the Proxima Centauri b system configuration adopted in LIFE X \citep{carrion-gonzalezLargeInterferometerExoplanets2023}, we used a system distance of $1.30$ pc, $T_{\mathrm{eff}}=3050$ K, $R_\star=0.14\,R_\odot$, $R_p=1.23\,R_\oplus$, $M_p=1.59\,M_\oplus$, and $a=0.0485$ AU. The pressure--temperature and $K_{zz}$ profiles were retained from the terrestrial control, while the chemical profiles were recalculated with VULCAN under the Proxima Centauri irradiation field for the A0--A3 surface-forcing sequence introduced in \autoref{sec:photo}.
+
+The thermal-emission calculation followed the atmospheric-species and opacity configuration described for the transmission spectra in \autoref{sec:transmission}. The Proxima-irradiated VULCAN pressure--temperature and abundance profiles were used to compute the directly observed planetary thermal flux at the distance of the system. We assumed a cloud- and aerosol-free atmosphere, neglected thermal scattering, and placed an opaque gray surface at 1 bar with zero surface albedo and unit thermal emissivity. The native planetary emission spectra were computed at a constant resolving power of $R=10{,}000$.
+
+The resulting A0--A3 thermal-emission spectra are shown in \autoref{fig:life_emission}. As in \autoref{sec:transmission}, the molecular contribution of a selected species was isolated by reverting only its vertical abundance profile to the corresponding A0 profile while retaining the remaining atmospheric state. The same counterfactual construction was applied directly to the planetary thermal flux.
+
+\begin{figure*}[t!]
+    \centering
+    \includegraphics[width=\textwidth]
+    {imgs/emission_molecular_residuals_proxima.pdf}
+    \caption{
+    Thermal-emission spectra and net molecular contributions for the
+    Proxima-irradiated Earth-like ExoFarm sequence. The upper panel shows
+    the observed planetary thermal flux for A0--A3. A0 is shown in gray,
+    while A1, A2, and A3 are shown in cyan, green, and magenta,
+    respectively. The horizontal bar marks the
+    $4$--$18.5\,\mu\mathrm{m}$ wavelength range adopted for LIFE. The two
+    lower panels show the net contributions of $\mathrm{N_2O}$ and
+    $\mathrm{NH_3}$, respectively, obtained by returning only the selected
+    molecular profile to its A0 state while retaining the remaining
+    atmospheric state of each scenario. The molecular contributions follow
+    the same A1--A3 color scheme, while the darker curves show the
+    corresponding total $A_i-A0$ thermal-flux residual, allowing the
+    molecule-specific contribution to be compared with the full spectral
+    change.
+    }
+    \label{fig:life_emission}
+\end{figure*}
+
+The total thermal spectra remain closely superposed across most of the wavelength range, while the differential panels reveal the spectral response to increasing agricultural forcing. The $\mathrm{N_2O}$ perturbation extends across several mid-infrared regions, including prominent structure around $7$--$9\,\mu\mathrm{m}$ and a broader contribution toward $17\,\mu\mathrm{m}$. The $\mathrm{NH_3}$ signal is concentrated more strongly around the $10$--$11\,\mu\mathrm{m}$ region. Both molecular contributions grow along the A1--A3 sequence. Their detectability depends on the wavelength-dependent sensitivity of the interferometric observation.
+
+\subsection{ExoFarm Signals with LIFE}
+\label{sec:life_signals}
+
+We evaluated the observational sensitivity with LIFEsim
+\citep{dannertLargeInterferometerExoplanets2022}, using the LIFE reference configuration adopted in LIFE X \citep{carrion-gonzalezLargeInterferometerExoplanets2023}. The simulated interferometer contains four 2 m collectors, covers $4$--$18.5\,\mu\mathrm{m}$ at a spectral resolution of $R=20$, and produces 31 spectral channels with a nominal throughput of 5\%. The noise calculation includes photon noise from stellar leakage, local zodiacal emission, and an exozodiacal component of 3 zodis. Channel uncertainties were treated independently, corresponding to the photon-noise-limited LIFE regime considered here. Instrumental stability terms and spectral covariance were not included.
+
+The molecular sensitivity was evaluated over the complete LIFE wavelength grid using the integrated molecular S/N introduced in \autoref{eq:integrated_snr}. For the LIFE calculation, the transmission-depth residual is replaced by the corresponding thermal-flux residual and the spectral uncertainties are those generated by LIFEsim. Under the adopted photon-noise regime, the uncertainty scales as $t^{-1/2}$ and the integrated molecular S/N consequently scales as $\sqrt{t}$.
+
+The resulting sensitivities are shown in \autoref{fig:life_snr}. The A3 scenario produces the strongest molecular signals. For $\mathrm{N_2O}$, the integrated S/N increases from approximately $1.89$ at 1 h to $5.97$ at 10 h and $18.86$ at 100 h. The corresponding $\mathrm{NH_3}$ values are approximately $0.49$, $1.54$, and $4.86$. The A1 enhancement remains considerably weaker, reaching integrated S/N values of approximately $1.92$ for $\mathrm{N_2O}$ and $0.37$ for $\mathrm{NH_3}$ after 100 h.
+
+The photon-noise scaling provides an approximate exposure timescale for the A3 molecular templates. The $\mathrm{N_2O}$ signal reaches integrated S/N values of 3 and 5 after approximately 3 and 7 h, respectively. The corresponding times for $\mathrm{NH_3}$ are approximately 38 and 106 h. These values quantify sensitivity to a specified molecular template across the LIFE wavelength range. Atmospheric inference additionally depends on degeneracies among molecular abundances, the thermal structure, and the planetary radius.
+
+\begin{figure*}[t!]
+    \centering
+    \includegraphics[width=\textwidth]
+    {imgs/life_classic_snr_integrated_proxima.pdf}
+    \caption{
+    Integrated LIFE sensitivity to the ExoFarm molecular signals.
+    Panel (a) compares the $\mathrm{N_2O}$ and $\mathrm{NH_3}$ molecular
+    templates for A1--A3 at different integration times. Marker shape
+    identifies the ExoFarm scenario and color identifies the exposure time.
+    The auxiliary $1000$ h point extends the photon-noise scaling beyond the
+    focal 1, 10, and 100 h retrieval sequence. Panel (b) shows the projected
+    A3 integrated S/N as a function of exposure time for $\mathrm{N_2O}$
+    and $\mathrm{NH_3}$. Horizontal lines mark S/N values of 3 and 5, and
+    the corresponding crossing times are indicated for each molecule.
+    }
+    \label{fig:life_snr}
+\end{figure*}
+
+\subsection{Atmospheric Retrieval with LIFE}
+\label{sec:life_retrieval}
+
+The molecular-template S/N quantifies the sensitivity to a specified wavelength-dependent signal. Atmospheric retrieval provides a stronger test by allowing the molecular composition, pressure--temperature structure, and planetary radius to vary simultaneously. Degeneracies among these quantities represent the principal challenge for determining whether the enhanced $\mathrm{N_2O}$ and $\mathrm{NH_3}$ abundances remain identifiable from the observed thermal spectrum.
+
+Synthetic LIFE datasets were generated for A1 and A3 at 1, 10, and 100 h and analyzed with POSEIDON and MultiNest. The retrieval forward model preserved the same direct-emission geometry, molecular opacity set, cloud-free assumption, and opaque 1 bar surface used to generate the synthetic spectra. Its atmospheric state was parameterized independently through the molecular abundances, the pressure--temperature profile, and the planetary radius.
+
+Molecular composition was retrieved using an isochemical profile, in which each species is represented by a single volume mixing ratio that remains constant with pressure. This parametrization allows the data to constrain an effective atmospheric abundance for each molecule while keeping the dimensionality of the retrieval compatible with the 31 LIFE spectral channels. The synthetic spectra themselves retain the pressure-dependent VULCAN profiles, so the retrieval tests how effectively a single representative abundance can reproduce the spectral information carried by the vertically resolved chemistry.
+
+The pressure--temperature structure was described with the six-parameter profile of \citet{madhusudhanTemperatureAbundanceRetrieval2009}. This parametrization divides the atmosphere into three analytic pressure regions and uses $a_1$ and $a_2$ to control the thermal gradients, $P_1$, $P_2$, and $P_3$ to locate transitions between the regions and permit both inverted and non-inverted structures, and $T_{\mathrm{ref}}$ to set the overall temperature scale. Its flexibility allows a broad family of thermal structures to be explored with relatively few parameters, which is advantageous for the low-resolution LIFE spectra considered here.
+
+The adopted parameter ranges were chosen as broad operational priors for a temperate rocky atmosphere. The interval $T_{\mathrm{ref}}=150$--$400$ K encompasses thermal states around the Earth-like input profile and the temperate Proxima irradiation regime. Positive values $a_1,a_2\in[0.02,2]$ allow shallow through steep thermal gradients while avoiding the singular zero scale of the analytic parametrization. The transition-pressure priors allow the thermal structure to vary over several atmospheric scale heights: $\log_{10}(P_1/\mathrm{bar})$ and $\log_{10}(P_2/\mathrm{bar})$ span $[-6,1]$, while $\log_{10}(P_3/\mathrm{bar})$ spans $[-2,1]$. The portions of these pressure priors deeper than the fixed 1 bar surface do not contribute directly to the emergent spectrum and are retained to reproduce the parameter space used in the executed retrieval campaign. The functional form follows \citet{madhusudhanTemperatureAbundanceRetrieval2009}, while the numerical bounds are choices of the present analysis.
+
+The planetary surface was fixed at $P_{\mathrm{surf}}=1$ bar, matching the opaque lower boundary used to generate the synthetic spectra. Fixing this pressure prevents the lower boundary from introducing an additional pressure--radius--temperature degeneracy. The reference radius remained free because the absolute thermal flux depends on the emitting area of the planet. Molecular abundances were assigned broad logarithmic priors so that weak species could approach negligible concentrations while the enhanced ExoFarm abundances remained well within the explored parameter space. The complete forward-model configuration and priors are summarized in \autoref{tab:life_retrieval_setup}.
+
+\begin{table*}[t!]
+\centering
+\caption{
+Forward-model parameterization and priors adopted for the LIFE retrievals.
+The chemistry is isochemical, with one vertically constant volume mixing ratio
+for each retrieved species. Pressure parameters are expressed in
+$\log_{10}(\mathrm{bar})$.
+}
+\label{tab:life_retrieval_setup}
+\begin{tabular}{lll}
+\hline
+Parameter & Prior / adopted value & Role in the retrieval \\
+\hline
+
+$a_1$, $a_2$
+    & $\mathcal{U}(0.02,\,2)$
+    & Thermal-gradient scales in the Madhusudhan--Seager profile \\
+
+$\log P_1$, $\log P_2$
+    & $\mathcal{U}(-6,\,1)$
+    & Upper and intermediate P--T transition pressures \\
+
+$\log P_3$
+    & $\mathcal{U}(-2,\,1)$
+    & Deep P--T transition pressure \\
+
+$T_{\mathrm{ref}}$
+    & $\mathcal{U}(150,\,400)$ K
+    & Overall temperature scale \\
+
+$R_{p,\mathrm{ref}}$
+    & $\mathcal{U}(0.8,\,1.3)\times R_{p,\mathrm{nom}}$
+    & Planetary reference radius \\
+
+$\log_{10}(\mathrm{VMR})$
+    & $\mathcal{U}(-12,\,-1)$
+    & Isochemical $\mathrm{H_2O}$, $\mathrm{CO_2}$, $\mathrm{CH_4}$,
+      $\mathrm{O_3}$, $\mathrm{N_2O}$, and $\mathrm{NH_3}$ \\
+
+$\log_{10}(\mathrm{VMR}_{\mathrm{O_2}})$
+    & $\mathcal{U}(-6,\,\log_{10}0.5)$
+    & Isochemical $\mathrm{O_2}$ abundance \\
+$N_{\mathrm{live}}$
+    & $800$
+    & MultiNest live points \\
+\hline
+\end{tabular}
+\end{table*}
+
+The 1, 10, and 100 h datasets use independent noise realizations. The comparison among exposure times therefore reflects the increase in information content together with the particular noise realization associated with each dataset.
+
+The synthetic spectra contain pressure-dependent VULCAN abundance profiles, whereas the retrieval returns one isochemical abundance for each species. To place both descriptions on a common scale, we defined the effective A0 abundance as the pressure-weighted mean
+
+\begin{equation}
+\overline{X}_{A0,\mathrm{eff}}
+=
+\frac{
+\displaystyle
+\int_{p_{\mathrm{top}}}^{p_{\mathrm{bot}}}
+X_{A0}(p)\,dp
+}{
+p_{\mathrm{bot}}-p_{\mathrm{top}}
+}.
+\label{eq:a0_effective}
+\end{equation}
+
+Under hydrostatic conditions, this weighting approximates a column-mass average and provides a single reference abundance that can be compared directly with the vertically constant retrieval posterior.
+
+For the visualization in \autoref{fig:life_retrievals}, the displacement of each posterior from this reference is summarized by
+
+\begin{equation}
+z^{\mathrm{desc}}_{s|A0}
+=
+\frac{
+q_{50,s}
+-
+\log_{10}\left(\overline{X}_{A0,\mathrm{eff}}\right)
+}{
+\sigma_{68,s}
+},
+\qquad
+\sigma_{68,s}
+=
+\frac{q_{84,s}-q_{16,s}}{2}.
+\label{eq:zdesc}
+\end{equation}
+
+The quantity $z^{\mathrm{desc}}$ expresses the displacement of the posterior median from the effective A0 abundance in units of the central posterior half-width. For approximately Gaussian and symmetric posteriors, it can be interpreted as an approximate sigma-equivalent separation from the A0 reference. We use it here as a descriptive measure of how strongly an inferred ExoFarm abundance departs from the pre-agricultural atmospheric state.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]    {imgs/retrieval_A1_A3_1_10_100h_official_six_species_PT_proxima.pdf}
+    \caption{
+    LIFE atmospheric retrievals for the A1 and A3 Proxima-irradiated
+    Earth-like cases at 1, 10, and 100 h. Rows correspond to integration
+    time. The first six columns show the marginalized abundance posteriors
+    for $\mathrm{H_2O}$, $\mathrm{CO_2}$, $\mathrm{CH_4}$,
+    $\mathrm{O_3}$, $\mathrm{N_2O}$, and $\mathrm{NH_3}$ together with
+    their corresponding VULCAN vertical profiles. The final column shows
+    the retrieved pressure--temperature structures. A1 is shown in green
+    and A3 in magenta. Vertical reference lines indicate the effective A0
+    abundances. Each molecular panel reports the posterior median and the
+    descriptive displacement $z^{\mathrm{desc}}_{s|A0}$ defined in
+    \autoref{eq:zdesc}. Posterior densities are normalized independently
+    within each panel. $\mathrm{O_2}$ is included in the retrieval but
+    omitted from the atlas for compactness.
+    }
+    \label{fig:life_retrievals}
+\end{figure}
+
+At 1 h, neither nitrogen-bearing species is strongly constrained. The A3 molecular templates remain below the nominal S/N = 3 level, with integrated S/N values of $1.89$ for $\mathrm{N_2O}$ and $0.49$ for $\mathrm{NH_3}$, and their retrieved abundances remain close to the effective A0 reference, with $z^{\mathrm{desc}}=-0.88$ and $+0.14$, respectively. The remaining retrieved species likewise show no comparably strong scenario-dependent displacement from their A0 references and primarily provide atmospheric context for the nitrogen-bearing species.
+
+At 10 h, the behavior of $\mathrm{N_2O}$ changes markedly in the extreme A3 case. Its molecular template reaches an integrated S/N of $5.97$, while the retrieved abundance concentrates around $\log_{10}(\mathrm{VMR})=-6.06$ and is displaced from the effective A0 abundance by $z^{\mathrm{desc}}=5.59$. The A3 $\mathrm{N_2O}$ enhancement is therefore clearly separated from the pre-agricultural reference within the adopted retrieval model. The corresponding $\mathrm{NH_3}$ posterior remains much less informative, with $z^{\mathrm{desc}}=0.85$, indicating that 10 h is insufficient to separate its A3 abundance from A0.
+
+The distinction becomes stronger at 100 h. For A3, $\mathrm{N_2O}$ reaches $z^{\mathrm{desc}}=13.24$, while $\mathrm{NH_3}$ reaches $z^{\mathrm{desc}}=5.63$ and an integrated molecular S/N of $4.86$. The longer exposure therefore provides the first case in this sequence where the extreme ExoFarm enhancement is clearly separated from A0 for both nitrogen-bearing species. In contrast, the A1 cases remain close to the A0 reference even at 100 h, with $z^{\mathrm{desc}}=-0.99$ for $\mathrm{N_2O}$ and $-0.77$ for $\mathrm{NH_3}$. The A1 $\mathrm{NH_3}$ template also remains extremely weak, with an integrated S/N of only $0.37$. Consequently, the present-day-like agricultural perturbation is not distinguishable from A0 in these observations, while the extreme A3 scenario produces a characteristic joint displacement in $\mathrm{N_2O}$ and, at sufficiently long exposure, $\mathrm{NH_3}$.
+
+\textbf{[PENDIENTE: añadir un párrafo específico sobre detección molecular. Aquí se debe distinguir entre la detectabilidad de la presencia de una molécula y la capacidad de diferenciar su abundancia de la referencia A0. Por ahora se mantiene $z^{\mathrm{desc}}$ como medida de separación respecto de A0. Más adelante se evaluará si conviene complementar esta métrica usando directamente la probabilidad posterior en la cola respecto de A0, $p_{\mathrm{tail}}$, y su correspondiente separación gaussiana equivalente.]}
+
+This distinction is particularly important for the interpretation of $\mathrm{N_2O}$. Large biological $\mathrm{N_2O}$ fluxes can arise when denitrification terminates inefficiently at $\mathrm{N_2O}$ and the final reduction to $\mathrm{N_2}$ becomes limited \citep{schwietermanEvaluatingPlausibleRange2022}. Such pathways can sustain $\mathrm{N_2O}$ fluxes far above the modern terrestrial value independently of an agricultural technosphere. Atmospheric $\mathrm{NH_3}$ responds to a different source--sink balance. Dissolution, conversion to $\mathrm{NH_4^+}$, deposition, and uptake by aqueous and surface reservoirs can remove $\mathrm{NH_3}$ efficiently, while atmospheric accumulation becomes much more favorable as these sinks approach saturation \citep{huangAssessmentAmmoniaBiosignature2022a}.
+
+The joint recovery of enhanced $\mathrm{N_2O}$ and $\mathrm{NH_3}$ consequently provides greater attribution power than $\mathrm{N_2O}$ alone. Within the ExoFarm framework, $\mathrm{N_2O}$ provides the most accessible initial tracer of the nitrogen perturbation. The recovery of $\mathrm{NH_3}$ at longer integration times adds an independent constraint on the sustained input of reduced nitrogen and its competition with efficient surface sinks. Simultaneous recovery of the surrounding atmospheric composition further constrains the chemical environment in which both species coexist. Together, these measurements provide a stronger atmospheric indication of sustained agricultural forcing.
+
+At 100 h, the increased precision also exposes limitations of the retrieval parameterization, particularly the use of vertically constant abundances to represent the pressure-dependent VULCAN chemistry; the corresponding posterior separations should therefore be interpreted within this model assumption.
+
+\bigskip
+
+Overall, the thermal-emission analysis places the extreme ExoFarm scenario in a substantially more favorable observational regime than the JWST transmission case in \autoref{sec:transmission}. In A3, $\mathrm{N_2O}$ reaches informative LIFE sensitivities on timescales of hours and becomes clearly separated from the A0 atmospheric state in the retrieval by 10 h. Longer integrations allow the $\mathrm{NH_3}$ enhancement to become similarly distinguishable while also constraining the broader atmospheric context, substantially increasing the diagnostic power of the inferred nitrogen perturbation. For the nearest temperate systems, the observational challenge therefore progresses from molecular sensitivity toward the separation of agricultural atmospheric states from plausible natural references and the control of retrieval degeneracies.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{HASTA AQUÍ VAMOS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Photochemical Model and Atmospheric Experiments}\label{sec:photo}
+
+\iffalse
+[PROPUESTAS EXPERIMENTO]
+- EXOFARM-AUTOCONSISTENTE: En vez de calcular los espectros con perfiles verticales fijos y escalados, se propone calcular desde los flujos de emisión de la superficie los perfiles verticales de un modelo fotoquímico 1D a partir de Vulcan.
+
+- EL PERFIL DE TEMPERATURA LO VAMOS A PONER FIJO}
+    - Tierra Presente(Perfil dado por Vulcan)
+    - TRAPPIST1E: Perfil de Kaltenegger
+        - [PARA LA DISCUSIÓN]: Los niveles de N2O no aportan mucho a la temperatura porque la abundancia.
+            - [> !CAUTION] A niveles muy altos, si afecta. Toca protegernos en la discusión, dandonos excusas.
+            - [> !MATIZ] Se hizo un intento de modelo autoconsitente con la temepratura con photochem y no funcionó.
+\fi
+
+To simulate the atmospheric response to varying nitrogen emission regimes, we employ the 1D chemical kinetics code VULCAN \citep{tsaiVULCANOpensourceValidated2017}. We use the standard \texttt{NCHO\_earth\_photo\_network}, which comprises 47 chemical species and solves a total of 715 reactions. This network is specifically optimized for oxidizing $N_2-O_2$ dominated atmospheres and includes 528 two-body reactions, 88 three-body reactions, and 99 photodissociation reactions. For all simulations, we model a planet with Earth-like physical parameters using the default U.S. Standard Atmosphere 1976 thermal profile (\texttt{atm\_Earth\_standard}). Vertical transport is handled via VULCAN's standard parameterized diffusion profile for terrestrial atmospheres, which captures efficient convective mixing in the troposphere and its subsequent decay into the stratosphere.
+
+The impact of the spectral energy distribution (SED) on photochemistry is isolated by comparing two extreme stellar environments. The first, a G2V control case, uses the standard solar spectrum provided in VULCAN to represent a high Near-UV (NUV) flux environment. The second, an M8V case, utilizes observational data from the Mega-MUSCLES program \citep{wilsonMegaMUSCLESSpectralEnergy2021}, integrating Hubble UV observations and X-ray models. These fluxes are geometrically scaled to match the bolometric irradiation at the orbit of TRAPPIST-1e. While the G2V spectrum is NUV-rich, the M8V environment is characterized by significantly lower NUV emission but heightened Lyman-$\alpha$ and XUV activity.
+
+A key distinction of this work compared to previous studies \citep[e.g.,][]{haqq-misraDisruptionPlanetaryNitrogen2022} is the use of surface flux boundary conditions instead of fixed atmospheric abundances. This physically dynamic approach allows the atmosphere to evolve toward a photochemical steady state governed by the destruction efficiency of each star's SED. We define four ``ExoFarm'' emission scenarios by scaling present-day terrestrial nitrogen fluxes \citep{tianComprehensiveQuantificationGlobal2020}. Scenario A1 represents modern Earth, while A0 establishes a purely biological baseline by removing anthropogenic components. Scenarios A2 and A3 represent intensified agricultural activity, applying multiplicative scaling factors ($10\times$ and $100\times$, respectively) consistent with planetary carrying capacity limits \citep{battyeNitrogenNextCarbon2017,cohenPopulationGrowthEarths1995}. These four regimes, summarized in Table \ref{tab:scenarios}, are integrated into a crossed factorial design to evaluate their interaction with the two radiative environments.
+
+
+VAMOS AQUÍ, SECCION VIEJA ABAJO
+
+\section{Photochemical Results}\label{sec:chemres}
+
+\iffalse
+[DISCUSION] EN TRAPPIST 1E SE AUMENTA LA SEÑAL DE ESTOS TECNOSIFNATURES PORQUE SE ACUMULA MÁS GRACIAS A LA PHOTOQUÍMICA
+\fi
+
+\subsection{Photochemical Profiles and Column Diagnostics}\label{subsec:Vert_mix}
+
+The stellar comparison that drives the chemistry is shown explicitly in \autoref{fig:star}. The key difference lies in the Near-Ultraviolet regime, where the TRAPPIST-1e case is strongly UV-deficient relative to the solar control. Because the main photolysis channels of $N_2O$ and $NH_3$ are highly sensitive to this wavelength range, the stellar spectrum is not background context but one of the physical control parameters of the experiment.
+
+The main photochemical result is summarized in \autoref{fig:chem}. The figure condenses the response of five key species---$N_2O$, $NH_3$, $O_3$, $CH_4$, and $OH$---across the agricultural sequence A0--A3 for both the Earth--Sun control and the TRAPPIST-1e analog. The first two columns show the vertical mixing-ratio profiles, while the third column compresses each case into a column-weighted diagnostic relative to the Earth--Sun A1 reference. This layout is designed to connect vertical chemistry with a more compact measure of integrated atmospheric response before moving to transmission spectra.
+
+
+The comparison reveals two effects that must be kept distinct in the article. First, increasing agricultural fluxes raise the abundances of the primary technosignature gases, especially $N_2O$ and $NH_3$. Second, the stellar environment strongly modulates how that forcing translates into atmospheric structure. Around TRAPPIST-1e, the much lower Near-UV flux suppresses direct photolysis and allows both gases to survive to lower pressures than in the solar case. This is especially visible for $NH_3$, whose upper-atmosphere survival changes far more dramatically than a surface-only metric would suggest.
+
+The secondary species show that the stellar response is not a trivial monotonic scaling of all chemistry. In the solar case, the increase in $N_2O$ is accompanied by a clearer ozone penalty, consistent with catalytic destruction pathways driven by photolysis products. Around TRAPPIST-1e, $O_3$ remains weak overall because the low-NUV environment also limits oxygen photochemistry, while $CH_4$ remains comparatively stable and abundant through much of the column. The persistence of $OH$ is especially important: the atmosphere does not become chemically inert, even though direct photolysis of the nitrogen technosignature gases is strongly reduced.
+
+\section{Transmission Spectra and Observational Windows}\label{sec:transmission}
+
+\iffalse
+[TRANSMISSION ESPECTRA ]
+
+ESPECTRO DE LOS 4 ESCENARIOS COMPARADOS
+PANEL INFERIOR RESTA ENTRE LOS ESPECTROS ENTRE PREAGRICULA Y LOS OTROS, ESCALAR LA DIFERENCIA EN PPM
+
+CON ESTO ANALIZAR LA SENSIBILIDAD EN INTENSIDAD Y EL SNR QUE SE PUEDE LOGRAR EN ESA LINEA CONCRETA.
+\fi
+
+The photochemical profiles are not the end of the argument, but the inputs to the observational problem. In the current pipeline, the VULCAN outputs feed synthetic transmission-spectrum calculations for the pre-agricultural and intensified agricultural scenarios, allowing the chemistry to be propagated into wavelength-dependent transit depths rather than remaining as an abstract abundance comparison. The first observational layer is summarized in \autoref{fig:pure}, which compares the transmission spectra of A0--A3 and the corresponding molecular residual diagnostics relative to the pre-agricultural baseline.
+
+A first diagnostic layer compares the ``pure'' spectra of the four scenarios and then measures residuals with respect to the pre-agricultural reference, expressed in ppm to highlight weak but structured separations. These residuals identify the wavelength regions most sensitive to ExoFarm forcing and reveal that the relevant signal is distributed across several bands rather than concentrated in a single isolated feature. In particular, the net contributions of $N_2O$, $NH_3$, and $H_2O$ help distinguish which parts of the total residual are associated with the agricultural perturbation itself and which belong to the broader atmospheric response.
+
+
+However, forward residuals alone do not establish observational usefulness. The next step is therefore to fold the molecular residual amplitudes through instrumental noise expectations. That comparison is condensed in \autoref{fig:snr}, which replaces the earlier table-based summary with a more compact band-by-band performance view. The figure organizes the peak molecular-excess signal-to-noise ratio for the main $N_2O$ and $NH_3$ bands as a function of scenario and number of transits, and then translates that hierarchy into the number of transits required to reach fixed thresholds in the most relevant A3 bands.
+
+
+The ranking that emerges is asymmetric. The most favorable feature in the current TRAPPIST-1e setup is the $N_2O$ band near $2.8\,\mu$m, followed by the other $N_2O$ windows near $4.5\,\mu$m and $8.6\,\mu$m. The $NH_3$ band near $10.7\,\mu$m remains scientifically valuable, but it is much more expensive in transit count. This already suggests that the ExoFarm argument is likely to be carried observationally by $N_2O$, with $NH_3$ functioning more as a contextual companion than as the first practically accessible feature.
+
+\section{Retrieval Analysis}\label{sec:retrieval}
+
+\iffalse
+--- RETRIEVAL---
+
+EL NH3 NO ES DETECTABLE INCLUSO CON MUCHOS TRANSITOS A VALORES EXTREMOS CON EL JWST
+
+EL N2O, SOLO NIRI + NIRSPEC A 100 Y 100 SE PUEDE DIFERENCIAR A CASI 2 SIGMAS LOS ESCENARIOS. EL NIRSPEC ES ESPECIAL PARA CALCULAR , PERO HASTA AHORA SOLO SE HAN TOMADO 4 TRANSITOS.
+
+RETRIEVAL - ANALISIS BAYESIANO
+
+MODELO ISOQUÍMICO E ISOTÉRMICO SIN CONTAMINACION ESTELAR, Y SE EXPLORAN LAS ABUNDANCIAS QUIMICAS DE TODAS LAS MOLECULAS
+
+ESTO ES IMPORTANTE PORQUE LA INFORMACION DE UNA MOLECULA ESTA EN VARIAS BANDAS, Y SE PUEDE CONFUNDIR CON OTRAS, EL ANALISIS DE LOS ESPECTROS PUROS NO PERMITE TENER EN CUENTA ESTO.
+
+SE REALIZA  CON DISTINTAS CAMPAÑAS DE OBSERVACION
+\fi
+
+Because the spectral information of a given molecule is distributed across multiple bands and can be confused with other absorbers, forward spectra alone are insufficient to establish practical detectability. The retrieval stage therefore adopts an isothermal, iso-compositional atmospheric setup without stellar contamination as a first working approximation and explores the abundances of all relevant molecules simultaneously. Its scientific role is to evaluate not only whether a feature is present, but whether observing campaigns can distinguish among agricultural scenarios once spectral degeneracies are explicitly allowed. A compact visual summary of this step is given in \autoref{fig:ret}.
+
+Within the current working interpretation, $NH_3$ remains difficult to retrieve robustly with JWST even under extreme scenarios, whereas $N_2O$ is expected to be the more accessible discriminant in combined near-infrared instrument configurations and at very large transit counts. These statements should still be treated as provisional, but the retrieval section closes the gap between chemically amplified atmospheres and what an actual observing campaign could plausibly infer under a deliberately simplified inverse model.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/trappist_retrieved_zooms_A0_A3_v2.pdf}
+    \caption{Retrieval summary for the TRAPPIST-1e ExoFarm extreme-contrast test between A0 and A3. The figure compares the true model, the noisy synthetic observations, and the retrieved spectra in selected molecular windows, illustrating how the inferred signal quality changes with transit count. The panels emphasize the relative recoverability of the strongest $N_2O$ bands and the weaker, more demanding $NH_3$ feature.}
+    \label{fig:ret}
+\end{figure*}
+
+\section{LIFE Results}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/emission_molecular_residuals_proxima.pdf}
+    \caption{Thermal emission spectrum Proxima b}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/life_classic_snr_comparison_proxima.pdf}
+    \caption{SNR Analysis}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/retrieval_global_spectra_proxima.pdf}
+    \caption{Retrieved Spectrum}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{imgs/retrieval_profiles_posteriors_proxima.pdf}
+    \caption{Posterior Analysis LIFE}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Discussion}\label{sec:disc}
+
+\iffalse
+[ACORDARSE EN EL PLANETA GRANJA]
+\fi
+
+\subsection{Chemical Mechanisms: Dominance of Photolysis over Oxidation}
+
+One of the major risks in proposing biosignatures or technosignatures around M dwarfs is the false positive from ``abiotic accumulation'' in reducing atmospheres, where the lack of UV prevents OH formation \citep{grenfellPotentialBiosignaturesSuperEarth2013}.
+
+Our radical analysis (\autoref{subsec:Vert_mix}) allows us to rule out this scenario for our simulation. The persistence of $OH$ on TRAPPIST-1e indicates that the atmosphere maintains its oxidative capacity. Therefore, the massive accumulation of $N_2O$ and $NH_3$ we report is not due to a failure of the atmosphere to chemically cleanse itself ($k_{OH}$), but almost exclusively to the absence of direct photodissociation ($J_{values}$).
+
+Following the kinetic framework established by \citep{grenfellPotentialBiosignaturesSuperEarth2013,seguraBiosignaturesEarthLikePlanets2005}, the loss rate ($L$) of a trace species such as $NH_3$ is governed by competition between two main sinks:
+
+\begin{equation}
+    L_{NH3} = J_{NH3}[NH_3] + k_{OH}[OH][NH_3]
+\end{equation}
+
+In the solar case, the photolysis term ($J_{NH3}$) dominates in the upper atmosphere, resulting in rapid destruction. On TRAPPIST-1e, the $J_{NH3}$ term is drastically reduced due to the stellar spectrum. Although the oxidation term ($k_{OH}[OH]$) remains active (as demonstrated by the presence of OH in our results), it is insufficient by itself to counteract industrial emission fluxes at the same rate. This strengthens the case for $NH_3$ as a technosignature in this context: its presence is not a geochemical accident in an inert atmosphere, but an anomaly in a chemically active, oxidizing atmosphere.
+
+\subsection{Implications for Detectability (JWST)}
+
+Assuming a conservative detectability threshold of $\sim 1$ ppm ($10^{-6}$) for transmission observations with JWST \citep{huangAssessmentAmmoniaBiosignature2022,schwietermanArtificialGreenhouseGases2024}:
+
+\begin{enumerate}
+    \item \textbf{In G2V:} Detecting agriculture would require extreme levels (Scenario A3) for $N_2O$. $NH_3$ remains consistently below easy detection thresholds.
+    
+    \item \textbf{In M8V:} $N_2O$ comfortably exceeds the detectability threshold starting from Scenario A2. Although $NH_3$ remains in the ppb range, its greater scale height and its coexistence with massive $N_2O$ levels could facilitate the detection of joint spectral features, distinguishing it from a purely abiotic scenario.
+\end{enumerate}
+
+This suggests that, in the search for technosignatures due to ExoFarms, cool stars should be prioritized targets. The simultaneous detection of massive $N_2O$ and trace $NH_3$ would be a robust indicator of severe thermodynamic disequilibrium, since maintaining $NH_3$ at those levels without a continuous technological source is unlikely in oxygen-rich atmospheres.
+
+However, to confirm actual detectability, it is essential to carry out \textbf{radiative transfer simulations} (transmission or emission spectra) based on these vertical profiles. Abundance along the vertical determines the optical depth and the strength of the resulting absorption bands. Only by modeling synthetic spectra can we determine whether these enriched concentrations produce a signal-to-noise ratio sufficient to be distinguished from instrumental noise and from overlapping species in future JWST or next-generation ground-based observations.
+
+\subsection{Side Effects: Ozone and Methane}
+
+The discussion cannot be limited to technosignature gases; side effects on the atmospheric background are equally revealing.
+
+On an Earth--Sun--type planet, intensive agriculture (A3) significantly depresses the ozone layer due to $NO_x$ produced by $N_2O$ photolysis, which would compromise surface habitability. On TRAPPIST-1e, this destructive effect is mitigated by the lack of energetic UV. However, it is crucial to note that the baseline ozone abundance on TRAPPIST-1e is already low ($\sim 10^{-9}$ vs. $\sim 10^{-7}$ around the Sun) due to the weak $O_2$ photolysis. Therefore, although agriculture does not catastrophically destroy the ozone layer in M8V systems (because it is already tenuous), joint detection of $O_3$ and technosignatures will be challenging due to the intrinsically weak ozone signal in these systems.
+
+On the other hand, the high $CH_4$ levels ($\sim 10^{-4}$) observed on TRAPPIST-1e pose a challenge. With a $CH_4/CO_2$ ratio approaching 0.1, conditions favor the formation of photochemical organic hazes (similar to Titan). These hazes could flatten the transmission spectrum, hindering the detection of other species, but they could also act as an additional UV shield for surface habitability \citep{schwietermanExoplanetBiosignaturesReview2018a}.
+
+\subsection{Climate Feedback and Dynamical Limitations}
+
+One limitation of this study is the use of a fixed T--P profile. $N_2O$ is a potent greenhouse gas \citep{haqq-misraDisruptionPlanetaryNitrogen2022}. Abundances of $10^{-4}$ ($\sim 87$ ppm) in Scenario A3 could induce significant warming. Future work should couple a radiative--convective model to assess whether an extreme ExoFarm would heat the planet to the point of becoming uninhabitable.
+
+Additionally, using a terrestrial vertical transport coefficient ($K_{zz}$) is a first-order approximation. On tidally locked planets around M dwarfs, such as TRAPPIST-1e, atmospheric circulation is dominated by strong day--night heat redistribution, which could generate very different vertical mixing patterns (e.g., vigorous upwelling at the substellar point) \citep{fauchezTRAPPIST1HabitableAtmosphere2019}. This 3D dynamics, not explored in this 1D model, could alter the vertical distribution of technosignature gases and, consequently, their spectral signal.
+
+\section{Conclusions}\label{sec:conc}
+
+\iffalse
+- LA FOTOQUIMICA AFECTA SIGNIFICATIVAMENTE LAS ABUNDANCIAS QUIMICAS DE LAS MOLECULAS
+
+- SEGUIMOS TENIENDO UN LIMITE INSTRUMENTAL PARA DETECTAR TECNOSIGNATURES CON EL JWST
+
+- HEMOS IDENTIFICADO LAS BANDAS ESPECTRALES DONDE TENEMOS QUE POMNER MÁS ENFASIS
+
+- NECESITAMOS UN TST TECNOSGINATURE SPACE TELESCOPE, QUE TRABAJARIA EN ESTA BANDA
+
+- NECESITAMOS MÁS DE 100 TRANSITOS PARA EMPEZAR A DIFERENCIAR N2O COMO TECNOSIGNATURE
+- EL NH3 ES MÁS FIABLE POR QUE EN ESCENARIOS HIPOTETICOS EL N2O PUEDE GENERARSE AL NO COMPLETARSE EL CICLO DEL NITROGENO.
+\fi
+
+This study confirms that the photochemical environment of M-dwarf stars plays a decisive role in the feasibility of detecting agricultural technosignatures on exoplanets. Through self-consistent simulations, we have demonstrated that atmospheric accumulation of gases such as $N_2O$ and $NH_3$ does not depend solely on the intensity of the industrial source (the ``ExoFarm''), but is deeply modulated by the spectral distribution of the host star. Specifically, the UV deficiency of stars like TRAPPIST-1 acts as a protective mechanism that extends the lifetime of these molecules, allowing modest technological signals to be amplified to potentially detectable levels.
+
+From this analysis, we synthesize the following main findings:
+
+\begin{enumerate}
+    \item \textbf{Selective Amplification of $N_2O$:} Nitrous oxide emerges as the technosignature most sensitive to stellar type, experiencing up to a 3.6-fold enhancement in its surface abundance and extending its vertical presence in TRAPPIST-1e's atmosphere, making it a primary target for characterization.
+    
+    \item \textbf{Vertical Survival of $NH_3$:} Although surface deposition limits ammonia growth in the lower layers, the M-dwarf environment allows this gas to survive vertical transport and saturate the upper atmosphere, unlike its near-complete destruction in solar analogs. This opens a transmission-detectability window that does not exist on Earth.
+    
+    \item \textbf{Robustness of the Oxidizing Signal:} Our models rule out the possibility that this accumulation is a false positive caused by a collapse in the atmospheric oxidative capacity. The persistence of $OH$ radicals confirms that the dominant mechanism is the suppression of direct photolysis, supporting the use of these gases as markers in oxygenated atmospheres.
+    
+    \item \textbf{System-Level Trade-offs:} The observational advantage is accompanied by complex challenges, such as the low baseline abundance of ozone (which makes its use as a contextual biosignature difficult) and methane saturation, which could introduce opacity from organic hazes.
+\end{enumerate}
+
+%% Working-draft v2 note:
+%% This file reconstructs the previous manuscript into the new section
+%% architecture while preserving existing claims, notes, and bibcodes.
+%% Numerical scenario updates and deeper scientific revisions belong to a later pass.
+
+%% To help institutions obtain information on the effectiveness of their 
+%% telescopes the AAS Journals has created a group of keywords for telescope 
+%% facilities.
+%
+%% Following the acknowledgments section, use the following syntax and the
+%% \facility{} or \facilities{} macros to list the keywords of facilities used 
+%% in the research for the paper.  Each keyword is check against the master 
+%% list during copy editing.  Individual instruments can be provided in 
+%% parentheses, after the keyword, but they are not verified.
+
+%% Similar to \facility{}, there is the optional \software command to allow 
+%% authors a place to specify which programs were used during the creation of 
+%% the manuscript. Authors should list each code and include either a
+%% citation or url to the code inside ()s when available.
+\software{VULCAN \citep{tsaiVULCANOpensourceValidated2017},
+          Matplotlib \citep{Hunter:2007},
+          NumPy \citep{harris2020array}
+          }
+
+%% Appendix material should be preceded with a single \appendix command.
+%% There should be a \section command for each appendix. Mark appendix
+%% sections with the same markup you use in the main body of the paper.
+%%
+%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
+%% The equation counter will reset when it encounters the \appendix
+%% command and will number appendix equations (A1), (A2), etc. The
+%% Figure and Table counter will not reset.
+
+
+\bibliography{reference}{}
+\bibliographystyle{aasjournalv7}
+
+%% This command is needed to show the entire author+affiliation list when
+%% the collaboration and author truncation commands are used.  It has to
+%% go at the end of the manuscript.
+%\allauthors
+
+%% Include this line if you are using the \added, \replaced, \deleted
+%% commands to see a summary list of all changes at the end of the article.
+%\listofchanges
+
+\end{document}
+
+% End of file `sample7.tex'.

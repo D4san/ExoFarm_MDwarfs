@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "full_run_source_sha256": "194a1c6cc958a2f2b681bd207170f09ef7e9fab45b31fc0a03f8b7e3a6dd2c83",
+  "current_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "reconstructed_source_sha256": "194a1c6cc958a2f2b681bd207170f09ef7e9fab45b31fc0a03f8b7e3a6dd2c83",
+  "executable_AST_equal_except_docstrings_and_two_error_messages": true,
+  "normalised_AST_sha256": "9b5911d81956c54f67f6aa2e53d2ce9df68876fa9593ab3db612d946041a8c34",
+  "changes": "module/function documentation and two ValueError descriptions only",
+  "scientific_operator_change": false
+}

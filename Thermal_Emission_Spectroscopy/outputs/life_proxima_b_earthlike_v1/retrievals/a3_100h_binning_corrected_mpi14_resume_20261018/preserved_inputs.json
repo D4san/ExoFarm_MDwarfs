@@ -1,0 +1,12 @@
+{
+  "dataset": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A3_100h.dat",
+  "dataset_sha256": "78662546181a5b74391a14b7b73ae80d879200a74db6a4bc5338e3ce7eee4705",
+  "baseline_manifest_sha256": "14ca699b98e154a64abb5ad8d2886466e1b6e55fb999aba789a5e8a8c9ec9f9a",
+  "resolved_configuration_sha256": "2ef6fb87c0dff24ae93eb7d1b84f62b4284bfcc306758bbf0036dcb1f8d9710b",
+  "original_adapter_sha256": "f54ddc5b221c53a94f91dcedb3c35b21249e395d65739e6b7d863f7dd29c3dc6",
+  "mpi14_adapter_sha256": "997c16ecde2de246c86e372a5a6da67c8ed1a8a05cffdca4ba50cb2beb3085a2",
+  "base_runner_sha256": "73f7fd1e6cb22f56c4a377cd01173752646030ddd4f89b4ff5552588410220e5",
+  "operator_source_sha256": "ba17b7056eb094bd210aca23aacd6aa9dbdcfabdf65352d641faf93c20252731",
+  "mpi_ranks": 14,
+  "thread_limit": 1
+}

@@ -14,11 +14,16 @@ The workflow is explicitly modular:
 0. **Agricultural flux modelling** with **LPJmL**, used to estimate gridded crop, water, carbon, and nitrogen-cycle fluxes that can be translated into surface boundary fluxes.
 1. **Photochemical forward modelling** with **VULCAN**, used to integrate atmospheric chemistry under different surface-emission scenarios and stellar UV environments.
 2. **Transmission spectroscopy and retrieval analysis** with **POSEIDON** and synthetic **JWST/PandExo** observing setups, used to translate those chemically self-consistent atmospheres into observable spectra and retrieval products.
-3. **Thermal-emission/direct-observability analysis** with **POSEIDON** and future **LIFE/LIFEsimMC** simulations, organized as a Tierra--Sol 10 pc benchmark followed by a new Proxima-environment photochemical branch before its direct-observation analysis.
+3. **Thermal-emission/direct-observability analysis** with **POSEIDON** and classical **LIFE/LIFEsim**, including a Tierra--Sol 10 pc interface benchmark and a separate Proxima-environment photochemical/retrieval branch. Instrumental **LIFEsimMC/PHRINGE** validation remains pending.
 
-At present, Stage 0 is suspended by project decision. Stages I--II remain the
-active evidence pipeline, while Stage III is documented and deliberately not
-yet executed. To recover the exact operational state from a new chat, begin at
+Current closure (2026-10-11): the classical LIFE Proxima focal analysis has
+six full retrievals, 36 molecular LOO contrasts and three A3-100 h fixed-A0
+contrasts. The latter are accepted with an explicit fixed-moment numerical
+salvedad; original outputs remain preserved. Conditional N2O enrichment is
+supported, while agricultural attribution and instrumental-noise robustness
+remain open. See the [layered scientific synthesis](docs/life_proxima_exofarm_retrieval_layers_synthesis_2026-10-11.md).
+The live status of every stage and its separate open questions is maintained
+in the operational documents. To recover it from a new chat, begin at
 [`docs/project_resume.md`](docs/project_resume.md), then consult the
 [`docs/project_status_tracker.md`](docs/project_status_tracker.md).
 
@@ -293,7 +298,5 @@ its profiles must exist and be accepted before any LIFE command for that case.
 - a frozen LIFE target/instrument configuration before generating products
 
 For module-specific details, see the dedicated READMEs in `Photochemical_Modeling/`, `Transmission_Spectroscopy/` and `Thermal_Emission_Spectroscopy/`.
-
-
 
 

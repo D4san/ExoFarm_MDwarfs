@@ -1,0 +1,27 @@
+{
+  "status": "RUNNING",
+  "run_id": "A3_1000h_full",
+  "scenario": "A3",
+  "hours": 1000,
+  "integration_days": 41.666666666666664,
+  "authorized_runs": 1,
+  "mpi_ranks": 6,
+  "n_live": 800,
+  "acceptance": "PENDING",
+  "scratch": "/home/dasan/exofarm_a3_1000h_20261011_nativegrid",
+  "physical_model_changed": false,
+  "numerical_grid_changed": true,
+  "native_grid_um": [
+    3.0,
+    20.0
+  ],
+  "first_attempt": "Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/a3_1000h_full_20261011",
+  "launcher_sha256": "34807a54c8c9a13891bf19bdea70392bc5cabc123a496b13e343c4a252592483",
+  "updated_utc": "2026-10-11T19:42:38.474034+00:00",
+  "supervisor_pid": 818,
+  "dataset_sha256": "5611c5904ef03aa02586bed15f14c0c2560ac5ae6fa9463ef420229311db75fa",
+  "seed": 1450560596,
+  "preflight": "PASS",
+  "baseline_priors": "IDENTICAL",
+  "mpiexec_pid": 921
+}

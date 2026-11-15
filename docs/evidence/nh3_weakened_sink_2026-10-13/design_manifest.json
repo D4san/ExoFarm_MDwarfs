@@ -1,0 +1,92 @@
+{
+  "analysis_date": "2026-10-13",
+  "design_id": "nh3_weakened_surface_sink_vdep_0p65_20261013",
+  "status": "DESIGN_SELECTED_NOT_IMPLEMENTED_OR_SIMULATED",
+  "classification": "conditional_project_inference",
+  "new_atmospheric_simulations": 0,
+  "canonical_bc_or_profiles_changed": false,
+  "species": "NH3",
+  "selected_global_effective_velocity_cm_s": 0.65,
+  "reference_global_effective_velocity_cm_s": 1.0,
+  "ocean_area_fraction_assumed": 0.70,
+  "land_area_fraction_assumed": 0.30,
+  "marine_control_anchor_cm_s": 0.50,
+  "marine_anchor_source_doi": "10.1016/S1352-2310(97)00277-X",
+  "marine_anchor_scope": "Preliminary British Isles estimate; publisher abstract and public snippets read; not globally calibrated",
+  "marine_anchor_original_mm_s": 5.0,
+  "marine_weakened_net_velocity_cm_s": 0.0,
+  "land_control_residual_cm_s_per_land_area": 2.166666666666667,
+  "fractional_coefficient_reduction_at_fixed_number_density": 0.35,
+  "equivalent_effective_resistance_s_m": 153.84615384615384,
+  "derivation": "v_weak = v_reference - f_ocean * v_marine_control = 1 - 0.70 * 0.50 = 0.65 cm/s",
+  "extra_phase_proposal": {
+    "phase_id": "nh3_reduced_capture_extra_phase_20261013",
+    "status": "PROPOSAL_DOCUMENTED_NOT_IMPLEMENTED_OR_SIMULATED",
+    "plausibility": "Physical mechanism supported; global magnitude and persistence conditional and unvalidated",
+    "report": "docs/nh3_reduced_capture_extra_phase_proposal_2026-10-13.md",
+    "reference_velocity_cm_s": 1.0,
+    "additional_velocity_cm_s": 0.65,
+    "stellar_environment": "pending selection; no new target or execution campaign started",
+    "candidate_cases": [
+      {"baseline_scenario": "A0", "candidate_id": "A0_NH3D065"},
+      {"baseline_scenario": "A1", "candidate_id": "A1_NH3D065"},
+      {"baseline_scenario": "A2", "candidate_id": "A2_NH3D065"},
+      {"baseline_scenario": "A3", "candidate_id": "A3_NH3D065"}
+    ],
+    "new_cases_per_selected_environment": 4,
+    "reference_pairing": "Same current NH3/N2O source fluxes and all other inputs; NH3 effective deposition is the sole input difference",
+    "A0_weak_role": "Counterfactual control under the same surface assumption; not a predicted preagricultural enriched ocean",
+    "canonical_scenario_equation": "F_i(A_j) = F_i(A0) + alpha_i,j * Delta F_i,agri",
+    "acceptance_sequence": "configuration pairing; photochemical profile/loss audit; spectra/noise; evidence-based interpretation",
+    "earth_control_caveat": "Historical Earth A2/A3 use pre-correction N2O and cannot be paired as current reference without resolving provenance"
+  },
+  "linear_box_diagnostic": {
+    "equation": "N_weak/N_reference = (v_reference + k*H)/(v_weak + k*H)",
+    "assumptions": "fixed source, height, vertical shape and nonnegative first-order chemical loss; no chemical feedback",
+    "velocity_units": "cm/s",
+    "height_units": "cm",
+    "chemical_loss_units": "1/s",
+    "deposition_only_ratio": 1.5384615384615383,
+    "equal_chemical_and_reference_deposition_ratio": 1.2121212121212122,
+    "is_VULCAN_prediction_or_universal_bound": false
+  },
+  "assumptions": [
+    "Uniform representative lower-layer NH3 number density across land and ocean.",
+    "Earth-like rounded ocean/land areas; no separate ice category.",
+    "Lee's central regional capture estimate extrapolated to idealized global marine control with negligible compensation.",
+    "Compatible effective exchange reference height assumed, not validated.",
+    "Land capture calibrated as the residual needed to recover global 1 cm/s; not a measured land coefficient.",
+    "Weakened ocean net uptake approaches zero because C_eq approaches C_air, while transfer remains finite.",
+    "Land capture is retained in the selected limiting construction."
+  ],
+  "future_effective_sensitivity_contract": {
+    "changed_parameter": "NH3 bottom effective deposition velocity only",
+    "prescribed_emission_fluxes": "retain approved reference case",
+    "oxidizing_atmosphere": "retain reference initial composition and chemical network",
+    "retained_inputs": ["stellar spectrum", "PT", "Kzz", "other species boundary conditions"],
+    "attribution_control": "matched A0 with the same NH3 sink treatment required before agricultural interpretation",
+    "unapproved_execution_scope": "No new simulations or selected target campaign; execution remains separate from design."
+  },
+  "limitations": [
+    "0.65 cm/s is not a source-measured global velocity or a predicted oxygenated-ocean state.",
+    "Fixed prescribed emissions include marine emissions, so this effective sensitivity alone does not implement zero net ocean exchange.",
+    "A physical marine boundary requires partitioning terrestrial/marine emissions and a bidirectional NHx budget without double counting.",
+    "The ocean compensation point must evolve with atmospheric NH3 to maintain negligible net uptake; persistence is untested.",
+    "Haqq-Misra 2022 regards globally NH3-saturated O2-N2 surfaces as implausible; this is a conditional limiting sensitivity.",
+    "Only the surface effective coefficient is weakened; photolysis and oxidizing chemical losses remain in the network.",
+    "No explicit independent rainout/aerosol model is added by this parameter choice.",
+    "No linear abundance increase is assumed.",
+    "Lee's preliminary regional interval is not a global confidence interval or an uncertainty interval for this design."
+  ],
+  "sources": [
+    {"role": "effective boundary provenance", "doi": "10.3847/1538-4357/ac29bc"},
+    {"role": "NH3 prescription and resistance framework", "doi": "10.1088/0004-637X/761/2/166"},
+    {"role": "marine uptake anchor", "doi": "10.1016/S1352-2310(97)00277-X"},
+    {"role": "compensation point and regional ocean flux", "doi": "10.1029/2020GL091963"},
+    {"role": "bidirectional terrestrial exchange in oxygenated Earth", "doi": "10.1098/rstb.2013.0166"},
+    {"role": "oxic saturation plausibility limit", "arxiv": "2204.05360"},
+    {"role": "Earth-like area rounding", "url": "https://www.noaa.gov/jetstream/ocean"}
+  ],
+  "integrity_reference_manifest": "docs/evidence/nh3_surface_sinks_2026-10-13/nh3_surface_sink_audit.json",
+  "historical_profiles_provenance": "earth_20260615_pre_n2o_correction"
+}

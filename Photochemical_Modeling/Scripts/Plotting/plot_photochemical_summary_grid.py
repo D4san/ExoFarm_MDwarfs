@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
+from matplotlib.ticker import LogLocator
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -54,6 +55,7 @@ EXOFARM_PALETTE = {
 STARS = {
     "Sun": {
         "label": "Earth-Sun (G2V)",
+        "column_label": "Earth-Sun\n(G2V)",
         "prefix": "Earth",
         "color": EXOFARM_PALETTE["terracotta_mauve"],
         "marker": "o",
@@ -61,12 +63,29 @@ STARS = {
     },
     "Trappist": {
         "label": "TRAPPIST-1e (M8V)",
+        "column_label": "TRAPPIST-1e\n(M8V)",
         "prefix": "Trappist",
         "color": EXOFARM_PALETTE["charcoal_violet"],
         "marker": "^",
         "linestyle": "--",
     },
+    "Proxima": {
+        "label": "Proxima analog (M5.5V)",
+        "column_label": "Proxima b\n(M5.5V)",
+        "prefix": "Proxima_b",
+        "color": EXOFARM_PALETTE["slate_green"],
+        "marker": "s",
+        "linestyle": ":",
+    },
 }
+ANNOTATION_OFFSETS_POINTS = {
+    "N2O": {"Sun": 16, "Trappist": 27, "Proxima": -20},
+    "NH3": {"Sun": -18, "Trappist": 32, "Proxima": 22},
+    "O3": {"Sun": 24, "Trappist": 8, "Proxima": 8},
+    "CH4": {"Sun": -16, "Trappist": 24, "Proxima": -8},
+    "OH": {"Sun": 38, "Trappist": -18, "Proxima": 18},
+}
+DEFAULT_ANNOTATION_OFFSET_POINTS = 5
 
 
 def load_vulcan_output(star_key, scenario):
@@ -107,11 +126,15 @@ def column_averaged_mixing_ratio(data, molecule):
     pressure = pressure[order]
     vmr = vmr[order]
 
-    pressure_span = np.trapz(np.ones_like(pressure), x=pressure)
+    integrate = getattr(np, "trapezoid", None)
+    if integrate is None:
+        integrate = np.trapz
+
+    pressure_span = integrate(np.ones_like(pressure), x=pressure)
     if pressure_span <= 0:
         return np.nan
 
-    return np.trapz(vmr, x=pressure) / pressure_span
+    return integrate(vmr, x=pressure) / pressure_span
 
 
 def format_ratio(ratio):
@@ -144,7 +167,7 @@ def add_molecule_label(ax, molecule, x=0.04, y=0.08, clip_on=True):
         transform=ax.transAxes,
         ha="left",
         va="bottom",
-        fontsize=11,
+        fontsize=9,
         fontweight="bold",
         bbox={"boxstyle": "round,pad=0.18", "facecolor": "white", "edgecolor": "0.82", "alpha": 0.82},
         clip_on=clip_on,
@@ -193,7 +216,7 @@ def plot_profile_panel(ax, outputs, star_key, molecule, x_limits):
             vmr,
             pressure,
             color=SCENARIO_COLORS[scenario],
-            linewidth=2.5,
+            linewidth=1.7,
             alpha=0.7,
         )
 
@@ -201,7 +224,10 @@ def plot_profile_panel(ax, outputs, star_key, molecule, x_limits):
     ax.set_yscale("log")
     ax.set_xlim(*x_limits)
     ax.set_ylim(1.2, 1.0e-8)
-    ax.grid(True, which="both", alpha=0.25, linewidth=0.6)
+    ax.xaxis.set_major_locator(LogLocator(base=10.0, numticks=3))
+    ax.yaxis.set_major_locator(LogLocator(base=100.0, numticks=5))
+    ax.tick_params(axis="both", which="major", labelsize=6.0, pad=1.0)
+    ax.grid(True, which="both", alpha=0.25, linewidth=0.45)
 
 
 def plot_mean_panel(ax, outputs, molecule, baseline):
@@ -231,21 +257,88 @@ def plot_mean_panel(ax, outputs, molecule, baseline):
             color=star_info["color"],
             linestyle=star_info["linestyle"],
             marker=star_info["marker"],
-            markersize=8.2,
-            linewidth=2.5,
+            markersize=5.2,
+            linewidth=1.7,
             alpha=0.78,
         )
 
-        for idx, (xi, yi) in enumerate(zip(x, y)):
-            if not np.isfinite(yi) or yi <= 0 or not np.isfinite(baseline) or baseline <= 0:
+    positive = np.asarray(plotted_values, dtype=float)
+    if positive.size:
+        ymin = max(float(np.min(positive)) / 8.0, 1.0e-30)
+        upper_padding_factor = 32.0 if molecule == "O3" else 8.0
+        ymax = float(np.max(positive)) * upper_padding_factor
+    else:
+        ymin, ymax = positive_limits(positive)
+    ax.set_yscale("log")
+    ax.set_ylim(ymin, ymax)
+    ax.set_xticks(x)
+    ax.set_xlim(-0.55, len(SCENARIOS) - 0.45)
+    ax.set_xticklabels([SCENARIO_LABELS[sc] for sc in SCENARIOS], fontsize=5.8)
+    ax.tick_params(axis="y", labelsize=7.2, pad=1.0)
+    ax.grid(True, which="major", axis="x", alpha=0.22, linewidth=0.45)
+    ax.grid(False, which="both", axis="y")
+    ax.axhline(baseline, color="0.35", linestyle="-.", linewidth=1.8, alpha=0.9)
+
+    if not np.isfinite(baseline) or baseline <= 0:
+        return
+
+    ax.figure.canvas.draw()
+    gap_px = 12.0 * ax.figure.dpi / 72.0
+    edge_px = 5.0 * ax.figure.dpi / 72.0
+    lower_y = ax.bbox.y0 + edge_px
+    upper_y = ax.bbox.y1 - edge_px
+
+    for idx, xi in enumerate(x):
+        labels = []
+        for star_key, star_info in STARS.items():
+            yi = finite_curves[star_key][idx]
+            if not np.isfinite(yi) or yi <= 0:
                 continue
-            ratio = yi / baseline
-            other_values = [
-                curve[idx]
-                for other_key, curve in finite_curves.items()
-                if other_key != star_key and idx < len(curve) and np.isfinite(curve[idx])
-            ]
-            is_upper_curve = other_values and yi >= max(other_values)
+            point_y = ax.transData.transform((xi, yi))[1]
+            labels.append(
+                {
+                    "star_key": star_key,
+                    "star_info": star_info,
+                    "yi": yi,
+                    "point_y": point_y,
+                    "preferred_y": point_y
+                    + ANNOTATION_OFFSETS_POINTS.get(molecule, {}).get(
+                        star_key, DEFAULT_ANNOTATION_OFFSET_POINTS
+                    )
+                    * ax.figure.dpi
+                    / 72.0,
+                    "text": format_ratio(yi / baseline),
+                }
+            )
+
+        labels.sort(key=lambda label: label["preferred_y"])
+        if not labels:
+            continue
+
+        # Respect molecule-specific placement, then separate nearby labels.
+        target_y = [label["preferred_y"] for label in labels]
+        for label_idx in range(1, len(target_y)):
+            target_y[label_idx] = max(
+                target_y[label_idx], target_y[label_idx - 1] + gap_px
+            )
+
+        if target_y[0] < lower_y and target_y[-1] > upper_y:
+            # Conflicting preferred offsets cannot fit inside the panel.
+            target_y = np.linspace(lower_y, upper_y, len(target_y)).tolist()
+        elif target_y[-1] > upper_y:
+            target_y[-1] = upper_y
+            for label_idx in range(len(target_y) - 2, -1, -1):
+                target_y[label_idx] = min(
+                    target_y[label_idx], target_y[label_idx + 1] - gap_px
+                )
+        elif target_y[0] < lower_y:
+            target_y[0] = lower_y
+            for label_idx in range(1, len(target_y)):
+                target_y[label_idx] = max(
+                    target_y[label_idx], target_y[label_idx - 1] + gap_px
+                )
+
+        for label, label_y in zip(labels, target_y):
             if idx == 0:
                 x_offset = 3
                 ha = "left"
@@ -255,37 +348,22 @@ def plot_mean_panel(ax, outputs, molecule, baseline):
             else:
                 x_offset = 0
                 ha = "center"
-            if molecule == "O3":
-                y_offset = -16 if idx % 2 == 0 else 14
-                va = "top" if idx % 2 == 0 else "bottom"
-            else:
-                y_offset = 11 + 7 * (idx % 2) if is_upper_curve else -14 - 9 * (idx % 2)
-                va = "bottom" if is_upper_curve else "top"
+            y_offset = (label_y - label["point_y"]) * 72.0 / ax.figure.dpi
             ax.annotate(
-                format_ratio(ratio),
-                xy=(xi, yi),
+                label["text"],
+                xy=(xi, label["yi"]),
                 xytext=(x_offset, y_offset),
                 textcoords="offset points",
                 ha=ha,
-                va=va,
-                fontsize=8.8,
-                color=star_info["color"],
+                va="center",
+                fontsize=7.5,
+                color=label["star_info"]["color"],
                 fontweight="bold",
             )
 
-    ymin, ymax = positive_limits(plotted_values)
-    ax.set_yscale("log")
-    ax.set_ylim(ymin / 35.0, ymax * 18.0)
-    ax.set_xticks(x)
-    ax.set_xlim(-0.55, len(SCENARIOS) - 0.45)
-    ax.set_xticklabels([SCENARIO_LABELS[sc] for sc in SCENARIOS], fontsize=8.5)
-    ax.grid(True, which="major", axis="x", alpha=0.22, linewidth=0.6)
-    ax.grid(False, which="both", axis="y")
-    ax.axhline(baseline, color="0.35", linestyle="-.", linewidth=1.8, alpha=0.9)
 
-
-def build_plot():
-    os.makedirs(PLOT_DIR, exist_ok=True)
+def build_plot(output_dir=PLOT_DIR, output_stem="photochemical_summary_grid"):
+    os.makedirs(output_dir, exist_ok=True)
     outputs = collect_outputs()
 
     baselines = {}
@@ -298,99 +376,99 @@ def build_plot():
             "font.family": "serif",
             "font.serif": ["STIX Two Text", "STIXGeneral", "Times New Roman"],
             "mathtext.fontset": "stix",
-            "font.size": 10.5,
+            "font.size": 8.0,
             "axes.grid": True,
             "grid.alpha": 0.25,
-            "lines.linewidth": 2.5,
+            "lines.linewidth": 1.7,
         }
     )
 
-    fig = plt.figure(figsize=(10.8, 13.2))
+    profile_star_keys = list(STARS)
+    n_profile_columns = len(profile_star_keys)
+    mean_column = n_profile_columns
+    # Render near the expected two-column article width so labels retain their
+    # intended point size when the PDF is included at full text width.
+    fig = plt.figure(figsize=(7.0, 8.4))
     grid = GridSpec(
         len(MOLECULES),
-        3,
+        n_profile_columns + 1,
         figure=fig,
-        width_ratios=[0.9, 0.9, 1.0],
-        wspace=0.22,
-        hspace=0.34,
+        width_ratios=[0.6] * n_profile_columns + [1.55],
+        wspace=0.12,
+        hspace=0.42,
     )
-    axes = np.empty((len(MOLECULES), 3), dtype=object)
+    axes = np.empty((len(MOLECULES), n_profile_columns + 1), dtype=object)
     for row in range(len(MOLECULES)):
-        axes[row, 0] = fig.add_subplot(grid[row, 0])
-        axes[row, 1] = fig.add_subplot(grid[row, 1], sharey=axes[row, 0])
-        axes[row, 2] = fig.add_subplot(grid[row, 2])
+        for column in range(n_profile_columns):
+            if column == 0:
+                axes[row, column] = fig.add_subplot(grid[row, column])
+            else:
+                axes[row, column] = fig.add_subplot(
+                    grid[row, column], sharey=axes[row, 0]
+                )
+        axes[row, mean_column] = fig.add_subplot(grid[row, mean_column])
 
-    fig.text(
-        0.345,
-        0.972,
-        "Vertical chemical profiles",
-        ha="center",
-        va="bottom",
-        fontsize=14.5,
-        fontweight="bold",
-    )
-    fig.text(
-        0.2,
-        0.865,
-        STARS["Sun"]["label"],
-        ha="center",
-        va="bottom",
-        fontsize=11.5,
-        fontweight="bold",
-    )
-    fig.text(
-        0.49,
-        0.865,
-        STARS["Trappist"]["label"],
-        ha="center",
-        va="bottom",
-        fontsize=11.5,
-        fontweight="bold",
-    )
-    fig.text(
-        0.775,
-        0.972,
-        "Column-averaged mixing ratio",
-        ha="center",
-        va="bottom",
-        fontsize=14.5,
-        fontweight="bold",
-    )
+    fig.subplots_adjust(top=0.81, bottom=0.105, left=0.09, right=0.91)
 
     for row, molecule in enumerate(MOLECULES):
         x_limits = molecule_profile_limits(outputs, molecule)
-        axes[row, 0].set_ylabel("Pressure (bar)", fontsize=11.5, fontweight="bold")
+        for column, star_key in enumerate(profile_star_keys):
+            plot_profile_panel(
+                axes[row, column], outputs, star_key, molecule, x_limits
+            )
+            if column == 0:
+                add_molecule_label(axes[row, column], molecule)
+            axes[row, column].tick_params(
+                axis="y",
+                left=(column == 0),
+                labelleft=(column == 0),
+                right=False,
+                labelright=False,
+            )
+            axes[row, column].tick_params(axis="x", labelbottom=True)
 
-        plot_profile_panel(axes[row, 0], outputs, "Sun", molecule, x_limits)
-        plot_profile_panel(axes[row, 1], outputs, "Trappist", molecule, x_limits)
-        plot_mean_panel(axes[row, 2], outputs, molecule, baselines[molecule])
+        plot_mean_panel(
+            axes[row, mean_column], outputs, molecule, baselines[molecule]
+        )
 
-        add_molecule_label(axes[row, 0], molecule)
-        add_molecule_label(axes[row, 1], molecule)
-        mean_label_positions = {
-            "O3": {"x": 0.05, "y": 0.5},
-            "CH4": {"x": 0.05, "y": 0.08},
-        }
-        mean_label_kwargs = mean_label_positions.get(molecule, {"x": 0.04, "y": 0.84})
-        add_molecule_label(axes[row, 2], molecule, **mean_label_kwargs)
-
-        axes[row, 1].tick_params(axis="y", labelleft=True)
-        axes[row, 2].tick_params(axis="y", labelsize=9)
-        axes[row, 2].set_ylabel("Mixing ratio", fontsize=10.5)
-        axes[row, 2].yaxis.tick_right()
-        axes[row, 2].yaxis.set_label_position("right")
+        mean_ax = axes[row, mean_column]
+        mean_ax.tick_params(axis="y", labelsize=7.0, pad=1.0)
+        mean_ax.tick_params(axis="x", labelbottom=True)
+        mean_ax.set_ylabel("Mixing ratio", fontsize=8.0, labelpad=4)
+        mean_ax.yaxis.tick_right()
+        mean_ax.yaxis.set_label_position("right")
 
         if row == len(MOLECULES) - 1:
-            axes[row, 0].set_xlabel("Mixing ratio")
-            axes[row, 1].set_xlabel("Mixing ratio")
-            axes[row, 2].set_xlabel("Scenario")
+            mean_ax.set_xlabel("Scenario")
+
+    profile_left = axes[0, 0].get_position().x0
+    profile_right = axes[0, n_profile_columns - 1].get_position().x1
+    profile_center = (profile_left + profile_right) / 2.0
+    fig.text(
+        0.035,
+        0.46,
+        "Pressure (bar)",
+        ha="center",
+        va="center",
+        rotation=90,
+        fontsize=8.0,
+        fontweight="bold",
+    )
+    fig.text(
+        profile_center,
+        0.048,
+        "Mixing ratio",
+        ha="center",
+        va="center",
+        fontsize=8.0,
+    )
 
     scenario_handles = [
         Line2D(
             [0],
             [0],
             color=SCENARIO_COLORS[sc],
-            linewidth=2.7,
+            linewidth=1.8,
             label=SCENARIO_LEGEND_LABELS[sc],
         )
         for sc in SCENARIOS
@@ -402,11 +480,15 @@ def build_plot():
             color=info["color"],
             marker=info["marker"],
             linestyle=info["linestyle"],
-            linewidth=2.5,
-            markersize=8,
-            label=info["label"],
+            linewidth=1.7,
+            markersize=5,
+            label={
+                "Sun": "Earth-Sun",
+                "Trappist": "TRAPPIST-1e",
+                "Proxima": "Proxima b",
+            }[star_key],
         )
-        for info in STARS.values()
+        for star_key, info in STARS.items()
     ]
     baseline_handle = Line2D(
         [0],
@@ -417,32 +499,74 @@ def build_plot():
         label="Earth-Sun A1 baseline",
     )
 
+    fig.canvas.draw()
+    mean_position = axes[0, mean_column].get_position()
+    mean_center = (mean_position.x0 + mean_position.x1) / 2.0
+
+    fig.text(
+        profile_center,
+        0.974,
+        "Vertical chemical profiles",
+        ha="center",
+        va="bottom",
+        fontsize=11.5,
+        fontweight="bold",
+    )
+    fig.text(
+        mean_center,
+        0.974,
+        "Column-averaged mixing ratio",
+        ha="center",
+        va="bottom",
+        fontsize=11.5,
+        fontweight="bold",
+    )
+    for column, star_key in enumerate(profile_star_keys):
+        position = axes[0, column].get_position()
+        fig.text(
+            (position.x0 + position.x1) / 2.0,
+            0.84,
+            STARS[star_key].get("column_label", STARS[star_key]["label"]),
+            ha="center",
+            va="bottom",
+            fontsize=7.2,
+            fontweight="bold",
+        )
+
     scenario_legend = fig.legend(
         handles=scenario_handles,
         loc="upper center",
-        bbox_to_anchor=(0.345, 0.957),
-        ncol=4,
-        fontsize=9.5,
+        bbox_to_anchor=(profile_center, 0.95),
+        ncol=2,
+        fontsize=6.5,
+        handlelength=1.1,
+        handletextpad=0.3,
+        columnspacing=0.5,
+        borderpad=0.3,
+        labelspacing=0.3,
         title="Profile scenarios",
-        title_fontsize=9.5,
+        title_fontsize=7.0,
         frameon=True,
     )
     fig.add_artist(scenario_legend)
     fig.legend(
         handles=star_handles + [baseline_handle],
         loc="upper center",
-        bbox_to_anchor=(0.775, 0.957),
-        ncol=1,
-        fontsize=8.5,
+        bbox_to_anchor=(mean_center, 0.95),
+        ncol=2,
+        fontsize=6.3,
+        handlelength=1.1,
+        handletextpad=0.35,
+        columnspacing=0.55,
+        borderpad=0.3,
+        labelspacing=0.25,
         title="Column averages",
-        title_fontsize=8.5,
+        title_fontsize=7.0,
         frameon=True,
     )
 
-    fig.subplots_adjust(top=0.865, bottom=0.065, left=0.095, right=0.935)
-
     for extension in ("png", "pdf"):
-        output_file = os.path.join(PLOT_DIR, f"photochemical_summary_grid.{extension}")
+        output_file = os.path.join(output_dir, f"{output_stem}.{extension}")
         fig.savefig(output_file, dpi=300, bbox_inches="tight")
         print(f"Saved photochemical summary plot to {output_file}")
 

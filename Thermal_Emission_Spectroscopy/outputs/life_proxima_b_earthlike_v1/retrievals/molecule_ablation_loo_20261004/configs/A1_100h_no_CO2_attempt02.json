@@ -1,0 +1,20 @@
+{
+  "R": 10000,
+  "X_profile": "isochem",
+  "command": "set -euo pipefail; source /home/dasan/anaconda3/etc/profile.d/conda.sh; conda activate POSEIDON; export POSEIDON_input_data=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs; export PYSYN_CDBS=/mnt/d/Proyectos/IA_SpecAtm_Bio/Data/POSEIDON/inputs/stellar_grids; export OMP_NUM_THREADS=1; export OPENBLAS_NUM_THREADS=1; export MKL_NUM_THREADS=1; export NUMEXPR_NUM_THREADS=1; cd /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs; exec /home/dasan/anaconda3/envs/POSEIDON/bin/mpiexec -n 6 /home/dasan/anaconda3/envs/POSEIDON/bin/python -u /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/scripts/run_life_retrieval.py --campaign proxima --scenario A1 --hours 100 --n-live 800 --error-inflation none --surface-pressure-mode fixed-black --include-o2 --exclude-species CO2 --x-profile isochem --output-tag _LOO_noCO2_MPI6_v1 --R 10000 --dataset-file /mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_100h_O2_fixedBlack1bar_noxtol_audit.dat --run-dir /home/dasan/exofarm_proxima_molecule_loo_20261004/runs/A1_100h_no_CO2_attempt02",
+  "created_utc": "2026-10-09T03:41:27+00:00",
+  "dataset": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/life_data/LIFE_proxima_A1_100h_O2_fixedBlack1bar_noxtol_audit.dat",
+  "dataset_seed": 460512527,
+  "dataset_sha256": "d66c886238a2916312c645589be8601828fbf0a7cd2f02a383ef1d6a3454b5e3",
+  "error_inflation": "none",
+  "excluded_species": "CO2",
+  "full_model_results": "/mnt/c/Proyectos/Astro/ExoFarm_MDwarfs/Thermal_Emission_Spectroscopy/outputs/life_proxima_b_earthlike_v1/retrievals/POSEIDON_output/proxima_b_earthlike/retrievals/results/proxima_A1_100h_O2_fixedBlack1bar_noxtol_MPI6R1_results.txt",
+  "hours": 100,
+  "mpi_ranks": 6,
+  "n_bins": 31,
+  "n_live": 800,
+  "run_id": "A1_100h_no_CO2",
+  "scenario": "A1",
+  "surface": "explicit opaque black surface at 1 bar",
+  "x_tol": "disabled"
+}

@@ -170,6 +170,26 @@ que la deposición superficial limita fuertemente su acumulación. `N2O` tiene
 una deposición mucho menor y sus pérdidas relevantes ocurren principalmente
 mediante química y fotólisis a mayor altura.
 
+La condición local combina emisión y pérdida como `F - v_dep*n` en la
+celda inferior; el coeficiente no separa océano, suelo y vegetación. No
+implementa un tratamiento vertical independiente de lluvia de NH3 como
+el de Huang. La [revisión de 2026-10-13](nh3_surface_sinks_huang_vulcan_review_2026-10-13.md)
+documenta la procedencia de los flujos, audita los `.vul` y distingue una
+sensibilidad de deposición efectiva de una hipótesis oceánica física.
+
+La [lectura posterior de las referencias originales](nh3_deposition_velocity_provenance_and_physical_scenarios_2026-10-13.md)
+precisa que Hauglustaine no incluye NH3 en su tabla y que Hu prescribe
+`1 cm/s` por solubilidad/reactividad, con un marco de resistencias. La
+propuesta separa transporte, punto de compensación marino y consumo
+del reservorio; los coeficientes marinos publicados no sustituyen
+directamente el término global de VULCAN. La solicitud de un único valor
+se concreta en el [diseño `0.65 cm/s`](nh3_weakened_surface_sink_vdep_0p65_design_2026-10-13.md):
+partición idealizada `1 - 0.70*0.50`, conservando el residual terrestre
+cuando la pérdida oceánica neta se aproxima a cero. Es una inferencia
+condicionada de sensibilidad efectiva, seleccionada y aún sin implementar.
+Con los flujos naturales actuales, que incluyen emisión marina, no cierra
+por sí sola el intercambio oceánico; se requiere separar el presupuesto.
+
 ### Estado de la derivación cuantitativa
 
 Los factores de A2 se obtuvieron de las abundancias objetivo de Haqq-Misra

@@ -2,13 +2,15 @@
 
 Three stacked panels in the curated final-products style, adapted from
 transmission (transit depth, ppm) to LIFE thermal emission (observed planet
-flux at 10 pc):
+flux at the target distance):
 
   1. Top    : A0--A3 emission spectra, molecular-band labels across the LIFE
-              band (4--18.5 um).
+              band (4--18.5 um), without observational noise overlays.
   2. Middle : N2O molecular signal per scenario (counterfactual fill) plus the
-              net scenario difference Delta(A0 - Aj) as dark lines.
-  3. Bottom : same for NH3.
+              net scenario difference Delta(A0 - Aj) as dark lines. When LIFE
+              datasets are supplied, their fixed-range +/-1-sigma noise curves
+              are overlaid here.
+  3. Bottom : same for NH3, including the same LIFE noise curves.
 
 Sign convention (emission): adding an absorber REMOVES flux, so the plotted
 "mol signal" is the emission deficit  F(reset_i_to_A0) - F(full) >= 0 inside the
@@ -18,17 +20,26 @@ positive-ppm convention of the transmission figure.
 
 Colours follow plot_pure_transmission_spectra.py exactly (scenario colours,
 residual dark colours) so visual meaning stays stable across tracks.
-Provenance: earth_20260615_pre_n2o_correction (interface validation only).
+For the Earth--Sun target, the forward products retain the
+earth_20260615_pre_n2o_correction interface-validation caveat. The Proxima
+products come from the separate LIFE Proxima branch.
 """
 
 import argparse
+import hashlib
+import json
+import re
+from datetime import date
+from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.lines import Line2D
 
-import emission_forward as ef
+
+REPO = Path(__file__).resolve().parents[2]
 
 CAMPAIGNS = {
     "earth_sun": ("life_earth_sun_10pc_interface_v1", "Earth–Sun", "10 pc"),
@@ -59,6 +70,11 @@ SCENARIO_NAMES = {
 }
 FILL_ORDER = ("A3", "A2", "A1")
 DARK_ALPHA = {"A3": 0.78, "A2": 0.82, "A1": 0.82}
+LIFE_HOUR_COLOURS = {
+    1: "#B54B19",    # rusty_spice
+    10: "#002642",   # deep_space_blue
+    100: "#3F633E",  # deep_moss
+}
 
 LIFE_MIN, LIFE_MAX = 4.0, 18.5
 DISPLAY_R = 200
@@ -155,16 +171,98 @@ def load_reset(s, sp):
     return d["Fp_obs_W_m2_m"] * 1e-6                  # -> W m^-2 um^-1
 
 
+def load_observations(path):
+    """Read the four-column LIFE direct-emission table and validate its units."""
+    rows = np.loadtxt(path, skiprows=1, ndmin=2)
+    if rows.shape[1] != 4:
+        raise ValueError(
+            f"Expected 4 LIFE columns (wavelength, half-bin, Fp, sigma_Fp), "
+            f"found {rows.shape[1]} in {path}"
+        )
+    wavelength_um, half_bin_um, fp_per_m, sigma_per_m = rows.T
+    if not np.all(np.isfinite(rows)):
+        raise ValueError(f"Non-finite LIFE values in {path}")
+    if np.any(half_bin_um <= 0) or np.any(sigma_per_m <= 0):
+        raise ValueError(
+            f"LIFE bin widths and flux uncertainties must be positive: {path}"
+        )
+    return wavelength_um, half_bin_um, fp_per_m * 1e-6, sigma_per_m * 1e-6
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
 def main():
     global FWD, CF, PLOTS
     ap = argparse.ArgumentParser()
     ap.add_argument("--campaign", choices=list(CAMPAIGNS), default="earth_sun")
+    ap.add_argument(
+        "--observations",
+        type=Path,
+        nargs="+",
+        help=(
+            "Optional LIFE datasets. Their +/-1-sigma noise curves are drawn "
+            "on the two molecular-signal panels, with the signal limits fixed. "
+            "Columns: wavelength [um], half-bin [um], Fp and sigma_Fp "
+            "[W m^-2 m^-1]."
+        ),
+    )
+    ap.add_argument(
+        "--observations-label",
+        nargs="+",
+        help="Legend label for the LIFE data (defaults to the filename).",
+    )
+    ap.add_argument(
+        "--output-suffix",
+        help="Optional suffix to preserve the existing default figure files.",
+    )
     args = ap.parse_args()
     campaign_id, target_name, dist_label = CAMPAIGNS[args.campaign]
-    out_dir = ef.REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
+    out_dir = REPO / "Thermal_Emission_Spectroscopy" / "outputs" / campaign_id
     FWD = out_dir / "forward_emission"
     CF = out_dir / "molecular_diagnostics"
     PLOTS = out_dir / "plots"
+
+    observation_paths = []
+    observations = []
+    observation_labels = []
+    labels_supplied = args.observations_label is not None
+    if args.observations is not None:
+        observation_paths = [
+            (path if path.is_absolute() else REPO / path).resolve()
+            for path in args.observations
+        ]
+        for path in observation_paths:
+            if not path.is_file():
+                raise FileNotFoundError(f"LIFE dataset not found: {path}")
+            observations.append(load_observations(path))
+        if args.observations_label is None:
+            observation_labels = [
+                path.stem.replace("_", " ") for path in observation_paths
+            ]
+        elif len(args.observations_label) != len(observation_paths):
+            raise ValueError(
+                "Give one --observations-label per --observations file"
+            )
+        else:
+            observation_labels = list(args.observations_label)
+
+        # These three integration-time products are meant to occupy the same
+        # LIFE channel centres, so fail loudly if their grids drift apart.
+        reference_wl, reference_half_bin = observations[0][:2]
+        for path, observation in zip(observation_paths[1:], observations[1:]):
+            if not np.array_equal(reference_wl, observation[0]) or not np.array_equal(
+                reference_half_bin, observation[1]
+            ):
+                raise ValueError(
+                    "LIFE integrations must share wavelength centres and bin "
+                    f"widths to overlay them without horizontal offsets: {path}"
+                )
 
     _style()
     PLOTS.mkdir(parents=True, exist_ok=True)
@@ -255,7 +353,12 @@ def main():
         color="black",
         pad=14,
     )
-    ax_top.legend(frameon=False, fontsize=13, ncol=2, loc="upper left")
+    ax_top.legend(
+        frameon=False,
+        fontsize=11.5,
+        ncol=2,
+        loc="upper left",
+    )
 
     # ---- residual panels ---------------------------------------------------
     for ax, sp, label in [(ax_n2o, "N2O", r"N$_2$O signal"),
@@ -296,15 +399,194 @@ def main():
     ax_n2o.legend(frameon=False, fontsize=9.5, ncol=3, loc="upper left",
                   bbox_to_anchor=(0.36, 0.98))
 
+    # Keep the molecular-signal ranges defined by the signal products alone.
+    # LIFE uncertainties are symmetric around zero and clipped at these fixed
+    # limits, so an edge segment denotes noise above the plotted signal range.
+    observation_plot = {}
+    fixed_signal_limits = {}
+    if observations:
+        hour_values = []
+        for index, path in enumerate(observation_paths):
+            hour_match = re.search(r"(?:^|_)(\d+)h(?:_|$)", path.stem)
+            hours = int(hour_match.group(1)) if hour_match else None
+            hour_values.append(hours)
+            if hours is not None and not labels_supplied:
+                observation_labels[index] = f"{hours} h"
+
+        ordered_indices = sorted(
+            range(len(observations)),
+            key=lambda index: hour_values[index] if hour_values[index] is not None else index,
+        )
+        for species, axes in (("N2O", ax_n2o), ("NH3", ax_nh3)):
+            limits = tuple(float(value) for value in axes.get_ylim())
+            axes.set_ylim(*limits)
+            axes.set_autoscale_on(False)
+            fixed_signal_limits[species] = list(limits)
+            species_clipping = {}
+            for zorder, index in enumerate(ordered_indices, start=20):
+                obs_wl, _obs_half_bin, _obs_fp, obs_sigma = observations[index]
+                in_band = (obs_wl >= LIFE_MIN) & (obs_wl <= LIFE_MAX)
+                if not np.any(in_band):
+                    raise ValueError(
+                        "A LIFE dataset has no channels in the 4--18.5 um band"
+                    )
+                sigma = obs_sigma[in_band] / RES_SCALE
+                plus = np.clip(sigma, limits[0], limits[1])
+                minus = np.clip(-sigma, limits[0], limits[1])
+                hours = hour_values[index]
+                colour = LIFE_HOUR_COLOURS.get(hours, "#746F75")
+                axes.plot(
+                    obs_wl[in_band], plus, color=colour, linestyle="-",
+                    linewidth=0.9, alpha=0.56, zorder=zorder,
+                )
+                axes.plot(
+                    obs_wl[in_band], minus, color=colour, linestyle="--",
+                    linewidth=0.9, alpha=0.56, zorder=zorder,
+                )
+                species_clipping[observation_labels[index]] = {
+                    "fraction_plus_sigma_above_panel": float(
+                        np.mean(sigma > limits[1])
+                    ),
+                    "fraction_minus_sigma_below_panel": float(
+                        np.mean(-sigma < limits[0])
+                    ),
+                }
+            observation_plot[species] = species_clipping
+
+        legend_handles = []
+        seen_hours = set()
+        for index in ordered_indices:
+            hours = hour_values[index]
+            if hours in seen_hours:
+                continue
+            seen_hours.add(hours)
+            legend_handles.append(
+                Line2D(
+                    [0], [0],
+                    color=LIFE_HOUR_COLOURS.get(hours, "#746F75"),
+                    linewidth=1.3,
+                    label=(f"{hours} h" if hours is not None
+                           else observation_labels[index]),
+                )
+            )
+        legend_handles.extend(
+            [
+                Line2D([0], [0], color="#02040F", linewidth=1.2,
+                       linestyle="-", label="+1σ"),
+                Line2D([0], [0], color="#02040F", linewidth=1.2,
+                       linestyle="--", label="−1σ"),
+            ]
+        )
+        ax_nh3.legend(
+            handles=legend_handles,
+            title=(
+                "LIFE noise: color = integration time; line = sign\n"
+                "Edge segments exceed fixed signal limits"
+            ),
+            frameon=True,
+            facecolor="white",
+            framealpha=0.88,
+            edgecolor="none",
+            fontsize=8.0,
+            title_fontsize=8.0,
+            ncol=2,
+            loc="upper right",
+            borderpad=0.45,
+            labelspacing=0.3,
+            handlelength=1.5,
+            columnspacing=0.8,
+        )
     ax_nh3.set_xlabel("Wavelength [µm]", fontfamily="serif", fontsize=17,
                       color="black")
 
-    out = PLOTS / f"emission_molecular_residuals_{args.campaign}.png"
-    out_pdf = PLOTS / f"emission_molecular_residuals_{args.campaign}.pdf"
+    suffix = ""
+    if args.output_suffix:
+        clean_suffix = re.sub(
+            r"[^A-Za-z0-9_-]+", "_", args.output_suffix
+        ).strip("_")
+        if not clean_suffix:
+            raise ValueError("--output-suffix must contain letters or digits")
+        suffix = f"_{clean_suffix}"
+    output_stem = f"emission_molecular_residuals_{args.campaign}{suffix}"
+    out = PLOTS / f"{output_stem}.png"
+    out_pdf = PLOTS / f"{output_stem}.pdf"
     fig.savefig(out, dpi=240, bbox_inches="tight")
     fig.savefig(out_pdf, bbox_inches="tight")
-    print(f"saved {out.relative_to(ef.REPO)}")
-    print(f"saved {out_pdf.relative_to(ef.REPO)}")
+    print(f"saved {out.relative_to(REPO)}")
+    print(f"saved {out_pdf.relative_to(REPO)}")
+
+    if observation_paths:
+        inputs = {
+            "model_spectra": [
+                FWD / f"{scenario}_emission.npz"
+                for scenario in ("A0", "A1", "A2", "A3")
+            ],
+            "molecular_counterfactuals": [
+                CF / f"{scenario}_reset_{species}_Fp_obs.npz"
+                for scenario in ("A1", "A2", "A3")
+                for species in ("N2O", "NH3")
+            ],
+        }
+        provenance = {
+            "generated_on": date.today().isoformat(),
+            "script": str(Path(__file__).resolve().relative_to(REPO)),
+            "campaign": campaign_id,
+            "target": target_name,
+            "observable": "direct planetary emission flux Fp at the system distance",
+            "display_units": "W m^-2 um^-1",
+            "conversion_from_input": "multiply Fp and sigma_Fp [W m^-2 m^-1] by 1e-6",
+            "observation_labels": observation_labels,
+            "noise_curve_display": {
+                "panels": ["N2O molecular signal", "NH3 molecular signal"],
+                "definition": "symmetric +1 sigma and -1 sigma curves around zero",
+                "display_scaling": "sigma_Fp / RES_SCALE; same units as molecular signals",
+                "signal_panel_limits": fixed_signal_limits,
+                "autoscaling_disabled_after_signal_limits_set": True,
+                "line_alpha": 0.56,
+                "line_width_pt": 0.9,
+                "color_encodes": "LIFE integration time: 1 h, 10 h and 100 h",
+                "line_style_encodes": "+1 sigma solid; -1 sigma dashed",
+                "clipping_fractions_by_species": observation_plot,
+            },
+            "observations": [
+                {
+                    "file": str(path.relative_to(REPO)),
+                    "sha256": sha256(path),
+                    "n_channels": int(len(observation[0])),
+                    "uncertainty": (
+                        "per-channel diagonal 1-sigma sigma_Fp; "
+                        "one synthetic realization"
+                    ),
+                    "bin_half_width": "validated but not drawn",
+                }
+                for path, observation in zip(observation_paths, observations)
+            ],
+            "model_curve_display": f"log-wavelength rebin at R={DISPLAY_R}; presentation only",
+            "signal_definition": (
+                "F_reset_to_A0 - F_full for each molecular counterfactual; "
+                "net difference F_A0 - F_Aj"
+            ),
+            "inputs": {
+                category: [
+                    {"file": str(path.relative_to(REPO)), "sha256": sha256(path)}
+                    for path in paths
+                ]
+                for category, paths in inputs.items()
+            },
+            "outputs": [str(out.relative_to(REPO)), str(out_pdf.relative_to(REPO))],
+            "interpretation_limit": (
+                "The LIFE noise curves are synthetic uncertainties, not an "
+                "observed LIFE measurement. The upper emission spectra contain "
+                "no noise overlay. JWST transmission-depth products use a "
+                "different observable and are not overplotted."
+            ),
+        }
+        provenance_path = PLOTS / f"{output_stem}.provenance.json"
+        provenance_path.write_text(
+            json.dumps(provenance, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        print(f"saved {provenance_path.relative_to(REPO)}")
 
 
 if __name__ == "__main__":

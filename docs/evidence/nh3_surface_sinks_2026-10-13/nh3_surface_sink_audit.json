@@ -1,0 +1,192 @@
+{
+  "analysis_date": "2026-10-13",
+  "campaign_id": "nh3_surface_sinks_review_20261013",
+  "status": "READ_ONLY_AUDIT_AND_ANALYTIC_DIAGNOSTICS",
+  "python_version": "3.14.3",
+  "new_atmospheric_simulations": 0,
+  "constants": {
+    "avogadro_molecules_mol": 6.02214076e+23,
+    "earth_area_cm2": 5.101e+18,
+    "seconds_year": 31557600.0,
+    "nitrogen_molar_mass_g_mol": 14.0067,
+    "nh3_molar_mass_g_mol": 17.03052,
+    "ocean_volume_L": 1.335e+21
+  },
+  "earth_profiles_provenance": "earth_20260615_pre_n2o_correction",
+  "existing_earth_cases": [
+    {
+      "scenario": "A0",
+      "boundary": {
+        "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_preagri_full.txt",
+        "bytes": 1616,
+        "sha256": "2c136fb15e1a4fcecd542b9a3e67254d2556e660b2ddfc7ac34a3f96aa3279a6"
+      },
+      "saved_product": {
+        "path": "Photochemical_Modeling/Results/Outputs/Earth_A0_PreAgri.vul",
+        "bytes": 19725640,
+        "sha256": "84ab5614741973743b7a49621bb91463f4378ee7e584eab4736617413d31f79d"
+      },
+      "termination_code": 1,
+      "nh3_emission_molecules_cm2_s": 2940000000.0,
+      "nh3_deposition_velocity_cm_s": 1.0,
+      "nh3_surface_number_density_cm3": 2583512533.9938416,
+      "nh3_surface_vmr_ppb": 0.1070240450168431,
+      "nh3_surface_deposition_molecules_cm2_s": 2583512533.9938416,
+      "nh3_deposition_to_imposed_emission_ratio": 0.8787457598618509,
+      "n2o_emission_saved_molecules_cm2_s": 1580000000.0,
+      "n2o_emission_active_molecules_cm2_s": 1580000000.0,
+      "surface_temperature_K": 300.0458723784025,
+      "surface_pressure_bar": 1.0,
+      "nh3_emission_Tg_N_year": 11.007572271064095
+    },
+    {
+      "scenario": "A1",
+      "boundary": {
+        "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_current_full.txt",
+        "bytes": 1621,
+        "sha256": "db4d0469e081653b6c8f6829da2efc36c7154e432269b413dc383bd4adec7b56"
+      },
+      "saved_product": {
+        "path": "Photochemical_Modeling/Results/Outputs/Earth_A1_Current.vul",
+        "bytes": 19725640,
+        "sha256": "024a8e0365583ee12ab2b18ba45c29c71a06a95ff41d741f3527b6067a633f1b"
+      },
+      "termination_code": 1,
+      "nh3_emission_molecules_cm2_s": 13000000000.0,
+      "nh3_deposition_velocity_cm_s": 1.0,
+      "nh3_surface_number_density_cm3": 11224364431.964476,
+      "nh3_surface_vmr_ppb": 0.46497815220387934,
+      "nh3_surface_deposition_molecules_cm2_s": 11224364431.964476,
+      "nh3_deposition_to_imposed_emission_ratio": 0.863412648612652,
+      "n2o_emission_saved_molecules_cm2_s": 2300000000.0,
+      "n2o_emission_active_molecules_cm2_s": 2300000000.0,
+      "surface_temperature_K": 300.0458723784025,
+      "surface_pressure_bar": 1.0,
+      "nh3_emission_Tg_N_year": 48.672938613548716
+    },
+    {
+      "scenario": "A2",
+      "boundary": {
+        "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_moderate_full.txt",
+        "bytes": 1639,
+        "sha256": "c716fd0a001a6af620a214d0179f02724a89e5ddb93f2e2d8fbd6758cdd27018"
+      },
+      "saved_product": {
+        "path": "Photochemical_Modeling/Results/Outputs/Earth_A2_Moderate.vul",
+        "bytes": 19725639,
+        "sha256": "c40ea81c9728efd2c3f3bc6fc1e2672d0af55157b583c0ffc7ed6365c8fd1199"
+      },
+      "termination_code": 1,
+      "nh3_emission_molecules_cm2_s": 38200000000.0,
+      "nh3_deposition_velocity_cm_s": 1.0,
+      "nh3_surface_number_density_cm3": 31732738250.303055,
+      "nh3_surface_vmr_ppb": 1.314553717979457,
+      "nh3_surface_deposition_molecules_cm2_s": 31732738250.303055,
+      "nh3_deposition_to_imposed_emission_ratio": 0.8306999541964151,
+      "n2o_emission_saved_molecules_cm2_s": 3350000000.0,
+      "n2o_emission_active_molecules_cm2_s": 3416000000.0,
+      "surface_temperature_K": 300.0458723784025,
+      "surface_pressure_bar": 1.0,
+      "nh3_emission_Tg_N_year": 143.0235580798124
+    },
+    {
+      "scenario": "A3",
+      "boundary": {
+        "path": "Photochemical_Modeling/Config/Boundary_Conditions/bc_earth_exofarm_full.txt",
+        "bytes": 1636,
+        "sha256": "7a29ef53f5fdf0124e41e738a36cf78df3a25c2082e9fd55926d7398fcf9653a"
+      },
+      "saved_product": {
+        "path": "Photochemical_Modeling/Results/Outputs/Earth_A3_Extreme.vul",
+        "bytes": 19725639,
+        "sha256": "43babd60169b08dd9ac642b31c1a230374f3885b3fef382a3f0d281c2dc2f7c7"
+      },
+      "termination_code": 1,
+      "nh3_emission_molecules_cm2_s": 154000000000.0,
+      "nh3_deposition_velocity_cm_s": 1.0,
+      "nh3_surface_number_density_cm3": 113907440583.84796,
+      "nh3_surface_vmr_ppb": 4.718705594957328,
+      "nh3_surface_deposition_molecules_cm2_s": 113907440583.84796,
+      "nh3_deposition_to_imposed_emission_ratio": 0.7396587050899218,
+      "n2o_emission_saved_molecules_cm2_s": 12000000000.0,
+      "n2o_emission_active_molecules_cm2_s": 12380000000.0,
+      "surface_temperature_K": 300.0458723784025,
+      "surface_pressure_bar": 1.0,
+      "nh3_emission_Tg_N_year": 576.5871189605001
+    }
+  ],
+  "haqq_misra_2022_emission_budget_reconstruction": {
+    "reference_total_Tg_N_year": 58.0,
+    "natural_fraction": 0.19,
+    "agricultural_fraction": 0.65,
+    "A0_flux_molecules_cm2_s": 2943319308.033762,
+    "agricultural_delta_flux_molecules_cm2_s": 10069250264.326029,
+    "A1_flux_molecules_cm2_s": 13012569572.35979,
+    "interpretation": "Project choice: natural + agriculture (84%)."
+  },
+  "illustrative_ocean_inventory": {
+    "total_NHx_inventory_mol": 6e+18,
+    "total_NHx_concentration_mM": 4.49438202247191,
+    "total_NHx_concentration_mg_N_L": 62.95146067415732,
+    "assumptions": [
+      "Distribute inventory uniformly in a whole Earth-sized ocean.",
+      "No atmospheric inventory correction or ocean transport.",
+      "This is not a universal solubility or saturation threshold."
+    ],
+    "un_ionized_fraction": [
+      {
+        "pH": 7.0,
+        "fraction": 0.005591967308834779
+      },
+      {
+        "pH": 8.1,
+        "fraction": 0.06611406133719555
+      },
+      {
+        "pH": 9.25,
+        "fraction": 0.5
+      },
+      {
+        "pH": 10.0,
+        "fraction": 0.8490204427886767
+      }
+    ],
+    "pKa_assumptions": "9.25 illustrative dilute-water value; seawater needs temperature/salinity correction.",
+    "minimum_accumulation_time_years": [
+      {
+        "scenario": "A1",
+        "years": 1726630.9040277745
+      },
+      {
+        "scenario": "A3",
+        "years": 145754.55683351346
+      }
+    ],
+    "time_assumptions": [
+      "Build from zero using imposed atmospheric emissions.",
+      "Every emitted molecule accumulates; no recycling or removal.",
+      "Exclude river/subsurface inputs and oceanic production.",
+      "Conditional lower bounds do not predict ocean history."
+    ]
+  },
+  "sources": {
+    "huang": "https://doi.org/10.1089/ast.2020.2358",
+    "tsai": "https://doi.org/10.3847/1538-4357/ac29bc",
+    "haqq_misra": "https://arxiv.org/abs/2204.05360",
+    "altieri": "https://doi.org/10.1029/2020GL091963",
+    "santoro": "https://doi.org/10.1029/2020GB006716",
+    "epa": "https://www.epa.gov/caddis/ammonia"
+  },
+  "source_pdf_records": [
+    {
+      "path": "tmp/pdfs/nh3_surface_sinks_20261013/huang_2022_2107.12424.pdf",
+      "bytes": 2469760,
+      "sha256": "dc69096ab00daf440b9cc149939c058fd2e214bc3a7f941b30f3d1189e80f676"
+    },
+    {
+      "path": "tmp/pdfs/nh3_surface_sinks_20261013/tsai_2021_2108.01790.pdf",
+      "bytes": 3397007,
+      "sha256": "a5d811273623eedc056857dbef5ac696f30b077d9a48d4772ef21040645e6f83"
+    }
+  ]
+}

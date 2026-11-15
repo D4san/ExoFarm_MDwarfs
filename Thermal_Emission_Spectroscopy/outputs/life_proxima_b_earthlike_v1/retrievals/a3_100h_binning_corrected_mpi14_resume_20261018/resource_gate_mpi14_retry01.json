@@ -1,0 +1,14 @@
+{
+  "execution": "MPICH/Hydra MPI14; one thread per rank",
+  "logical_cpus_visible": 16,
+  "peak_tree_pss_kib": 9358423,
+  "minimum_mem_available_kib": 22360144,
+  "required_mem_available_kib": 14077015,
+  "reserve_kib": 4718592,
+  "swap_after_preflight": {
+    "total_kib": 8388608,
+    "free_kib": 8388608
+  },
+  "status": "PASS",
+  "sample_count": 187
+}
